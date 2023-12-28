@@ -1,6 +1,6 @@
 import React from "react";
 import { ItemEvolucionAnterior } from "./ItemEvolucionAnterior";
-import { evoluciones } from "./datos";
+import { evoluciones } from "./datos/datos-evoluciones";
 
 const EvoluacionesAnteriores = () => {
     return (

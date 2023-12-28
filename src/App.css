@@ -36,10 +36,12 @@ main {
   padding-left: 90px;
 }
 
-.App > h1 {
+main > h1 {
   margin: 0;
-  padding: 20px;
-  text-align: center;
+  padding: 20px 0;
+  font-size: 40px;
+
+
 }
 
 
@@ -116,3 +118,6 @@ main {
 .evoluaciones-container ol li:last-child {
   margin-bottom: 0;
 }
+
+/* ETAPAS EVOLUCION */
+
