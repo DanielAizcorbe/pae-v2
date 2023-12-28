@@ -1,0 +1,90 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+html, .buscar-paciente  {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    display: flex;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+}
+
+label input {
+    width: 500px;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+button {
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+label {
+    width: 100%;
+    display: flex;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+table {
+    text-align: left;
+    width: 400px;
+}
+
+tr {
+    height: 40px;
+    padding: 20px;
+}
+
+.datos-paciente {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.datos-paciente h2{
+    width: 400px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 60px;
+}

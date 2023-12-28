@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import { DatosPaciente } from "./components/DatosPaciente";
+import { EvoluacionesAnteriores } from "./components/EvoluacionesAnteriores";
+import { EtapasEvolucion } from "./components/EtapasEvolucion";
 import './App.css';
+
+const nombrePaciente = "JUAN CARLOS DEL CAMPO";
+const documentoPaciente = "42880000";
 
 function App() {
   return (
     <div className="App">
-{/*       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-
-      
+      <h1>EVOLUCIÓN DE PACIENTE</h1>
+      <DatosPaciente
+        nombre={nombrePaciente}
+        documento={documentoPaciente}
+      />
+      <EvoluacionesAnteriores />
+      <EtapasEvolucion/>
     </div>
   );
 }
