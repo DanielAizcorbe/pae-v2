@@ -6,7 +6,7 @@ import { FALTAN_ETAPAS, FALTA_CONFIRMAR_EDICION, GENERAR_EVOLUCION } from "./dat
 const EtapasEvolucion = () => {
 
     return (
-        <div>
+        <div className="etapas-container">
             <Valoracion />
             <BotonCentral flag={FALTA_CONFIRMAR_EDICION}/>
         </div>
