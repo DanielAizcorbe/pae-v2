@@ -9,13 +9,17 @@ const documentoPaciente = "42880000";
 function App() {
   return (
     <div className="App">
-      <h1>EVOLUCIÓN DE PACIENTE</h1>
-      <DatosPaciente
-        nombre={nombrePaciente}
-        documento={documentoPaciente}
-      />
-      <EvoluacionesAnteriores />
-      <EtapasEvolucion/>
+      <div className="col-container">
+        <EvoluacionesAnteriores />
+        <main>
+          <h1>Evolucion paciente</h1>
+          <DatosPaciente
+            nombre={nombrePaciente}
+            documento={documentoPaciente}
+          />
+          <EtapasEvolucion />
+        </main>
+      </div>
     </div>
   );
 }
