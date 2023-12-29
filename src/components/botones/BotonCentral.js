@@ -4,9 +4,9 @@ import { toggleBotonCentral } from "../datos/ToggleBotonCentral";
 const BotonCentral = ({flag}) => {
 
     return (
-        <div>
+        <button className="btn-central">
             {toggleBotonCentral(flag)}
-        </div>
+        </button>
     );
 }
 

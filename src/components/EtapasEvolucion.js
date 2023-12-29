@@ -7,10 +7,30 @@ const EtapasEvolucion = () => {
 
     return (
         <div className="etapas-container">
-            <Valoracion />
-            <BotonCentral flag={FALTA_CONFIRMAR_EDICION}/>
+            <div className="b1" >
+                <button className="btn">
+                    BOTON 1
+                </button>
+            </div>
+            <div className="b2">
+                <button className="btn">
+                    BOTON 1
+                </button>
+                <BotonCentral flag={FALTA_CONFIRMAR_EDICION} />
+                <button className="btn">
+                    BOTON 1
+                </button>
+            </div>
+            <div className="b3">
+                <button className="btn">
+                    BOTON 1
+                </button>
+                <button className="btn">
+                    BOTON 1
+                </button>
+            </div>
         </div>
     );
 }
 
-export {EtapasEvolucion}
+export { EtapasEvolucion }
