@@ -13,6 +13,7 @@ const EtapasEvolucion = () => {
                     nombre={"VALORACIÓN"}
                     onClick={() => alert("abrir VALORACIÓN")}
                     completado={false}
+                    classes={"valoracion"}
                 />
             </div>
             <div className="mid">
@@ -20,15 +21,17 @@ const EtapasEvolucion = () => {
                     nombre={"EVALUACIÓN"}
                     onClick={() => alert("abrir EVALUACIÓN")}
                     completado={false}
+                    classes={"evaluacion"}
                 />
                 <BotonCentral
-                    flag={FALTA_CONFIRMAR_EDICION}
+                    flag={GENERAR_EVOLUCION}
                 />
 
                 <Etapa
                     nombre={"DIAGNÓSTICO"}
                     onClick={() => alert("abrir DIAGNÓSTICO")}
                     completado={false}
+                    classes={"diagnostico"}
                 />
             </div>
             <div className="bottom">
@@ -36,11 +39,13 @@ const EtapasEvolucion = () => {
                     nombre={"EJECUCIÓN"}
                     onClick={() => alert("abrir EJECUCIÓN")}
                     completado={false}
+                    classes={"ejecucion"}
                 />
                 <Etapa
                     nombre={"PLANEACIÓN"}
                     onClick={() => alert("abrir PLANEACIÓN")}
                     completado={false}
+                    classes={"planeacion"}
                 />
             </div>
         </div>

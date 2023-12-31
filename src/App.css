@@ -1,12 +1,13 @@
 :root {
   --color-texto: black;
-  --fondo-resaltado: lightblue;
+  --fondo-resaltado: #6dbdda;
   --text-family: "Verdana", san-serif;
-  --validacion: "";
-  --planeacion: "";
-  --evaluacion: "";
-  --ejecucion: "";
-  --diagnostico: "";
+  --valoracion: #F94144;
+  --planeacion: #4D908E;
+  --evaluacion: #577590;
+  --ejecucion: #F9844A;
+  --diagnostico: #90BE6D;
+  --etapa-no-disponible: gray;
 }
 
 * {
@@ -21,6 +22,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #fbfcfd;
 }
 
 body {
@@ -128,7 +130,9 @@ main h1 {
   padding: 0.9rem;
   max-height: 20%;
   background-color: var(--fondo-resaltado);
-  border-radius: 0 0 0.5rem 0.5rem;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.52);
+  -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.52);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.52);
 }
 
 .evoluciones-container ol {
@@ -137,7 +141,7 @@ main h1 {
   padding: 10px;
   max-height: 100%;
   height: 100%;
-
+  font-style: italic;
 }
 
 .evoluciones-container ol li {
@@ -148,10 +152,14 @@ main h1 {
   cursor: pointer;
   background-color: var(--fondo-resaltado);
   font-size: 1rem;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.52);
+  -moz-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.52);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.52);
 }
 
 .evoluciones-container ol li:hover {
-  background-color: lightseagreen;
+  background-color: #9fcfe2;
+  transition: background-color 100ms linear;
 }
 
 .evoluciones-container ol li span {
@@ -168,8 +176,7 @@ main h1 {
 .etapas-container {
   display: flex;
   flex-direction: column;
-/*   border: 2px solid black; */
-  border-radius: 50%;
+  /*   border: 2px solid black; */
   max-width: 900px;
   width: 100%;
   min-width: 300px;
@@ -178,7 +185,6 @@ main h1 {
   height: 100%;
   margin-top: 40px;
   justify-content: center;
-  background-color: lightsteelblue;
 }
 
 .etapa,
@@ -200,8 +206,37 @@ main h1 {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  background-color: darkslategrey;
+  -webkit-box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
+  -moz-box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
+  box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
 }
+
+.etapa:hover {
+  background-color: var(--fondo-resaltado);
+  transform: scale(1.05, 1.05);
+  transition: transform 100ms linear;
+}
+
+.valoracion {
+  background-color: var(--valoracion);
+}
+
+.planeacion {
+  background-color: var(--planeacion);
+}
+
+.evaluacion {
+  background-color: var(--evaluacion);
+}
+
+.diagnostico {
+  background-color: var(--diagnostico);
+}
+
+.ejecucion {
+  background-color: var(--ejecucion);
+}
+
 
 .btn-central {
   width: 14rem;
@@ -212,11 +247,17 @@ main h1 {
 }
 
 .btn-confirmar {
-  background-color: orange;
+  background-color: #F9C74F;
 }
 
 .btn-generar {
-  background-color: green;
+  background-color: #43AA8B;
+}
+
+.btn-generar:hover,
+.btn-confirmar:hover {
+  transform: scale(1.05, 1.05);
+  transition: transform 100ms linear;
 }
 
 .icono-paciente {
@@ -238,7 +279,7 @@ main h1 {
 }
 
 .check {
-  background-color: green;
+  background-color: #43AA8B;
   border-radius: 50%;
   position: relative;
   bottom: 35%;
