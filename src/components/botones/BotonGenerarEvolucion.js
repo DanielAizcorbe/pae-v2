@@ -1,10 +1,11 @@
 import React from "react";
+import { GENERAR_EVOLUCION } from "../datos/ToggleBotonCentral";
 
-const BotonGenerarEvolucion = ({flag}) => {
+const BotonGenerarEvolucion = () => {
     return (
-        <div>
-            {flag}
-        </div>
+        <button className="btn-central btn-generar">
+            {GENERAR_EVOLUCION}
+        </button>
     );
 }
 

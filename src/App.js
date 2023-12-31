@@ -3,8 +3,9 @@ import { EvoluacionesAnteriores } from "./components/EvoluacionesAnteriores";
 import { EtapasEvolucion } from "./components/EtapasEvolucion";
 import './App.css';
 
-const nombrePaciente = "JUAN CARLOS DEL CAMPO";
-const documentoPaciente = "42880000";
+const nombrePaciente = "JUAN PEREZ GONZALES";
+const documentoPaciente = "20333012";
+const fechaNacPaciente = "09-09-1990";
 
 function App() {
   return (
@@ -12,12 +13,15 @@ function App() {
       <div className="col-container">
         <EvoluacionesAnteriores />
         <main>
-          <h1>Evolucion paciente</h1>
-          <DatosPaciente
-            nombre={nombrePaciente}
-            documento={documentoPaciente}
-          />
-          {/* <EtapasEvolucion /> */}
+          <div className="main-container">
+            <h1>Evolucion paciente</h1>
+            <DatosPaciente
+              nombre={nombrePaciente}
+              documento={documentoPaciente}
+              fechaNac={fechaNacPaciente}
+            />
+          </div>
+          <EtapasEvolucion />
         </main>
       </div>
     </div>

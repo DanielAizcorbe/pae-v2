@@ -9,11 +9,11 @@ const FALTAN_ETAPAS = "FALTAN ETAPAS";
 const toggleBotonCentral = (flag) => {
     switch(flag) {
         case FALTA_CONFIRMAR_EDICION:
-            return <BotonConfirmarEdicion flag={FALTA_CONFIRMAR_EDICION} />;
+            return <BotonConfirmarEdicion/>;
         case GENERAR_EVOLUCION: 
-            return <BotonGenerarEvolucion flag={GENERAR_EVOLUCION}/>
+            return <BotonGenerarEvolucion/>
         case FALTAN_ETAPAS:
-            return <IconoPaciente flag={FALTAN_ETAPAS}/>
+            return <IconoPaciente/>
         default:
             return <div></div>;
     }

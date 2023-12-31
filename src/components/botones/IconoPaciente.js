@@ -1,11 +1,13 @@
 import React from "react";
 
-const IconoPaciente = ({flag}) => {
+const IconoPaciente = () => {
     return (
-        <div>
-            {flag}
-        </div>
+        <image
+            href="#"
+            alt="Icono de paciente"
+            className="btn-central icono-paciente"
+        />
     );
 }
 
-export {IconoPaciente}
+export { IconoPaciente }
