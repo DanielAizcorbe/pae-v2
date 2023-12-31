@@ -1,12 +1,9 @@
 import React from "react";
+import medicoImagen from "./medico.png";
 
 const IconoPaciente = () => {
     return (
-        <image
-            href="#"
-            alt="Icono de paciente"
-            className="btn-central icono-paciente"
-        />
+        <img src={medicoImagen} alt="icono paciente"/>
     );
 }
 

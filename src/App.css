@@ -260,8 +260,14 @@ main h1 {
   transition: transform 100ms linear;
 }
 
-.icono-paciente {
-  background-color: gray;
+.mid img {
+  width: 14rem;
+  height: 14rem;
+  margin: 2.5rem;
+  user-select: none; 
+  -webkit-user-drag: none; 
+  -moz-user-select: none; 
+  pointer-events: none;
 }
 
 .top,
@@ -275,6 +281,10 @@ main h1 {
 
 .bottom button {
   margin: 0 2.5rem;
+}
+
+{
+
 }
 
 .check {

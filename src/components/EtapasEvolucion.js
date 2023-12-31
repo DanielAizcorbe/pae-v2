@@ -24,7 +24,7 @@ const EtapasEvolucion = () => {
                     classes={"evaluacion"}
                 />
                 <BotonCentral
-                    flag={GENERAR_EVOLUCION}
+                    flag={FALTAN_ETAPAS}
                 />
 
                 <Etapa
