@@ -17,16 +17,17 @@ const EtapasEvolucion = () => {
             </div>
             <div className="mid">
                 <Etapa
-                    nombre={"DIAGNÓSTICO"}
-                    onClick={() => alert("abrir DIAGNÓSTICO")}
+                    nombre={"EVALUACIÓN"}
+                    onClick={() => alert("abrir EVALUACIÓN")}
                     completado={false}
                 />
                 <BotonCentral
                     flag={FALTA_CONFIRMAR_EDICION}
                 />
+
                 <Etapa
-                    nombre={"PLANEACIÓN"}
-                    onClick={() => alert("abrir PLANEACIÓN")}
+                    nombre={"DIAGNÓSTICO"}
+                    onClick={() => alert("abrir DIAGNÓSTICO")}
                     completado={false}
                 />
             </div>
@@ -37,8 +38,8 @@ const EtapasEvolucion = () => {
                     completado={false}
                 />
                 <Etapa
-                    nombre={"EVALUACIÓN"}
-                    onClick={() => alert("abrir EVALUACIÓN")}
+                    nombre={"PLANEACIÓN"}
+                    onClick={() => alert("abrir PLANEACIÓN")}
                     completado={false}
                 />
             </div>

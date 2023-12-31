@@ -2,11 +2,17 @@
   --color-texto: black;
   --fondo-resaltado: lightblue;
   --text-family: "Verdana", san-serif;
+  --validacion: "";
+  --planeacion: "";
+  --evaluacion: "";
+  --ejecucion: "";
+  --diagnostico: "";
 }
 
 * {
   font-family: var(--text-family);
   box-sizing: border-box;
+  user-select: none;
 }
 
 html,

@@ -14,7 +14,7 @@ function App() {
         <EvoluacionesAnteriores />
         <main>
           <div className="main-container">
-            <h1>Evolucion paciente</h1>
+            <h1>Evolución paciente</h1>
             <DatosPaciente
               nombre={nombrePaciente}
               documento={documentoPaciente}
