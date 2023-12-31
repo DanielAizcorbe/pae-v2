@@ -126,8 +126,8 @@ main > h1 {
   flex-direction: column;
   padding: 30px;
   height: 100%;
-  border: 3px solid black;
-  border-radius: 40px;
+  border: 2px solid black;
+  border-radius: 20px;
   max-width: 1200px;
   width: 100%;
   margin-top: 40px;
@@ -168,3 +168,13 @@ main > h1 {
   align-items: center;
   padding: 30px;
 }
+
+.check {
+  background-color: green;
+  border-radius: 50%;
+  position: relative;
+  bottom: 35%;
+  left: 70%;
+}
+
+
