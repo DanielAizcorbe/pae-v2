@@ -17,7 +17,7 @@ function App() {
             nombre={nombrePaciente}
             documento={documentoPaciente}
           />
-          <EtapasEvolucion />
+          {/* <EtapasEvolucion /> */}
         </main>
       </div>
     </div>

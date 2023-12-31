@@ -1,10 +1,10 @@
 import React from "react";
 
-const Etapa = ({nombre, onClick}) => {
+const Etapa = ({nombre, onClick, completado}) => {
 
     return (
-            <button className="btn" onClick={onClick}>
-                {nombre}
+            <button className="etapa" onClick={onClick}>
+                {completado ? "V " : ""}{nombre}
             </button>
     );
 }

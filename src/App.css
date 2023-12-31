@@ -6,16 +6,23 @@
 
 * {
   font-family: var(--text-family);
+  box-sizing: border-box;
 }
 
 html, body {
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
 
+body {
+  border: 1px solid black;
+}
+
 #root {
   width: 100%;
+  height: 100%;
 }
 
 /* GENERICAS */
@@ -34,7 +41,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  padding: 0 2rem;
 }
 
 main > h1 {
@@ -59,7 +66,8 @@ main > h1 {
   border: 3px solid black;
   border-radius: 15px;
   max-width: 50vw;
-  min-width: 600px;
+  width: 100%;
+  min-width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,66 +83,88 @@ main > h1 {
 
 /* EVOLUCIONES ANTERIORES*/
 
-.evoluaciones-container {
-  border-right: 3px solid black;
-  max-width: 25vw;
+.evoluciones {
+  max-width: 400px;
   width: 100%;
-  min-width: 400px;
+  min-width: 300px;
+  height: 100%;
+  max-height: 100vh;
 }
 
-.evoluaciones-container h2 {
+.evoluciones-container {
+  overflow-y: auto;
+  max-height: 90%;
+  height: 100%;
+}
+
+.evoluciones-container::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+.evoluciones-container::-webkit-scrollbar-thumb {
+  background-color: var(--fondo-resaltado);
+  border-radius: 1rem;
+}
+
+.evoluciones h2 {
   margin: 0;
   text-align: center;
-  padding: 20px;
+  padding: 0.9rem;
+  max-height: 20%;
+  background-color: var(--fondo-resaltado);
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.evoluaciones-container ol {
+.evoluciones-container ol {
   margin: 0;
   list-style-type: none;
-  padding: 20px 10px;
-  max-height: 85vh;
-  overflow-y: auto;
-  border-bottom: 1px solid black;
+  padding: 10px;
+  max-height: 100%;
+  height: 100%;
+  
 }
 
-.evoluaciones-container ol li {
+.evoluciones-container ol li {
   margin-bottom: 10px;
   border: 1px solid black;
-  border-radius: 15px;
-  padding: 10px;
+  border-radius: 1rem;
+  padding: 1rem;
   cursor: pointer;
   background-color: var(--fondo-resaltado);
+  font-size: 0.9rem;
 }
 
-.evoluaciones-container ol li:hover {
+.evoluciones-container ol li:hover {
   background-color: lightseagreen;
 }
 
-.evoluaciones-container ol li span {
+.evoluciones-container ol li span {
   color: black;
   font-weight: bolder;
 }
 
-.evoluaciones-container ol li:last-child {
+.evoluciones-container ol li:last-child {
   margin-bottom: 0;
 }
+
+
 
 /* ETAPAS EVOLUCION */
 
 .etapas-container {
   display: flex;
   flex-direction: column;
-  padding: 30px;
-  height: 100%;
+  padding: 0 1em;
   border: 2px solid black;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   max-width: 1200px;
   width: 100%;
+  min-width: 400px;
   margin-top: 40px;
   justify-content: flex-start;
 }
 
-.btn, .btn-central {
+.etapa, .btn-central {
   text-align: center;
   display: flex;
   justify-content: space-evenly;
@@ -142,32 +172,44 @@ main > h1 {
   color: black;
   cursor: pointer;
   color: white;
-  font-size: 30px;
+  font-size: 1.25rem;
   border: 1px solid black;
 }
 
-.btn {
+.etapa {
   border-radius: 50%;
-  width: 300px;
-  height: 150px;
+  max-width: 200px;
+  min-width: 150px;
+  width: 100%;
+  max-height: 200px;
+  min-height: 100px;
+  height: 100%;
   background-color: darkslategrey;
 }
 
 .btn-central {
-  width: 250px;
-  height: 200px;
-  border-radius: 20%;
+  max-width: 200px;
+  min-width: 150px;
+  width: 100%;
+  max-height: 250px;
+  min-height: 150px;
+  height: 100%;
+  border-radius: 2rem;
   background-color: green;
 }
 
-.b1, .b2, .b3 {
+.top, .mid, .bottom {
   /*border: 1px solid black;*/
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding: 30px;
 }
+
+.top, .bottom{
+  padding: 1rem 0;
+}
+
 
 .check {
   background-color: green;
@@ -177,4 +219,10 @@ main > h1 {
   left: 70%;
 }
 
+@media only screen and (max-width: 1024px) {
 
+  html {
+    font-size: 14px;
+  }
+
+}
