@@ -9,7 +9,7 @@ const EvolucionesAnteriores = () => {
             <div className="evoluciones-container">
                 <ol >
                     {
-                        ([].length === 0) ?
+                        (evoluciones.length === 0) ?
                             (<p className="aviso-sin-evoluciones">No hay evoluciones anteriores registradas</p>) :
 
                             evoluciones

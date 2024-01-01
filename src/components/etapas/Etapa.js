@@ -1,13 +1,19 @@
 import React from "react";
+import { useState } from "react";
 
-const Etapa = ({ nombre, onClick, completado, classes }) => {
+const Etapa = ({ nombre, onClick, onEdit, completada, classes }) => {
+
+    const [nombreBoton, setNombreBoton] = useState(nombre);
+
 
     return ( 
             <button
-                className={"etapa " + classes}
-                onClick={onClick}
+                className={"etapa " + classes + (completada ? " completada" : "")}
+                onClick={completada ? () => alert("EDITAR " + nombre) : onClick}
+                onMouseEnter={ () => setNombreBoton(completada ? "EDITAR" : nombre)}
+                onMouseLeave={ () => setNombreBoton(nombre) }
             >
-                {completado ? "V " : ""}{nombre}
+                {nombreBoton}
             </button>
     );
 }
