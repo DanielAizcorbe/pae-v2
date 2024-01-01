@@ -24,7 +24,7 @@ const EtapasEvolucion = () => {
                     classes={"evaluacion"}
                 />
                 <BotonCentral
-                    flag={FALTA_CONFIRMAR_EDICION}
+                    flag={FALTAN_ETAPAS}
                 />
 
                 <Etapa

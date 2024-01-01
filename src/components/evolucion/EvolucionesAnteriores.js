@@ -9,8 +9,12 @@ const EvolucionesAnteriores = () => {
             <div className="evoluciones-container">
                 <ol >
                     {
-                        evoluciones
-                            .map(evolucion => <ItemEvolucionAnterior evolucionAnterior={evolucion} />)
+                        ([].length === 0) ?
+                            (<p className="aviso-sin-evoluciones">No hay evoluciones anteriores registradas</p>) :
+
+                            evoluciones
+                                .map(evolucion => <ItemEvolucionAnterior evolucionAnterior={evolucion} />)
+
                     }
                 </ol>
             </div>
