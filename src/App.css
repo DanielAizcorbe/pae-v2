@@ -8,6 +8,7 @@
   --ejecucion: #F9844A;
   --diagnostico: #90BE6D;
   --etapa-no-disponible: gray;
+  --color-fondo: #fbfcfd;
 }
 
 * {
@@ -22,7 +23,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #fbfcfd;
+  background-color: var(--color-fondo);
 }
 
 #root {
@@ -238,7 +239,7 @@ main h1 {
 .btn-central {
   width: 14rem;
   height: 9rem;
-  border-radius: 50%;
+  border-radius: 30%;
   line-height: 2rem;
   margin: 2.5rem;
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import { ItemEvolucionAnterior } from "./ItemEvolucionAnterior";
-import { evoluciones } from "./datos/datos-evoluciones";
+import { evoluciones } from "../datos/datos-evoluciones";
 
-const EvoluacionesAnteriores = () => {
+const EvolucionesAnteriores = () => {
     return (
         <div className="evoluciones">
             <h2>Evoluciones Anteriores</h2>
@@ -19,4 +19,4 @@ const EvoluacionesAnteriores = () => {
     );
 }
 
-export { EvoluacionesAnteriores };
+export { EvolucionesAnteriores };
