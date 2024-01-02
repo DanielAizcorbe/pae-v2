@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AvisoWarning } from "../avisos/AvisoWarning";
 import "./busqueda-paciente.css";
 import { Overlay } from "../modal/Overlay";
-import { ModalDatosPaciente } from "../modal/ModalDatosPaciente";
+import { ModalDatosPaciente } from "./ModalDatosPaciente";
 
 const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
 

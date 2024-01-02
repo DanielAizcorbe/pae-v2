@@ -1,11 +1,11 @@
 import React from "react";
 import { Overlay } from "./Overlay";
 
-const VentanaModal = ({ children }) => {
+const VentanaModal = ({ children, classes }) => {
 
     return (
         <Overlay>
-            <div className="modal">
+            <div className={"modal " + classes}>
                 {children}
             </div>
         </Overlay>

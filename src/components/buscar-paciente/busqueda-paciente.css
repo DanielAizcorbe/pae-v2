@@ -90,7 +90,73 @@ h1 {
     background-color: aliceblue;
     border-radius: 1rem;
     padding: 2rem;
-    width: 25rem;
-    height: 25rem;
+    width: 30rem;
+    height: 30rem;
 }
 
+.datos-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.datos-container * {
+    text-align: left;
+    width: 100%;
+}
+
+.btn-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0.1rem;
+}
+
+
+.btn-volver {
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.2rem;
+    color: black;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}  
+
+.btn-continuar {
+    width: 8rem;
+    height: 2.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.2rem;
+    color: black;
+    background-color: var(--fondo-resaltado);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: none;
+}  
+
+.btn-volver:hover {
+    color: var(--fondo-resaltado);
+}
+
+.btn-continuar:hover {
+    background-color: var(--celeste-claro);
+    transition: background-color 100ms linear;
+}
+
+.datos-container h2 {
+    font-size: 2rem;
+}
+
+.datos-container p span {
+    font-weight: bold;
+    padding: 2px;
+    text-decoration: underline;
+}

@@ -10,6 +10,7 @@
   --confirmado: #43AA8B;
   --color-fondo: #fbfcfd;
   --warning: #F9C74F;
+  --celeste-claro: #9fcfe2;
 }
 
 * {
@@ -160,7 +161,7 @@ h1 {
 }
 
 .evoluciones-container ol li:hover {
-  background-color: #9fcfe2;
+  background-color: var(--celeste-claro);
   transition: background-color 100ms linear;
 }
 
