@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { EvolucionesAnteriores } from "./EvolucionesAnteriores";
 import { DatosPaciente } from "./DatosPaciente";
 import { EtapasEvolucion } from "./EtapasEvolucion";
@@ -9,10 +9,11 @@ const nombrePaciente = "JUAN PEREZ GONZALES";
 const documentoPaciente = "20333012";
 const fechaNacPaciente = "09-09-1990";
 const etapaCambiada = "VALORACIÓN"
-const huboCambios = true;
-const seCompletoUnaEtapa = false;
+const huboCambios = false;
+const seCompletoUnaEtapa = true;
 
 const Evolucion = () => {
+
     return (
         <div className="col-container">
             <EvolucionesAnteriores />
