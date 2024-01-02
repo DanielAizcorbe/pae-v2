@@ -6,8 +6,8 @@ import { Evolucion } from "./components/evolucion/Evolucion";
 function App() {
   return (
     <div className="App">
-      {/* <BusquedaPaciente seBuscoDocumentoInexistente={true} /> */}
-      <Evolucion />
+      <BusquedaPaciente seBuscoDocumentoInexistente={true} />
+      {/* <Evolucion /> */}
     </div>
   );
 }

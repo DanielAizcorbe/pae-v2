@@ -16,6 +16,12 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
         setModal(false);
     }
 
+    const [mostrarAviso, setMostrarAviso] = useState(true);
+
+    const closeAviso = () => {
+        setMostrarAviso(false);
+    }
+
     return (
         <div className="busqueda-container">
             <h1>Evolución de pacientes</h1>
@@ -41,8 +47,8 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
                 </div>
             </div>
             {
-                seBuscoDocumentoInexistente ?
-                    <AvisoWarning text={"No hay ningún paciente registrado con ese documento"} />
+                seBuscoDocumentoInexistente && mostrarAviso ?
+                    <AvisoWarning closeAviso={closeAviso} text={"No hay ningún paciente registrado con ese documento"} />
                     : ""
             }
             {modal ? (
