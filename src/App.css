@@ -53,9 +53,10 @@ main {
 }
 
 h1 {
-  margin: 0;
+  margin: 2rem;
   padding: 1.5rem 0;
   font-size: 3rem;
+  text-align: center;
 }
 
 /* DATOS PACIENTE */
