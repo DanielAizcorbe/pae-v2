@@ -1,0 +1,99 @@
+
+.valoracion-container {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem;
+    overflow-y: visible;
+}
+
+.mapa-mental {
+    height: 600px;
+    width: auto;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 1;
+}
+
+.mapa-mental-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 600px;
+    width: 497px;
+    justify-content: center;
+}
+
+.marcador {
+    position: absolute;
+    top: 77px;
+    left: 102px;
+    background-color: blue;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.seccion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: none;
+    margin-bottom: 0.5rem;
+}
+
+.seccion h2 {
+    padding: 1rem 3rem;
+    border-bottom: 1px solid black;
+    background-color: var(--fondo-resaltado);
+    color: white;
+    margin: 0;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.secction-body {
+    padding: 1rem 2rem;
+    display: flex;
+}
+
+.necesidades-container {
+    width: 100%;
+    height: 100%;
+    max-height: 90rem;
+    list-style-type: none;
+    padding: 0 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.item-necesidad {
+    background-color: var(--fondo-resaltado);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    max-width: 50rem;
+    width: 100%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.pop-up-marcador {
+    background-color: aquamarine;
+    z-index: 2;
+    padding: 0.3rem;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    text-align: center;
+}
