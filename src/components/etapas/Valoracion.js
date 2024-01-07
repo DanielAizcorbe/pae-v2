@@ -34,7 +34,7 @@ const Valoracion = ({completada, setCompletada}) => {
                 toggleFunction={setShowMapa}
                 title={"Mapa Mental"}
             >
-                <MapaMental/>
+                <MapaMental />
             </ToggleSection>
             <ToggleSection 
                 showCondition={showNecesidades}

@@ -1,3 +1,12 @@
+.general-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 3rem;
+}
+
 .mapa-mental {
     height: 600px;
     width: auto;
@@ -26,6 +35,14 @@
     border-radius: 50%;
     z-index: 2;
 }
+
+.marcador span {
+    position: relative;
+    bottom: 15px;
+    left: 8px;
+    color: black;
+}
+
 .creador-marcador-container {
     background-color: red;
     width: 300px;
@@ -33,5 +50,17 @@
     border-radius: 1rem;
     color: black;
     padding: 1rem 2rem;
-
 } 
+
+.marcadores-info {
+    height: 100%;
+    padding: 1rem 2rem;
+    margin: 0;
+}
+
+.marcadores-info li {
+    margin-bottom: 1rem;
+    background-color: aquamarine;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}

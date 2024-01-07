@@ -6,15 +6,11 @@ import { CreadorDeMarcador } from './CreadorDeMarcador';
 
 const MapaMental = () => {
 
-  const AGREGAR = 1;
-  const QUITAR = 2;
-  const CONSULTAR = 3;
-
   const [marcadores, setMarcadores] = useState([]);
   const [marcadorNuevo, setMarcadorNuevo] = useState({ id: -1 });
 
-  const [operacionMarcadores, setOperacionMarcadores] = useState(AGREGAR);
   const [showOpcionesCreacion, setShowOpcionesCreacion] = useState(false);
+  const [contador, setContador] = useState(1);
 
   const addMarcador = (event) => {
     setShowOpcionesCreacion(true);
@@ -25,39 +21,42 @@ const MapaMental = () => {
 
 
     const marcador = {
-      id: 0,
+      id: contador,
       x: x,
       y: y,
       text: ""
     };
     setMarcadorNuevo(marcador);
+    setContador(contador + 1);
   };
 
-  const getOnClic = (operacion) => {
-    switch (operacion) {
-      case AGREGAR: return (addMarcador);
-      case QUITAR: return (() => { });
-      case CONSULTAR: return (() => { });
-      default: return null;
-    }
+
+  const addMarcadorALaLista = (marcador) => {
+    setMarcadores([...marcadores, marcador]);
+    console.log(marcador);
+    console.log(marcadores);
+  }
+
+  const closeModalFunction = () => {
+    setMarcadorNuevo({ id: -1 });
+    setShowOpcionesCreacion(false);
   }
 
   return (
-    <>
+    <div className='general-container'>
       <div className="mapa-mental-container">
         <img
           className="mapa-mental"
           draggable={false}
           src={mapaMental}
           alt="mapa mental"
-          onClick={getOnClic(operacionMarcadores)}
+          onClick={addMarcador}
         />
         {marcadores.map(m =>
           <Marcador
             posX={m.x}
             posY={m.y}
-            text={m.text}
-            tipoOperacion={operacionMarcadores}
+            numero={marcadores.findIndex(n => n.id == m.id) + 1}
             color={"green"}
           />)
         }
@@ -66,19 +65,21 @@ const MapaMental = () => {
             <Marcador
               posX={marcadorNuevo.x}
               posY={marcadorNuevo.y}
-              text={marcadorNuevo.text}
-              tipoOperacion={operacionMarcadores}
               color={"blue"}
+              numero={marcadores.length + 1}
             /> : ""
         }
       </div>
-      {showOpcionesCreacion ? <CreadorDeMarcador closeModalFunction={() => setShowOpcionesCreacion(false)} /> : ""}
-      {/* <div>
-        <button onClick={() => setOperacionMarcadores(AGREGAR)}>AGREGAR</button>
-        <button onClick={() => setOperacionMarcadores(QUITAR)}>QUITAR</button>
-        <button onClick={() => setOperacionMarcadores(CONSULTAR)}>CONSULTAR</button>
-      </div> */}
-    </>
+      <ol className='marcadores-info'>
+        {marcadores.map(m => <li key={m.id}>{m.text}</li>)}
+      </ol>
+      {showOpcionesCreacion ? 
+        <CreadorDeMarcador 
+          closeModalFunction={closeModalFunction} 
+          marcadorNuevo={marcadorNuevo}
+          addNuevoMarcador={addMarcadorALaLista}
+        /> : ""}
+    </div>
 
   );
 };
