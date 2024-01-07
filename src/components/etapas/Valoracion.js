@@ -3,7 +3,7 @@ import { ToggleSection } from "../utils/ToggleSection";
 import { necesidades } from "../datos/datos-necesidades";
 import "./etapas.css";
 import { Necesidad } from "./Necesidad";
-import {MapaMental} from "./MapaMental";
+import {MapaMental} from "../utils/MapaMental/MapaMental";
 import {AgregarNecesidad} from "./AgregarNecesidad";
 import { useNavigate } from "react-router-dom";
 

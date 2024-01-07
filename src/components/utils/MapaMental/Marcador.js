@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Marcador = ({ style, text, tipoOperacion }) => {
+const Marcador = ({ text, tipoOperacion, color, posX, posY }) => {
 
     const [showText, setShowText] = useState(false);
 
@@ -8,6 +8,11 @@ const Marcador = ({ style, text, tipoOperacion }) => {
     const QUITAR = 2;
     const CONSULTAR = 3;
 
+    const style = {
+        left: posX,
+        top: posY,
+        color: {color}
+    };
 
     const getOnClic = (operacion) => {
         switch (operacion) {

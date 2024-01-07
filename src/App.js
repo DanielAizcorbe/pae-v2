@@ -6,6 +6,7 @@ import { EvolucionTerminada } from './components/evolucion-terminada/EvolucionTe
 import { Diagnostico } from './components/evolucion/Diagnostico';
 import { Evolucion } from "./components/evolucion/Evolucion";
 import { Route, Routes } from 'react-router-dom';
+import { Planeacion } from './components/evolucion/Planeacion/Planeacion';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/evolucion/diagnostico' element={<Diagnostico />} />
         <Route exact path='/evolucion/diagnostico/finalizar' element={<EvolucionTerminada title={"Diagnóstico"} text={diagnosticoFalso} nextPage={"/evolucion"}/>} />
         <Route exact path='/evolucion/finalizar' element={<EvolucionTerminada />} nextPage={"/"} title={"Vista previa"}text={resumenFinal}/>
+        <Route exact path='/evolucion/planeacion' element={<Planeacion />}/>
       </Routes>
     </div>
   );

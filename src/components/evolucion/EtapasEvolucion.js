@@ -69,7 +69,7 @@ const EtapasEvolucion = () => {
                 />
                 <Etapa
                     nombre={"PLANEACIÓN"}
-                    onClick={() => alert("abrir PLANEACIÓN")}
+                    onClick={goToPlaneacion}
                     completada={planeacion}
                     classes={"planeacion"}
                 />

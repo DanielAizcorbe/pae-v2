@@ -1,0 +1,37 @@
+.mapa-mental {
+    height: 600px;
+    width: auto;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 1;
+    background-color: aqua;
+}
+
+.mapa-mental-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 600px;
+    width: 497px;
+    justify-content: center;
+}
+
+.marcador {
+    position: absolute;
+    top: 77px;
+    left: 102px;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    z-index: 2;
+}
+.creador-marcador-container {
+    background-color: red;
+    width: 300px;
+    height: 90px;
+    border-radius: 1rem;
+    color: black;
+    padding: 1rem 2rem;
+
+} 
