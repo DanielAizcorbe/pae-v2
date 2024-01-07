@@ -2,7 +2,7 @@ import React from "react";
 import { ItemEvolucionAnterior } from "./ItemEvolucionAnterior";
 import { evoluciones } from "../datos/datos-evoluciones";
 
-const EvolucionesAnteriores = () => {
+const EvolucionesAnteriores = ({openEvolucion}) => {
     return (
         <div className="evoluciones">
             <h2>Evoluciones Anteriores</h2>
@@ -13,7 +13,7 @@ const EvolucionesAnteriores = () => {
                             (<p className="aviso-sin-evoluciones">No hay evoluciones anteriores registradas</p>) :
 
                             evoluciones
-                                .map(evolucion => <ItemEvolucionAnterior evolucionAnterior={evolucion} />)
+                                .map(evolucion => <ItemEvolucionAnterior evolucionAnterior={evolucion} onClick={openEvolucion}/>)
 
                     }
                 </ol>

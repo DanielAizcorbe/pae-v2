@@ -2,7 +2,7 @@ import React from "react";
 import { VentanaModal } from "../modal/VentanaModal";
 
 
-const ModalDatosPaciente = ({ closeModal }) => {
+const ModalDatosPaciente = ({ closeModal, nextPage }) => {
     return (
         <VentanaModal classes={"datos-container"}>
             <h2>Paciente</h2>
@@ -14,7 +14,7 @@ const ModalDatosPaciente = ({ closeModal }) => {
                 <button className="btn-volver" onClick={closeModal}>
                     Volver
                 </button>
-                <button className="btn-continuar"onClick={closeModal}>
+                <button className="btn-continuar"onClick={nextPage}>
                     Continuar
                 </button>
             </div>

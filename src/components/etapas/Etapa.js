@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Etapa = ({ nombre, onClick, onEdit, completada, classes }) => {
+const Etapa = ({ nombre, onClick, onEdit, completada, classes, completarEtapa }) => {
 
     const [nombreBoton, setNombreBoton] = useState(nombre);
 

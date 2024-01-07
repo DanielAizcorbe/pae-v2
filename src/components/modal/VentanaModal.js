@@ -1,5 +1,6 @@
 import React from "react";
 import { Overlay } from "./Overlay";
+import "./modal.css";
 
 const VentanaModal = ({ children, classes }) => {
 

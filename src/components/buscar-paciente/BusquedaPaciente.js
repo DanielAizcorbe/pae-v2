@@ -3,6 +3,7 @@ import { AvisoWarning } from "../avisos/AvisoWarning";
 import "./busqueda-paciente.css";
 import { Overlay } from "../modal/Overlay";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
+import { useNavigate } from "react-router-dom";
 
 const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
 
@@ -20,6 +21,12 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
 
     const closeAviso = () => {
         setMostrarAviso(false);
+    }
+
+    const navegar = useNavigate();
+
+    const nextPage = () => {
+        navegar("/evolucion");
     }
 
     return (
@@ -52,7 +59,7 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
                     : ""
             }
             {modal ? (
-                <ModalDatosPaciente closeModal={closeModal} />
+                <ModalDatosPaciente closeModal={closeModal} nextPage={nextPage}/>
             ) : ""}
         </div>
     );
