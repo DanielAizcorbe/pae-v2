@@ -1,0 +1,62 @@
+.diagnosticos-list {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding: 0;
+    max-width: 100vw;
+    width: 100%;
+}
+
+.item-diagnostico {
+    cursor: pointer;
+    color: whitesmoke;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.fisiologica {
+    background-color: var(--valoracion);
+}
+
+.prevencion {
+    background-color: var(--ejecucion);
+}
+
+.comunicacion {
+    background-color: var(--diagnostico);
+}   
+
+.psicosociales {
+    background-color: var(--planeacion);
+}
+
+.educacion {
+    background-color: var(--evaluacion);
+}   
+
+.selected {
+    background-color: var(--confirmado);
+}
+
+.btn-siguiente {
+    background-color: var(--confirmado);
+    width: 12rem;
+    padding: 1rem 2rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    border-radius: 1.5rem;
+    color: whitesmoke;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BotonCentral } from "../botones/BotonCentral";
-import { FALTAN_ETAPAS, FALTA_CONFIRMAR_EDICION, GENERAR_EVOLUCION } from "../datos/ToggleBotonCentral";
+import { FALTAN_ETAPAS, FALTA_CONFIRMAR_EDICION, GENERAR_EVOLUCION } from "../botones/ToggleBotonCentral";
 import { Etapa } from "../etapas/Etapa";
 import { useNavigate } from "react-router-dom";
 

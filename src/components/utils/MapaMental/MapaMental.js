@@ -30,6 +30,9 @@ const MapaMental = () => {
     setContador(contador + 1);
   };
 
+  const removeMarcador = (id) => {
+    setMarcadores(marcadores.filter(m => m.id == id));
+  }
 
   const addMarcadorALaLista = (marcador) => {
     setMarcadores([...marcadores, marcador]);
@@ -67,6 +70,7 @@ const MapaMental = () => {
               posY={marcadorNuevo.y}
               color={"blue"}
               numero={marcadores.length + 1}
+              removeMarcador={() => removeMarcador(marcadores.length + 1)}
             /> : ""
         }
       </div>

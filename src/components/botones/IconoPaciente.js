@@ -1,5 +1,5 @@
 import React from "react";
-import medicoImagen from "./medico.png";
+import medicoImagen from "../../img/medico.png";
 
 const IconoPaciente = () => {
     return (

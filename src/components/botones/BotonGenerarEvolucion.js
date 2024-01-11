@@ -1,5 +1,5 @@
 import React from "react";
-import { GENERAR_EVOLUCION } from "../datos/ToggleBotonCentral";
+import { GENERAR_EVOLUCION } from "./ToggleBotonCentral";
 
 const BotonGenerarEvolucion = () => {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { FALTA_CONFIRMAR_EDICION } from "../datos/ToggleBotonCentral";
+import { FALTA_CONFIRMAR_EDICION } from "./ToggleBotonCentral";
 
 const BotonConfirmarEdicion = () => {
 

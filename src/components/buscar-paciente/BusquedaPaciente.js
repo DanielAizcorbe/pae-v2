@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AvisoWarning } from "../avisos/AvisoWarning";
 import "./busqueda-paciente.css";
-import { Overlay } from "../modal/Overlay";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
 import { useNavigate } from "react-router-dom";
 

@@ -1,13 +1,12 @@
 
 import './App.css';
 import { BusquedaPaciente } from './components/buscar-paciente/BusquedaPaciente';
-import { Valoracion } from './components/etapas/Valoracion';
+import { Valoracion } from './components/etapas/Valoracion/Valoracion';
 import { EvolucionTerminada } from './components/evolucion-terminada/EvolucionTerminada';
-import { Diagnostico } from './components/evolucion/Diagnostico';
+import { Diagnostico } from './components/etapas/Diagnostico/Diagnostico';
 import { Evolucion } from "./components/evolucion/Evolucion";
 import { Route, Routes } from 'react-router-dom';
-import { Planeacion } from './components/evolucion/Planeacion/Planeacion';
-
+import { Planeacion } from './components/etapas/Planeacion/Planeacion';
 
 function App() {
 
@@ -33,5 +32,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

@@ -1,19 +1,46 @@
 import React, { useState } from "react";
+import { VentanaModal } from "../../modal/VentanaModal";
 
-const Marcador = ({ color, posX, posY, numero }) => {
+const Marcador = ({ color, posX, posY, numero, removeMarcador }) => {
 
-    const [showText, setShowText] = useState(false);
+    const [showBorrar, setShowBorrar] = useState(false);
 
     const style = {
         left: posX,
         top: posY,
-        color: {color}
+        color: { color }
     };
 
+    const remove = () => {
+        setShowBorrar(true);
+    }
+
     return (
-        <div className="marcador" style={style} onClick={() => alert("quitar marcador")}>
-            <span>{numero}</span>
-        </div>
+        <>
+            {showBorrar ?
+                <VentanaModal
+                    position={"top-right"}
+                    showBackground={true}
+                    width={"20rem"}
+                    height={"9rem"}
+                >
+                    <p style={{textAligh: "center", display: "flex", }}>
+                        {"Desea remover el punto " + numero + "?"}
+                    </p>
+                    <button onClick={() => setShowBorrar(false)}>
+                        Cancelar
+                    </button>
+                    <button onClick={removeMarcador}>
+                        Borrar
+                    </button>
+                </VentanaModal> : ""
+            }
+            <div className="marcador" style={style} onClick={remove}>
+                <span>{numero}</span>
+
+            </div>
+        </>
+
     );
 }
 

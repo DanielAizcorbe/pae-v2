@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Necesidad } from "./Necesidad";
+import { Necesidad } from "../Necesidad";
 
 const AgregarNecesidad = ({addNecesidad, placeholder}) => {
 

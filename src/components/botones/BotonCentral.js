@@ -1,5 +1,5 @@
 import React from "react";
-import { toggleBotonCentral } from "../datos/ToggleBotonCentral";
+import { toggleBotonCentral } from "./ToggleBotonCentral";
 
 const BotonCentral = ({flag}) => {
 

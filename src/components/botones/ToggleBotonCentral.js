@@ -1,6 +1,6 @@
-import { BotonConfirmarEdicion } from "../botones/BotonConfirmarEdicion";
-import { BotonGenerarEvolucion } from "../botones/BotonGenerarEvolucion";
-import { IconoPaciente } from "../botones/IconoPaciente";
+import { BotonConfirmarEdicion } from "./BotonConfirmarEdicion";
+import { BotonGenerarEvolucion } from "./BotonGenerarEvolucion";
+import { IconoPaciente } from "./IconoPaciente";
 
 const FALTA_CONFIRMAR_EDICION = "CONFIRMAR EDICIÓN";
 const GENERAR_EVOLUCION = "FINALIZAR EVOLUCIÓN";
