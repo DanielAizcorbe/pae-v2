@@ -4,18 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { diagnosticos } from "../../datos/datos-diagnostico";
 import "./diagnostico.css";
 import { DiagnosticoItem } from "./DiagnosticoItem";
+import { BotonSiguiente } from "../../botones/BotonSiguiente";
 
 const Diagnostico = ({ completada, setCompletada }) => {
 
     const [showSection, setShowSection] = useState(true);
-
-    const navegar = useNavigate();
-
-    const siguientePag = () => {
-        /* setCompletada(true); */
-        navegar("/evolucion");
-    }
-
+    
     return (
         <div className="valoracion-container">
             <h1> Diagnóstico </h1>
@@ -34,9 +28,9 @@ const Diagnostico = ({ completada, setCompletada }) => {
                             />)}
                     </ul>
             </ToggleSection>
-            <button className="btn-siguiente" onClick={siguientePag}>
-                Siguiente
-            </button>
+            <BotonSiguiente
+                nextPage={"/evolucion"}
+            />
         </div>
     );
 }

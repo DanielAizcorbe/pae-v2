@@ -5,6 +5,7 @@ import "../etapas.css";
 import { Necesidad } from "../Necesidad";
 import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { useNavigate } from "react-router-dom";
+import { BotonSiguiente } from "../../botones/BotonSiguiente";
 
 const Valoracion = ({ completada, setCompletada }) => {
 
@@ -15,7 +16,7 @@ const Valoracion = ({ completada, setCompletada }) => {
 
     const nextPage = () => {
         /* setCompletada(true); */
-        navegar("/evolucion/valoracion/finalizar");
+        navegar();
 
     }
 
@@ -40,9 +41,9 @@ const Valoracion = ({ completada, setCompletada }) => {
                     </ul>
                 </div>
             </ToggleSection>
-            <button onClick={nextPage}>
-                Siguiente
-            </button>
+            <BotonSiguiente 
+                nextPage={"/evolucion/valoracion/finalizar"}
+            />
         </div>
     );
 }

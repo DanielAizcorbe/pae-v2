@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./evaluacion.css";
 import { TextArea } from "../../utils/TextArea/TextArea";
+import { BotonSiguiente } from "../../botones/BotonSiguiente";
 
 const Evaluacion = () => {
     const [text, setText] = useState("");
@@ -11,6 +12,9 @@ const Evaluacion = () => {
             <TextArea 
                 text={text}
                 setText={setText}
+            />
+            <BotonSiguiente
+                nextPage={"/evolucion"}
             />
         </div>
     );

@@ -1,5 +1,7 @@
 import React from "react";
 import { VentanaModal } from "../modal/VentanaModal";
+import { BotonSiguiente } from "../botones/BotonSiguiente";
+import { BotonVolver } from "../botones/BotonVolver";
 
 
 const ModalDatosPaciente = ({ closeModal, nextPage }) => {
@@ -17,12 +19,13 @@ const ModalDatosPaciente = ({ closeModal, nextPage }) => {
                 <p><span>Fecha nacimiento:</span> 12-08-1990</p>
             </div>
             <div className="btn-container">
-                <button className="btn-volver" onClick={closeModal}>
-                    Volver
-                </button>
-                <button className="btn-continuar" onClick={nextPage}>
-                    Continuar
-                </button>
+                <BotonVolver 
+                    onClick={closeModal}
+                />
+                <BotonSiguiente 
+                    text={"Continuar"}
+                    nextPage={nextPage}
+                />
             </div>
         </VentanaModal>
     );

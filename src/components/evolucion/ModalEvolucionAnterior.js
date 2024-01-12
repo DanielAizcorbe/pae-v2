@@ -1,5 +1,6 @@
 import React from "react";
 import { VentanaModal } from "../modal/VentanaModal";
+import { BotonVolver } from "../botones/BotonVolver";
 
 const ModalEvolucionAnterior = ({ evolucionSeleccionada, closeModal }) => {
     
@@ -18,9 +19,9 @@ const ModalEvolucionAnterior = ({ evolucionSeleccionada, closeModal }) => {
             <textarea className="evo-anterior" readOnly>
                 {evolucionFalsa}
             </textarea>
-            <button onClick={closeModal}>
-                VOLVER
-            </button>
+            <BotonVolver 
+                onClick={closeModal}
+            />
         </VentanaModal>
     );
 }

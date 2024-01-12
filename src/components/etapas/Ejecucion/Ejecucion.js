@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Container } from "../../utils/Container/Container";
 import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
 import { diagnosticos } from "../../datos/datos-diagnostico";
-import { useNavigate } from "react-router-dom";
 import ListaDeAcciones from "./ListaDeAcciones";
+import { BotonSiguiente } from "../../botones/BotonSiguiente";
 
 
 const Ejecucion = () => {
@@ -17,12 +17,6 @@ const Ejecucion = () => {
             acciones: o.acciones
         })
     );
-
-    const navegar = useNavigate();
-
-    const nextPage = () => {
-        navegar("/evolucion");
-    }
 
     return (
         <Container
@@ -41,9 +35,9 @@ const Ejecucion = () => {
                     {acciones.map(a => <ListaDeAcciones nombre={a.nombre} acciones={a.acciones}/>)}
                 </ul>
             </ToggleSection>
-            <button onClick={nextPage}>
-                Siguiente
-            </button>
+            <BotonSiguiente 
+                nextPage={"/evolucion"}
+            />
         </Container>
     );
 }

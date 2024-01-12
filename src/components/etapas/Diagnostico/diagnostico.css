@@ -47,16 +47,3 @@
     background-color: var(--confirmado);
 }
 
-.btn-siguiente {
-    background-color: var(--confirmado);
-    width: 12rem;
-    padding: 1rem 2rem;
-    height: 4rem;
-    font-size: 1.5rem;
-    outline: none;
-    border: none;
-    border-radius: 1.5rem;
-    color: whitesmoke;
-    cursor: pointer;
-    margin-bottom: 2rem;
-}

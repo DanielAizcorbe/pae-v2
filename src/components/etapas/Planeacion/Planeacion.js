@@ -4,17 +4,12 @@ import { diagnosticos } from "../../datos/datos-diagnostico"
 import { Container } from "../../utils/Container/Container";
 import { DragDropDiagnostico } from "./DragDropDiagnostico";
 import { useNavigate } from "react-router-dom";
+import { BotonSiguiente } from "../../botones/BotonSiguiente";
 
 
 const Planeacion = () => {
 
     const diagnosticosPrueba = diagnosticos.filter(d => d.tipo == "Fisiológicas");
-
-    const navegar = useNavigate();
-
-    const nextPage = () => {
-        navegar("/evolucion");
-    }
 
     return (
         <Container
@@ -28,9 +23,9 @@ const Planeacion = () => {
             >
 
             </DragDropDiagnostico>
-            <button onClick={nextPage}>
-                Siguiente
-            </button>
+            <BotonSiguiente 
+                nextPage={"/evolucion"}
+            />
         </Container>
     );
 }

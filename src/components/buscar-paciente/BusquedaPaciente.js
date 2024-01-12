@@ -22,12 +22,6 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
         setMostrarAviso(false);
     }
 
-    const navegar = useNavigate();
-
-    const nextPage = () => {
-        navegar("/evolucion");
-    }
-
     return (
         <div className="busqueda-container">
             <h1>Evolución de pacientes</h1>
@@ -58,7 +52,7 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
                     : ""
             }
             {modal ? (
-                <ModalDatosPaciente closeModal={closeModal} nextPage={nextPage}/>
+                <ModalDatosPaciente closeModal={closeModal} nextPage={"/evolucion"}/>
             ) : ""}
         </div>
     );
