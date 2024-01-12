@@ -1,10 +1,9 @@
 import React from "react";
-import { setPosition } from "../../modal/Overlay";
 import "./container.css";
 
 const Container = ({ position, direction, width, height, children }) => {
 
-    const [jc,ai] = setPosition(position);
+    const [jc,ai] = ["center","center"];
 
     const style = {
         justifyContent: (position == "column" ? jc : ai),
