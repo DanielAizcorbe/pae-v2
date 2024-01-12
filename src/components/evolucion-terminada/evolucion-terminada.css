@@ -16,28 +16,6 @@
     height: 100%;
 }
 
-.evolucion-completa {
-    width: 60rem;
-    height: 36rem;
-    padding: 1.7rem 2rem;
-    border-radius: 2rem;
-    background-color: var(--color-fondo);
-    border: 2px solid ;
-    font-size: 1.1rem;
-    resize: none;
-    margin-bottom: 2rem;
-    outline: none;
-}
-
-.evolucion-completa::selection {
-    background-color: var(--fondo-resaltado);
-}
-
-.evolucion-completa:focus {
-    border: 2px solid var(--fondo-resaltado);
-    transition: border 100ms linear;
-}
-
 .botones-resumen {
     display: flex;
     flex-direction: row;
