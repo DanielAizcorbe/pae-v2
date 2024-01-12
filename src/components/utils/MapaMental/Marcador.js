@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { VentanaModal } from "../../modal/VentanaModal";
+import { VentanaModal } from "../VentanaModal";
 
 const Marcador = ({ color, posX, posY, numero, removeMarcador }) => {
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { VentanaModal } from "../modal/VentanaModal";
+import { VentanaModal } from "../utils/VentanaModal";
 import { BotonSiguiente } from "../botones/BotonSiguiente";
 import { BotonVolver } from "../botones/BotonVolver";
 import { styled } from "styled-components";

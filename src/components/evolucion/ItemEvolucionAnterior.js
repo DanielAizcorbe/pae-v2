@@ -1,5 +1,5 @@
 import React from "react";
-import { VentanaModal } from "../modal/VentanaModal";
+import { VentanaModal } from "../utils/VentanaModal";
 
 const ItemEvolucionAnterior = ({evolucionAnterior, onClick}) => {
 

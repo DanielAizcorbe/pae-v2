@@ -1,7 +1,6 @@
 import React from "react";
-import "./modal.css";
 import { styled } from "styled-components";
-import { Columns } from "../utils/Containers";
+import { Columns } from "./Containers";
 
 const VentanaModal = ({ children, showbackground, position, height, width }) => {
 
