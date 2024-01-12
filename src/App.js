@@ -7,6 +7,8 @@ import { Diagnostico } from './components/etapas/Diagnostico/Diagnostico';
 import { Evolucion } from "./components/evolucion/Evolucion";
 import { Route, Routes } from 'react-router-dom';
 import { Planeacion } from './components/etapas/Planeacion/Planeacion';
+import { Ejecucion } from './components/etapas/Ejecucion/Ejecucion';
+import { Evaluacion } from './components/etapas/Evaluacion/Evaluacion';
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
         <Route exact path='/evolucion/diagnostico/finalizar' element={<EvolucionTerminada title={"Diagnóstico"} text={diagnosticoFalso} nextPage={"/evolucion"}/>} />
         <Route exact path='/evolucion/finalizar' element={<EvolucionTerminada />} nextPage={"/"} title={"Vista previa"}text={resumenFinal}/>
         <Route exact path='/evolucion/planeacion' element={<Planeacion />}/>
+        <Route exact path='/evolucion/ejecucion' element={<Ejecucion />}/>
+        <Route exact path='/evolucion/evaluacion' element={<Evaluacion />}/>
       </Routes>
     </div>
   );

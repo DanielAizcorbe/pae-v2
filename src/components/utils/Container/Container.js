@@ -7,9 +7,9 @@ const Container = ({ position, direction, width, height, children }) => {
     const [jc,ai] = setPosition(position);
 
     const style = {
-        justifyContent: jc,
-        alignItems: ai,
-        flexDirection: direction,
+        justifyContent: (position == "column" ? jc : ai),
+        alignItems: (position == "column" ? ai : jc),
+        flexDirection: direction ?? "row",
         width: width ?? "auto",
         height: height ?? "auto"
     };

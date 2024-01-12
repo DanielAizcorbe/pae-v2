@@ -25,6 +25,10 @@ const EtapasEvolucion = () => {
         navegar("/evolucion/ejecucion");
     }
 
+    const goToEvaluacion = () => {
+        navegar("/evolucion/evaluacion");
+    }
+
 
     const [valoracion, setValoracion] = useState(false);
     const [evaluacion, setEvaluacion] = useState(false);
@@ -45,7 +49,7 @@ const EtapasEvolucion = () => {
             <div className="mid">
                 <Etapa
                     nombre={"EVALUACIÓN"}
-                    onClick={() => alert("abrir EVALUACIÓN")}
+                    onClick={goToEvaluacion}
                     completada={evaluacion}
                     classes={"evaluacion"}
                 />
@@ -63,7 +67,7 @@ const EtapasEvolucion = () => {
             <div className="bottom">
                 <Etapa
                     nombre={"EJECUCIÓN"}
-                    onClick={() => alert("abrir EJECUCIÓN")}
+                    onClick={goToEjecucion}
                     completada={ejecucion}
                     classes={"ejecucion"}
                 />
