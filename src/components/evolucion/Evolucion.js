@@ -5,6 +5,8 @@ import { EtapasEvolucion } from "./EtapasEvolucion";
 import { AvisoCambios } from "../avisos/AvisoCambios";
 import { AvisoEtapaCompletada } from "../avisos/AvisoEtapaCompletada";
 import { ModalEvolucionAnterior } from "./ModalEvolucionAnterior";
+import { Columns, Rows } from "../utils/Containers";
+import { Titulo } from "../utils/Titulos";
 
 
 const nombrePaciente = "JUAN PEREZ GONZALES";
@@ -17,23 +19,16 @@ const seCompletoUnaEtapa = false;
 const Evolucion = () => {
 
     const [showEvolucionAnterior, setShowEvolucionAnterior] = useState(false);
-    const [evolucionSeleccionada, setevolucionSeleccionada] = useState( {
-        id: 0,
-        hora: "00:00",
-        fecha: "01/01/2000",
-        sector: "NINGUNO",
-        evolucion: "",
-      });
+    const [evolucionSeleccionada, setevolucionSeleccionada] = useState({});
 
     const abrirEvolucion = (evolucion) => {
         setevolucionSeleccionada(evolucion);
-        console.log(evolucionSeleccionada);
         setShowEvolucionAnterior(true);
     }
 
-    return (
+    /* return (
         <div className="col-container">
-            <EvolucionesAnteriores openEvolucion={abrirEvolucion}/>
+            
             <main>
                 <div className="main-container">
                     <h1>Evolución paciente</h1>
@@ -47,9 +42,38 @@ const Evolucion = () => {
                 {huboCambios ? <AvisoCambios etapaCambiada={etapaCambiada} /> : ""}
                 {seCompletoUnaEtapa ? <AvisoEtapaCompletada etapaCambiada={etapaCambiada} /> : ""}
             </main>
-            {showEvolucionAnterior ? <ModalEvolucionAnterior evolucionSeleccionada={evolucionSeleccionada} closeModal={() => setShowEvolucionAnterior(false)}/>: ""}
+            {showEvolucionAnterior ? <ModalEvolucionAnterior evolucionSeleccionada={evolucionSeleccionada} closeModal={() => setShowEvolucionAnterior(false)} /> : ""}
         </div>
+    ); */
+
+    return (
+        <Rows
+            elementPosition="top-center"
+        >
+            <EvolucionesAnteriores openEvolucion={abrirEvolucion} />
+            <Columns
+                elementPosition="top-center"
+            >
+                <Columns
+                    elementPosition="center"
+                    height="20vh"
+                >
+                    <Titulo texto="Evolución paciente" />
+                    <DatosPaciente
+                        nombre={nombrePaciente}
+                        documento={documentoPaciente}
+                        fechaNac={fechaNacPaciente}
+                    />
+                </Columns>
+                <EtapasEvolucion />
+                {huboCambios ? <AvisoCambios etapaCambiada={etapaCambiada} /> : ""}
+                {seCompletoUnaEtapa ? <AvisoEtapaCompletada etapaCambiada={etapaCambiada} /> : ""}
+            </Columns>
+        </Rows>
     );
 }
+
+
+
 
 export { Evolucion }

@@ -4,6 +4,7 @@ import { BotonSiguiente } from "../botones/BotonSiguiente";
 import { BotonVolver } from "../botones/BotonVolver";
 import { styled } from "styled-components";
 import { BotonContainer, Columns } from "../utils/Containers";
+import { ImportantText } from "../utils/Spans";
 
 
 const ModalDatosPaciente = ({ closeModal, nextPage }) => {
@@ -28,13 +29,13 @@ const ModalDatosPaciente = ({ closeModal, nextPage }) => {
                 </TituloModal>
                 <Columns>
                     <FilaDatoModal>
-                        <B>Nombre:</B>{persona.nombre}
+                        <ImportantText>Nombre:</ImportantText>{" " + persona.nombre}
                     </FilaDatoModal>
                     <FilaDatoModal>
-                        <B>Nacimiento:</B>{persona.fechaNacimiento}
+                        <ImportantText>Nacimiento:</ImportantText>{" " + persona.fechaNacimiento}
                     </FilaDatoModal>
                     <FilaDatoModal>
-                        <B>Documento:</B>{persona.documento}
+                        <ImportantText>Documento:</ImportantText>{" " + persona.documento}
                     </FilaDatoModal>
                 </Columns>
                 <BotonContainer>
@@ -61,11 +62,4 @@ const FilaDatoModal = styled.div`
     font-style: italic;
     padding: 1rem 0.8rem;
 `;
-
-const B = styled.span`
-    font-weight: bolder;
-    text-decoration: underline;
-    padding-right: 1rem;
-`;
-
 export { ModalDatosPaciente }

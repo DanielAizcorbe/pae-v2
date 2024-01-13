@@ -3,7 +3,7 @@ import { Columns, Rows } from "../utils/Containers";
 import { InputNroDocumento } from "./InputNroDocumento";
 import { BotonIcono } from "../botones/BotonIcono";
 import { styled } from "styled-components";
-import { Titulo } from "../utils/Titulo";
+import { Titulo } from "../utils/Titulos";
 import { AvisoWarning } from "../avisos/AvisoWarning";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
 
