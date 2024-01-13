@@ -1,7 +1,7 @@
 import React from "react";
 import { Marcador } from "./Marcador";
 
-const MarcadorTemporal = ({ marcador, nextId, removeMarcador }) => {
+const MarcadorTemporal = ({ marcador, nextId }) => {
     return (
         <>
             {

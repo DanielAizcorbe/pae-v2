@@ -1,12 +1,17 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const Marcador = ({ posX, posY, numero }) => {
+const Marcador = ({ posX, posY, numero, openModal }) => {
+
+    const removeMarcador = () => {
+        openModal(true);
+    }
 
     return (
         <MarcadorBody
             posX={posX + "px"}
             posY={posY + "px"}
+            onClick={removeMarcador}
         >
             <NumeroMarcador>
                 {numero}
@@ -24,6 +29,7 @@ const MarcadorBody = styled.div`
     left: ${props => props.posX};
     top: ${props => props.posY};
     background-color: blue;
+    cursor: pointer;
 `;
 
 const NumeroMarcador = styled.span`

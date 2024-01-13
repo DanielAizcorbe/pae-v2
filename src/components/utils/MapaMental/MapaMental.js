@@ -6,6 +6,7 @@ import { ListaMarcadores } from './Marcador/ListaMarcadores';
 import { MarcadorTemporal } from './Marcador/MarcadorTemporal';
 import { InfoMarcadores } from './Marcador/InfoMarcadores';
 import { ModalCreacionMarcador } from './Marcador/ModalCreacionMarcador';
+import { ModalEliminarMarcador } from './Marcador/ModalEliminarMarcador';
 
 const MapaMental = () => {
 
@@ -14,6 +15,7 @@ const MapaMental = () => {
 
   const [showOpcionesCreacion, setShowOpcionesCreacion] = useState(false);
   const [contador, setContador] = useState(1);
+  const [showModalRemove, setShowModalRemove] = useState(false);
 
   const addMarcador = (event) => {
     setShowOpcionesCreacion(true);
@@ -63,6 +65,7 @@ const MapaMental = () => {
         />
         <ListaMarcadores
           marcadores={marcadores}
+          openModal={setShowModalRemove}
         />
         <MarcadorTemporal
           marcador={marcadorNuevo}
@@ -80,7 +83,6 @@ const MapaMental = () => {
         closeModalFunction={closeModalFunction}
       />
     </Rows>
-
   );
 };
 
