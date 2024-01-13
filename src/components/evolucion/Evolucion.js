@@ -14,7 +14,7 @@ const documentoPaciente = "20333012";
 const fechaNacPaciente = "09-09-1990";
 const etapaCambiada = "VALORACIÓN"
 const huboCambios = false;
-const seCompletoUnaEtapa = false;
+const seCompletoUnaEtapa = true;
 
 const Evolucion = () => {
 
@@ -25,26 +25,6 @@ const Evolucion = () => {
         setevolucionSeleccionada(evolucion);
         setShowEvolucionAnterior(true);
     }
-
-    /* return (
-        <div className="col-container">
-            
-            <main>
-                <div className="main-container">
-                    <h1>Evolución paciente</h1>
-                    <DatosPaciente
-                        nombre={nombrePaciente}
-                        documento={documentoPaciente}
-                        fechaNac={fechaNacPaciente}
-                    />
-                </div>
-                <EtapasEvolucion />
-                {huboCambios ? <AvisoCambios etapaCambiada={etapaCambiada} /> : ""}
-                {seCompletoUnaEtapa ? <AvisoEtapaCompletada etapaCambiada={etapaCambiada} /> : ""}
-            </main>
-            {showEvolucionAnterior ? <ModalEvolucionAnterior evolucionSeleccionada={evolucionSeleccionada} closeModal={() => setShowEvolucionAnterior(false)} /> : ""}
-        </div>
-    ); */
 
     return (
         <Rows
@@ -69,6 +49,7 @@ const Evolucion = () => {
                 {huboCambios ? <AvisoCambios etapaCambiada={etapaCambiada} /> : ""}
                 {seCompletoUnaEtapa ? <AvisoEtapaCompletada etapaCambiada={etapaCambiada} /> : ""}
             </Columns>
+            {showEvolucionAnterior ? <ModalEvolucionAnterior evolucionSeleccionada={evolucionSeleccionada} closeModal={() => setShowEvolucionAnterior(false)} /> : ""}
         </Rows>
     );
 }
