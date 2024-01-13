@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import mapaMental from "./cuerpo-humano-mapa.png";
-import { Marcador } from './Marcador';
 import "./mapa-mental.css";
-import { CreadorDeMarcador } from './CreadorDeMarcador';
 import { Rows } from '../Containers';
 import { styled } from 'styled-components';
 import { ListaMarcadores } from './ListaMarcadores';
 import { MarcadorTemporal } from './MarcadorTemporal';
+import { InfoMarcadores } from './InfoMarcadores';
+import { ModalCreacionMarcador } from './ModalCreacionMarcador';
 
 const MapaMental = () => {
 
@@ -49,11 +49,10 @@ const MapaMental = () => {
 
   return (
     <Rows
-      elementPosition="center-top"
-
+      elementPosition="center-left"
     >
       <MapaMentalContainer
-        width="100%"
+        width="auto"
         height="600px"
         elementPosition="top-left"
       >
@@ -63,24 +62,24 @@ const MapaMental = () => {
           alt="mapa mental"
           onClick={addMarcador}
         />
-        <ListaMarcadores 
+        <ListaMarcadores
           marcadores={marcadores}
         />
-        <MarcadorTemporal 
+        <MarcadorTemporal
           marcador={marcadorNuevo}
           nextId={marcadores.length + 1}
           removeMarcador={removeMarcador}
         />
       </MapaMentalContainer>
-      <ol className='marcadores-info'>
-        {marcadores.map(m => <li key={m.id}>{m.text}</li>)}
-      </ol>
-      {showOpcionesCreacion ?
-        <CreadorDeMarcador
-          closeModalFunction={closeModalFunction}
-          marcadorNuevo={marcadorNuevo}
-          addNuevoMarcador={addMarcadorALaLista}
-        /> : ""}
+      <InfoMarcadores
+        marcadores={marcadores}
+      />
+      <ModalCreacionMarcador 
+        addMarcadorALaLista={addMarcadorALaLista}
+        marcadorNuevo={marcadorNuevo}
+        showModal={showOpcionesCreacion}
+        closeModalFunction={closeModalFunction}
+      />
     </Rows>
 
   );
