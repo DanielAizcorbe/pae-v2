@@ -5,6 +5,8 @@ import "./mapa-mental.css";
 import { CreadorDeMarcador } from './CreadorDeMarcador';
 import { Rows } from '../Containers';
 import { styled } from 'styled-components';
+import { ListaMarcadores } from './ListaMarcadores';
+import { MarcadorTemporal } from './MarcadorTemporal';
 
 const MapaMental = () => {
 
@@ -61,24 +63,14 @@ const MapaMental = () => {
           alt="mapa mental"
           onClick={addMarcador}
         />
-        {marcadores.map(m =>
-          <Marcador
-            posX={m.x}
-            posY={m.y}
-            numero={marcadores.findIndex(n => n.id == m.id) + 1}
-            color={"green"}
-          />)
-        }
-        {
-          marcadorNuevo.id != -1 ?
-            <Marcador
-              posX={marcadorNuevo.x}
-              posY={marcadorNuevo.y}
-              color={"blue"}
-              numero={marcadores.length + 1}
-              removeMarcador={() => removeMarcador(marcadores.length + 1)}
-            /> : ""
-        }
+        <ListaMarcadores 
+          marcadores={marcadores}
+        />
+        <MarcadorTemporal 
+          marcador={marcadorNuevo}
+          nextId={marcadores.length + 1}
+          removeMarcador={removeMarcador}
+        />
       </MapaMentalContainer>
       <ol className='marcadores-info'>
         {marcadores.map(m => <li key={m.id}>{m.text}</li>)}
