@@ -16,7 +16,7 @@ const ItemEvoluciones = ({ openEvolucion, evoluciones }) => {
                         .map(evolucion =>
                             <ItemEvolucionAnterior
                                 evolucionAnterior={evolucion}
-                                onClick={openEvolucion}
+                                onClick={() => openEvolucion(evolucion)}
                             />)
             }
         </>

@@ -1,4 +1,4 @@
-const BOTON_PRIMARIO = "green";
+const BOTON_PRIMARIO = "#43AA8B";
 const HOVER_BOTON_PRIMARIO = "blue";
 const BOTON_SECUNDARIO = "white";
 const HOVER_BOTON_SECUNDARIO = "lightblue";

@@ -1,8 +1,7 @@
 import React from "react";
-import { VentanaModal } from "../utils/VentanaModal";
+import { VentanaModal, FilaDatoModal, TituloModal } from "../utils/VentanaModal";
 import { BotonSiguiente } from "../botones/BotonSiguiente";
 import { BotonVolver } from "../botones/BotonVolver";
-import { styled } from "styled-components";
 import { BotonContainer, Columns } from "../utils/Containers";
 import { ImportantText } from "../utils/Spans";
 
@@ -52,14 +51,4 @@ const ModalDatosPaciente = ({ closeModal, nextPage }) => {
     );
 }
 
-const TituloModal = styled.h2`
-    font-size: 2.2rem;
-    margin: 0;
-`;
-
-const FilaDatoModal = styled.div`
-    width: 100%;
-    font-style: italic;
-    padding: 1rem 0.8rem;
-`;
 export { ModalDatosPaciente }

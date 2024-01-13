@@ -46,4 +46,15 @@ const Contenido = styled.div`
 
 `;
 
-export { VentanaModal }
+const TituloModal = styled.h2`
+    font-size: 2.2rem;
+    margin: 0;
+`;
+
+const FilaDatoModal = styled.div`
+    width: 100%;
+    font-style: italic;
+    padding: 1rem 0.8rem;
+`;
+
+export { VentanaModal, TituloModal, FilaDatoModal}

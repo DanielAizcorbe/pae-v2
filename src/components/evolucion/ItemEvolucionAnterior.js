@@ -5,7 +5,7 @@ import { ImportantText } from "../utils/Spans";
 const ItemEvolucionAnterior = ({ evolucionAnterior, onClick }) => {
 
     return (
-        <EvolucionAnterior key={evolucionAnterior.id} onClick={() => onClick(evolucionAnterior)}>
+        <EvolucionAnterior key={evolucionAnterior.id} onClick={onClick}>
             <ImportantText underline={false}>
                 {evolucionAnterior.hora + "-" + evolucionAnterior.fecha}
             </ImportantText>

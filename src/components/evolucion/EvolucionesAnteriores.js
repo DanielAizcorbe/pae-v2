@@ -16,7 +16,7 @@ const EvolucionesAnteriores = ({ openEvolucion }) => {
                     Evoluciones Anteriores
                 </TituloLista>
                 <List>
-                    <ItemEvoluciones evoluciones={evoluciones} />
+                    <ItemEvoluciones evoluciones={evoluciones} openEvolucion={openEvolucion} />
                 </List>
             </ListaEvolucionesAnteriores>
         </Columns>
@@ -29,6 +29,7 @@ const ListaEvolucionesAnteriores = styled.div`
     max-height: 100vh;
     border-right: 2px solid var(--fondo-resaltado);
     width: 450px;
+    
     &::-webkit-scrollbar {
         width: 0.3rem;
     }
@@ -59,22 +60,5 @@ const TituloLista = styled.h2`
     -moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.52);
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.52);
 `;
-
-{/* <div className="evoluciones">
-            <h2>Evoluciones Anteriores</h2>
-            <div className="evoluciones-container">
-                <ol >
-                    {
-                        (evoluciones.length === 0) ?
-                            (<p className="aviso-sin-evoluciones">No hay evoluciones anteriores registradas</p>) :
-
-                            evoluciones
-                                .map(evolucion => <ItemEvolucionAnterior evolucionAnterior={evolucion} onClick={openEvolucion} />)
-
-                    }
-                </ol>
-            </div>
-        </div> */}
-
 
 export { EvolucionesAnteriores };
