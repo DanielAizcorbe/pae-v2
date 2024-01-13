@@ -9,9 +9,7 @@ const MarcadorTemporal = ({ marcador, nextId, removeMarcador }) => {
                     <Marcador
                         posX={marcador.x}
                         posY={marcador.y}
-                        color={"blue"}
                         numero={nextId}
-                        removeMarcador={() => removeMarcador(nextId)}
                     /> : ""
             }
         </>

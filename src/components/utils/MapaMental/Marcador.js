@@ -1,49 +1,37 @@
-import React, { useState } from "react";
-import { VentanaModal } from "../VentanaModal";
+import React from "react";
+import { styled } from "styled-components";
 
-const Marcador = ({ color, posX, posY, numero, removeMarcador }) => {
-
-    const [showBorrar, setShowBorrar] = useState(false);
-
-    const style = {
-        left: posX,
-        top: posY,
-        color: { color }
-    };
-
-    const remove = () => {
-        setShowBorrar(true);
-    }
+const Marcador = ({ posX, posY, numero }) => {
 
     return (
-        <>
-            {showBorrar ?
-                <VentanaModal
-                    position={"center"}
-                    width={"20rem"}
-                    height={"9rem"}
-                    showbackground={false}
-                >
-                    {/* <p style={{textAligh: "center", display: "flex", }}>
-                        {"Desea remover el punto " + numero + "?"}
-                    </p>
-                    <button onClick={() => setShowBorrar(false)}>
-                        Cancelar
-                    </button>
-                    <button onClick={removeMarcador}>
-                        Borrar
-                    </button> */}
-                </VentanaModal> : ""
-            }
-            <div className="marcador" style={style} onClick={remove}>
-                <span>{numero}</span>
-
-            </div>
-        </>
-
+        <MarcadorBody
+            posX={posX + "px"}
+            posY={posY + "px"}
+        >
+            <NumeroMarcador>
+                {numero}
+            </NumeroMarcador>
+        </MarcadorBody>
     );
 }
 
+const MarcadorBody = styled.div`
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    z-index: 2;
+    left: ${props => props.posX};
+    top: ${props => props.posY};
+    background-color: blue;
+`;
+
+const NumeroMarcador = styled.span`
+    position: relative;
+    bottom: 15px;
+    left: 8px;
+    color: black;
+`;
 
 
 export { Marcador }

@@ -10,7 +10,6 @@ const ListaMarcadores = ({marcadores}) => {
                     posX={m.x}
                     posY={m.y}
                     numero={marcadores.findIndex(n => n.id == m.id) + 1}
-                    color={"green"}
                 />)
             }
         </>
