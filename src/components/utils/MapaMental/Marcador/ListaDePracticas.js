@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import { practicasprueba } from "../../datos/practicas";
+import { practicasprueba } from "../../../datos/practicas";
 
 const ListaDePracticas = ({ selected, setSelected }) => {
 

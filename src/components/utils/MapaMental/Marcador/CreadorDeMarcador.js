@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { TituloModal, VentanaModal } from "../VentanaModal";
-import { BotonContainer, Columns } from "../Containers";
+import { TituloModal, VentanaModal } from "../../VentanaModal";
+import { BotonContainer, Columns } from "../../Containers";
 import { styled } from "styled-components";
 import { ListaDePracticas } from "./ListaDePracticas";
 

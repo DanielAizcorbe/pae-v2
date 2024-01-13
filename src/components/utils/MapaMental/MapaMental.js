@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import mapaMental from "./cuerpo-humano-mapa.png";
-import "./mapa-mental.css";
 import { Rows } from '../Containers';
 import { styled } from 'styled-components';
-import { ListaMarcadores } from './ListaMarcadores';
-import { MarcadorTemporal } from './MarcadorTemporal';
-import { InfoMarcadores } from './InfoMarcadores';
-import { ModalCreacionMarcador } from './ModalCreacionMarcador';
+import { ListaMarcadores } from './Marcador/ListaMarcadores';
+import { MarcadorTemporal } from './Marcador/MarcadorTemporal';
+import { InfoMarcadores } from './Marcador/InfoMarcadores';
+import { ModalCreacionMarcador } from './Marcador/ModalCreacionMarcador';
 
 const MapaMental = () => {
 
