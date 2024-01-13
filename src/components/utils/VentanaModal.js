@@ -4,10 +4,10 @@ import { Columns } from "./Containers";
 
 const VentanaModal = ({ children, showbackground, position, height, width }) => {
 
-    
+
 
     return (
-        <Overlay showBackground={showbackground ?? false} >
+        <Overlay showbackground={showbackground || false} >
             <Columns
                 elementPosition={position}
             >
@@ -26,8 +26,8 @@ const VentanaModal = ({ children, showbackground, position, height, width }) => 
 }
 
 const Overlay = styled.div`
-    background-color: ${props => (props.showbackground ? "transparent" : "rgba(0, 0, 0, 0.5)")};
-    position: absolute;
+    background-color: ${props => props.showbackground ? "transparent" : "rgba(0, 0, 0, 0.5)"};
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -35,7 +35,7 @@ const Overlay = styled.div`
     z-index: 3;
     display: inline-flex;
 
-`; 
+`;
 
 const Contenido = styled.div`
     background-color: aliceblue;
@@ -57,4 +57,4 @@ const FilaDatoModal = styled.div`
     padding: 1rem 0.8rem;
 `;
 
-export { VentanaModal, TituloModal, FilaDatoModal}
+export { VentanaModal, TituloModal, FilaDatoModal }

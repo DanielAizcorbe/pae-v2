@@ -1,11 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
-import { necesidades } from "../../datos/datos-necesidades";
+
 import "../etapas.css";
-import { Necesidad } from "../Necesidad";
+
 import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { useNavigate } from "react-router-dom";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
+import { Titulo } from "../../utils/Titulos"
+import { styled } from "styled-components";
+import { Columns } from "../../utils/Containers";
+import { ListaNecesidades } from "./ListaNecesidades";
 
 const Valoracion = ({ completada, setCompletada }) => {
 
@@ -21,8 +25,11 @@ const Valoracion = ({ completada, setCompletada }) => {
     }
 
     return (
-        <div className="valoracion-container">
-            <h1> Valoracion </h1>
+        <ValoracionContainer
+            elementPosition={"top-center"}
+            padding="1rem"
+        >
+            <Titulo texto="Valoración" />
             <ToggleSection
                 showCondition={showMapa}
                 toggleFunction={setShowMapa}
@@ -35,17 +42,22 @@ const Valoracion = ({ completada, setCompletada }) => {
                 toggleFunction={setShowNecesidades}
                 title={"Necesidades"}
             >
-                <div className="container">
-                    <ul className="necesidades-container">
-                        {necesidades.map(n => <Necesidad nombre={n.nombre} id={n.id} />)}
-                    </ul>
-                </div>
+                <ListaNecesidades />
             </ToggleSection>
-            <BotonSiguiente 
+            <BotonSiguiente
                 nextPage={"/evolucion/valoracion/finalizar"}
             />
-        </div>
+        </ValoracionContainer>
     );
 }
+
+const ValoracionContainer = styled(Columns)`
+    min-height: 100vh;
+    height: 100%;
+    overflow-y: visible;
+    width: 100%;
+`;
+
+
 
 export { Valoracion }

@@ -3,6 +3,8 @@ import mapaMental from "./cuerpo-humano-mapa.png";
 import { Marcador } from './Marcador';
 import "./mapa-mental.css";
 import { CreadorDeMarcador } from './CreadorDeMarcador';
+import { Rows } from '../Containers';
+import { styled } from 'styled-components';
 
 const MapaMental = () => {
 
@@ -14,10 +16,8 @@ const MapaMental = () => {
 
   const addMarcador = (event) => {
     setShowOpcionesCreacion(true);
-    const container = event.currentTarget;
-    const rect = container.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
+    const x = event.clientX + window.scrollX;
+    const y = event.clientY + window.scrollY;
 
 
     const marcador = {
@@ -46,10 +46,16 @@ const MapaMental = () => {
   }
 
   return (
-    <div className='general-container'>
-      <div className="mapa-mental-container">
-        <img
-          className="mapa-mental"
+    <Rows
+      elementPosition="center-top"
+
+    >
+      <MapaMentalContainer
+        width="100%"
+        height="600px"
+        elementPosition="top-left"
+      >
+        <ImagenCuerpoHumano
           draggable={false}
           src={mapaMental}
           alt="mapa mental"
@@ -73,19 +79,31 @@ const MapaMental = () => {
               removeMarcador={() => removeMarcador(marcadores.length + 1)}
             /> : ""
         }
-      </div>
+      </MapaMentalContainer>
       <ol className='marcadores-info'>
         {marcadores.map(m => <li key={m.id}>{m.text}</li>)}
       </ol>
-      {showOpcionesCreacion ? 
-        <CreadorDeMarcador 
-          closeModalFunction={closeModalFunction} 
+      {showOpcionesCreacion ?
+        <CreadorDeMarcador
+          closeModalFunction={closeModalFunction}
           marcadorNuevo={marcadorNuevo}
           addNuevoMarcador={addMarcadorALaLista}
         /> : ""}
-    </div>
+    </Rows>
 
   );
 };
+
+const MapaMentalContainer = styled(Rows)`
+  position: relative;
+`;
+
+const ImagenCuerpoHumano = styled.img`
+  height: 600px;
+  width: auto;
+  border: 1px solid black;
+  position: absolute;
+  z-index: 1;
+`;
 
 export { MapaMental };

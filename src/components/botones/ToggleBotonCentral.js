@@ -1,5 +1,4 @@
 import { BOTON_PRIMARIO, WARNING_COLOR } from "../datos/colores";
-import { BotonGenerarEvolucion } from "./BotonGenerarEvolucion";
 import { IconoPaciente } from "./IconoPaciente";
 
 import { styled } from "styled-components";

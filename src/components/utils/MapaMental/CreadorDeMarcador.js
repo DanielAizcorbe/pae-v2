@@ -23,11 +23,10 @@ const CreadorDeMarcador = ({ closeModalFunction, marcadorNuevo, addNuevoMarcador
 
     return (
         <VentanaModal
-            showBackground={true}
+            showbackground={false}
             position={"center"}
             width={"30rem"}
             height={"30rem"}
-            showAnimation={false}
         >
             <h2>Nuevo Marcador</h2>
             <form onSubmit={create}>

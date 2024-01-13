@@ -19,12 +19,12 @@ const Marcador = ({ color, posX, posY, numero, removeMarcador }) => {
         <>
             {showBorrar ?
                 <VentanaModal
-                    position={"top-right"}
-                    showBackground={true}
+                    position={"center"}
                     width={"20rem"}
                     height={"9rem"}
+                    showbackground={false}
                 >
-                    <p style={{textAligh: "center", display: "flex", }}>
+                    {/* <p style={{textAligh: "center", display: "flex", }}>
                         {"Desea remover el punto " + numero + "?"}
                     </p>
                     <button onClick={() => setShowBorrar(false)}>
@@ -32,7 +32,7 @@ const Marcador = ({ color, posX, posY, numero, removeMarcador }) => {
                     </button>
                     <button onClick={removeMarcador}>
                         Borrar
-                    </button>
+                    </button> */}
                 </VentanaModal> : ""
             }
             <div className="marcador" style={style} onClick={remove}>
@@ -43,5 +43,7 @@ const Marcador = ({ color, posX, posY, numero, removeMarcador }) => {
 
     );
 }
+
+
 
 export { Marcador }
