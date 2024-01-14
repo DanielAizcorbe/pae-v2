@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "./evolucion-terminada.css";
 import { useNavigate } from "react-router-dom";
 import { TextArea } from "../utils/TextArea";
+import { BotonContainer, Columns, Rows } from "../utils/Containers";
+import { Titulo } from "../utils/Titulos";
+import { styled } from "styled-components";
 
-const EvolucionTerminada = ({ title, text, nextPage }) => {
+const EvolucionTerminada = ({text, nextPage }) => {
 
     const [texto, setTexto] = useState(text);
     const [fueGuardado, setFueGuardado] = useState(false);
@@ -16,14 +19,21 @@ const EvolucionTerminada = ({ title, text, nextPage }) => {
     }
 
     return (
-        <div className="resumen-container">
-            <h1>{title}</h1>
-            <div className="resumen-cuerpo">
+        <Columns
+            elementPosition={"top-center"}
+            padding={"1rem"}
+        >
+            <Titulo texto="Finalizar Evolución" />
+            <Columns
+                elementPosition={"top-center"}
+            >
                 <TextArea
                     text={texto}
                     setText={setTexto}
                 />
-                <div className="botones-resumen">
+                <BotonContainer
+                    width={"50rem"}
+                >
                     <button className="btn-copiar-texto">
                         Copiar al portapapeles
                     </button>
@@ -32,10 +42,12 @@ const EvolucionTerminada = ({ title, text, nextPage }) => {
                         : <button className="btn-guardar" onClick={next}>
                             Guardar
                         </button>}
-                </div>
-            </div>
-        </div>
+                </BotonContainer>
+            </Columns>
+        </Columns>
     );
 }
+
+
 
 export { EvolucionTerminada }

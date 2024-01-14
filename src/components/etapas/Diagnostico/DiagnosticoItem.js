@@ -20,8 +20,8 @@ const ItemList = styled.li`
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
-    max-width: 40rem;
-    width: 100%;
+    min-width: 400px;
+    width: 48%;
     height: 6rem;
     color: white;
     font-size: 1.5rem;

@@ -1,21 +1,3 @@
-.resumen-container {
-    height: 100vh;
-    width: 100vw;
-    padding: 1rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.resumen-cuerpo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
 .botones-resumen {
     display: flex;
     flex-direction: row;

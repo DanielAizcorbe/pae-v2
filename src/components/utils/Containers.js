@@ -13,14 +13,30 @@ const ContainerFlex = styled.div`
     width: ${props => props.width ?? "100%"};
 `;
 
-const BotonContainer = styled.div`
+const BotonContainer = ({height, width, margin, padding, children}) => {
+
+    return (
+        <Columns
+            elementPosition={"bottom-center"}
+            height={height || "auto"}
+            width={"100%"}
+            margin={margin || "0"}
+            padding={padding || "2rem"}
+        >
+            <BotonSection width={width}>
+                {children}
+            </BotonSection>
+        </Columns>
+    );
+}
+
+const BotonSection = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    height: 100%;
+    align-items: center;
+    max-width: 900px;
+    width: ${props => !!props.width ? props.width : "100%"};
 `;
-
 
 const Columns = ({children, elementPosition, padding, margin, height, width}) => {
 

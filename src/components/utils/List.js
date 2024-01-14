@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 const UList = styled.ul`
     height: 100%;
     max-height: 90rem;
-    max-width: 1200px;
-    width: 80%;
+    max-width: 1500px;
+    width: 100%;
     list-style-type: none;
     padding: 0 3rem;
     margin: 0;

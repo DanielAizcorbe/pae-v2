@@ -15,6 +15,7 @@ const CreadorDeMarcador = ({ closeModalFunction, marcadorNuevo, addNuevoMarcador
     const changeOption = (event) => {
         setSelectedOption(event.target.value);
     }
+
     const create = (event) => {
         event.preventDefault();
         const newMarker = marcadorNuevo;
@@ -42,12 +43,16 @@ const CreadorDeMarcador = ({ closeModalFunction, marcadorNuevo, addNuevoMarcador
                 >
                     <Columns
                         elementPosition="top-center"
+                        height={"100%"}
                     >
                         <ListaDePracticas 
                             selected={selectedOption}
                             setSelected={setSelectedOption}
                         />
-                        <BotonContainer>
+                        <BotonContainer
+                            height={"100%"}
+                            padding={"0"}
+                        >
                             <Cancelar onClick={cancel}>
                                 Cancelar
                             </Cancelar>
