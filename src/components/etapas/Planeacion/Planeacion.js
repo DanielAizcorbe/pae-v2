@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./planeacion.css";
+import React from "react";
 import { diagnosticos } from "../../datos/datos-diagnostico"
-import { Container } from "../../utils/Container/Container";
 import { DragDropDiagnostico } from "./DragDropDiagnostico";
-import { useNavigate } from "react-router-dom";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
+import { Columns } from "../../utils/Containers";
+import { Titulo } from "../../utils/Titulos";
+import { styled } from "styled-components";
 
 
 const Planeacion = () => {
@@ -12,22 +12,32 @@ const Planeacion = () => {
     const diagnosticosPrueba = diagnosticos.filter(d => d.tipo == "Fisiológicas");
 
     return (
-        <Container
-            direction={"column"}
-
+        <Columns
+            elementPosition={"top-center"}
         >
-            <h1>Planeación</h1>
-            <h2>Ordene los diagnósticos según su urgencia</h2>
+            <Titulo texto="Planeación" />
+            <Subtitulo>Ordene los diagnósticos según su urgencia</Subtitulo>
             <DragDropDiagnostico
                 diagnosticos={diagnosticosPrueba}
             >
-
             </DragDropDiagnostico>
-            <BotonSiguiente 
-                nextPage={"/evolucion"}
-            />
-        </Container>
+            <Columns
+                elementPosition={"center"}
+                padding={"1rem"}
+            >
+                <BotonSiguiente
+                    nextPage={"/evolucion"}
+                />
+            </Columns>
+        </Columns>
     );
 }
+
+const Subtitulo = styled.h2`
+    margin: 0;
+    padding: 1rem;
+`;
+
+
 
 export { Planeacion }
