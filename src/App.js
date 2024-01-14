@@ -25,7 +25,6 @@ function App() {
         <Route exact path="/" element={<BusquedaPaciente seBuscoDocumentoInexistente={true} />} />
         <Route exact path="/evolucion" element={<Evolucion />} />
         <Route exact path='/evolucion/valoracion' element={<Valoracion />} />
-        <Route exact path='/evolucion/valoracion/finalizar' element={<EvolucionTerminada title={"Valoración"} text={valoracionFalsa} nextPage={"/evolucion"} />} />
         <Route exact path='/evolucion/diagnostico' element={<Diagnostico />} />
         <Route exact path='/evolucion/diagnostico/finalizar' element={<EvolucionTerminada title={"Diagnóstico"} text={diagnosticoFalso} nextPage={"/evolucion"} />} />
         <Route exact path='/evolucion/finalizar' element={<EvolucionTerminada />} nextPage={"/"} title={"Vista previa"} text={resumenFinal} />

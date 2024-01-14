@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
-
-import "../etapas.css";
-
 import { MapaMental } from "../../utils/MapaMental/MapaMental";
-import { useNavigate } from "react-router-dom";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Titulo } from "../../utils/Titulos"
 import { styled } from "styled-components";
@@ -16,14 +12,6 @@ const Valoracion = ({ completada, setCompletada }) => {
     const [showMapa, setShowMapa] = useState(true);
     const [showNecesidades, setShowNecesidades] = useState(false);
 
-    const navegar = useNavigate();
-
-    const nextPage = () => {
-        /* setCompletada(true); */
-        navegar();
-
-    }
-
     return (
         <ValoracionContainer
             elementPosition={"top-center"}
@@ -34,6 +22,7 @@ const Valoracion = ({ completada, setCompletada }) => {
                 showCondition={showMapa}
                 toggleFunction={setShowMapa}
                 title={"Mapa Mental"}
+                elementPosition={"center-left"}
             >
                 <MapaMental />
             </ToggleSection>
@@ -41,12 +30,18 @@ const Valoracion = ({ completada, setCompletada }) => {
                 showCondition={showNecesidades}
                 toggleFunction={setShowNecesidades}
                 title={"Necesidades"}
+                elementPosition={"top-center"}
             >
                 <ListaNecesidades />
             </ToggleSection>
-            <BotonSiguiente
-                nextPage={"/evolucion/valoracion/finalizar"}
-            />
+            <Columns
+                elementPosition="bottom-center"
+                padding="2rem"
+            >
+                <BotonSiguiente
+                    nextPage={"/evolucion"}
+                />
+            </Columns>
         </ValoracionContainer>
     );
 }

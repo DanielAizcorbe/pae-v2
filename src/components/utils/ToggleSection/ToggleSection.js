@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { Rows } from "../Containers";
 
-const ToggleSection = ({ showCondition, toggleFunction, children, title }) => {
+const ToggleSection = ({ showCondition, toggleFunction, children, title, elementPosition }) => {
 
     return (
         <ToggleContainer>
@@ -11,7 +11,7 @@ const ToggleSection = ({ showCondition, toggleFunction, children, title }) => {
             </ToggleTitle>
             {showCondition ? 
                 <Rows
-                    elementPosition="center-left"
+                    elementPosition={elementPosition}
                     padding="2rem"
                     width="100%"
                     height="100%"
