@@ -1,22 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
+import { ModalEliminarMarcador } from "./ModalEliminarMarcador";
 
-const Marcador = ({ posX, posY, numero, openModal }) => {
+const Marcador = ({ posX, posY, numero, remove, id }) => {
+
+    const [showModal, setShowModal] = useState(false);
 
     const removeMarcador = () => {
-        openModal(true);
+        const idDelete = id;
+        remove(idDelete);
+        closeModalFunction();
+    }
+
+    const closeModalFunction = () => {
+        console.log("cerrar modal");
+        setShowModal(false);
+    }
+
+    const openModal = () => {
+        setShowModal(true);
     }
 
     return (
-        <MarcadorBody
-            posX={posX + "px"}
-            posY={posY + "px"}
-            onClick={removeMarcador}
-        >
-            <NumeroMarcador>
-                {numero}
-            </NumeroMarcador>
-        </MarcadorBody>
+        <>
+            <MarcadorBody
+                posX={posX + "px"}
+                posY={posY + "px"}
+                onClick={openModal}
+            >
+                <NumeroMarcador>
+                    {numero}
+                </NumeroMarcador>
+            </MarcadorBody>
+            {showModal ?
+                <ModalEliminarMarcador
+                    numero={numero}
+                    closeModalFunction={closeModalFunction}
+                    remove={removeMarcador}
+                /> : ""
+            }
+        </>
     );
 }
 

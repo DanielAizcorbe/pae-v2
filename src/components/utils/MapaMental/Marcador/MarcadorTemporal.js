@@ -1,7 +1,7 @@
 import React from "react";
 import { Marcador } from "./Marcador";
 
-const MarcadorTemporal = ({ marcador, nextId }) => {
+const MarcadorTemporal = ({ marcador, nextId, numero }) => {
     return (
         <>
             {
@@ -9,7 +9,9 @@ const MarcadorTemporal = ({ marcador, nextId }) => {
                     <Marcador
                         posX={marcador.x}
                         posY={marcador.y}
-                        numero={nextId}
+                        numero={numero}
+                        id={nextId}
+                        showModal={false}
                     /> : ""
             }
         </>

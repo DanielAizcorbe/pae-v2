@@ -1,7 +1,9 @@
 import React from "react";
 import { Marcador } from "./Marcador";
 
-const ListaMarcadores = ({marcadores, openModal}) => {
+const ListaMarcadores = ({marcadores, removeMarcador}) => {
+
+    
 
     return (
         <>
@@ -9,8 +11,9 @@ const ListaMarcadores = ({marcadores, openModal}) => {
                 <Marcador
                     posX={m.x}
                     posY={m.y}
-                    numero={marcadores.findIndex(n => n.id == m.id) + 1}
-                    openModal={openModal}
+                    id={m.id}
+                    numero={marcadores.findIndex(n => n.id === m.id) + 1}
+                    remove={removeMarcador}
                 />)
             }
         </>

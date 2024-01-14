@@ -6,7 +6,6 @@ import { ListaMarcadores } from './Marcador/ListaMarcadores';
 import { MarcadorTemporal } from './Marcador/MarcadorTemporal';
 import { InfoMarcadores } from './Marcador/InfoMarcadores';
 import { ModalCreacionMarcador } from './Marcador/ModalCreacionMarcador';
-import { ModalEliminarMarcador } from './Marcador/ModalEliminarMarcador';
 
 const MapaMental = () => {
 
@@ -15,13 +14,11 @@ const MapaMental = () => {
 
   const [showOpcionesCreacion, setShowOpcionesCreacion] = useState(false);
   const [contador, setContador] = useState(1);
-  const [showModalRemove, setShowModalRemove] = useState(false);
 
   const addMarcador = (event) => {
     setShowOpcionesCreacion(true);
     const x = event.clientX + window.scrollX;
     const y = event.clientY + window.scrollY;
-
 
     const marcador = {
       id: contador,
@@ -34,13 +31,14 @@ const MapaMental = () => {
   };
 
   const removeMarcador = (id) => {
-    setMarcadores(marcadores.filter(m => m.id == id));
+    const marcadoresRestantes = marcadores.filter(m => m.id != id);
+    console.log("BORRADO MARCADOR CON ID: ",id);
+    setMarcadores(marcadoresRestantes);
+    console.log(marcadores);
   }
 
   const addMarcadorALaLista = (marcador) => {
     setMarcadores([...marcadores, marcador]);
-    console.log(marcador);
-    console.log(marcadores);
   }
 
   const closeModalFunction = () => {
@@ -65,11 +63,12 @@ const MapaMental = () => {
         />
         <ListaMarcadores
           marcadores={marcadores}
-          openModal={setShowModalRemove}
+          removeMarcador={removeMarcador}
         />
         <MarcadorTemporal
           marcador={marcadorNuevo}
-          nextId={marcadores.length + 1}
+          numero={marcadores.length + 1}
+          nextId={contador}
           removeMarcador={removeMarcador}
         />
       </MapaMentalContainer>

@@ -9,7 +9,7 @@ const InfoMarcadores = ({ marcadores }) => {
                 marcadores
                     .map(m =>
                         <InfoMarcador key={m.id}>
-                            {m.id + ". " + m.text}
+                            {m.text}
                         </InfoMarcador>)
             }
         </ListaInfoMarcadores>
@@ -30,7 +30,6 @@ const ListaInfoMarcadores = styled.ol`
     flex-direction: column;
     flex-wrap: wrap;
     gap: 0.2rem;
-    list-style-type: none;
 `;
 
 const InfoMarcador = styled.li`
