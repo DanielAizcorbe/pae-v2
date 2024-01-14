@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import "./evolucion-terminada.css";
-import { useNavigate } from "react-router-dom";
 import { TextArea } from "../utils/TextArea";
 import { BotonContainer, Columns, Rows } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
 import { styled } from "styled-components";
+import { BotonSiguiente } from "../botones/BotonSiguiente";
 
 const EvolucionTerminada = ({text, nextPage }) => {
 
     const [texto, setTexto] = useState(text);
     const [fueGuardado, setFueGuardado] = useState(false);
     const guardar = () => setFueGuardado(true);
-
-    const navegar = useNavigate();
-
-    const next = () => {
-        navegar(nextPage);
-    }
 
     return (
         <Columns
@@ -34,14 +28,12 @@ const EvolucionTerminada = ({text, nextPage }) => {
                 <BotonContainer
                     width={"50rem"}
                 >
-                    <button className="btn-copiar-texto">
-                        Copiar al portapapeles
-                    </button>
+                    <BotonSiguiente text={"Copiar al portapapeles"}/>
                     {fueGuardado ?
-                        <div className="btn-guardado">V Guardado</div>
-                        : <button className="btn-guardar" onClick={next}>
-                            Guardar
-                        </button>}
+                        <BotonSiguiente>V Guardado</BotonSiguiente>
+                        : <BotonSiguiente text={"Guardar"} nextPage={nextPage}>
+                            
+                        </BotonSiguiente>}
                 </BotonContainer>
             </Columns>
         </Columns>
