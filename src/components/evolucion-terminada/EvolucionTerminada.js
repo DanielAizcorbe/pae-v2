@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./evolucion-terminada.css";
 import { useNavigate } from "react-router-dom";
-import { TextArea } from "../utils/TextArea/TextArea";
+import { TextArea } from "../utils/TextArea";
 
 const EvolucionTerminada = ({ title, text, nextPage }) => {
 

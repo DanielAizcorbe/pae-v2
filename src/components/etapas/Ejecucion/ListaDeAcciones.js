@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
-import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
+import { ToggleSection } from "../../utils/ToggleSection";
 import { Columns } from "../../utils/Containers";
 import { Accion } from "./Accion";
 

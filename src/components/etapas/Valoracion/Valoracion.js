@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
+import { ToggleSection } from "../../utils/ToggleSection";
 import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Titulo } from "../../utils/Titulos"

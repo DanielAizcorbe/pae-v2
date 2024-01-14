@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import { Rows } from "../Containers";
+import { Rows } from "./Containers";
 
 const ToggleSection = ({ showCondition, toggleFunction, children, title, elementPosition, bgcolor }) => {
 
