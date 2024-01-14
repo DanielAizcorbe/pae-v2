@@ -1,8 +1,8 @@
 import React from "react";
-import { Necesidad } from "../Necesidad";
+import { Necesidad } from "./Necesidad";
 import { necesidades } from "../../datos/datos-necesidades";
 import { styled } from "styled-components";
-import { Columns } from "../../utils/Containers";
+import { UList } from "../../utils/List";
 
 const ListaNecesidades = () => {
 
@@ -17,20 +17,6 @@ const ListaNecesidades = () => {
     );
 }
 
-const Necesidades = styled.ul`
-    height: 100%;
-    max-height: 90rem;
-    max-width: 1200px;
-    width: 80%;
-    list-style-type: none;
-    padding: 0 3rem;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem 2rem;
-`;
+const Necesidades = styled(UList)``;
 
 export { ListaNecesidades }

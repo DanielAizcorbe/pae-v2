@@ -1,38 +1,54 @@
 import React, { useState } from "react";
 import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
-import { useNavigate } from "react-router-dom";
 import { diagnosticos } from "../../datos/datos-diagnostico";
-import "./diagnostico.css";
 import { DiagnosticoItem } from "./DiagnosticoItem";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
+import { Titulo } from "../../utils/Titulos";
+import { EtapaContainer } from "../EtapaContainer";
+import { Columns } from "../../utils/Containers";
+import { styled } from "styled-components";
+import { UList } from "../../utils/List";
+
 
 const Diagnostico = ({ completada, setCompletada }) => {
 
     const [showSection, setShowSection] = useState(true);
-    
+
     return (
-        <div className="valoracion-container">
-            <h1> Diagnóstico </h1>
+        <EtapaContainer
+            elementPosition={"top-center"}
+            padding={"1rem"}
+        >
+            <Titulo texto={"Diagnóstico"} />
             <ToggleSection
                 title={"Diagnosticos de enfermería"}
                 showCondition={showSection}
                 toggleFunction={() => setShowSection(!showSection)}
             >
-                    <ul className="diagnosticos-list">
-                        {diagnosticos
-                            .sort((d1, d2) => d1.tipo - d2.tipo)
-                            .map(n => <DiagnosticoItem
-                                nombre={n.nombre}
-                                id={n.id}
-                                tipo={n.tipo}
-                            />)}
-                    </ul>
+                <ListaDiagnosticos>
+                    {diagnosticos
+                        .sort((d1, d2) => d1.tipo - d2.tipo)
+                        .map(n => <DiagnosticoItem
+                            nombre={n.nombre}
+                            id={n.id}
+                            tipo={n.tipo}
+                        />)}
+                </ListaDiagnosticos>
             </ToggleSection>
-            <BotonSiguiente
-                nextPage={"/evolucion"}
-            />
-        </div>
+            <Columns
+                padding={"1rem"}
+                elementPosition="bottom-center"
+            >
+                <BotonSiguiente
+                    nextPage={"/evolucion"}
+                />
+            </Columns>
+        </EtapaContainer>
     );
 }
+
+const ListaDiagnosticos = styled(UList)`
+    max-width: 100%;
+`;
 
 export { Diagnostico }

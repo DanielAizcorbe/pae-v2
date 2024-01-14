@@ -60,7 +60,5 @@ const Rows = ({children, elementPosition, padding, margin, height, width}) => {
     );
 }
 
-
-
 export { Columns, Rows, BotonContainer }
 

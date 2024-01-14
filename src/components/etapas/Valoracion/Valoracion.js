@@ -3,9 +3,9 @@ import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
 import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Titulo } from "../../utils/Titulos"
-import { styled } from "styled-components";
 import { Columns } from "../../utils/Containers";
 import { ListaNecesidades } from "./ListaNecesidades";
+import { EtapaContainer } from "../EtapaContainer";
 
 const Valoracion = ({ completada, setCompletada }) => {
 
@@ -13,7 +13,7 @@ const Valoracion = ({ completada, setCompletada }) => {
     const [showNecesidades, setShowNecesidades] = useState(false);
 
     return (
-        <ValoracionContainer
+        <EtapaContainer
             elementPosition={"top-center"}
             padding="1rem"
         >
@@ -42,16 +42,10 @@ const Valoracion = ({ completada, setCompletada }) => {
                     nextPage={"/evolucion"}
                 />
             </Columns>
-        </ValoracionContainer>
+        </EtapaContainer>
     );
 }
 
-const ValoracionContainer = styled(Columns)`
-    min-height: 100vh;
-    height: 100%;
-    overflow-y: visible;
-    width: 100%;
-`;
 
 
 
