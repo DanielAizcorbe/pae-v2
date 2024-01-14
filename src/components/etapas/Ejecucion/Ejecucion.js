@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { Container } from "../../utils/Container/Container";
 import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
 import { diagnosticos } from "../../datos/datos-diagnostico";
-import ListaDeAcciones from "./ListaDeAcciones";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
+import { Columns } from "../../utils/Containers";
+import { EtapaContainer } from "../EtapaContainer";
+import { Titulo } from "../../utils/Titulos";
+import { ListaDeAcciones } from "./ListaDeAcciones";
 
 
 const Ejecucion = () => {
 
     const [showAcciones, setShowAcciones] = useState(true);
-    const diagnosticosPrueba = diagnosticos.filter(d => d.tipo === "Prevención")
+
+    const diagnosticosPrueba = diagnosticos.filter(d => d.tipo === "Prevención");
 
     const acciones = diagnosticosPrueba.map(
         o => ({
@@ -19,26 +22,36 @@ const Ejecucion = () => {
     );
 
     return (
-        <Container
-            position={"top-center"}
-            direction={"column"}
+        <EtapaContainer
+            elementPosition={"top-center"}
+            padding={"1rem"}
             height={"100%"}
             width={"100%"}
         >
-            <h1>Ejecución</h1>
+            <Titulo texto="Ejecución" />
             <ToggleSection
                 title={"Acciones"}
                 showCondition={showAcciones}
                 toggleFunction={setShowAcciones}
+                elementPosition={"top-left"}
             >
-                <ul>
-                    {acciones.map(a => <ListaDeAcciones nombre={a.nombre} acciones={a.acciones}/>)}
-                </ul>
+                <Columns
+                    elementPosition={"top-left"}
+                    padding={" 1rem 2rem"}
+                    width={"80%"}
+                >
+                    {acciones.map(a => <ListaDeAcciones categoria={a.nombre} acciones={a.acciones} />)}
+                </Columns>
             </ToggleSection>
-            <BotonSiguiente 
-                nextPage={"/evolucion"}
-            />
-        </Container>
+            <Columns
+                elementPosition={"bottom-center"}
+                padding={"2rem"}
+            >
+                <BotonSiguiente
+                    nextPage={"/evolucion"}
+                />
+            </Columns>
+        </EtapaContainer>
     );
 }
 

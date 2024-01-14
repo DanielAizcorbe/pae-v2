@@ -1,19 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { styled } from "styled-components";
+import { ToggleSection } from "../../utils/ToggleSection/ToggleSection";
+import { Columns } from "../../utils/Containers";
+import { Accion } from "./Accion";
 
-export const ListaDeAcciones = ({ nombre, acciones }) => {
+const ListaDeAcciones = ({ categoria, acciones }) => {
 
-    return <div>
-        <h3>{nombre}</h3>
-        {acciones.map(a =>
-            <div>
-                <label htmlFor={a}>
-                    <input type="checkbox" id={a} value={a} />
-                    {a}
-                </label>
-            </div>
-        )}
-    </div>;
+    const [showToggle, setShowToggle] = useState(false);
+
+    const toggleFunction = () => {
+        setShowToggle(!showToggle);
+    }
+
+    return (
+        <ToggleSection
+            title={categoria}
+            elementPosition={"top-left"}
+            showCondition={showToggle}
+            toggleFunction={toggleFunction}
+        >
+            <Columns
+                elementPosition={"top-left"}
+
+            >
+                {acciones.map(a =>
+                    <Accion htmlFor={a}>
+                        {a}
+                    </Accion>
+                )}
+            </Columns>
+        </ToggleSection>
+    );
 }
 
-export default ListaDeAcciones;
-/* export { ListaDeAcciones } */
+const Categoria = styled.h3`
+    text-align: left;
+    padding: 1rem 2rem;
+    width: 50rem;
+    background-color: var(--planeacion);
+    border-radius: 1rem;
+    color: var(--color-fondo);
+`;
+
+export { ListaDeAcciones }

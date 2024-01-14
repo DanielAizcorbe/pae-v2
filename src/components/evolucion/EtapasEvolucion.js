@@ -55,7 +55,7 @@ const EtapasEvolucion = () => {
             >
                 <Etapa
                     nombre={"EJECUCIÓN"}
-                    onClick={"/evolucion/ejecucion"}
+                    link={"/evolucion/ejecucion"}
                     completada={ejecucion}
                     bgcolor={"#F9844A"}
                 />
