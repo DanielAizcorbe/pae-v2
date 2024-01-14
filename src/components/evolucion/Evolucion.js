@@ -8,10 +8,6 @@ import { ModalEvolucionAnterior } from "./ModalEvolucionAnterior";
 import { Columns, Rows } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
 
-
-const nombrePaciente = "JUAN PEREZ GONZALES";
-const documentoPaciente = "20333012";
-const fechaNacPaciente = "09-09-1990";
 const etapaCambiada = "VALORACIÓN"
 const huboCambios = false;
 const seCompletoUnaEtapa = true;
@@ -40,9 +36,6 @@ const Evolucion = () => {
                 >
                     <Titulo texto="Evolución paciente" />
                     <DatosPaciente
-                        nombre={nombrePaciente}
-                        documento={documentoPaciente}
-                        fechaNac={fechaNacPaciente}
                     />
                 </Columns>
                 <EtapasEvolucion />

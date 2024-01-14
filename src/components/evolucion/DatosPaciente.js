@@ -1,11 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { styled } from "styled-components";
 
-const DatosPaciente = ({ nombre, documento, fechaNac }) => {
+const DatosPaciente = () => {
+
+    const datosPaciente = useSelector((state) => state.paciente);
+
     return (
         <DatosPacienteContainer>
             <DatosPacienteBody>
-                {nombre + " | " + fechaNac + " | " + documento}
+                {datosPaciente.nombreCompleto + " | " + datosPaciente.fechaNacimiento + " | " + datosPaciente.documento}
             </DatosPacienteBody>
         </DatosPacienteContainer>
     );

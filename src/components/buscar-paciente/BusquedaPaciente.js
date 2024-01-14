@@ -6,23 +6,45 @@ import { styled } from "styled-components";
 import { Titulo } from "../utils/Titulos";
 import { AvisoWarning } from "../avisos/AvisoWarning";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
+import { useDispatch } from "react-redux";
+import { evolucionar } from "../../store/slices/paciente";
 
 const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
 
-    const [modal, setModal] = useState(false);
+    const dispatch = useDispatch();
 
-    const openModal = () => {
-        setModal(true);
+    const nombreCompleto = "JUAN PEREZ GONZALES CRUZ";
+    const documento = "20333012";
+    const fechaNacimiento = "09-09-1990";
+
+    const fetchDatosPaciente = () => {
+        dispatch(
+            evolucionar(
+                {
+                    nombreCompleto: nombreCompleto,
+                    fechaNacimiento: fechaNacimiento,
+                    documento: documento
+                }
+            )
+        );
     }
+
+    const [showModal, setShowModal] = useState(false);
 
     const closeModal = () => {
-        setModal(false);
+        setShowModal(false);
     }
 
-    const [mostrarAviso, setMostrarAviso] = useState(true);
+    const [mostrarAviso, setMostrarAviso] = useState(false);
 
     const closeAviso = () => {
         setMostrarAviso(false);
+    }
+
+    const handleModalPaciente = () => {
+        setShowModal(true);
+        fetchDatosPaciente();
+        
     }
 
     return (
@@ -39,7 +61,7 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
                 height="30rem"
             >
                 <InputNroDocumento />
-                <BotonIcono onClick={openModal}>
+                <BotonIcono onClick={handleModalPaciente}>
                     <FlechaDerecha />
                 </BotonIcono>
             </Rows>
@@ -48,7 +70,7 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
                     <AvisoWarning closeAviso={closeAviso} text={"No hay ningún paciente registrado con ese documento"} />
                     : ""
             }
-            {modal ? (
+            {showModal ? (
                 <ModalDatosPaciente closeModal={closeModal} nextPage={"/evolucion"} />
             ) : ""}
         </Columns>

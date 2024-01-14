@@ -4,15 +4,11 @@ import { BotonSiguiente } from "../botones/BotonSiguiente";
 import { BotonVolver } from "../botones/BotonVolver";
 import { BotonContainer, Columns } from "../utils/Containers";
 import { ImportantText } from "../utils/Spans";
-
+import { useSelector } from "react-redux";
 
 const ModalDatosPaciente = ({ closeModal, nextPage }) => {
 
-    const persona = {
-        nombre: "JUAN CARLOS DEL CAMPO",
-        documento: "11111111",
-        fechaNacimiento: "12-08-1990"
-    };
+    const datosPaciente = useSelector((state) => state.paciente);
 
     return (
         <VentanaModal
@@ -28,13 +24,13 @@ const ModalDatosPaciente = ({ closeModal, nextPage }) => {
                 </TituloModal>
                 <Columns>
                     <FilaDatoModal>
-                        <ImportantText>Nombre:</ImportantText>{" " + persona.nombre}
+                        <ImportantText>Nombre:</ImportantText>{" " + datosPaciente.nombreCompleto}
                     </FilaDatoModal>
                     <FilaDatoModal>
-                        <ImportantText>Nacimiento:</ImportantText>{" " + persona.fechaNacimiento}
+                        <ImportantText>Nacimiento:</ImportantText>{" " + datosPaciente.fechaNacimiento}
                     </FilaDatoModal>
                     <FilaDatoModal>
-                        <ImportantText>Documento:</ImportantText>{" " + persona.documento}
+                        <ImportantText>Documento:</ImportantText>{" " + datosPaciente.documento}
                     </FilaDatoModal>
                 </Columns>
                 <BotonContainer>
