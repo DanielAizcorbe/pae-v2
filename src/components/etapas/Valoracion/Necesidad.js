@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 
-const Necesidad = ({ nombre, id }) => {
-
-    const [selected, setSelected] = useState(false);
+const Necesidad = ({ nombre, id, toggleSelection, selected }) => {
 
     return (
         <NecesidadItem 
             key={id}
             selected={selected}
-            onClick={() => setSelected(!selected)}
+            onClick={() => toggleSelection(id)}
         >
             {nombre}
         </NecesidadItem>

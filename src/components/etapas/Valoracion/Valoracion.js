@@ -13,7 +13,7 @@ const Valoracion = () => {
     {/*ESTADOS PARA LOS TOGGLE SECTION */}
     const [showMapa, setShowMapa] = useState(true);
     const [showNecesidades, setShowNecesidades] = useState(false);
-
+    
     return (
         <EtapaContainer
             elementPosition={"top-center"}

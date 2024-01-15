@@ -3,6 +3,7 @@ import pacienteReducer from "./slices/paciente";
 import etapaReducer from "./slices/etapas";
 import marcadoresValoracionReducer from "./slices/mapaMentalValoracion"
 import marcadoresEjecucionReducer from "./slices/mapaMentalEjecucion";
+import necesidadesReducer from "./slices/necesidades";
 
 export const store = configureStore(
     {
@@ -11,6 +12,7 @@ export const store = configureStore(
             estadoEtapas: etapaReducer,
             marcadoresValoracion: marcadoresValoracionReducer,
             marcadoresEjecucion: marcadoresEjecucionReducer,
+            necesidades: necesidadesReducer,
         }
     }
 );
