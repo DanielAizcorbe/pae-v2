@@ -7,7 +7,7 @@ const AvisoWarning = ({ text, closeAviso }) => {
     return (
         <AvisoContainer>
             <AvisoBody
-                bgcolor={WARNING_COLOR}
+                $bgcolor={WARNING_COLOR}
             >
                 {text}
             </AvisoBody>

@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 
-const InputNroDocumento = () => {
+const InputNroDocumento = ({onChange, docBuscado}) => {
 
     return (
         <label htmlFor="nro-documento">
@@ -14,6 +14,8 @@ const InputNroDocumento = () => {
                 minLength={1}
                 spellCheck={false}
                 placeholder="Ingrese el documento del paciente"
+                onChange={onChange}
+                value={docBuscado}
             />
         </label>
     );

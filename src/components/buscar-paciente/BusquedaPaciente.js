@@ -9,12 +9,13 @@ import { ModalDatosPaciente } from "./ModalDatosPaciente";
 import { useDispatch } from "react-redux";
 import { evolucionar } from "../../store/slices/paciente";
 
-const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
+const BusquedaPaciente = () => {
 
     const dispatch = useDispatch();
+    const [docBuscado, setDocBuscado] = useState("");
 
     const nombreCompleto = "JUAN PEREZ GONZALES CRUZ";
-    const documento = "20333012";
+    const documento = "11111";
     const fechaNacimiento = "09-09-1990";
 
     const fetchDatosPaciente = () => {
@@ -42,9 +43,13 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
     }
 
     const handleModalPaciente = () => {
-        setShowModal(true);
-        fetchDatosPaciente();
-        
+
+        if (documento === docBuscado) {
+            setShowModal(true);
+            fetchDatosPaciente();
+        } else {
+            setMostrarAviso(true);
+        }
     }
 
     return (
@@ -60,14 +65,17 @@ const BusquedaPaciente = ({ seBuscoDocumentoInexistente }) => {
                 elementPosition="center"
                 height="30rem"
             >
-                <InputNroDocumento />
+                <InputNroDocumento
+                    onChange={(event) => setDocBuscado(event.target.value)}
+                    value={docBuscado}
+                />
                 <BotonIcono onClick={handleModalPaciente}>
                     <FlechaDerecha />
                 </BotonIcono>
             </Rows>
             {
-                seBuscoDocumentoInexistente && mostrarAviso ?
-                    <AvisoWarning closeAviso={closeAviso} text={"No hay ningún paciente registrado con ese documento"} />
+                mostrarAviso ?
+                    <AvisoWarning closeAviso={closeAviso} text={"No hay ningún paciente registrado con el documento " + docBuscado} />
                     : ""
             }
             {showModal ? (
