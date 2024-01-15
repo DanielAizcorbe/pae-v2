@@ -36,6 +36,7 @@ const EtapasEvolucion = () => {
                     link={"/evolucion/valoracion"}
                     completada={estadoEtapas.valoracion.completada}
                     bgcolor={"#F94144"}
+                    sePuedeCompletar={true}
                 />
             </Rows>
             <Rows
@@ -45,6 +46,7 @@ const EtapasEvolucion = () => {
                     nombre={"EVALUACIÓN"}
                     link={"/evolucion/evaluacion"}
                     completada={estadoEtapas.evaluacion.completada}
+                    sePuedeCompletar={estadoEtapas.ejecucion.completada}
                     bgcolor={"#577590"}
                 />
                 <BotonCentral
@@ -55,6 +57,7 @@ const EtapasEvolucion = () => {
                     nombre={"DIAGNÓSTICO"}
                     link={"/evolucion/diagnostico"}
                     completada={estadoEtapas.diagnostico.completada}
+                    sePuedeCompletar={estadoEtapas.valoracion.completada}
                     bgcolor={"#90BE6D"}
                 />
             </Rows>
@@ -66,11 +69,13 @@ const EtapasEvolucion = () => {
                     link={"/evolucion/ejecucion"}
                     completada={estadoEtapas.ejecucion.completada}
                     bgcolor={"#F9844A"}
+                    sePuedeCompletar={estadoEtapas.planeacion.completada}
                 />
                 <Etapa
                     nombre={"PLANEACIÓN"}
                     link={"/evolucion/planeacion"}
                     completada={estadoEtapas.planeacion.completada}
+                    sePuedeCompletar={estadoEtapas.diagnostico.completada}
                     bgcolor={"#4D908E"}
                 />
             </Rows>

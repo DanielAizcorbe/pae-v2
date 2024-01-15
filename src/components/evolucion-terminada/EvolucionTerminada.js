@@ -4,11 +4,9 @@ import { BotonContainer, Columns } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
 import { BotonSiguiente } from "../botones/BotonSiguiente";
 
-const EvolucionTerminada = ({text, nextPage }) => {
+const EvolucionTerminada = ({ text, nextPage }) => {
 
     const [texto, setTexto] = useState(text);
-    const [fueGuardado, setFueGuardado] = useState(false);
-    const guardar = () => setFueGuardado(true);
 
     return (
         <Columns
@@ -26,12 +24,8 @@ const EvolucionTerminada = ({text, nextPage }) => {
                 <BotonContainer
                     width={"50rem"}
                 >
-                    <BotonSiguiente text={"Copiar al portapapeles"}/>
-                    {fueGuardado ?
-                        <BotonSiguiente>V Guardado</BotonSiguiente>
-                        : <BotonSiguiente text={"Guardar"} nextPage={nextPage}>
-                            
-                        </BotonSiguiente>}
+                    <BotonSiguiente text={"Copiar al portapapeles"} />
+                    <BotonSiguiente text={"Guardar"} nextPage={nextPage} />
                 </BotonContainer>
             </Columns>
         </Columns>

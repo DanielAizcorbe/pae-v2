@@ -7,7 +7,7 @@ const FALTA_CONFIRMAR_EDICION = "CONFIRMAR EDICIÓN";
 const GENERAR_EVOLUCION = "FINALIZAR EVOLUCIÓN";
 const FALTAN_ETAPAS = "FALTAN ETAPAS";
 
-const toggleBotonCentral = (flag) => {
+const toggleBotonCentral = (flag, onClick) => {
     switch (flag) {
         case FALTA_CONFIRMAR_EDICION:
             return (
@@ -21,6 +21,7 @@ const toggleBotonCentral = (flag) => {
             return (
                 <BtnCentral
                     $bgcolor={BOTON_PRIMARIO}
+                    onClick={onClick}
                 >
                     {GENERAR_EVOLUCION}
                 </BtnCentral>

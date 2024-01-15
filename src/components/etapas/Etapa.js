@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import { BOTON_PRIMARIO, WARNING_COLOR } from "../datos/colores";
 import { useNavigate } from "react-router-dom";
 
-const Etapa = ({ nombre, link, completada, bgcolor }) => {
+const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar }) => {
 
     const [nombreBoton, setNombreBoton] = useState(nombre);
 
@@ -13,14 +13,23 @@ const Etapa = ({ nombre, link, completada, bgcolor }) => {
     const goToEtapa = () => {
         navegar(link);
     }
+    
+    const getColor = (colorCompletado, colorOriginal) => {
+        return (completada ? colorCompletado : (sePuedeCompletar ? colorOriginal : "gray"));
+    }
+
+    const getHoverColor = () => {
+        return (completada ? WARNING_COLOR : (sePuedeCompletar ? BOTON_PRIMARIO : "gray"));
+    }
 
     return (
         <BotonEtapa
             $completada={completada}
-            onClick={goToEtapa}
+            onClick={sePuedeCompletar ? goToEtapa : () => {}}
             onMouseEnter={() => setNombreBoton(completada === true ? "EDITAR" : nombre)}
             onMouseLeave={() => setNombreBoton(nombre)}
-            $bgcolor={bgcolor}
+            $bgcolor={getColor(BOTON_PRIMARIO,bgcolor)}
+            $hovercolor={getHoverColor()}
         >
             {nombreBoton}
         </BotonEtapa>
@@ -38,7 +47,7 @@ const BotonEtapa = styled.button`
     -moz-box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
     box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
     box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
-    background-color: ${props => props.$completada == true ? BOTON_PRIMARIO : props.$bgcolor};
+    background-color: ${props => props.$bgcolor};
     text-align: center;
     display: flex;
     justify-content: space-evenly;
@@ -50,7 +59,7 @@ const BotonEtapa = styled.button`
     border: none;
 
     &:hover {
-        background-color: ${props => props.$completada == true ? WARNING_COLOR : BOTON_PRIMARIO};
+        background-color: ${props => props.$hovercolor};
         transform: scale(1.05, 1.05);
         transition: transform 100ms linear;
     }
