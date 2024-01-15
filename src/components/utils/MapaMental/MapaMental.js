@@ -6,11 +6,16 @@ import { ListaMarcadores } from './Marcador/ListaMarcadores';
 import { MarcadorTemporal } from './Marcador/MarcadorTemporal';
 import { InfoMarcadores } from './Marcador/InfoMarcadores';
 import { ModalCreacionMarcador } from './Marcador/ModalCreacionMarcador';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { agregar, quitar } from '../../../store/slices/mapaMentalValoracion';
 
-const MapaMental = () => {
+const MapaMental = ({slice}) => {
 
-  const [marcadores, setMarcadores] = useState([]);
-  const [marcadorNuevo, setMarcadorNuevo] = useState({ id: -1 });
+  const marcadores = useSelector(state => state[slice]);
+  const dispatch = useDispatch();
+
+  const [marcadorTemporal, setMarcadorTemporal] = useState({ id: -1 });
 
   const [showOpcionesCreacion, setShowOpcionesCreacion] = useState(false);
   const [contador, setContador] = useState(1);
@@ -26,23 +31,20 @@ const MapaMental = () => {
       y: y,
       text: ""
     };
-    setMarcadorNuevo(marcador);
+    setMarcadorTemporal(marcador);
     setContador(contador + 1);
   };
 
   const removeMarcador = (id) => {
-    const marcadoresRestantes = marcadores.filter(m => m.id != id);
-    console.log("BORRADO MARCADOR CON ID: ",id);
-    setMarcadores(marcadoresRestantes);
-    console.log(marcadores);
+    dispatch(quitar({ id: id }));
   }
 
-  const addMarcadorALaLista = (marcador) => {
-    setMarcadores([...marcadores, marcador]);
+  const addMarcadorAlMapa = (marcador) => {
+    dispatch(agregar(marcador));
   }
 
   const closeModalFunction = () => {
-    setMarcadorNuevo({ id: -1 });
+    setMarcadorTemporal({ id: -1 });
     setShowOpcionesCreacion(false);
   }
 
@@ -66,7 +68,7 @@ const MapaMental = () => {
           removeMarcador={removeMarcador}
         />
         <MarcadorTemporal
-          marcador={marcadorNuevo}
+          marcador={marcadorTemporal}
           numero={marcadores.length + 1}
           nextId={contador}
           removeMarcador={removeMarcador}
@@ -75,9 +77,9 @@ const MapaMental = () => {
       <InfoMarcadores
         marcadores={marcadores}
       />
-      <ModalCreacionMarcador 
-        addMarcadorALaLista={addMarcadorALaLista}
-        marcadorNuevo={marcadorNuevo}
+      <ModalCreacionMarcador
+        addMarcadorALaLista={addMarcadorAlMapa}
+        marcadorNuevo={marcadorTemporal}
         showModal={showOpcionesCreacion}
         closeModalFunction={closeModalFunction}
       />

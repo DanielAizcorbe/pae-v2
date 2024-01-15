@@ -12,16 +12,11 @@ const CreadorDeMarcador = ({ closeModalFunction, marcadorNuevo, addNuevoMarcador
 
     const [selectedOption, setSelectedOption] = useState("");
 
-    const changeOption = (event) => {
-        setSelectedOption(event.target.value);
-    }
-
     const create = (event) => {
         event.preventDefault();
         const newMarker = marcadorNuevo;
         newMarker.text = selectedOption;
         addNuevoMarcador(newMarker);
-        console.log("MARCADOR: " + newMarker.text + " " + newMarker.id + " " + newMarker.x + " " + newMarker.y);
         closeModalFunction();
     };
 

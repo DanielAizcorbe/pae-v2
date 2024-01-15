@@ -26,7 +26,9 @@ const Valoracion = () => {
                 title={"Mapa Mental"}
                 elementPosition={"center-left"}
             >
-                <MapaMental />
+                <MapaMental 
+                    slice={"marcadoresValoracion"}
+                />
             </ToggleSection>
             <ToggleSection
                 showCondition={showNecesidades}

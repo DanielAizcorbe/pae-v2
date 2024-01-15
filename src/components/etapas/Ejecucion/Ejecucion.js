@@ -37,7 +37,9 @@ const Ejecucion = () => {
                 title={"Mapa Mental"}
                 elementPosition={"center-left"}
             >
-                <MapaMental />
+                <MapaMental 
+                    slice={"marcadoresEjecucion"}
+                />
             </ToggleSection>
             <ToggleSection
                 title={"Acciones"}

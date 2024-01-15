@@ -2,23 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     valoracion: {
-        completada: true,
+        completada: false,
         text: "",
     },
     diagnostico: {
-        completada: true,
+        completada: false,
         text: "",
     },
     planeacion: {
-        completada: true,
+        completada: false,
         text: "",
     },
     ejecucion: {
-        completada: true,
+        completada: false,
         text: "",
     },
     evaluacion: {
-        completada: true,
+        completada: false,
         text: "",
     },
 }
