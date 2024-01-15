@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 
-const DiagnosticoItem = ({ id, nombre, tipo }) => {
-    const [selected, setSelected] = useState(false);
+const DiagnosticoItem = ({ id, nombre, toggleSelection, selected }) => {
 
     return (
         <ItemList
             key={id}
-            onClick={() => setSelected(!selected)}
+            onClick={() => toggleSelection(id)}
             selected={selected}
         >
             {nombre}

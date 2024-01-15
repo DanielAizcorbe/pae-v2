@@ -4,6 +4,7 @@ import etapaReducer from "./slices/etapas";
 import marcadoresValoracionReducer from "./slices/mapaMentalValoracion"
 import marcadoresEjecucionReducer from "./slices/mapaMentalEjecucion";
 import necesidadesReducer from "./slices/necesidades";
+import diagnosticosReducer from "./slices/diagnosticos";
 
 export const store = configureStore(
     {
@@ -13,6 +14,7 @@ export const store = configureStore(
             marcadoresValoracion: marcadoresValoracionReducer,
             marcadoresEjecucion: marcadoresEjecucionReducer,
             necesidades: necesidadesReducer,
+            diagnosticos: diagnosticosReducer,
         }
     }
 );

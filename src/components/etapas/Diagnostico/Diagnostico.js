@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ToggleSection } from "../../utils/ToggleSection";
-import { diagnosticos } from "../../datos/datos-diagnostico";
 import { DiagnosticoItem } from "./DiagnosticoItem";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Titulo } from "../../utils/Titulos";
@@ -8,11 +7,22 @@ import { EtapaContainer } from "../EtapaContainer";
 import { Columns } from "../../utils/Containers";
 import { styled } from "styled-components";
 import { UList } from "../../utils/List";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { toggleSeleccion } from "../../../store/slices/diagnosticos";
 
 
-const Diagnostico = ({ completada, setCompletada }) => {
+const Diagnostico = () => {
 
     const [showSection, setShowSection] = useState(true);
+
+    const diagnosticos = useSelector(state => state.diagnosticos);
+
+    const dispatch = useDispatch();
+
+    const toggleSelection = (id) => {
+        dispatch(toggleSeleccion(id));
+    }
 
     return (
         <EtapaContainer
@@ -27,12 +37,14 @@ const Diagnostico = ({ completada, setCompletada }) => {
             >
                 <ListaDiagnosticos>
                     {diagnosticos
-                        .sort((d1, d2) => d1.tipo - d2.tipo)
-                        .map(n => <DiagnosticoItem
-                            nombre={n.nombre}
-                            id={n.id}
-                            tipo={n.tipo}
-                        />)}
+                        .map(n =>
+                            <DiagnosticoItem
+                                nombre={n.nombre}
+                                id={n.id}
+                                tipo={n.tipo}
+                                selected={n.selected}
+                                toggleSelection={toggleSelection}
+                            />)}
                 </ListaDiagnosticos>
             </ToggleSection>
             <Columns
