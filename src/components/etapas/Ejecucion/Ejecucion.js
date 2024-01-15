@@ -9,6 +9,7 @@ import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleAccionSeleccion } from "../../../store/slices/diagnosticos";
+import { completarEtapa } from "../../../store/slices/etapas";
 
 
 const Ejecucion = () => {
@@ -30,6 +31,10 @@ const Ejecucion = () => {
 
     const toggleSelection = (diagnostico, accion) => {
         dispatch(toggleAccionSeleccion({diagnostico:diagnostico, accion:accion}));
+    }
+
+    const onClick = () => {
+        dispatch(completarEtapa({etapa:"ejecucion",completada: true, text:""}))
     }
 
     return (
@@ -77,6 +82,7 @@ const Ejecucion = () => {
             >
                 <BotonSiguiente
                     nextPage={"/evolucion"}
+                    onClick={onClick}
                 />
             </Columns>
         </EtapaContainer>

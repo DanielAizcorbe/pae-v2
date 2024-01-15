@@ -39,8 +39,8 @@ const Evolucion = () => {
                     />
                 </Columns>
                 <EtapasEvolucion />
-                {huboCambios ? <AvisoCambios etapaCambiada={etapaCambiada} /> : ""}
-                {seCompletoUnaEtapa ? <AvisoEtapaCompletada etapaCambiada={etapaCambiada} /> : ""}
+                {/* {huboCambios ? <AvisoCambios etapaCambiada={etapaCambiada} /> : ""}
+                {seCompletoUnaEtapa ? <AvisoEtapaCompletada etapaCambiada={etapaCambiada} /> : ""} */}
             </Columns>
             {showEvolucionAnterior ? <ModalEvolucionAnterior evolucionSeleccionada={evolucionSeleccionada} closeModal={() => setShowEvolucionAnterior(false)} /> : ""}
         </Rows>

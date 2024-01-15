@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleDiagnosticoSeleccion } from "../../../store/slices/diagnosticos";
 import { switchOrder } from "../../../store/slices/prioridades";
+import { completarEtapa } from "../../../store/slices/etapas";
 
 
 const Diagnostico = () => {
@@ -27,6 +28,7 @@ const Diagnostico = () => {
 
     const onClickFunction = () => {
         dispatch(switchOrder(diagnosticos.filter(d => d.selected)));
+        dispatch(completarEtapa({etapa:"diagnostico",completada: true, text:""}))
     }
 
     return (

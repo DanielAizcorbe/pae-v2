@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import "./evolucion-terminada.css";
 import { TextArea } from "../utils/TextArea";
-import { BotonContainer, Columns, Rows } from "../utils/Containers";
+import { BotonContainer, Columns } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
-import { styled } from "styled-components";
 import { BotonSiguiente } from "../botones/BotonSiguiente";
 
 const EvolucionTerminada = ({text, nextPage }) => {

@@ -1,12 +1,22 @@
 import React, { useState } from "react";
-import "./evaluacion.css";
 import { TextArea } from "../../utils/TextArea";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { EtapaContainer } from "../EtapaContainer";
 import { Titulo } from "../../utils/Titulos";
+import { useDispatch } from "react-redux";
+import { completarEtapa } from "../../../store/slices/etapas";
+import { useSelector } from "react-redux";
 
 const Evaluacion = () => {
-    const [text, setText] = useState("");
+
+    const textoEscritoAntes = useSelector(state => state.estadoEtapas.evaluacion.text);
+    const [text, setText] = useState(textoEscritoAntes);
+
+    const dispatch = useDispatch();
+
+    const onClick = () => {
+        dispatch(completarEtapa({etapa:"evaluacion",completada: true, text:text}))
+    }
 
     return (
         <EtapaContainer
@@ -20,6 +30,7 @@ const Evaluacion = () => {
             />
             <BotonSiguiente
                 nextPage={"/evolucion"}
+                onClick={onClick}
             />
         </EtapaContainer>
     );

@@ -34,7 +34,7 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"VALORACIÓN"}
                     link={"/evolucion/valoracion"}
-                    completada={estadoEtapas.valoracion.completada + ""}
+                    completada={estadoEtapas.valoracion.completada}
                     bgcolor={"#F94144"}
                 />
             </Rows>
@@ -44,7 +44,7 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"EVALUACIÓN"}
                     link={"/evolucion/evaluacion"}
-                    completada={estadoEtapas.evaluacion.completada + ""}
+                    completada={estadoEtapas.evaluacion.completada}
                     bgcolor={"#577590"}
                 />
                 <BotonCentral
@@ -54,7 +54,7 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"DIAGNÓSTICO"}
                     link={"/evolucion/diagnostico"}
-                    completada={estadoEtapas.diagnostico.completada + ""}
+                    completada={estadoEtapas.diagnostico.completada}
                     bgcolor={"#90BE6D"}
                 />
             </Rows>
@@ -64,13 +64,13 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"EJECUCIÓN"}
                     link={"/evolucion/ejecucion"}
-                    completada={estadoEtapas.ejecucion.completada + ""}
+                    completada={estadoEtapas.ejecucion.completada}
                     bgcolor={"#F9844A"}
                 />
                 <Etapa
                     nombre={"PLANEACIÓN"}
                     link={"/evolucion/planeacion"}
-                    completada={estadoEtapas.planeacion.completada + ""}
+                    completada={estadoEtapas.planeacion.completada}
                     bgcolor={"#4D908E"}
                 />
             </Rows>
@@ -87,52 +87,5 @@ const EtapasContainer = styled(Columns)`
     max-height: 32rem;
     margin: 2.5rem;
 `;
-
-
-
-/*     return (
-        <div className="etapas-container">
-            <div className="top" >
-                <Etapa
-                    nombre={"VALORACIÓN"}
-                    onClick={goToNextPage}
-                    completada={valoracion}
-                    classes={"valoracion"}
-                />
-            </div>
-            <div className="mid">
-                <Etapa
-                    nombre={"EVALUACIÓN"}
-                    onClick={goToEvaluacion}
-                    completada={evaluacion}
-                    classes={"evaluacion"}
-                />
-                <BotonCentral
-                    flag={FALTAN_ETAPAS}
-                />
-
-                <Etapa
-                    nombre={"DIAGNÓSTICO"}
-                    onClick={goToDiagnostico}
-                    completada={diagnostico}
-                    classes={"diagnostico"}
-                />
-            </div>
-            <div className="bottom">
-                <Etapa
-                    nombre={"EJECUCIÓN"}
-                    onClick={goToEjecucion}
-                    completada={ejecucion}
-                    classes={"ejecucion"}
-                />
-                <Etapa
-                    nombre={"PLANEACIÓN"}
-                    onClick={goToPlaneacion}
-                    completada={planeacion}
-                    classes={"planeacion"}
-                />
-            </div>
-        </div>
-    ); */
 
 export { EtapasEvolucion }

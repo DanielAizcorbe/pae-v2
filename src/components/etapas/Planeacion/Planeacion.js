@@ -6,6 +6,7 @@ import { styled } from "styled-components";
 import { switchOrder } from "../../../store/slices/prioridades";
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { completarEtapa } from "../../../store/slices/etapas";
 
 const Planeacion = () => {
     const dispatch = useDispatch();
@@ -15,8 +16,8 @@ const Planeacion = () => {
 
     const setPrioridades = () => {
         dispatch(switchOrder(diagnosticosOrdenados));
+        dispatch(completarEtapa({etapa:"planeacion",completada: true, text:""}))
     }
-
 
     return (
         <Columns

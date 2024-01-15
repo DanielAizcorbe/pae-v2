@@ -7,13 +7,21 @@ import { Columns } from "../../utils/Containers";
 import { ListaNecesidades } from "./ListaNecesidades";
 import { EtapaContainer } from "../EtapaContainer";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { completarEtapa } from "../../../store/slices/etapas";
 
 const Valoracion = () => {
 
     {/*ESTADOS PARA LOS TOGGLE SECTION */}
     const [showMapa, setShowMapa] = useState(true);
     const [showNecesidades, setShowNecesidades] = useState(false);
-    
+
+    const dispatch = useDispatch();
+
+    const onClick = () => {
+        dispatch(completarEtapa({etapa:"valoracion",completada: true, text:""}))
+    }
+
     return (
         <EtapaContainer
             elementPosition={"top-center"}
@@ -44,6 +52,7 @@ const Valoracion = () => {
             >
                 <BotonSiguiente
                     nextPage={"/evolucion"}
+                    onClick={onClick}
                 />
             </Columns>
         </EtapaContainer>

@@ -17,7 +17,7 @@ const Etapa = ({ nombre, link, completada, bgcolor }) => {
     return (
         <BotonEtapa
             $completada={completada}
-            onClick={completada === true ? () => alert("EDITAR " + nombre) : goToEtapa}
+            onClick={goToEtapa}
             onMouseEnter={() => setNombreBoton(completada === true ? "EDITAR" : nombre)}
             onMouseLeave={() => setNombreBoton(nombre)}
             $bgcolor={bgcolor}

@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = []
 
 const reducers = {
-    agregar: (state, action) => {
+    agregarMarcadorV: (state, action) => {
         state.push(action.payload);
     },
-    quitar: (state, action) => {
+    quitarMarcadorV: (state, action) => {
         const indiceMarcador = state.findIndex(m => m.id === action.payload.id);
 
         if (indiceMarcador !== -1) {
@@ -21,5 +21,5 @@ const marcadoresMapaValoracionSlice = createSlice({
     reducers: reducers
 })
 
-export const { agregar, quitar } = marcadoresMapaValoracionSlice.actions;
+export const { agregarMarcadorV, quitarMarcadorV } = marcadoresMapaValoracionSlice.actions;
 export default marcadoresMapaValoracionSlice.reducer;

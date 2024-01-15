@@ -6,6 +6,8 @@ const TextArea = ({ text, setText }) => {
         <Textarea
             value={text}
             onChange={(event) => setText(event.target.value)}
+            spellCheck={false}
+            
         />
     );
 };

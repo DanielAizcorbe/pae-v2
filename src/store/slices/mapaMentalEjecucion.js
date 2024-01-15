@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = []
 
 const reducers = {
-    agregar: (state, action) => {
+    agregarMarcadorE: (state, action) => {
         state.push(action.payload);
     },
-    quitar: (state, action) => {
+    quitarMarcadorE: (state, action) => {
         const indiceMarcador = state.findIndex(m => m.id === action.payload.id);
 
         if (indiceMarcador !== -1) {
@@ -21,5 +21,5 @@ const marcadoresMapaEjecucionSlice = createSlice({
     reducers: reducers
 })
 
-export const { agregar, quitar } = marcadoresMapaEjecucionSlice.actions;
+export const { agregarMarcadorE, quitarMarcadorE } = marcadoresMapaEjecucionSlice.actions;
 export default marcadoresMapaEjecucionSlice.reducer;

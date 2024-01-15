@@ -8,7 +8,9 @@ import { InfoMarcadores } from './Marcador/InfoMarcadores';
 import { ModalCreacionMarcador } from './Marcador/ModalCreacionMarcador';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { agregar, quitar } from '../../../store/slices/mapaMentalValoracion';
+import { agregarMarcadorE, quitarMarcadorE } from '../../../store/slices/mapaMentalEjecucion';
+import { agregarMarcadorV, quitarMarcadorV } from '../../../store/slices/mapaMentalValoracion';
+
 
 const MapaMental = ({slice}) => {
 
@@ -20,6 +22,9 @@ const MapaMental = ({slice}) => {
   const [showOpcionesCreacion, setShowOpcionesCreacion] = useState(false);
   const [contador, setContador] = useState(1);
 
+  const agregar = (slice === "marcadoresValoracion" ? agregarMarcadorV : agregarMarcadorE);
+
+  const quitar = (slice === "marcadoresValoracion" ? quitarMarcadorV : quitarMarcadorE);
   const addMarcador = (event) => {
     setShowOpcionesCreacion(true);
     const x = event.clientX + window.scrollX;
