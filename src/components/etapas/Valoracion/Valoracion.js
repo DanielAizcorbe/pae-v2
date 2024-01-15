@@ -6,9 +6,11 @@ import { Titulo } from "../../utils/Titulos"
 import { Columns } from "../../utils/Containers";
 import { ListaNecesidades } from "./ListaNecesidades";
 import { EtapaContainer } from "../EtapaContainer";
+import { useSelector } from "react-redux";
 
-const Valoracion = ({ completada, setCompletada }) => {
+const Valoracion = () => {
 
+    {/*ESTADOS PARA LOS TOGGLE SECTION */}
     const [showMapa, setShowMapa] = useState(true);
     const [showNecesidades, setShowNecesidades] = useState(false);
 

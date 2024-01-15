@@ -4,15 +4,23 @@ import { FALTAN_ETAPAS, FALTA_CONFIRMAR_EDICION, GENERAR_EVOLUCION } from "../bo
 import { Etapa } from "../etapas/Etapa";
 import { Columns, Rows } from "../utils/Containers";
 import { styled } from "styled-components";
+import { useSelector } from "react-redux";
 
 
 const EtapasEvolucion = () => {
 
-    const [valoracion, setValoracion] = useState(false);
-    const [evaluacion, setEvaluacion] = useState(false);
-    const [diagnostico, setDiagnostico] = useState(false);
-    const [ejecucion, setEjecucion] = useState(false);
-    const [planeacion, setPlaneacion] = useState(false);
+    const estadoEtapas = useSelector((state) => state.estadoEtapas);
+
+    const flag = (estadoEtapas) => {
+        const estanTodasCompletadas = Object.values(estadoEtapas).every((etapa) => etapa.completada === true);
+
+        if (estanTodasCompletadas) {
+            return GENERAR_EVOLUCION;
+        }
+
+        return FALTAN_ETAPAS;
+
+    }
 
     return (
         <EtapasContainer
@@ -26,7 +34,7 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"VALORACIÓN"}
                     link={"/evolucion/valoracion"}
-                    completada={valoracion}
+                    completada={estadoEtapas.valoracion.completada}
                     bgcolor={"#F94144"}
                 />
             </Rows>
@@ -36,17 +44,17 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"EVALUACIÓN"}
                     link={"/evolucion/evaluacion"}
-                    completada={evaluacion}
+                    completada={estadoEtapas.evaluacion.completada}
                     bgcolor={"#577590"}
                 />
                 <BotonCentral
-                    flag={FALTAN_ETAPAS}
+                    flag={flag(estadoEtapas)}
                 />
 
                 <Etapa
                     nombre={"DIAGNÓSTICO"}
                     link={"/evolucion/diagnostico"}
-                    completada={diagnostico}
+                    completada={estadoEtapas.diagnostico.completada}
                     bgcolor={"#90BE6D"}
                 />
             </Rows>
@@ -56,13 +64,13 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"EJECUCIÓN"}
                     link={"/evolucion/ejecucion"}
-                    completada={ejecucion}
+                    completada={estadoEtapas.ejecucion.completada}
                     bgcolor={"#F9844A"}
                 />
                 <Etapa
                     nombre={"PLANEACIÓN"}
                     link={"/evolucion/planeacion"}
-                    completada={planeacion}
+                    completada={estadoEtapas.planeacion.completada}
                     bgcolor={"#4D908E"}
                 />
             </Rows>

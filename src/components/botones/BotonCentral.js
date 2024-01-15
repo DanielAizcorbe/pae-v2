@@ -1,7 +1,7 @@
 import React from "react";
 import { toggleBotonCentral } from "./ToggleBotonCentral";
 
-const BotonCentral = ({flag}) => {
+const BotonCentral = ({ flag }) => {
 
     return (
         <>
