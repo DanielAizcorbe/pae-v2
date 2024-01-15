@@ -9,7 +9,7 @@ import { styled } from "styled-components";
 import { UList } from "../../utils/List";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { toggleSeleccion } from "../../../store/slices/diagnosticos";
+import { toggleDiagnosticoSeleccion } from "../../../store/slices/diagnosticos";
 
 
 const Diagnostico = () => {
@@ -21,7 +21,7 @@ const Diagnostico = () => {
     const dispatch = useDispatch();
 
     const toggleSelection = (id) => {
-        dispatch(toggleSeleccion(id));
+        dispatch(toggleDiagnosticoSeleccion(id));
     }
 
     return (
@@ -44,6 +44,7 @@ const Diagnostico = () => {
                                 tipo={n.tipo}
                                 selected={n.selected}
                                 toggleSelection={toggleSelection}
+                                key={n.id}
                             />)}
                 </ListaDiagnosticos>
             </ToggleSection>

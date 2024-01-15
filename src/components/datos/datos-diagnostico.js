@@ -8,120 +8,121 @@ const diagnosticos = [
     {
         nombre: "Alteración del patrón respiratorio", id: 1, tipo: FISIOLOGICAS,
         acciones: [
-            "Posicionar la cabecera a 45°",
-            "Aspirar secreciones",
-            "Administrar oxigenoterapia sim",
-            "Realizar nebulización sim",
-            "Administrar medicación sim"
+            { id: 1, nombre: "Posicionar la cabecera a 45°", selected: false },
+            { id: 2, nombre: "Aspirar secreciones", selected: false },
+            { id: 3, nombre: "Administrar oxigenoterapia sim", selected: false },
+            { id: 4, nombre: "Realizar nebulización sim", selected: false },
+            { id: 5, nombre: "Administrar medicación sim", selected: false }
         ]
     },
+
     {
         nombre: "Desequilibrio nutricional", id: 2, tipo: FISIOLOGICAS,
         acciones: [
-            "Colocar acceso venoso sim",
-            "Control de ingesta",
-            "Asistir en la alimentación",
-            "Aplicar cuidados de SNE",
-            "Aplicar cuidados de NPT"
+            { id: 6, nombre: "Colocar acceso venoso sim", selected: false },
+            { id: 7, nombre: "Control de ingesta", selected: false },
+            { id: 8, nombre: "Asistir en la alimentación", selected: false },
+            { id: 9, nombre: "Aplicar cuidados de SNE", selected: false },
+            { id: 10, nombre: "Aplicar cuidados de NPT", selected: false },
         ]
     },
     {
         nombre: "Deterioro de la eliminación", id: 3, tipo: FISIOLOGICAS,
         acciones: [
-            "Asistir al paciente en la deambulación",
-            "Sentar al paciente al borde de la cama",
-            "Sentar al paciente en el sillón",
-            "Movilizar al paciente con dispositivos aux.",
-            "Asistir al paciente para ir al baño"
+            { id: 11, nombre: "Asistir al paciente en la deambulación", selected: false },
+            { id: 12, nombre: "Sentar al paciente al borde de la cama", selected: false },
+            { id: 13, nombre: "Sentar al paciente en el sillón", selected: false },
+            { id: 14, nombre: "Movilizar al paciente con dispositivos aux.", selected: false },
+            { id: 15, nombre: "Asistir al paciente para ir al baño", selected: false },
         ]
     },
     {
         nombre: "Deterioro de la movilidad física", id: 4, tipo: FISIOLOGICAS,
         acciones: [
-            "Asistir al paciente en la deambulación",
-            "Sentar al paciente al borde de la cama",
-            "Sentar al paciente en el sillón",
-            "Movilizar al paciente con dispositivos aux.",
-            "Asistir al paciente para ir al baño"
+            { id: 16, nombre: "Asistir al paciente en la deambulación", selected: false },
+            { id: 17, nombre: "Sentar al paciente al borde de la cama", selected: false },
+            { id: 18, nombre: "Sentar al paciente en el sillón", selected: false },
+            { id: 19, nombre: "Movilizar al paciente con dispositivos aux.", selected: false },
+            { id: 20, nombre: "Asistir al paciente para ir al baño", selected: false },
         ]
     },
     {
         nombre: "Trastornos del patrón del sueño", id: 5, tipo: FISIOLOGICAS,
         acciones: [
-            "Crear un ambiente tranquilo y de apoyo",
-            "Respetar el patrón de sueño",
-            "Evitar interrupciones innecesarias del descanso"
+            { id: 21, nombre: "Crear un ambiente tranquilo y de apoyo", selected: false },
+            { id: 22, nombre: "Respetar el patrón de sueño", selected: false },
+            { id: 23, nombre: "Evitar interrupciones innecesarias del descanso", selected: false },
         ]
     },
     {
         nombre: "Desequilibrio de la temperatura corporal", id: 6, tipo: FISIOLOGICAS,
         acciones: [
-            "Colocar al paciente ropa de abrigo",
-            "Colocar al paciente medios físicos",
-            "Administrar antitérmico sim",
-            "Reevaluar temperatura corporal",
-            "Adecuar la temperatura del ambiente"
+            { id: 24, nombre: "Colocar al paciente ropa de abrigo", selected: false },
+            { id: 25, nombre: "Colocar al paciente medios físicos", selected: false },
+            { id: 26, nombre: "Administrar antitérmico sim", selected: false },
+            { id: 27, nombre: "Reevaluar temperatura corporal", selected: false },
+            { id: 28, nombre: "Adecuar la temperatura del ambiente", selected: false },
         ]
     },
     {
         nombre: "Déficit del autocuidado. Alteración de la integridad cutánea", id: 7, tipo: PREVENCION,
         acciones: [
-            "Asistir al paciente en el baño en ducha",
-            "Realizar al paciente baño en cama",
-            "Mantener la piel del paciente limpia y seca",
-            "Colocar al paciente cremas hidratantes",
-            "Colocar dispositivos preventivos",
-            "Rotar de decúbito cada 2 horas"
+            { id: 25, nombre: "Asistir al paciente en el baño en ducha", selected: false },
+            { id: 26, nombre: "Realizar al paciente baño en cama", selected: false },
+            { id: 27, nombre: "Mantener la piel del paciente limpia y seca", selected: false },
+            { id: 28, nombre: "Colocar al paciente cremas hidratantes", selected: false },
+            { id: 29, nombre: "Colocar dispositivos preventivos", selected: false },
+            { id: 30, nombre: "Rotar de decúbito cada 2 horas", selected: false },
         ]
     },
     {
         nombre: "Incapacidad de mantener la integridad física para si y para terceros", id: 8, tipo: PREVENCION,
         acciones: [
-            "Adecuar la unidad del paciente",
-            "Adaptar la rutina del paciente",
-            "Educar a la familia sobre medidas de seguridad",
-            "Acompañar al paciente y familia",
-            "Brindar apoyo emocional al paciente"
+            { id: 31, nombre: "Adecuar la unidad del paciente", selected: false },
+            { id: 32, nombre: "Adaptar la rutina del paciente", selected: false },
+            { id: 33, nombre: "Educar a la familia sobre medidas de seguridad", selected: false },
+            { id: 34, nombre: "Acompañar al paciente y familia", selected: false },
+            { id: 35, nombre: "Brindar apoyo emocional al paciente", selected: false },
         ]
     },
     {
         nombre: "Deterioro de la comunicación ", id: 9, tipo: COMUNICACION,
         acciones: [
-            "Escuchar con atención al paciente",
-            "Utilizar palabras sencillas y frases cortas",
-            "Utilizar los medios de comunicación disponibles",
-            "Evitar interrupciones durante la comunicación",
-            "Incorporar un traductor"
+            { id: 36, nombre: "Escuchar con atención al paciente", selected: false },
+            { id: 37, nombre: "Utilizar palabras sencillas y frases cortas", selected: false },
+            { id: 38, nombre: "Utilizar los medios de comunicación disponibles", selected: false },
+            { id: 39, nombre: "Evitar interrupciones durante la comunicación", selected: false },
+            { id: 40, nombre: "Incorporar un traductor", selected: false },
         ]
     },
     {
         nombre: "Dificultad para actuar según creencias y valores", id: 10, tipo: PSICOSOCIALES,
         acciones: [
-            "Atender a las creencias del paciente",
-            "Respetar las decisiones del paciente"
+            { id: 41, nombre: "Atender a las creencias del paciente", selected: false },
+            { id: 42, nombre: "Respetar las decisiones del paciente", selected: false },
         ]
     },
     {
         nombre: "Disconfort", id: 11, tipo: PSICOSOCIALES,
         acciones: [
-            "Integrar al paciente en el plan de cuidados",
-            "Escuchar al paciente activamente",
-            "Empatizar con el paciente",
+            { id: 43, nombre: "Integrar al paciente en el plan de cuidados", selected: false },
+            { id: 44, nombre: "Escuchar al paciente activamente", selected: false },
+            { id: 45, nombre: "Empatizar con el paciente", selected: false },
         ]
     },
     {
         nombre: "Déficit de actividades recreativas", id: 12, tipo: PSICOSOCIALES,
         acciones: [
-            "Estimular en el paciente la creatividad",
-            "Fomentar la lectura, escuchar música, mirar TV"
+            { id: 46, nombre: "Estimular en el paciente la creatividad", selected: false },
+            { id: 47, nombre: "Fomentar la lectura, escuchar música, mirar TV", selected: false },
         ]
     },
     {
         nombre: "Conocimientos deficientes", id: 13, tipo: EDUCACION,
         acciones: [
-            "Realizar educación al paciente",
-            "Incorporar a la familia en el cuidado",
-            "Informar al paciente sobre los procedimientos"
+            { id: 48, nombre: "Realizar educación al paciente", selected: false },
+            { id: 49, nombre: "Incorporar a la familia en el cuidado", selected: false },
+            { id: 50, nombre: "Informar al paciente sobre los procedimientos", selected: false },
         ]
     },
 ];

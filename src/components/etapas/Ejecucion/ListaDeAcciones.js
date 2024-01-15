@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { styled } from "styled-components";
 import { ToggleSection } from "../../utils/ToggleSection";
 import { Columns } from "../../utils/Containers";
 import { Accion } from "./Accion";
 
-const ListaDeAcciones = ({ categoria, acciones }) => {
+const ListaDeAcciones = ({ diagnostico, diagnosticoId, acciones, toggleSelection,  }) => {
 
     const [showToggle, setShowToggle] = useState(false);
 
@@ -14,7 +13,7 @@ const ListaDeAcciones = ({ categoria, acciones }) => {
 
     return (
         <ToggleSection
-            title={categoria}
+            title={diagnostico}
             elementPosition={"top-left"}
             showCondition={showToggle}
             toggleFunction={toggleFunction}
@@ -24,22 +23,20 @@ const ListaDeAcciones = ({ categoria, acciones }) => {
 
             >
                 {acciones.map(a =>
-                    <Accion htmlFor={a}>
-                        {a}
+                    <Accion
+                        htmlFor={a.nombre}
+                        toggleSelection={toggleSelection}
+                        selected={a.selected}
+                        accionId={a.id}
+                        diagnosticoId={diagnosticoId}
+                        key={a.id}
+                    >
+                        {a.nombre}{a.selected}
                     </Accion>
                 )}
             </Columns>
         </ToggleSection>
     );
 }
-
-const Categoria = styled.h3`
-    text-align: left;
-    padding: 1rem 2rem;
-    width: 50rem;
-    background-color: var(--planeacion);
-    border-radius: 1rem;
-    color: var(--color-fondo);
-`;
 
 export { ListaDeAcciones }

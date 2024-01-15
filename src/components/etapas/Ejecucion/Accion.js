@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 
-const Accion = ({children}) => {
-
-    const [selected, setSelected] = useState(false);
+const Accion = ({children, toggleSelection, selected, diagnosticoId, accionId}) => {
 
     const toggleSelectAccion = () => {
-        setSelected(!selected);
+        toggleSelection(diagnosticoId, accionId);
     }
 
     return (

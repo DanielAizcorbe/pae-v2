@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { ToggleSection } from "../../utils/ToggleSection";
-import { diagnosticos } from "../../datos/datos-diagnostico";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Columns } from "../../utils/Containers";
 import { EtapaContainer } from "../EtapaContainer";
 import { Titulo } from "../../utils/Titulos";
 import { ListaDeAcciones } from "./ListaDeAcciones";
 import { MapaMental } from "../../utils/MapaMental/MapaMental";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { toggleAccionSeleccion } from "../../../store/slices/diagnosticos";
 
 
 const Ejecucion = () => {
@@ -14,14 +16,21 @@ const Ejecucion = () => {
     const [showAcciones, setShowAcciones] = useState(true);
     const [showMapa, setShowMapa] = useState(true);
 
-    const diagnosticosPrueba = diagnosticos.filter(d => d.tipo === "Prevención");
 
-    const acciones = diagnosticosPrueba.map(
+    const diagnosticosSeleccionados = useSelector(state => state.diagnosticos).filter(d => d.selected);
+    const dispatch = useDispatch();
+
+    const acciones = diagnosticosSeleccionados.map(
         o => ({
             nombre: o.nombre,
-            acciones: o.acciones
+            acciones: o.acciones,
+            diagnosticoId: o.id
         })
     );
+
+    const toggleSelection = (diagnostico, accion) => {
+        dispatch(toggleAccionSeleccion({diagnostico:diagnostico, accion:accion}));
+    }
 
     return (
         <EtapaContainer
@@ -37,7 +46,7 @@ const Ejecucion = () => {
                 title={"Mapa Mental"}
                 elementPosition={"center-left"}
             >
-                <MapaMental 
+                <MapaMental
                     slice={"marcadoresEjecucion"}
                 />
             </ToggleSection>
@@ -52,7 +61,14 @@ const Ejecucion = () => {
                     padding={" 1rem 2rem"}
                     width={"80%"}
                 >
-                    {acciones.map(a => <ListaDeAcciones categoria={a.nombre} acciones={a.acciones} />)}
+                    {acciones.map(a =>
+                        <ListaDeAcciones
+                            diagnostico={a.nombre}
+                            diagnosticoId={a.diagnosticoId}
+                            acciones={a.acciones}
+                            toggleSelection={toggleSelection}
+                            key={a.diagnosticoId}
+                        />)}
                 </Columns>
             </ToggleSection>
             <Columns
