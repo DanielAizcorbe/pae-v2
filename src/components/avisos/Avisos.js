@@ -21,7 +21,7 @@ const AvisoBody = styled.div`
     border-radius: 1rem;
     width: 100%;
     height: 100%;
-    background-color: ${props => props.bgcolor};
+    background-color: ${props => props.$bgcolor};
 `;
 
 const BtnCierreAviso = styled.button`
@@ -34,10 +34,10 @@ const BtnCierreAviso = styled.button`
     z-index: 2;
     border: none;
     cursor: pointer;
-    background-color: ${props => props.bgcolor};
+    background-color: ${props => props.$bgcolor};
 
     &:hover {
-        background-color: ${props => props.bgcolorhover};
+        background-color: ${props => props.$bgcolorhover};
         transition: background-color 100ms linear;
     }
 `;

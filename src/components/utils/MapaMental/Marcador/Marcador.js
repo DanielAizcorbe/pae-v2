@@ -24,8 +24,8 @@ const Marcador = ({ posX, posY, numero, remove, id }) => {
     return (
         <>
             <MarcadorBody
-                posX={posX + "px"}
-                posY={posY + "px"}
+                $posX={posX + "px"}
+                $posY={posY + "px"}
                 onClick={openModal}
             >
                 <NumeroMarcador>
@@ -49,8 +49,8 @@ const MarcadorBody = styled.div`
     height: 0.5rem;
     border-radius: 50%;
     z-index: 2;
-    left: ${props => props.posX};
-    top: ${props => props.posY};
+    left: ${props => props.$posX};
+    top: ${props => props.$posY};
     background-color: blue;
     cursor: pointer;
 `;

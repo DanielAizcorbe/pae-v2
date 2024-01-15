@@ -7,7 +7,6 @@ const reducers = {
     },
     toggleAccionSeleccion: (state, action) => {
         const { diagnostico, accion } = action.payload;
-        console.log(diagnostico, accion);
         const item = state.find(item => item.id === diagnostico);
 
         if (item) {

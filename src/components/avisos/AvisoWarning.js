@@ -12,8 +12,8 @@ const AvisoWarning = ({ text, closeAviso }) => {
                 {text}
             </AvisoBody>
             <BtnCierreAviso
-                bgcolor={WARNING_COLOR}
-                bgcolorhover={WARNING_COLOR_HOVER}
+                $bgcolor={WARNING_COLOR}
+                $bgcolorhover={WARNING_COLOR_HOVER}
                 onClick={closeAviso}
             >
                 x   

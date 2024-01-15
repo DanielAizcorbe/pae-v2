@@ -4,13 +4,13 @@ import { setPositionBy } from "./setPositionFunctions";
 
 const ContainerFlex = styled.div`
     display: flex;
-    flex-direction: ${props => props.direction};
-    justify-content: ${props => props.alineaciony};
-    align-items: ${props => props.alineacionx};
-    padding: ${props => props.padding ?? "0"};
-    margin: ${props => props.margin ?? "0"};
-    height: ${props => props.height ?? "100%"};
-    width: ${props => props.width ?? "100%"};
+    flex-direction: ${props => props.$direction};
+    justify-content: ${props => props.$alineaciony};
+    align-items: ${props => props.$alineacionx};
+    padding: ${props => props.$padding ?? "0"};
+    margin: ${props => props.$margin ?? "0"};
+    height: ${props => props.$height ?? "100%"};
+    width: ${props => props.$width ?? "100%"};
 `;
 
 const BotonContainer = ({height, width, margin, padding, children}) => {
@@ -35,7 +35,7 @@ const BotonSection = styled.div`
     justify-content: space-between;
     align-items: center;
     max-width: 900px;
-    width: ${props => !!props.width ? props.width : "100%"};
+    width: ${props => !!props.$width ? props.$width : "100%"};
 `;
 
 const Columns = ({children, elementPosition, padding, margin, height, width}) => {
@@ -44,13 +44,13 @@ const Columns = ({children, elementPosition, padding, margin, height, width}) =>
 
     return (
         <ContainerFlex
-            direction="column"
-            alineaciony={y}
-            alineacionx={x}
-            padding={padding}
-            margin={margin}
-            height={height}
-            width={width}
+            $direction="column"
+            $alineaciony={y}
+            $alineacionx={x}
+            $padding={padding}
+            $margin={margin}
+            $height={height}
+            $width={width}
         >
             {children}
         </ContainerFlex>
@@ -63,13 +63,13 @@ const Rows = ({children, elementPosition, padding, margin, height, width}) => {
 
     return (
         <ContainerFlex
-            direction="row"
-            alineaciony={y}
-            alineacionx={x}
-            padding={padding}
-            margin={margin}
-            height={height}
-            width={width}
+            $direction="row"
+            $alineaciony={y}
+            $alineacionx={x}
+            $padding={padding}
+            $margin={margin}
+            $height={height}
+            $width={width}
         >
             {children}
         </ContainerFlex>

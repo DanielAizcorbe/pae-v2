@@ -12,7 +12,7 @@ const toggleBotonCentral = (flag) => {
         case FALTA_CONFIRMAR_EDICION:
             return (
                 <BtnCentral
-                    bgcolor={WARNING_COLOR}
+                    $bgcolor={WARNING_COLOR}
                 >
                     {FALTA_CONFIRMAR_EDICION}
                 </BtnCentral>
@@ -20,7 +20,7 @@ const toggleBotonCentral = (flag) => {
         case GENERAR_EVOLUCION:
             return (
                 <BtnCentral
-                    bgcolor={BOTON_PRIMARIO}
+                    $bgcolor={BOTON_PRIMARIO}
                 >
                     {GENERAR_EVOLUCION}
                 </BtnCentral>
@@ -47,7 +47,7 @@ const BtnCentral = styled.button`
     border-radius: 30%;
     line-height: 2rem;
     margin: 2.5rem;
-    background-color: ${props => props.bgcolor};
+    background-color: ${props => props.$bgcolor};
 
     &:hover {
         transform: scale(1.05, 1.05);

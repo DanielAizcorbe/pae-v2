@@ -16,11 +16,11 @@ const Etapa = ({ nombre, link, completada, bgcolor }) => {
 
     return (
         <BotonEtapa
-            completada={completada}
+            $completada={completada}
             onClick={completada === true ? () => alert("EDITAR " + nombre) : goToEtapa}
             onMouseEnter={() => setNombreBoton(completada === true ? "EDITAR" : nombre)}
             onMouseLeave={() => setNombreBoton(nombre)}
-            bgcolor={bgcolor}
+            $bgcolor={bgcolor}
         >
             {nombreBoton}
         </BotonEtapa>
@@ -38,7 +38,7 @@ const BotonEtapa = styled.button`
     -moz-box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
     box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
     box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
-    background-color: ${props => props.completada === true ? BOTON_PRIMARIO : props.bgcolor};
+    background-color: ${props => props.$completada == true ? BOTON_PRIMARIO : props.$bgcolor};
     text-align: center;
     display: flex;
     justify-content: space-evenly;
@@ -50,7 +50,7 @@ const BotonEtapa = styled.button`
     border: none;
 
     &:hover {
-        background-color: ${props => props.completada === true ? WARNING_COLOR : BOTON_PRIMARIO};
+        background-color: ${props => props.$completada == true ? WARNING_COLOR : BOTON_PRIMARIO};
         transform: scale(1.05, 1.05);
         transition: transform 100ms linear;
     }

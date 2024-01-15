@@ -8,7 +8,7 @@ const ToggleSection = ({ showCondition, toggleFunction, children, title, element
         <ToggleContainer>
             <ToggleTitle 
                 onClick={() => toggleFunction(!showCondition)}
-                bgcolor={bgcolor || ""}
+                $bgcolor={bgcolor || ""}
             >
                 {showCondition ? "- " : "+ "}{title}
             </ToggleTitle>
@@ -39,7 +39,7 @@ const ToggleContainer = styled.section`
 const ToggleTitle = styled.h2`
     padding: 1rem 3rem;
     border-bottom: 1px solid black;
-    background-color: ${props => props.bgcolor === "" ? "var(--fondo-resaltado)" : props.bgcolor };
+    background-color: ${props => props.$bgcolor === "" ? "var(--fondo-resaltado)" : props.$bgcolor };
     color: white;
     margin: 0;
     border-radius: 1rem;

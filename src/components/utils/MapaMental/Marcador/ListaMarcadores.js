@@ -14,6 +14,7 @@ const ListaMarcadores = ({marcadores, removeMarcador}) => {
                     id={m.id}
                     numero={marcadores.findIndex(n => n.id === m.id) + 1}
                     remove={removeMarcador}
+                    key={m.id}
                 />)
             }
         </>

@@ -21,6 +21,7 @@ const ListaNecesidades = () => {
                 {
                     necesidades.map(
                         n => <Necesidad 
+                                key={n.id}
                                 nombre={n.nombre} 
                                 id={n.id} 
                                 toggleSelection={toggleNecesidad}

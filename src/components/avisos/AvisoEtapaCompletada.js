@@ -16,13 +16,13 @@ const AvisoEtapaCompletada = ({ etapaCambiada }) => {
 
                 <AvisoContainer>
                     <AvisoBody
-                        bgcolor={BOTON_PRIMARIO}
+                        $bgcolor={BOTON_PRIMARIO}
                     >
                         {"Se completo la etapa " + etapaCambiada}
                     </AvisoBody>
                     <BtnCierreAviso
-                        bgcolor={BOTON_PRIMARIO}
-                        bgcolorhover={HOVER_BOTON_PRIMARIO}
+                        $bgcolor={BOTON_PRIMARIO}
+                        $bgcolorhover={HOVER_BOTON_PRIMARIO}
                         onClick={closeAviso}
                     >
                         x

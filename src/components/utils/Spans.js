@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 const ImportantText = ({ underline, children }) => {
 
     return (
-        <B underline={underline}>
+        <B $underline={underline}>
             {children}
         </B>    
     );
@@ -11,7 +11,7 @@ const ImportantText = ({ underline, children }) => {
 
 const B = styled.span`
     font-weight: bolder;
-    text-decoration: ${props => props.underline === true ? "underline" : "none"};
+    text-decoration: ${props => props.$underline ? "underline" : "none"};
 `;
 
 export { ImportantText }

@@ -3,12 +3,19 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BOTON_PRIMARIO, HOVER_BOTON_PRIMARIO } from "../datos/colores";
 
-const BotonSiguiente = ({ nextPage, text }) => {
+const BotonSiguiente = ({ nextPage, text, onClick }) => {
 
     const navegar = useNavigate();
+
+    const onClickCompose = () => {
+        if (typeof onClick === 'function') {
+            onClick();
+        }
+        navegar(nextPage);
+    }
     return (
         <BtnSgnt
-            onClick={() => navegar(nextPage)}
+            onClick={onClickCompose}
         >
             {text ?? "Siguiente"}
         </BtnSgnt>

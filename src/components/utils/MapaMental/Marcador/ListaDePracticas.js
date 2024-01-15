@@ -15,7 +15,7 @@ const ListaDePracticas = ({ selected, setSelected }) => {
             </Practica>
             {
                 practicasprueba.map(
-                    p => <Practica value={p}>
+                    p => <Practica key={p} value={p}>
                         {p}
                     </Practica>
                 )

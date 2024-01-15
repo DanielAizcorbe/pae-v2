@@ -34,7 +34,7 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"VALORACIÓN"}
                     link={"/evolucion/valoracion"}
-                    completada={estadoEtapas.valoracion.completada}
+                    completada={estadoEtapas.valoracion.completada + ""}
                     bgcolor={"#F94144"}
                 />
             </Rows>
@@ -44,7 +44,7 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"EVALUACIÓN"}
                     link={"/evolucion/evaluacion"}
-                    completada={estadoEtapas.evaluacion.completada}
+                    completada={estadoEtapas.evaluacion.completada + ""}
                     bgcolor={"#577590"}
                 />
                 <BotonCentral
@@ -54,7 +54,7 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"DIAGNÓSTICO"}
                     link={"/evolucion/diagnostico"}
-                    completada={estadoEtapas.diagnostico.completada}
+                    completada={estadoEtapas.diagnostico.completada + ""}
                     bgcolor={"#90BE6D"}
                 />
             </Rows>
@@ -64,19 +64,19 @@ const EtapasEvolucion = () => {
                 <Etapa
                     nombre={"EJECUCIÓN"}
                     link={"/evolucion/ejecucion"}
-                    completada={estadoEtapas.ejecucion.completada}
+                    completada={estadoEtapas.ejecucion.completada + ""}
                     bgcolor={"#F9844A"}
                 />
                 <Etapa
                     nombre={"PLANEACIÓN"}
                     link={"/evolucion/planeacion"}
-                    completada={estadoEtapas.planeacion.completada}
+                    completada={estadoEtapas.planeacion.completada + ""}
                     bgcolor={"#4D908E"}
                 />
             </Rows>
         </EtapasContainer>
     );
-    
+
 }
 
 const EtapasContainer = styled(Columns)`

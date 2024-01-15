@@ -7,7 +7,7 @@ const VentanaModal = ({ children, showbackground, position, height, width }) => 
 
 
     return (
-        <Overlay showbackground={showbackground || false} >
+        <Overlay $showbackground={showbackground || false} >
             <Columns
                 elementPosition={position}
             >
@@ -26,7 +26,7 @@ const VentanaModal = ({ children, showbackground, position, height, width }) => 
 }
 
 const Overlay = styled.div`
-    background-color: ${props => props.showbackground ? "transparent" : "rgba(0, 0, 0, 0.5)"};
+    background-color: ${props => props.$showbackground ? "transparent" : "rgba(0, 0, 0, 0.5)"};
     position: fixed;
     top: 0;
     left: 0;

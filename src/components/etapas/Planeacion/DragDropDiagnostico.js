@@ -3,10 +3,9 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Columns, Rows } from "../../utils/Containers";
 import styled from "styled-components";
 
-const DragDropDiagnostico = ({ diagnosticos }) => {
 
-    const [diagnosticosSeleccionados, setDiagnosticosSeleccionados] = useState(diagnosticos);
-
+const DragDropDiagnostico = ({ diagnosticos, switchOrderFunction }) => {
+    
     const handleDragDrop = (results) => {
         const { source, destination, type } = results;
 
@@ -19,21 +18,18 @@ const DragDropDiagnostico = ({ diagnosticos }) => {
             && sourceIndex === destinationIndex) return;
 
         if (type === "group") {
-            const reorderedDiagnosticos = Array.from(diagnosticosSeleccionados);
+            const reorderedDiagnosticos = Array.from(diagnosticos);
 
             const [removedDiagnostico] = reorderedDiagnosticos.splice(sourceIndex, 1);
             reorderedDiagnosticos.splice(destinationIndex, 0, removedDiagnostico);
-
-            return setDiagnosticosSeleccionados(reorderedDiagnosticos);
+            console.log("ordenado: ",reorderedDiagnosticos);
+            return switchOrderFunction(reorderedDiagnosticos);
         }
 
     };
 
     const getListPosition = (id) => {
-        const indice = diagnosticosSeleccionados.findIndex(n => n.id === id);;
-        console.log("ID RECIBIDO: ", id);
-        console.log("DIAGNOSTICOS: ",diagnosticosSeleccionados);
-        console.log("INDICE REDIBIDO: ", indice);
+        const indice = diagnosticos.findIndex(n => n.id === id);;
         return indice + 1;
     }
 
@@ -46,12 +42,14 @@ const DragDropDiagnostico = ({ diagnosticos }) => {
                     elementPosition={"center"}
                     padding={"1.5rem"}
                     width={"auto"}
+                    height={"auto"}
                 >
-                    <DropplableBody>
+                    <DropplableBody
+                    >
                         <Droppable droppableId="ROOT" type="group">
                             {(provided) => (
                                 <div {...provided.droppableProps} ref={provided.innerRef}>
-                                    {diagnosticosSeleccionados.map((d, index) =>
+                                    {diagnosticos.map((d, index) =>
                                         <Draggable draggableId={d.id + ""} key={d.id} index={index}>
                                             {(provided) => (
                                                 <div
@@ -61,7 +59,7 @@ const DragDropDiagnostico = ({ diagnosticos }) => {
                                                 >
                                                     <DraggableDiv
                                                         elementPosition={"center"}
-                                                        height={"4rem"}
+                                                        height={"7rem"}
                                                         width={"40rem"}
                                                         padding={"0"}
                                                     >
@@ -85,22 +83,40 @@ const DragDropDiagnostico = ({ diagnosticos }) => {
 }
 
 const DropplableDiv = styled(Rows)`
+    
 `;
 
 const DropplableBody = styled.div`
     border-radius: 1rem;
     width: 100%;
-    heigth: 100%;
     padding: 1rem 2rem;
+    max-height: 500px;
+    height: auto;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--fondo-resaltado);
+        border-radius: 1rem;
+        opacity: 0;
+    }
+
+    &::-webkit-scrollbar {
+        width: 0.3rem;
+    }
 `;
 
 const DraggableBody = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
+    height: 6rem;
     padding: 1rem 2rem;
     border-radius: 1rem;
     font-size: 1.3rem;
     background-color: var(--fondo-resaltado);
     color: var(--color-fondo);
+    margin-bottom: 1rem;
 `;
 
 const DraggableDiv = styled(Rows)`

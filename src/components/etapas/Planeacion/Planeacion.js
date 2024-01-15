@@ -1,15 +1,22 @@
-import React from "react";
-import { diagnosticos } from "../../datos/datos-diagnostico"
 import { DragDropDiagnostico } from "./DragDropDiagnostico";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Columns } from "../../utils/Containers";
 import { Titulo } from "../../utils/Titulos";
 import { styled } from "styled-components";
-
+import { switchOrder } from "../../../store/slices/prioridades";
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Planeacion = () => {
+    const dispatch = useDispatch();
 
-    const diagnosticosPrueba = diagnosticos.filter(d => d.tipo == "Fisiológicas");
+    const diagnosticosPriorizados = useSelector(state => state.prioridades);
+    const [diagnosticosOrdenados, setDiagnosticosOrdenados] = useState(diagnosticosPriorizados);
+
+    const setPrioridades = () => {
+        dispatch(switchOrder(diagnosticosOrdenados));
+    }
+
 
     return (
         <Columns
@@ -18,7 +25,8 @@ const Planeacion = () => {
             <Titulo texto="Planeación" />
             <Subtitulo>Ordene los diagnósticos según su urgencia</Subtitulo>
             <DragDropDiagnostico
-                diagnosticos={diagnosticosPrueba}
+                diagnosticos={diagnosticosOrdenados}
+                switchOrderFunction={setDiagnosticosOrdenados}
             >
             </DragDropDiagnostico>
             <Columns
@@ -27,6 +35,7 @@ const Planeacion = () => {
             >
                 <BotonSiguiente
                     nextPage={"/evolucion"}
+                    onClick={setPrioridades}
                 />
             </Columns>
         </Columns>

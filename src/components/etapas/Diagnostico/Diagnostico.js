@@ -10,6 +10,7 @@ import { UList } from "../../utils/List";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleDiagnosticoSeleccion } from "../../../store/slices/diagnosticos";
+import { switchOrder } from "../../../store/slices/prioridades";
 
 
 const Diagnostico = () => {
@@ -22,6 +23,10 @@ const Diagnostico = () => {
 
     const toggleSelection = (id) => {
         dispatch(toggleDiagnosticoSeleccion(id));
+    }
+
+    const onClickFunction = () => {
+        dispatch(switchOrder(diagnosticos.filter(d => d.selected)));
     }
 
     return (
@@ -54,6 +59,7 @@ const Diagnostico = () => {
             >
                 <BotonSiguiente
                     nextPage={"/evolucion"}
+                    onClick={onClickFunction}
                 />
             </Columns>
         </EtapaContainer>
