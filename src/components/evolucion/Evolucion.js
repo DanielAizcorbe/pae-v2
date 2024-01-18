@@ -7,6 +7,8 @@ import { AvisoEtapaCompletada } from "../avisos/AvisoEtapaCompletada";
 import { ModalEvolucionAnterior } from "./ModalEvolucionAnterior";
 import { Columns, Rows } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
+import { NavBar } from "./NavBar";
+
 
 const etapaCambiada = "VALORACIÓN"
 const huboCambios = false;
@@ -26,10 +28,11 @@ const Evolucion = () => {
         <Rows
             elementPosition="top-center"
         >
-            <EvolucionesAnteriores openEvolucion={abrirEvolucion} />
+            {/* <EvolucionesAnteriores openEvolucion={abrirEvolucion} /> */}
             <Columns
                 elementPosition="top-center"
             >
+                <NavBar />
                 <Columns
                     elementPosition="center"
                     height="20vh"

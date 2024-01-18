@@ -1,12 +1,13 @@
+import Title from "antd/es/typography/Title";
 import React from "react";
 import { styled } from "styled-components";
 
 const Titulo = ({ texto }) => {
 
     return (
-        <H1>
+        <Title level={1}>
             {texto}
-        </H1>
+        </Title>
     );
 }
 

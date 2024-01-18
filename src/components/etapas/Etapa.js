@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import { BOTON_PRIMARIO, WARNING_COLOR } from "../datos/colores";
 import { useNavigate } from "react-router-dom";
 
-const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar }) => {
+const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar, style, rotar }) => {
 
     const [nombreBoton, setNombreBoton] = useState(nombre);
 
@@ -13,7 +13,7 @@ const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar }) => {
     const goToEtapa = () => {
         navegar(link);
     }
-    
+
     const getColor = (colorCompletado, colorOriginal) => {
         return (completada ? colorCompletado : (sePuedeCompletar ? colorOriginal : "gray"));
     }
@@ -25,44 +25,51 @@ const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar }) => {
     return (
         <BotonEtapa
             $completada={completada}
-            onClick={sePuedeCompletar ? goToEtapa : () => {}}
+            onClick={sePuedeCompletar ? goToEtapa : () => { }}
             onMouseEnter={() => setNombreBoton(completada === true ? "EDITAR" : nombre)}
             onMouseLeave={() => setNombreBoton(nombre)}
-            $bgcolor={getColor(BOTON_PRIMARIO,bgcolor)}
+            $bgcolor={getColor(BOTON_PRIMARIO, bgcolor)}
             $hovercolor={getHoverColor()}
+            style={style}
+            $rotar={rotar}
         >
-            {nombreBoton}
+            <p>{nombreBoton}</p>
         </BotonEtapa>
     );
 }
 
-const BotonEtapa = styled.button`
+const BotonEtapa = styled.div`
     margin: 0 2.5rem;
-    width: 15.6rem;
-    height: 7.25rem;
+    width: 12rem;
+    height: 7rem;
+    clip-path: polygon(0 0, 100% 0, 85% 60%, 15% 60%);
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    -webkit-box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
-    -moz-box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
-    box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
-    box-shadow: -2px 4px 31px -14px rgba(0, 0, 0, 0.95);
     background-color: ${props => props.$bgcolor};
     text-align: center;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
+    align-items: baseline;
     color: black;
     cursor: pointer;
     color: white;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     border: none;
-
+    position: absolute;
     &:hover {
         background-color: ${props => props.$hovercolor};
         transform: scale(1.05, 1.05);
         transition: transform 100ms linear;
     }
+    & p {
+        padding: 0.5rem;
+        transform: ${props => props.$rotar ? "rotate(180deg);" : ""}
+    }
 `;
 
 export { Etapa }
+
+{/*
+    
+*/}

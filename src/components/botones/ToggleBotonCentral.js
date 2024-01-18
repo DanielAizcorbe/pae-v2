@@ -43,7 +43,7 @@ const BtnCentral = styled.button`
     color: white;
     font-size: 1.25rem;
     border: none;
-    width: 14rem;
+    width: 9rem;
     height: 9rem;
     border-radius: 30%;
     line-height: 2rem;

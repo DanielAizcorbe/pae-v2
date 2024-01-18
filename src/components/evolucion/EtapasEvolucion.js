@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { BotonCentral } from "../botones/BotonCentral";
-import { FALTAN_ETAPAS, FALTA_CONFIRMAR_EDICION, GENERAR_EVOLUCION } from "../botones/ToggleBotonCentral";
-import { Etapa } from "../etapas/Etapa";
-import { Columns, Rows } from "../utils/Containers";
+import React from "react";
+import { FALTAN_ETAPAS, GENERAR_EVOLUCION, toggleBotonCentral } from "../botones/ToggleBotonCentral";
+import { Columns } from "../utils/Containers";
 import { styled } from "styled-components";
 import { useSelector } from "react-redux";
+import { EtapaDiagnostico, EtapaEjecucion, EtapaEvaluacion, EtapaEvolucion, EtapaPlaneacion, EtapaValoracion } from "./Etapas";
 
 
 const EtapasEvolucion = () => {
@@ -28,57 +27,25 @@ const EtapasEvolucion = () => {
             margin="5rem"
             height="auto"
         >
-            <Rows
-                elementPosition="center"
+            <Columns
+                elementPosition={"center"}
+                height={"200px"}
+                width={"100vw"}
             >
-                <Etapa
-                    nombre={"VALORACIÓN"}
-                    link={"/evolucion/valoracion"}
-                    completada={estadoEtapas.valoracion.completada}
-                    bgcolor={"#F94144"}
-                    sePuedeCompletar={true}
-                />
-            </Rows>
-            <Rows
-                elementPosition="center"
-            >
-                <Etapa
-                    nombre={"EVALUACIÓN"}
-                    link={"/evolucion/evaluacion"}
-                    completada={estadoEtapas.evaluacion.completada}
-                    sePuedeCompletar={estadoEtapas.ejecucion.completada}
-                    bgcolor={"#577590"}
-                />
-                <BotonCentral
-                    flag={flag(estadoEtapas)}
-                />
-
-                <Etapa
-                    nombre={"DIAGNÓSTICO"}
-                    link={"/evolucion/diagnostico"}
-                    completada={estadoEtapas.diagnostico.completada}
-                    sePuedeCompletar={estadoEtapas.valoracion.completada}
-                    bgcolor={"#90BE6D"}
-                />
-            </Rows>
-            <Rows
-                elementPosition="center"
-            >
-                <Etapa
-                    nombre={"EJECUCIÓN"}
-                    link={"/evolucion/ejecucion"}
-                    completada={estadoEtapas.ejecucion.completada}
-                    bgcolor={"#F9844A"}
-                    sePuedeCompletar={estadoEtapas.planeacion.completada}
-                />
-                <Etapa
-                    nombre={"PLANEACIÓN"}
-                    link={"/evolucion/planeacion"}
-                    completada={estadoEtapas.planeacion.completada}
-                    sePuedeCompletar={estadoEtapas.diagnostico.completada}
-                    bgcolor={"#4D908E"}
-                />
-            </Rows>
+                <Columns
+                    elementPosition="center"
+                    width={"0"}
+                    height={"0"}
+                    position={"relative"}
+                >
+                    {toggleBotonCentral(flag(estadoEtapas))}
+                    <EtapaValoracion />
+                    <EtapaDiagnostico />
+                    <EtapaPlaneacion />
+                    <EtapaEjecucion />
+                    <EtapaEvaluacion />
+                </Columns>
+            </Columns>
         </EtapasContainer>
     );
 

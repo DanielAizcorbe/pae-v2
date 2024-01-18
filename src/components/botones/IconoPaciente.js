@@ -16,6 +16,8 @@ const Imagen = styled.img`
     -webkit-user-drag: none;
     -moz-user-select: none;
     pointer-events: none;
+    position: absolute;
+    bottom: -125px;
 `;
 
 export { IconoPaciente }

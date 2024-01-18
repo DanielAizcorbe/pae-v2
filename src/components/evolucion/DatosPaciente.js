@@ -7,11 +7,8 @@ const DatosPaciente = () => {
     const datosPaciente = useSelector((state) => state.paciente);
 
     return (
-        <DatosPacienteContainer>
-            <DatosPacienteBody>
-                {datosPaciente.nombreCompleto + " | " + datosPaciente.fechaNacimiento + " | " + datosPaciente.documento}
-            </DatosPacienteBody>
-        </DatosPacienteContainer>
+        <div>
+        </div>
     );
 }
 
@@ -36,3 +33,11 @@ const DatosPacienteBody = styled.span`
 `;
 
 export { DatosPaciente };
+
+/* 
+    <DatosPacienteContainer>
+            <DatosPacienteBody>
+                {datosPaciente.nombreCompleto + " | " + datosPaciente.fechaNacimiento + " | " + datosPaciente.documento}
+            </DatosPacienteBody>
+        </DatosPacienteContainer>
+*/
