@@ -1,38 +1,20 @@
-import React, { useState } from "react";
-import { EvolucionesAnteriores } from "./EvolucionesAnteriores";
+import React from "react";
 import { DatosPaciente } from "./DatosPaciente";
 import { EtapasEvolucion } from "./EtapasEvolucion";
-import { AvisoCambios } from "../avisos/AvisoCambios";
-import { AvisoEtapaCompletada } from "../avisos/AvisoEtapaCompletada";
-import { ModalEvolucionAnterior } from "./ModalEvolucionAnterior";
-import { Columns, Rows } from "../utils/Containers";
+import { Columns } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
-import { NavBar } from "./NavBar";
-
-
-const etapaCambiada = "VALORACIÓN"
-const huboCambios = false;
-const seCompletoUnaEtapa = true;
+import { NavBar } from "../generales/NavBar";
 
 const Evolucion = () => {
 
-    const [showEvolucionAnterior, setShowEvolucionAnterior] = useState(false);
-    const [evolucionSeleccionada, setevolucionSeleccionada] = useState({});
-
-    const abrirEvolucion = (evolucion) => {
-        setevolucionSeleccionada(evolucion);
-        setShowEvolucionAnterior(true);
-    }
-
     return (
-        <Rows
+        <Columns
             elementPosition="top-center"
         >
-            {/* <EvolucionesAnteriores openEvolucion={abrirEvolucion} /> */}
             <Columns
                 elementPosition="top-center"
             >
-                <NavBar />
+                <NavBar defaultSection={1} />
                 <Columns
                     elementPosition="center"
                     height="20vh"
@@ -42,11 +24,8 @@ const Evolucion = () => {
                     />
                 </Columns>
                 <EtapasEvolucion />
-                {/* {huboCambios ? <AvisoCambios etapaCambiada={etapaCambiada} /> : ""}
-                {seCompletoUnaEtapa ? <AvisoEtapaCompletada etapaCambiada={etapaCambiada} /> : ""} */}
             </Columns>
-            {showEvolucionAnterior ? <ModalEvolucionAnterior evolucionSeleccionada={evolucionSeleccionada} closeModal={() => setShowEvolucionAnterior(false)} /> : ""}
-        </Rows>
+        </Columns>
     );
 }
 

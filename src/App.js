@@ -11,6 +11,8 @@ import { Ejecucion } from './components/etapas/Ejecucion/Ejecucion';
 import { Evaluacion } from './components/etapas/Evaluacion/Evaluacion';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import { EvolucionesAnteriores } from './components/evoluciones-anteriores/EvolucionesAnteriores';
+import { Borrador } from './components/borrador/Borrador';
 
 function App() {
 
@@ -24,23 +26,24 @@ function App() {
 
 
   return (
-    <div className="App">    
-        <Provider store={store}>
+    <div className="App">
+      <Provider store={store}>
 
-          <Routes>
-            <Route exact path="/" element={<BusquedaPaciente seBuscoDocumentoInexistente={true} />} />
-            <Route exact path="/evolucion" element={<Evolucion />} />
-            <Route exact path='/evolucion/valoracion' element={<Valoracion />} />
-            <Route exact path='/evolucion/diagnostico' element={<Diagnostico />} />
-            <Route exact path='/evolucion/diagnostico/finalizar' element={<EvolucionTerminada title={"Diagnóstico"} text={diagnosticoFalso} nextPage={"/evolucion"} />} />
-            <Route exact path='/evolucion/finalizar' element={<EvolucionTerminada />} nextPage={"/"} title={"Vista previa"} text={resumenFinal} />
-            <Route exact path='/evolucion/planeacion' element={<Planeacion />} />
-            <Route exact path='/evolucion/ejecucion' element={<Ejecucion />} />
-            <Route exact path='/evolucion/evaluacion' element={<Evaluacion />} />
-          </Routes>
+        <Routes>
+          <Route exact path="/" element={<BusquedaPaciente seBuscoDocumentoInexistente={true} />} />
+          <Route exact path="/evolucion" element={<Evolucion />} />
+          <Route exact path='/evolucion/valoracion' element={<Valoracion />} />
+          <Route exact path='/evolucion/diagnostico' element={<Diagnostico />} />
+          <Route exact path='/evolucion/diagnostico/finalizar' element={<EvolucionTerminada title={"Diagnóstico"} text={diagnosticoFalso} nextPage={"/evolucion"} />} />
+          <Route exact path='/evolucion/finalizar' element={<EvolucionTerminada />} nextPage={"/"} title={"Vista previa"} text={resumenFinal} />
+          <Route exact path='/evolucion/planeacion' element={<Planeacion />} />
+          <Route exact path='/evolucion/ejecucion' element={<Ejecucion />} />
+          <Route exact path='/evolucion/evaluacion' element={<Evaluacion />} />
+          <Route exact path="/evoluciones-atenriores" element={<EvolucionesAnteriores />} />
+          <Route exact path='/evolucion/borrador' element={<Borrador disabled={false}/>} />
+        </Routes>
 
-        </Provider>
-      
+      </Provider>
     </div>
   );
 }

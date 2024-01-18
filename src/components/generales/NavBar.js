@@ -5,9 +5,10 @@ import {
     HistoryOutlined,
     EditOutlined,
 } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 
-const NavBar = () => {
+const NavBar = ({defaultSection}) => {
 
     const style = {
         lineHeight: '64px',
@@ -17,21 +18,38 @@ const NavBar = () => {
         alignItems: "center",
     };
 
+    const navegar = useNavigate();
+
+    const goToEvolucion = () => {
+        navegar("/evolucion");
+    };
+
+    const goToEvolucionesAnteriores = () => {
+        navegar("/evoluciones-atenriores");
+    }
+
+    const goToBorrador = () => {
+        navegar("/evolucion/borrador");
+    }
+
     const items = [
         {
             key: "1",
             icon: <FileTextOutlined />,
             label: "Evolución",
+            onClick: () => goToEvolucion()
         },
         {
             key: "2",
             icon: <HistoryOutlined />,
             label: "Evoluciones anteriores",
+            onClick: () => goToEvolucionesAnteriores()
         },
         {
             key: "3",
             icon: <EditOutlined />,
             label: "Borrador",
+            onClick: () => goToBorrador()
         }
     ];
 
@@ -39,7 +57,7 @@ const NavBar = () => {
         <Menu
             theme="light"
             mode="horizontal"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={[defaultSection + ""]}
             style={style}
             items={items}
         />
