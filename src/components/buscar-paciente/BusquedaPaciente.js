@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { Columns, Rows } from "../utils/Containers";
+import { Columns } from "../utils/Containers";
 import { InputNroDocumento } from "./InputNroDocumento";
-import { BotonIcono } from "../botones/BotonIcono";
-import { styled } from "styled-components";
-import { Titulo } from "../utils/Titulos";
 import { AvisoWarning } from "../avisos/AvisoWarning";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
 import { useDispatch } from "react-redux";
 import { evolucionar } from "../../store/slices/paciente";
+import { Titulo } from "../utils/Titulos";
 
 const BusquedaPaciente = () => {
 
     const dispatch = useDispatch();
     const [docBuscado, setDocBuscado] = useState("");
+    const [errorDocBuscado, setErrorDocBuscado] = useState("");
 
     const nombreCompleto = "JUAN PEREZ GONZALES CRUZ";
     const documento = "11111";
@@ -48,9 +47,15 @@ const BusquedaPaciente = () => {
             setShowModal(true);
             fetchDatosPaciente();
         } else {
+            setErrorDocBuscado(docBuscado);
             setMostrarAviso(true);
         }
     }
+
+    const setMensajeSegun = (errorDocBuscado) => {
+        return (errorDocBuscado === "" ? "ingrese un documento" : "No hay ningún paciente registrado con el documento " + errorDocBuscado);
+    }
+
 
     return (
         <Columns
@@ -58,39 +63,23 @@ const BusquedaPaciente = () => {
             height="100vh"
             width="100vw"
         >
-            <Titulo
-                texto="Evolución de pacientes"
+            <Titulo texto="Evolución de pacientes" />
+            <InputNroDocumento
+                onChange={(event) => setDocBuscado(event.target.value)}
+                value={docBuscado}
+                onSearch={handleModalPaciente}
             />
-            <Rows
-                elementPosition="center"
-                height="30rem"
-            >
-                <InputNroDocumento
-                    onChange={(event) => setDocBuscado(event.target.value)}
-                    value={docBuscado}
-                />
-                <BotonIcono onClick={handleModalPaciente}>
-                    <FlechaDerecha />
-                </BotonIcono>
-            </Rows>
-            {
-                mostrarAviso ?
-                    <AvisoWarning closeAviso={closeAviso} text={"No hay ningún paciente registrado con el documento " + docBuscado} />
-                    : ""
-            }
-            {showModal ? (
-                <ModalDatosPaciente closeModal={closeModal} nextPage={"/evolucion"} />
-            ) : ""}
+            {mostrarAviso ? <AvisoWarning
+                closeAviso={closeAviso}
+                mensaje={setMensajeSegun(errorDocBuscado)}
+            /> : ""}
+            <ModalDatosPaciente
+                closeModal={closeModal}
+                nextPage={"/evolucion"}
+                openCondition={showModal}
+            />
         </Columns>
     );
 }
-
-const FlechaDerecha = styled.div`
-    width: 0;
-    height: 0;
-    border-top: 0.6rem solid transparent;
-    border-bottom: 0.6rem solid transparent;
-    border-left: 0.6rem solid var(--color-fondo);
-`;
 
 export { BusquedaPaciente }

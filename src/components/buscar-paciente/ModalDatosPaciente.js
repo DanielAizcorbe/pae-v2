@@ -1,49 +1,61 @@
-import React from "react";
-import { VentanaModal, FilaDatoModal, TituloModal } from "../utils/VentanaModal";
-import { BotonSiguiente } from "../botones/BotonSiguiente";
-import { BotonVolver } from "../botones/BotonVolver";
-import { BotonContainer, Columns } from "../utils/Containers";
-import { ImportantText } from "../utils/Spans";
 import { useSelector } from "react-redux";
+import Modal from "antd/es/modal/Modal";
+import Title from "antd/es/typography/Title";
+import { Columns } from "../utils/Containers";
+import { ImportantText } from "../utils/Spans";
+import { FilaDatoModal } from "../utils/VentanaModal";
+import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
-const ModalDatosPaciente = ({ closeModal, nextPage }) => {
+const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
 
     const datosPaciente = useSelector((state) => state.paciente);
+    const navegar = useNavigate();
 
-    return (
-        <VentanaModal
-            position={"center"}
-            height="35rem"
-            width="35rem"
+    const goNext = () => {
+        navegar(nextPage);
+    }
+
+    return (<Modal
+        title=""
+        open={openCondition}
+        onOk={() => { }}
+        onCancel={closeModal}
+        footer={null}
+    >
+        <Columns
+            elementPosition={"top-left"}
+            height={"400px"}
+            padding={"1rem"}
         >
-            <Columns
-                elementPosition="top-left"
+            <Title
+                level={1}
             >
-                <TituloModal>
-                    Paciente
-                </TituloModal>
-                <Columns>
-                    <FilaDatoModal>
-                        <ImportantText>Nombre:</ImportantText>{" " + datosPaciente.nombreCompleto}
-                    </FilaDatoModal>
-                    <FilaDatoModal>
-                        <ImportantText>Nacimiento:</ImportantText>{" " + datosPaciente.fechaNacimiento}
-                    </FilaDatoModal>
-                    <FilaDatoModal>
-                        <ImportantText>Documento:</ImportantText>{" " + datosPaciente.documento}
-                    </FilaDatoModal>
-                </Columns>
-                <BotonContainer>
-                    <BotonVolver
-                        onClick={closeModal}
-                    />
-                    <BotonSiguiente
-                        text={"Continuar"}
-                        nextPage={nextPage}
-                    />
-                </BotonContainer>
+                Paciente
+            </Title>
+            <Columns>
+                <FilaDatoModal>
+                    <ImportantText>Nombre:</ImportantText>{" " + datosPaciente.nombreCompleto}
+                </FilaDatoModal>
+                <FilaDatoModal>
+                    <ImportantText>Nacimiento:</ImportantText>{" " + datosPaciente.fechaNacimiento}
+                </FilaDatoModal>
+                <FilaDatoModal>
+                    <ImportantText>Documento:</ImportantText>{" " + datosPaciente.documento}
+                </FilaDatoModal>
             </Columns>
-        </VentanaModal>
+            <Columns
+                elementPosition={"bottom-center"}
+            >
+                <Button 
+                    type="primary"
+                    onClick={goNext}
+                >
+                    Continuar
+                </Button>
+            </Columns>
+        </Columns>
+    </Modal>
     );
 }
 

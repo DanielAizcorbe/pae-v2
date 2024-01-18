@@ -1,24 +1,30 @@
 import React from "react";
-import { WARNING_COLOR, WARNING_COLOR_HOVER } from "../datos/colores";
-import { AvisoContainer, AvisoBody, BtnCierreAviso } from "./Avisos";
 
-const AvisoWarning = ({ text, closeAviso }) => {
+import { Alert } from 'antd';
+import { Rows } from "../utils/Containers";
+
+const AvisoWarning = ({ closeAviso, mensaje }) => {
+
+    const style = {
+        padding: "1rem",
+        fontSize: "1.1rem",
+    };
 
     return (
-        <AvisoContainer>
-            <AvisoBody
-                $bgcolor={WARNING_COLOR}
-            >
-                {text}
-            </AvisoBody>
-            <BtnCierreAviso
-                $bgcolor={WARNING_COLOR}
-                $bgcolorhover={WARNING_COLOR_HOVER}
-                onClick={closeAviso}
-            >
-                x   
-            </BtnCierreAviso>
-        </AvisoContainer>
+        <Rows
+            width="70%"
+            height={"30%"}
+            elementPosition={"center"}
+        >
+            <Alert
+                message={mensaje}
+                type="warning"
+                closable
+                showIcon
+                onClose={closeAviso}
+                style={style}
+            />
+        </Rows>
     );
 }
 

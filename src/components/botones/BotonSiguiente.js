@@ -43,5 +43,9 @@ const BtnSgnt = styled.button`
     }
 `;
 
+const BotonCopiar = styled(BtnSgnt)`
+width: 20rem;
+`;
 
-export { BotonSiguiente }
+
+export { BotonSiguiente, BotonCopiar }

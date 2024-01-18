@@ -1,38 +1,25 @@
 import React from "react";
-import { styled } from "styled-components";
+import Search from "antd/es/input/Search";
+import { Rows } from "../utils/Containers";
 
-const InputNroDocumento = ({onChange, docBuscado}) => {
+const InputNroDocumento = ({ onChange, onSearch }) => {
 
     return (
-        <label htmlFor="nro-documento">
-            <Input
-                type="text"
-                name="nro-documento"
-                id="nro-documento"
-                autoComplete="off"
-                maxLength={30}
-                minLength={1}
-                spellCheck={false}
-                placeholder="Ingrese el documento del paciente"
+        <Rows
+            width="40rem"
+            elementPosition="center"
+            height="30%"
+        >
+            <Search
+                placeholder="Ingrese un documento"
+                onSearch={onSearch}
+                enterButton
+                size="large"
                 onChange={onChange}
-                value={docBuscado}
+                name="numeroDocumentoBuscado"
             />
-        </label>
+        </Rows>
     );
-}
-
-const Input = styled.input`
-    width: 30rem;
-    border-radius: 10px 0 0 10px;
-    font-size: 1.5rem;
-    text-align: center;
-    height: 2.5rem;
-    border: 2px solid var(--fondo-resaltado);
-    outline: none;
-
-    &::placeholder {
-        font-style: italic;
-    }
-`;
+};
 
 export { InputNroDocumento }

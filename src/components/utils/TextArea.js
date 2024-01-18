@@ -7,7 +7,6 @@ const TextArea = ({ text, setText }) => {
             value={text}
             onChange={(event) => setText(event.target.value)}
             spellCheck={false}
-            
         />
     );
 };
