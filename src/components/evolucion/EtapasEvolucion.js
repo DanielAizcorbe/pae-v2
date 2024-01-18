@@ -39,11 +39,25 @@ const EtapasEvolucion = () => {
                     position={"relative"}
                 >
                     {toggleBotonCentral(flag(estadoEtapas))}
-                    <EtapaValoracion />
-                    <EtapaDiagnostico />
-                    <EtapaPlaneacion />
-                    <EtapaEjecucion />
-                    <EtapaEvaluacion />
+                    <EtapaValoracion
+                        completada={estadoEtapas.valoracion.completada}
+                    />
+                    <EtapaDiagnostico
+                        completada={estadoEtapas.diagnostico.completada}
+                        sePuedeCompletar={estadoEtapas.valoracion.completada}
+                    />
+                    <EtapaPlaneacion
+                        completada={estadoEtapas.planeacion.completada}
+                        sePuedeCompletar={estadoEtapas.diagnostico.completada}
+                    />
+                    <EtapaEjecucion
+                        completada={estadoEtapas.ejecucion.completada}
+                        sePuedeCompletar={estadoEtapas.planeacion.completada}
+                    />
+                    <EtapaEvaluacion
+                        completada={estadoEtapas.evaluacion.completada}
+                        sePuedeCompletar={estadoEtapas.ejecucion.completada}
+                    />
                 </Columns>
             </Columns>
         </EtapasContainer>

@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import { BOTON_PRIMARIO, WARNING_COLOR } from "../datos/colores";
 import { useNavigate } from "react-router-dom";
 
-const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar, style, rotar }) => {
+const Etapa = ({ hoverStyles, nombre, link, completada, bgcolor, sePuedeCompletar, style, rotar }) => {
 
     const [nombreBoton, setNombreBoton] = useState(nombre);
 
@@ -15,7 +15,7 @@ const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar, style, rot
     }
 
     const getColor = (colorCompletado, colorOriginal) => {
-        return (completada ? colorCompletado : (sePuedeCompletar ? colorOriginal : "gray"));
+        return (completada ? colorCompletado : colorOriginal);
     }
 
     const getHoverColor = () => {
@@ -30,8 +30,9 @@ const Etapa = ({ nombre, link, completada, bgcolor, sePuedeCompletar, style, rot
             onMouseLeave={() => setNombreBoton(nombre)}
             $bgcolor={getColor(BOTON_PRIMARIO, bgcolor)}
             $hovercolor={getHoverColor()}
-            style={style}
+            $style={style}
             $rotar={rotar}
+            $hoverStyles={hoverStyles}
         >
             <p>{nombreBoton}</p>
         </BotonEtapa>
@@ -57,10 +58,10 @@ const BotonEtapa = styled.div`
     font-size: 1.1rem;
     border: none;
     position: absolute;
+    ${props => props.$style ?? "" }
     &:hover {
         background-color: ${props => props.$hovercolor};
-        transform: scale(1.05, 1.05);
-        transition: transform 100ms linear;
+        ${props => props.$hoverStyles ?? "" }
     }
     & p {
         padding: 0.5rem;
