@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import { ModalEliminarMarcador } from "./ModalEliminarMarcador";
 
-const Marcador = ({ posX, posY, numero, remove, id }) => {
+const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
 
     const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        if (etapaActual === etapa) {
+            setShowModal(true);
+        }
+    }
+
+    const closeModalFunction = () => {
+        setShowModal(false);
+    }
 
     const removeMarcador = () => {
         const idDelete = id;
         remove(idDelete);
         closeModalFunction();
-    }
-
-    const closeModalFunction = () => {
-        console.log("cerrar modal");
-        setShowModal(false);
-    }
-
-    const openModal = () => {
-        setShowModal(true);
+        
     }
 
     return (
@@ -27,6 +29,7 @@ const Marcador = ({ posX, posY, numero, remove, id }) => {
                 $posX={posX + "px"}
                 $posY={posY + "px"}
                 onClick={openModal}
+                $bgcolor={etapa === "valoracion" ? "blue" : "red"}
             >
                 <NumeroMarcador>
                     {numero}
@@ -50,7 +53,7 @@ const MarcadorBody = styled.div`
             z-index: 2;
             left: ${props => props.$posX};
             top: ${props => props.$posY};
-            background-color: blue;
+            background-color: ${props => props.$bgcolor};
             cursor: pointer;
             `;
 

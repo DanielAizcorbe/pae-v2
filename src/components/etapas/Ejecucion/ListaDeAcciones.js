@@ -1,41 +1,35 @@
-import React, { useState } from "react";
-import { ToggleSection } from "../../utils/ToggleSection";
-import { Columns } from "../../utils/Containers";
-import { Accion } from "./Accion";
+import { List } from "antd";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleAccionSeleccion } from "../../../store/slices/diagnosticos";
 
-const ListaDeAcciones = ({ diagnostico, diagnosticoId, acciones, toggleSelection,  }) => {
+const ListaDeAcciones = ({ diagnostico }) => {
 
-    const [showToggle, setShowToggle] = useState(false);
+    const dispatch = useDispatch();
 
-    const toggleFunction = () => {
-        setShowToggle(!showToggle);
+    const toggleSeleccion = (diagnosticoId, accionId) => {
+        dispatch(toggleAccionSeleccion(
+            {
+                diagnostico: diagnosticoId,
+                accion: accionId
+            }
+        ));
     }
 
     return (
-        <ToggleSection
-            title={diagnostico}
-            elementPosition={"top-left"}
-            showCondition={showToggle}
-            toggleFunction={toggleFunction}
-        >
-            <Columns
-                elementPosition={"top-left"}
-
-            >
-                {acciones.map(a =>
-                    <Accion
-                        htmlFor={a.nombre}
-                        toggleSelection={toggleSelection}
-                        selected={a.selected}
-                        accionId={a.id}
-                        diagnosticoId={diagnosticoId}
-                        key={a.id}
-                    >
-                        {a.nombre}{a.selected}
-                    </Accion>
-                )}
-            </Columns>
-        </ToggleSection>
+        <List
+            bordered
+            dataSource={diagnostico.acciones}
+            renderItem={
+                (item) => (<List.Item
+                    key={item.id}
+                    style={{ backgroundColor: item.selected ? "lightgray" : "", cursor: "pointer" }}
+                    onClick={() => toggleSeleccion(diagnostico.id, item.id)}
+                >
+                    {item.nombre}
+                </List.Item>)
+            }
+        />
     );
 }
 

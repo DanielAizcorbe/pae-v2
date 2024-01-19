@@ -2,7 +2,7 @@ import { Collapse, List } from "antd";
 import React from "react";
 import { styled } from "styled-components";
 
-const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion }) => {
+const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion, marcadores }) => {
 
     const collapseStyle = {
         position: 'relative',
@@ -27,7 +27,7 @@ const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion }) => {
             children: <List
                 bordered
                 dataSource={marcadoresValoracion}
-                renderItem={(item) => <List.Item key={item.id}>{marcadoresValoracion.indexOf(item) + 1 + ". "}{item.text}</List.Item>}
+                renderItem={(item) => <List.Item key={item.id}>{marcadores.indexOf(item) + 1 + ". "}{item.text}</List.Item>}
                 style={{overflowY: 'auto', maxHeight: "400px", height: "100%"}}
                 locale={config}
             />
@@ -38,7 +38,7 @@ const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion }) => {
             children: <List
                 bordered
                 dataSource={marcadoresEjecucion}
-                renderItem={(item) => <List.Item key={item.id}>{marcadoresEjecucion.indexOf(item) + 1 + ". "}{item.text}</List.Item>}
+                renderItem={(item) => <List.Item key={item.id}>{marcadores.indexOf(item) + 1 + ". "}{item.text}</List.Item>}
                 style={{overflowY: 'auto', maxHeight: "400px", height: "100%"}}
                 locale={config}
             />

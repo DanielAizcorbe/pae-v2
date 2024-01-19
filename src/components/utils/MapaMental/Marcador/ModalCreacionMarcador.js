@@ -8,16 +8,27 @@ const ModalCreacionMarcador = ({ showModal, addMarcadorALaLista, closeModalFunct
 
 
     const cancel = () => {
+        setSelectedOption(defaultOption.label);
         closeModalFunction();
     }
 
-    const [selectedOption, setSelectedOption] = useState("");
+    const defaultOption = {
+        value: "disable",
+        label: "Selecciona una opción",
+        disabled: true
+    };
+
+    const [selectedOption, setSelectedOption] = useState(defaultOption.label);
 
     const create = () => {
-        const newMarker = nuevoMarcador;
-        newMarker.text = selectedOption;
-        addMarcadorALaLista(newMarker);
-        closeModalFunction();
+
+        if (selectedOption !== defaultOption.label) {
+            const newMarker = nuevoMarcador;
+            newMarker.text = selectedOption;
+            addMarcadorALaLista(newMarker);
+            setSelectedOption(defaultOption.label);
+            closeModalFunction();
+        }
     };
 
     const getItem = (practica) => {
@@ -28,12 +39,6 @@ const ModalCreacionMarcador = ({ showModal, addMarcadorALaLista, closeModalFunct
     }
 
     const options = practicasprueba.map(p => getItem(p));
-
-    const defaultOption = {
-        value: "",
-        label: "Selecciona una opción",
-        disabled: true
-    };
 
     const selectStyle = {
         width: "90%"
@@ -62,9 +67,10 @@ const ModalCreacionMarcador = ({ showModal, addMarcadorALaLista, closeModalFunct
                     filterSort={(optionA, optionB) =>
                         (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
                     }
-                    options={[defaultOption, ...options]}
+                    options={options}
                     style={selectStyle}
                     onChange={(value) => setSelectedOption(value)}
+                    value={selectedOption}
                 />
             </Columns>
         </Modal>

@@ -34,7 +34,7 @@ const Valoracion = () => {
                 padding="1rem"
             >
                 <Titulo texto="Valoración" id={"Valoración"} />
-                <SeccionMapaMental seccion={secciones[1]} />
+                <SeccionMapaMental seccion={secciones[1]} etapa={"valoracion"}/>
                 <SeccionNecesidades seccion={secciones[2]} />
                 <Columns
                     elementPosition="bottom-center"

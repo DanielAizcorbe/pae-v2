@@ -1,7 +1,7 @@
 import React from "react";
 import { Marcador } from "./Marcador";
 
-const ListaMarcadores = ({marcadores, removeMarcador}) => {
+const ListaMarcadores = ({marcadores, removeMarcador, etapaActual}) => {
 
     
 
@@ -15,6 +15,8 @@ const ListaMarcadores = ({marcadores, removeMarcador}) => {
                     numero={marcadores.findIndex(n => n.id === m.id) + 1}
                     remove={removeMarcador}
                     key={m.id}
+                    etapa={m.etapa}
+                    etapaActual={etapaActual}
                 />)
             }
         </>

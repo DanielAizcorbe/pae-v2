@@ -2,14 +2,14 @@ import React from "react";
 import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { Collapse } from "antd";
 
-const SeccionMapaMental = ({ seccion }) => {
+const SeccionMapaMental = ({ seccion, etapa }) => {
 
     const mapa = [
         {
             key: 1,
             label: seccion,
             children: <MapaMental
-                slice={"marcadoresValoracion"}
+                etapa={etapa}
             />,
             id: seccion
         }

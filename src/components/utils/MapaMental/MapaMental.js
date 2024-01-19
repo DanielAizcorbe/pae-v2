@@ -12,19 +12,23 @@ import { agregarMarcadorE, quitarMarcadorE } from '../../../store/slices/mapaMen
 import { agregarMarcadorV, quitarMarcadorV } from '../../../store/slices/mapaMentalValoracion';
 
 
-const MapaMental = ({ slice }) => {
+const MapaMental = ({ etapa }) => {
 
-  const marcadores = useSelector(state => state[slice]);
+  const etapaActual = etapa === "valoracion" ? "marcadoresValoracion" : "marcadoresEjecucion";
+  const marcadoresV = useSelector(state => state.marcadoresValoracion);
+  const marcadoresE = useSelector(state => state.marcadoresEjecucion);
+  const marcadores = [...marcadoresV, ...marcadoresE];
   const dispatch = useDispatch();
 
-  const [marcadorTemporal, setMarcadorTemporal] = useState({ id: -1 });
+  const [marcadorTemporal, setMarcadorTemporal] = useState({ id: -1, etapa });
 
   const [showOpcionesCreacion, setShowOpcionesCreacion] = useState(false);
-  const [contador, setContador] = useState(1);
+  const [contador, setContador] = useState(marcadores.length + 1);
 
-  const agregar = (slice === "marcadoresValoracion" ? agregarMarcadorV : agregarMarcadorE);
+  const agregar = (etapaActual === "marcadoresValoracion" ? agregarMarcadorV : agregarMarcadorE);
 
-  const quitar = (slice === "marcadoresValoracion" ? quitarMarcadorV : quitarMarcadorE);
+  const quitar = (etapaActual === "marcadoresValoracion" ? quitarMarcadorV : quitarMarcadorE);
+
   const addMarcador = (event) => {
     setShowOpcionesCreacion(true);
     const x = event.clientX + window.scrollX;
@@ -34,7 +38,8 @@ const MapaMental = ({ slice }) => {
       id: contador,
       x: x,
       y: y,
-      text: ""
+      text: "",
+      etapa: etapa
     };
     setMarcadorTemporal(marcador);
     setContador(contador + 1);
@@ -71,17 +76,20 @@ const MapaMental = ({ slice }) => {
         <ListaMarcadores
           marcadores={marcadores}
           removeMarcador={removeMarcador}
+          etapaActual={etapa}
         />
         <MarcadorTemporal
           marcador={marcadorTemporal}
           numero={marcadores.length + 1}
           nextId={contador}
           removeMarcador={removeMarcador}
+          etapa={etapa}
         />
       </MapaMentalContainer>
       <InfoMarcadores
-        marcadoresValoracion={marcadores}
-        marcadoresEjecucion={[]}
+        marcadoresValoracion={marcadoresV}
+        marcadoresEjecucion={marcadoresE}
+        marcadores={marcadores}
       />
 
       <ModalCreacionMarcador
