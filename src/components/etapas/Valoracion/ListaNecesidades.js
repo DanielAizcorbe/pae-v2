@@ -1,5 +1,4 @@
 import React from "react";
-import { Necesidad } from "./Necesidad";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleSeleccion } from "../../../store/slices/necesidades";
