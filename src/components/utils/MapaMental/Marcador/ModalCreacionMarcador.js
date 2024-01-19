@@ -56,6 +56,12 @@ const ModalCreacionMarcador = ({ showModal, addMarcadorALaLista, closeModalFunct
             >
                 <Select
                     placeholder="Seleccione una práctica"
+                    showSearch
+                    optionFilterProp="children"
+                    filterOption={(input, option) => (option?.label ?? '').includes(input)}
+                    filterSort={(optionA, optionB) =>
+                        (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                    }
                     options={[defaultOption, ...options]}
                     style={selectStyle}
                     onChange={(value) => setSelectedOption(value)}
