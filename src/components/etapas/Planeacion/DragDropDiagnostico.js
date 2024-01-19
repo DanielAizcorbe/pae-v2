@@ -60,6 +60,7 @@ const DragDropDiagnostico = ({ diagnosticos, switchOrderFunction }) => {
                                                     <DraggableDiv
                                                         elementPosition={"center"}
                                                         width={"40rem"}
+                                                        height={"auto"}
                                                         padding={"0"}
                                                     >
                                                         <DraggableBody>

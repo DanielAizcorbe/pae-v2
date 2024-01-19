@@ -34,6 +34,7 @@ const Borrador = ({disabled}) => {
                     placeholder="Completa las distintas etapas para generar la evaluación"
                     disabled={disabled}
                     spellCheck={false}
+                    name="textarea"
                 />
                 <Columns
                     elementPosition={"top-center"}

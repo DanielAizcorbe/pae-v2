@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-import { ToggleSection } from "../../utils/ToggleSection";
+import React from "react";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Columns, Rows } from "../../utils/Containers";
 import { EtapaContainer } from "../EtapaContainer";
 import { Titulo } from "../../utils/Titulos";
-import { ListaDeAcciones } from "./ListaDeDiagnosticos";
-import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { toggleAccionSeleccion } from "../../../store/slices/diagnosticos";
 import { completarEtapa } from "../../../store/slices/etapas";
 import { SeccionMapaMental } from "../Valoracion/SeccionMapaMental";
 import { Secciones } from "../../generales/Secciones";
@@ -22,6 +18,9 @@ const Ejecucion = () => {
     const onClick = () => {
         dispatch(completarEtapa({ etapa: "ejecucion", completada: true, text: "" }))
     }
+
+    const marcadoresEjecucion = useSelector(state => state.marcadoresEjecucion);
+    const acciones = useSelector(state => state.diagnosticos).map(d=> d.acciones).reduce((acumulador, acciones) => acumulador.concat(acciones), []);
 
     const secciones = [
         "Ejecución",
@@ -54,7 +53,10 @@ const Ejecucion = () => {
                     <BotonSiguiente
                         nextPage={"/evolucion"}
                         onClick={onClick}
-                        sePuedeActivar={true}
+                        sePuedeActivar={
+                            marcadoresEjecucion.length > 0
+                            && acciones.some(a => a.selected)
+                        }
                         id={secciones[3]}
                     />
                 </Columns>
