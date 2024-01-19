@@ -2,10 +2,10 @@ import Title from "antd/es/typography/Title";
 import React from "react";
 import { styled } from "styled-components";
 
-const Titulo = ({ texto }) => {
+const Titulo = ({ texto, id }) => {
 
     return (
-        <Title level={1}>
+        <Title level={1} id={id}>
             {texto}
         </Title>
     );

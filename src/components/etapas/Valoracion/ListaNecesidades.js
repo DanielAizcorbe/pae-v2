@@ -1,10 +1,9 @@
 import React from "react";
 import { Necesidad } from "./Necesidad";
-import { styled } from "styled-components";
-import { UList } from "../../utils/List";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleSeleccion } from "../../../store/slices/necesidades";
+import { List } from "antd";
 
 const ListaNecesidades = () => {
 
@@ -17,7 +16,26 @@ const ListaNecesidades = () => {
     }
 
     return (
-            <Necesidades>
+        <List
+            bordered
+            dataSource={necesidades}
+            renderItem={
+                (item) => (<List.Item
+                    key={item.id}
+                    style={{ backgroundColor: item.selected ? "lightgray" : "", cursor: "pointer" }}
+                    onClick={() => toggleNecesidad(item.id)}
+                >
+                    {item.nombre}
+                </List.Item>)
+            }
+        />
+    );
+}
+
+export { ListaNecesidades }
+
+/*
+    <Necesidades>
                 {
                     necesidades.map(
                         n => <Necesidad 
@@ -30,9 +48,4 @@ const ListaNecesidades = () => {
                     )
                 }
             </Necesidades>
-    );
-}
-
-const Necesidades = styled(UList)``;
-
-export { ListaNecesidades }
+*/

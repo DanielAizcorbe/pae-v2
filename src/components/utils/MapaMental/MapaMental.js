@@ -12,7 +12,7 @@ import { agregarMarcadorE, quitarMarcadorE } from '../../../store/slices/mapaMen
 import { agregarMarcadorV, quitarMarcadorV } from '../../../store/slices/mapaMentalValoracion';
 
 
-const MapaMental = ({slice}) => {
+const MapaMental = ({ slice }) => {
 
   const marcadores = useSelector(state => state[slice]);
   const dispatch = useDispatch();
@@ -80,11 +80,13 @@ const MapaMental = ({slice}) => {
         />
       </MapaMentalContainer>
       <InfoMarcadores
-        marcadores={marcadores}
+        marcadoresValoracion={marcadores}
+        marcadoresEjecucion={[]}
       />
+
       <ModalCreacionMarcador
         addMarcadorALaLista={addMarcadorAlMapa}
-        marcadorNuevo={marcadorTemporal}
+        nuevoMarcador={marcadorTemporal}
         showModal={showOpcionesCreacion}
         closeModalFunction={closeModalFunction}
       />

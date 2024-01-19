@@ -1,39 +1,19 @@
 import React from "react";
-import { VentanaModal } from "../../VentanaModal";
-import { styled } from "styled-components";
-import { BotonContainer, Columns } from "../../Containers";
+import Modal from "antd/es/modal/Modal";
 
-const ModalEliminarMarcador = ({closeModalFunction, numero, remove }) => {
+const ModalEliminarMarcador = ({ closeModalFunction, numero, remove, showModal }) => {
 
     return (
-        <VentanaModal
-            position={"center"}
-            width={"20rem"}
-            height={"10rem"}
+        <Modal
+            title= {"¿Remover el punto " + numero + "?"}
+            open={showModal}
+            onOk={remove}
+            onCancel={closeModalFunction}
+            centered
+            width={"40%"}
         >
-            <Columns>
-                <Texto>
-                    {"Desea remover el punto " + numero + "?"}
-                </Texto>
-                <BotonContainer>
-                    <button onClick={closeModalFunction}>
-                        Cancelar
-                    </button>
-                    <button onClick={remove}>
-                        Borrar
-                    </button>
-                </BotonContainer>
-            </Columns>
-        </VentanaModal>
+        </Modal>
     );
 }
-
-const Texto = styled.p`
-    text-aligh: center; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
 
 export { ModalEliminarMarcador }

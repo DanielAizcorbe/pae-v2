@@ -2,8 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BOTON_PRIMARIO, HOVER_BOTON_PRIMARIO } from "../datos/colores";
+import { Button } from "antd";
+import { RightOutlined } from "@ant-design/icons";
 
-const BotonSiguiente = ({ nextPage, text, onClick }) => {
+const BotonSiguiente = ({ nextPage, text, onClick, sePuedeActivar, id }) => {
 
     const navegar = useNavigate();
 
@@ -14,11 +16,16 @@ const BotonSiguiente = ({ nextPage, text, onClick }) => {
         navegar(nextPage);
     }
     return (
-        <BtnSgnt
+        <Button
+            type="primary"
+            icon={<RightOutlined />}
             onClick={onClickCompose}
+            disabled={!sePuedeActivar}
+            htmlType="button" id={id}
+            size="large"
         >
             {text ?? "Siguiente"}
-        </BtnSgnt>
+        </Button>
     );
 }
 

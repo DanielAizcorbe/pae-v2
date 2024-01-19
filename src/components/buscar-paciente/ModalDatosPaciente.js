@@ -22,6 +22,8 @@ const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
         onOk={() => { }}
         onCancel={closeModal}
         footer={null}
+        afterClose={closeModal}
+        keyboard
     >
         <Columns
             elementPosition={"top-left"}
