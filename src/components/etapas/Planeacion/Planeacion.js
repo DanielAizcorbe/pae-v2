@@ -7,6 +7,8 @@ import { switchOrder } from "../../../store/slices/prioridades";
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { completarEtapa } from "../../../store/slices/etapas";
+import Title from "antd/es/typography/Title";
+
 
 const Planeacion = () => {
     const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const Planeacion = () => {
 
     const setPrioridades = () => {
         dispatch(switchOrder(diagnosticosOrdenados));
-        dispatch(completarEtapa({etapa:"planeacion",completada: true, text:""}))
+        dispatch(completarEtapa({ etapa: "planeacion", completada: true, text: "" }))
     }
 
     return (
@@ -24,12 +26,11 @@ const Planeacion = () => {
             elementPosition={"top-center"}
         >
             <Titulo texto="Planeación" />
-            <Subtitulo>Ordene los diagnósticos según su urgencia</Subtitulo>
+            <Title level={2}>Ordene los diagnósticos según su urgencia</Title>
             <DragDropDiagnostico
                 diagnosticos={diagnosticosOrdenados}
                 switchOrderFunction={setDiagnosticosOrdenados}
-            >
-            </DragDropDiagnostico>
+            />
             <Columns
                 elementPosition={"center"}
                 padding={"1rem"}
@@ -37,17 +38,11 @@ const Planeacion = () => {
                 <BotonSiguiente
                     nextPage={"/evolucion"}
                     onClick={setPrioridades}
+                    sePuedeActivar={true}
                 />
             </Columns>
         </Columns>
     );
 }
-
-const Subtitulo = styled.h2`
-    margin: 0;
-    padding: 1rem;
-`;
-
-
 
 export { Planeacion }

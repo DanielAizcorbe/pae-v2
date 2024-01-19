@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 
 const DragDropDiagnostico = ({ diagnosticos, switchOrderFunction }) => {
-    
+
     const handleDragDrop = (results) => {
         const { source, destination, type } = results;
 
@@ -22,7 +22,7 @@ const DragDropDiagnostico = ({ diagnosticos, switchOrderFunction }) => {
 
             const [removedDiagnostico] = reorderedDiagnosticos.splice(sourceIndex, 1);
             reorderedDiagnosticos.splice(destinationIndex, 0, removedDiagnostico);
-            console.log("ordenado: ",reorderedDiagnosticos);
+            console.log("ordenado: ", reorderedDiagnosticos);
             return switchOrderFunction(reorderedDiagnosticos);
         }
 
@@ -59,7 +59,6 @@ const DragDropDiagnostico = ({ diagnosticos, switchOrderFunction }) => {
                                                 >
                                                     <DraggableDiv
                                                         elementPosition={"center"}
-                                                        height={"7rem"}
                                                         width={"40rem"}
                                                         padding={"0"}
                                                     >
@@ -91,7 +90,7 @@ const DropplableBody = styled.div`
     width: 100%;
     padding: 1rem 2rem;
     max-height: 500px;
-    height: auto;
+    height: 25rem;
     overflow-y: auto;
 
     &::-webkit-scrollbar-thumb {
@@ -110,17 +109,16 @@ const DraggableBody = styled.div`
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 6rem;
+    height: 4rem;
     padding: 1rem 2rem;
-    border-radius: 1rem;
     font-size: 1.3rem;
     background-color: var(--fondo-resaltado);
     color: var(--color-fondo);
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
 `;
 
 const DraggableDiv = styled(Rows)`
-    
+    font-size: 0.5rem;
 `;
 
 
