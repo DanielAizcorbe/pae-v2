@@ -5,7 +5,7 @@ import TextArea from "antd/es/input/TextArea";
 import { Titulo } from "../utils/Titulos";
 import Alert from "antd/es/alert/Alert";
 
-const Borrador = ({disabled}) => {
+const Borrador = () => {
 
     const textAreaStyles = {
         width: '50%',
@@ -13,8 +13,8 @@ const Borrador = ({disabled}) => {
         height: "60%",
         resize: "none",
         fontSize: "1rem",
-        backgroundColor: disabled ? "white" : "",
-        color: disabled ? "black" : "",
+        backgroundColor: "white",
+        color: "black",
         cursor: "default"
     };
 
@@ -32,7 +32,7 @@ const Borrador = ({disabled}) => {
                 <TextArea
                     style={textAreaStyles}
                     placeholder="Completa las distintas etapas para generar la evaluación"
-                    disabled={disabled}
+                    disabled
                     spellCheck={false}
                     name="textarea"
                 />

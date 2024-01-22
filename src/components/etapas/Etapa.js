@@ -14,22 +14,13 @@ const Etapa = ({ hoverStyles, nombre, link, completada, bgcolor, sePuedeCompleta
         navegar(link);
     }
 
-    const getColor = (colorCompletado, colorOriginal) => {
-        return (completada ? colorCompletado : colorOriginal);
-    }
-
-    const getHoverColor = () => {
-        return (completada ? WARNING_COLOR : (sePuedeCompletar ? BOTON_PRIMARIO : "gray"));
-    }
-
     return (
         <BotonEtapa
             $completada={completada}
             onClick={sePuedeCompletar ? goToEtapa : () => { }}
-            onMouseEnter={() => setNombreBoton(completada === true ? "EDITAR" : nombre)}
+            onMouseEnter={() => setNombreBoton(completada === true ? "EDITAR" : sePuedeCompletar ? "COMPLETAR" : nombre)}
             onMouseLeave={() => setNombreBoton(nombre)}
-            $bgcolor={getColor(BOTON_PRIMARIO, bgcolor)}
-            $hovercolor={getHoverColor()}
+            $bgcolor={bgcolor}
             $style={style}
             $rotar={rotar}
             $hoverStyles={hoverStyles}
@@ -60,7 +51,6 @@ const BotonEtapa = styled.div`
     position: absolute;
     ${props => props.$style ?? "" }
     &:hover {
-        background-color: ${props => props.$hovercolor};
         ${props => props.$hoverStyles ?? "" }
     }
     & p {
@@ -70,7 +60,3 @@ const BotonEtapa = styled.div`
 `;
 
 export { Etapa }
-
-{/*
-    
-*/}

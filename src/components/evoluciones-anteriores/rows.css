@@ -1,0 +1,8 @@
+.row td {
+    padding: 0.5rem !important;
+    height: 45px !important;
+}
+
+table {
+    height: 70vh;
+}
