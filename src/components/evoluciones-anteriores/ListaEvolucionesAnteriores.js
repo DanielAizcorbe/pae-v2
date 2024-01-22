@@ -3,8 +3,7 @@ import { Columns } from "../utils/Containers";
 import { TablaEvolucionesAnteriores } from "./TablaEvolucionesAnteriores";
 import { ModalEvolucionAnterior } from "./ModalEvoluciónAnterior";
 
-const ListaEvolucionesAnteriores = () => {
-
+const ListaEvolucionesAnteriores = ({ filtros }) => {
 
     const handleRowClick = (record) => {
         setFilaSeleccionada(record);
@@ -27,8 +26,9 @@ const ListaEvolucionesAnteriores = () => {
         >
             <TablaEvolucionesAnteriores
                 handleRowClick={handleRowClick}
+                filtros={filtros}
             />
-            <ModalEvolucionAnterior 
+            <ModalEvolucionAnterior
                 open={showModal}
                 closeModal={closeModal}
                 filaSeleccionada={filaSeleccionada}

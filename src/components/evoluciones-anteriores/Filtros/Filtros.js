@@ -6,27 +6,38 @@ import { SelectSectores } from "./SelectSectores";
 import { InputFecha } from "./InputFecha";
 import { InputRangoFechas } from "./InputRangoFechas";
 
-const Filtros = () => {
+const Filtros = ({filtrosAplicados, aplicarFiltros}) => {
 
     const styles = {
         padding: "1rem 2rem",
     };
 
-    const [fechaBusqueda, setFechaBusqueda] = useState(null);
-    const [rangoFechas, setRangoFechas] = useState(null);
+    const [fechaBusqueda, setFechaBusqueda] = useState(filtrosAplicados.fechaBusqueda);
+    const [rangoFechas, setRangoFechas] = useState(filtrosAplicados.rangoFechas);
+    const [selected, setSelected] = useState(filtrosAplicados.sectores);
 
     const changeDatePicker = (date, dateString) => {
-        setRangoFechas(null);
+        setRangoFechas([]);
         setFechaBusqueda(date);
     }
 
     const changeRangePicker = (dates, dateString) => {
-        setFechaBusqueda(null);
+        setFechaBusqueda("");
         setRangoFechas(dates);
     }
 
-    const applyFiltros = () => {
+    const changeSelected = (sectores) => {
+        setSelected(sectores);
+    }
 
+    const applyFiltros = () => {
+        const nuevosFiltros= {
+            fechaBusqueda: fechaBusqueda,
+            rangoFechas: rangoFechas,
+            sectores: selected,
+        };
+
+        aplicarFiltros(nuevosFiltros);
     }
 
     return (
@@ -46,7 +57,10 @@ const Filtros = () => {
                 rangoFechas={rangoFechas}
                 changeRango={changeRangePicker}
             />
-            <SelectSectores />
+            <SelectSectores 
+                selected={selected}
+                changeSelected={changeSelected}
+            />
             <Columns>
                 <Button
                     type="default"

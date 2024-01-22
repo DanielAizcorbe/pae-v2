@@ -3,12 +3,15 @@ import { evoluciones } from "../datos/evoluciones-anteriores";
 import { Pagination, Table } from "antd";
 import "./rows.css";
 import { Columns } from "../utils/Containers";
+import { filtrar } from "./Filtros/filtrar";
 
-const TablaEvolucionesAnteriores = ({ handleRowClick }) => {
+const TablaEvolucionesAnteriores = ({ handleRowClick, filtros }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = 10;
-    const paginatedData = evoluciones.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+
+    const evolucionesFiltradas = filtrar(evoluciones, filtros);
+    const paginatedData = evolucionesFiltradas.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
     const handleChangePage = (page) => {
         setCurrentPage(page);

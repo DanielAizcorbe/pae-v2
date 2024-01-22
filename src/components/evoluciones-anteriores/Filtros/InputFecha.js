@@ -5,8 +5,7 @@ const InputFecha = ({fechaBusqueda, changeDate}) => {
 
     return (
         <DatePicker
-            showTime
-            format="DD-MM-YYYY / hh:00"
+            format="DD-MM-YYYY"
             placeholder="Fecha y hora aproximada"
             value={fechaBusqueda}
             onChange={changeDate}

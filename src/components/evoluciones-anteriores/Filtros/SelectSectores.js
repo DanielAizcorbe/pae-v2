@@ -1,12 +1,17 @@
 import { Select } from "antd";
 import React from "react";
 
-const SelectSectores = () => {
+const SelectSectores = ({ selected, changeSelected }) => {
+
+    const onChange = (value) => {
+        console.log("seleccionados: ",value);
+        changeSelected(value);
+    }
 
     const selectOptions = [
         {
-            label: "Sector 1",
-            value: "Sector 1"
+            label: "UTI",
+            value: "UTI"
         },
         {
             label: "Sector 2",
@@ -37,9 +42,10 @@ const SelectSectores = () => {
             allowClear
             style={{ width: '100%' }}
             placeholder="Selecciones los Sectores"
-            onChange={() => { }}
+            onChange={onChange}
             options={selectOptions}
             name="sectores-seleccionados"
+            value={selected}
         />
     );
 }
