@@ -12,7 +12,7 @@ const SeccionAcciones = ({ seccion }) => {
     const acciones = [
         {
             key: 1,
-            label: "Acciones",
+            label: "Acciones Recomendadas",
             children: <ListaDeDiagnosticos />,
             id: seccion
         }

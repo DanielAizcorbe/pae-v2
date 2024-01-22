@@ -25,7 +25,7 @@ const Ejecucion = () => {
     const secciones = [
         "Ejecución",
         "Mapa Mental",
-        "Acciones",
+        "Acciones Recomendadas",
         "Finalizar"
     ];
 
@@ -67,28 +67,3 @@ const Ejecucion = () => {
 }
 
 export { Ejecucion }
-
-
-/*
-    <ToggleSection
-                    title={"Acciones"}
-                    showCondition={showAcciones}
-                    toggleFunction={setShowAcciones}
-                    elementPosition={"top-left"}
-                >
-                    <Columns
-                        elementPosition={"top-left"}
-                        padding={" 1rem 2rem"}
-                        width={"80%"}
-                    >
-                        {acciones.map(a =>
-                            <ListaDeAcciones
-                                diagnostico={a.nombre}
-                                diagnosticoId={a.diagnosticoId}
-                                acciones={a.acciones}
-                                toggleSelection={toggleSelection}
-                                key={a.diagnosticoId}
-                            />)}
-                    </Columns>
-                </ToggleSection>
-*/
