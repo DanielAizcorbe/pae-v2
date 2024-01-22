@@ -3,7 +3,7 @@ import { Columns, Rows } from "../utils/Containers";
 import { NavBar } from "../generales/NavBar";
 import { Divider } from "antd";
 import Title from "antd/es/typography/Title";
-import { Filtros } from "./Filtros";
+import { Filtros } from "./Filtros/Filtros";
 import { ListaEvolucionesAnteriores } from "./ListaEvolucionesAnteriores";
 
 const EvolucionesAnteriores = () => {
