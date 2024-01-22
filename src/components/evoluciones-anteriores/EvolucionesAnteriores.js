@@ -29,9 +29,6 @@ const EvolucionesAnteriores = () => {
                     elementPosition={"top-left"}
                     padding={"1rem 2rem"}
                 >
-                    <Title>
-                        Evoluciones Anteriores
-                    </Title>
                     <ListaEvolucionesAnteriores
                     />
                 </Columns>

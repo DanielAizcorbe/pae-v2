@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { evoluciones } from "../datos/evoluciones-anteriores";
 import { Pagination, Table } from "antd";
 import "./rows.css";
+import { Columns } from "../utils/Containers";
 
 const TablaEvolucionesAnteriores = ({ handleRowClick }) => {
 
@@ -41,12 +42,14 @@ const TablaEvolucionesAnteriores = ({ handleRowClick }) => {
     };
 
     return (
-        <>
+        <Columns
+            elementPosition={"top-center"}
+        >
             <Table
                 dataSource={paginatedData}
                 columns={columns}
                 pagination={false}
-                style={{ height: "100%", width: "100%" }}
+                style={{ width: "100%", height: "550px"}}
                 rowClassName={rowStyle}
                 onRow={(record) => ({
                     onClick: () => handleRowClick(record),
@@ -59,7 +62,7 @@ const TablaEvolucionesAnteriores = ({ handleRowClick }) => {
                 showSizeChanger={false}
                 onChange={handleChangePage}
             />
-        </>
+        </Columns>
     );
 }
 

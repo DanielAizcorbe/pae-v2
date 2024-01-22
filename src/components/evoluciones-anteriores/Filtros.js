@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, DatePicker, Flex, Select } from "antd";
+import { Button, DatePicker, Flex, Select, theme } from "antd";
 import Title from "antd/es/typography/Title";
 import { Columns } from "../utils/Containers";
 
@@ -50,7 +50,6 @@ const Filtros = () => {
         setFechaBusqueda(null);
         setRangoFechas(dates);
     }
-
     return (
         <Flex
             gap={"middle"}
@@ -67,6 +66,8 @@ const Filtros = () => {
                 value={fechaBusqueda}
                 onChange={changeDatePicker}
                 name="fecha-buscada"
+                size="small"
+                showNow={false}
             />
             <RangePicker
                 format="DD-MM-YYYY"
@@ -74,6 +75,7 @@ const Filtros = () => {
                 value={rangoFechas}
                 onChange={changeRangePicker}
                 name="rango-buscador"
+                size="small"
             />
             <Select
                 mode="multiple"

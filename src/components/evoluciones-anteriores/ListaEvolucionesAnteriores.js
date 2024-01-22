@@ -27,7 +27,6 @@ const ListaEvolucionesAnteriores = () => {
         >
             <TablaEvolucionesAnteriores
                 handleRowClick={handleRowClick}
-
             />
             <ModalEvolucionAnterior 
                 open={showModal}
