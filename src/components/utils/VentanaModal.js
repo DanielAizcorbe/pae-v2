@@ -4,8 +4,6 @@ import { Columns } from "./Containers";
 
 const VentanaModal = ({ children, showbackground, position, height, width }) => {
 
-
-
     return (
         <Overlay $showbackground={showbackground || false} >
             <Columns

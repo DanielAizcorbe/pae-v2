@@ -3,7 +3,7 @@ import { FALTAN_ETAPAS, GENERAR_EVOLUCION, toggleBotonCentral } from "../botones
 import { Columns } from "../utils/Containers";
 import { styled } from "styled-components";
 import { useSelector } from "react-redux";
-import { EtapaDiagnostico, EtapaEjecucion, EtapaEvaluacion, EtapaEvolucion, EtapaPlaneacion, EtapaValoracion } from "./Etapas";
+import { EtapaDiagnostico, EtapaEjecucion, EtapaEvaluacion, EtapaPlaneacion, EtapaValoracion } from "./Etapas";
 
 
 const EtapasEvolucion = () => {

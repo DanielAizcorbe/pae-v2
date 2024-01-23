@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Columns, Rows } from "../../utils/Containers";
 import styled from "styled-components";

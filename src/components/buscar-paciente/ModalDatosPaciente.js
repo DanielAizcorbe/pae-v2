@@ -4,8 +4,8 @@ import Title from "antd/es/typography/Title";
 import { Columns } from "../utils/Containers";
 import { ImportantText } from "../utils/Spans";
 import { FilaDatoModal } from "../utils/VentanaModal";
-import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { Button } from "antd";
 
 const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
 

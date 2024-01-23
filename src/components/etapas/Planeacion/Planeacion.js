@@ -2,7 +2,6 @@ import { DragDropDiagnostico } from "./DragDropDiagnostico";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Columns } from "../../utils/Containers";
 import { Titulo } from "../../utils/Titulos";
-import { styled } from "styled-components";
 import { switchOrder } from "../../../store/slices/prioridades";
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';

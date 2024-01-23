@@ -1,5 +1,4 @@
 import React from "react";
-import { DatosPaciente } from "./DatosPaciente";
 import { EtapasEvolucion } from "./EtapasEvolucion";
 import { Columns } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
@@ -20,8 +19,6 @@ const Evolucion = () => {
                     height="20vh"
                 >
                     <Titulo texto="Evolución paciente" />
-                    <DatosPaciente
-                    />
                 </Columns>
                 <EtapasEvolucion />
             </Columns>

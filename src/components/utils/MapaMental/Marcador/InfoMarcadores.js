@@ -1,6 +1,5 @@
 import { Collapse, List } from "antd";
 import React from "react";
-import { styled } from "styled-components";
 
 const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion, marcadores }) => {
 
@@ -57,28 +56,5 @@ const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion, marcadores 
         />
     );
 }
-
-const ListaInfoMarcadores = styled.div`
-    position: relative;
-    max-width: 40rem;
-    min-width: 20rem;
-    width: 50%;
-    min-height: 600px;
-    height: 100%;
-    left: 32rem;
-    padding: 1rem 2rem;
-    margin: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.2rem;
-`;
-
-const InfoMarcador = styled.li`
-    font-size: 1.3rem;
-    padding: 0.5rem;
-`;
 
 export { InfoMarcadores }

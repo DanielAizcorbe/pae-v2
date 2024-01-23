@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { styled } from "styled-components";
-import { BOTON_PRIMARIO, WARNING_COLOR } from "../datos/colores";
 import { useNavigate } from "react-router-dom";
 
 const Etapa = ({ hoverStyles, nombre, link, completada, bgcolor, sePuedeCompletar, style, rotar }) => {
