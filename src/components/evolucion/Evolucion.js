@@ -3,8 +3,11 @@ import { EtapasEvolucion } from "./EtapasEvolucion";
 import { Columns } from "../utils/Containers";
 import { Titulo } from "../utils/Titulos";
 import { NavBar } from "../generales/NavBar";
+import { useSelector } from "react-redux";
 
 const Evolucion = () => {
+
+    const paciente = useSelector(state => state.paciente);
 
     return (
         <Columns
@@ -18,7 +21,7 @@ const Evolucion = () => {
                     elementPosition="center"
                     height="20vh"
                 >
-                    <Titulo texto="Evolución paciente" />
+                    <Titulo texto={paciente.nombreCompleto} />
                 </Columns>
                 <EtapasEvolucion />
             </Columns>

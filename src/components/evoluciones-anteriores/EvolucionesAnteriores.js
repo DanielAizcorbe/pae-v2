@@ -4,6 +4,8 @@ import { NavBar } from "../generales/NavBar";
 import { Divider } from "antd";
 import { Filtros } from "./Filtros/Filtros";
 import { ListaEvolucionesAnteriores } from "./ListaEvolucionesAnteriores";
+import { useSelector } from "react-redux";
+import Title from "antd/es/typography/Title";
 
 const EvolucionesAnteriores = () => {
 
@@ -13,6 +15,8 @@ const EvolucionesAnteriores = () => {
         sectores: [],
     };
     const [filtros, setFiltros] = useState(defaultFiltros);
+
+    const paciente = useSelector(state => state.paciente);
 
     return (
         <Columns
@@ -30,7 +34,6 @@ const EvolucionesAnteriores = () => {
                         aplicarFiltros={setFiltros}
                         filtrosAplicados={filtros}
                     />
-
                 </Rows>
                 <Divider type="vertical" style={{ height: '100%' }} />
                 <Columns
@@ -38,6 +41,9 @@ const EvolucionesAnteriores = () => {
                     elementPosition={"top-left"}
                     padding={"1rem 2rem"}
                 >
+                    <Title level={2}>
+                        {paciente.nombreCompleto}
+                    </Title>
                     <ListaEvolucionesAnteriores
                         filtros={filtros}
                     />
