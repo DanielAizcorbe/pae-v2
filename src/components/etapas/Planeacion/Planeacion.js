@@ -15,9 +15,14 @@ const Planeacion = () => {
     const diagnosticosPriorizados = useSelector(state => state.prioridades);
     const [diagnosticosOrdenados, setDiagnosticosOrdenados] = useState(diagnosticosPriorizados);
 
+    const getResumen = (diagnosticosOrdenados) => {
+        return `Se priorizan los diagnósticos anteriores según su urgencia\n${diagnosticosOrdenados.map(n => `${(diagnosticosOrdenados.indexOf(n) + 1) + ". " + n.nombre}`).join('\n')}`;
+    }
+
     const setPrioridades = () => {
+        console.log(getResumen(diagnosticosPriorizados));
         dispatch(switchOrder(diagnosticosOrdenados));
-        dispatch(completarEtapa({ etapa: "planeacion", completada: true, text: "" }))
+        dispatch(completarEtapa({ etapa: "planeacion", completada: true, resumen: getResumen(diagnosticosPriorizados) }))
     }
 
     return (

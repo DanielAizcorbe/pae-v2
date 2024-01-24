@@ -16,9 +16,14 @@ const Diagnostico = () => {
 
     const dispatch = useDispatch();
 
+    const getResumen = (diagnosticosSeleccionados) => {
+        return `En base a las necesidades observadas, se diagnostica\n${diagnosticosSeleccionados.map(d => `> ${d.nombre}`).join('\n')}`;
+    }
+
     const onClickFunction = () => {
+        console.log(getResumen(diagnosticos.filter(d => d.selected)));
         dispatch(switchOrder(diagnosticos.filter(d => d.selected)));
-        dispatch(completarEtapa({etapa:"diagnostico",completada: true, text:""}))
+        dispatch(completarEtapa({ etapa: "diagnostico", completada: true, resumen: getResumen(diagnosticos.filter(d => d.selected)) }))
     }
 
     return (

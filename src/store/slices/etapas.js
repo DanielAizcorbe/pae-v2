@@ -3,31 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     valoracion: {
         completada: false,
-        text: "",
+        resumen: ""
     },
     diagnostico: {
         completada: false,
-        text: "",
+        resumen: ""
     },
     planeacion: {
         completada: false,
-        text: "",
+        resumen: ""
     },
     ejecucion: {
         completada: false,
-        text: "",
+        resumen: ""
     },
     evaluacion: {
         completada: false,
-        text: "",
+        resumen: ""
     },
 }
 
 const reducers = {
     completarEtapa: (state, action) => {
-        const { etapa, completada, text } = action.payload;
+        const { etapa, completada, resumen } = action.payload;
         state[etapa].completada = completada;
-        state[etapa].text = text;
+        state[etapa].resumen = resumen;
     },
 };
 

@@ -15,8 +15,14 @@ const Valoracion = () => {
 
     const dispatch = useDispatch();
 
+    const getResumen = (necesidadesSeleccionadas) => {
+        return `Necesidades del paciente\n${necesidadesSeleccionadas.map(n => `> ${n.nombre}`).join('\n')}`;
+    }
+
     const onClick = () => {
-        dispatch(completarEtapa({ etapa: "valoracion", completada: true, text: "" }))
+        console.log(getResumen(necesidades.filter(n => n.selected)));
+        console.table({ etapa: "valoracion", completada: true, resumen: getResumen(necesidades.filter(n => n.selected)) });
+        dispatch(completarEtapa({ etapa: "valoracion", completada: true, resumen: getResumen(necesidades.filter(n => n.selected)) }))
     }
 
     const secciones = [
@@ -27,6 +33,7 @@ const Valoracion = () => {
     ];
 
 
+
     return (
         <Rows>
             <EtapaContainer
@@ -34,7 +41,7 @@ const Valoracion = () => {
                 padding="1rem"
             >
                 <Titulo texto="Valoración" id={"Valoración"} />
-                <SeccionMapaMental seccion={secciones[1]} etapa={"valoracion"}/>
+                <SeccionMapaMental seccion={secciones[1]} etapa={"valoracion"} />
                 <SeccionNecesidades seccion={secciones[2]} />
                 <Columns
                     elementPosition="bottom-center"

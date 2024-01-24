@@ -14,13 +14,30 @@ import { SeccionAcciones } from "./SeccionAcciones";
 const Ejecucion = () => {
 
     const dispatch = useDispatch();
+    const accionesSeleccionadas = useSelector(state => state.diagnosticos)
 
+    const getResumen = (marcadores, acciones) => {
+
+        const operacionesRealizadas = marcadores.map(m => m.text);
+
+        return `Se realizaron las siguientes prácticas en el paciente:\n${operacionesRealizadas.map(o => `${operacionesRealizadas.indexOf(o) + 1}. ${o}`).join("\n")}`
+        + `\n\nSe realizarán las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
+    }
+
+    const getSelected = (object) => {
+        return {
+            diagnostico: object.nombre,
+            acciones: object.acciones.filter(a => a.selected)
+        }
+    }
     const onClick = () => {
-        dispatch(completarEtapa({ etapa: "ejecucion", completada: true, text: "" }))
+        const acciones = accionesSeleccionadas.map(a => getSelected(a)).filter(o => o.acciones.length > 0);
+        console.log(getResumen(marcadoresEjecucion, acciones))
+        dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumen(marcadoresEjecucion, acciones) }))
     }
 
     const marcadoresEjecucion = useSelector(state => state.marcadoresEjecucion);
-    const acciones = useSelector(state => state.diagnosticos).map(d=> d.acciones).reduce((acumulador, acciones) => acumulador.concat(acciones), []);
+    const acciones = useSelector(state => state.diagnosticos).map(d => d.acciones).reduce((acumulador, acciones) => acumulador.concat(acciones), []);
 
     const secciones = [
         "Ejecución",
@@ -43,7 +60,7 @@ const Ejecucion = () => {
                     seccion={secciones[1]}
                     etapa="ejecucion"
                 />
-                <SeccionAcciones 
+                <SeccionAcciones
                     seccion={secciones[2]}
                 />
                 <Columns

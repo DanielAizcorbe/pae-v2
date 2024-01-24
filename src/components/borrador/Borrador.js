@@ -4,6 +4,7 @@ import { NavBar } from "../generales/NavBar";
 import TextArea from "antd/es/input/TextArea";
 import { Titulo } from "../utils/Titulos";
 import Alert from "antd/es/alert/Alert";
+import { useSelector } from "react-redux";
 
 const Borrador = () => {
 
@@ -17,6 +18,14 @@ const Borrador = () => {
         color: "black",
         cursor: "default"
     };
+
+    const resumenesEtapa = useSelector(state => state.estadoEtapas);
+
+    const textoResumido = `VALORACIÓN\n${resumenesEtapa.valoracion.resumen}\n\n`
+    + `DIAGNÓSTICO\n${resumenesEtapa.diagnostico.resumen}\n\n`
+    + `PLANEACIÓN\n${resumenesEtapa.planeacion.resumen}\n\n`
+    + `EJECUCIÓN\n${resumenesEtapa.ejecucion.resumen}\n\n`
+    + `EVALUACIÓN\n${resumenesEtapa.evaluacion.resumen}\n`;
 
     return (
         <Columns
@@ -35,6 +44,7 @@ const Borrador = () => {
                     disabled
                     spellCheck={false}
                     name="textarea"
+                    value={textoResumido}
                 />
                 <Columns
                     elementPosition={"top-center"}

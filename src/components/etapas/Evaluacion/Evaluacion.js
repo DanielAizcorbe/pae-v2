@@ -10,14 +10,14 @@ import { Columns } from "../../utils/Containers";
 
 const Evaluacion = () => {
 
-    const textoEscritoAntes = useSelector(state => state.estadoEtapas.evaluacion.text);
+    const textoEscritoAntes = useSelector(state => state.estadoEtapas.evaluacion.resumen);
     const [text, setText] = useState(textoEscritoAntes);
 
     const dispatch = useDispatch();
 
     const onClick = () => {
-        dispatch(completarEtapa({ etapa: "evaluacion", completada: true, text: text }))
-
+        console.log(text);
+        dispatch(completarEtapa({ etapa: "evaluacion", completada: true, resumen: text }))
     }
 
     const textAreaStyles = {
@@ -45,6 +45,7 @@ const Evaluacion = () => {
                     spellCheck={false}
                     onChange={event => setText(event.target.value)}
                     name="textarea"
+                    value={text}
                 />
             </Columns>
             <Columns
