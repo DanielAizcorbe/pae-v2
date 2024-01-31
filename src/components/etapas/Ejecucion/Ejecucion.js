@@ -10,7 +10,6 @@ import { SeccionMapaMental } from "../Valoracion/SeccionMapaMental";
 import { Secciones } from "../../generales/Secciones";
 import { SeccionAcciones } from "./SeccionAcciones";
 
-
 const Ejecucion = () => {
 
     const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const Ejecucion = () => {
         const operacionesRealizadas = marcadores.map(m => m.text);
 
         return `Se realizaron las siguientes prácticas en el paciente:\n${operacionesRealizadas.map(o => `${operacionesRealizadas.indexOf(o) + 1}. ${o}`).join("\n")}`
-        + `\n\nSe realizarán las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
+            + `\n\nSe realizarán las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
     }
 
     const getSelected = (object) => {
@@ -30,6 +29,7 @@ const Ejecucion = () => {
             acciones: object.acciones.filter(a => a.selected)
         }
     }
+
     const onClick = () => {
         const acciones = accionesSeleccionadas.map(a => getSelected(a)).filter(o => o.acciones.length > 0);
         console.log(getResumen(marcadoresEjecucion, acciones))

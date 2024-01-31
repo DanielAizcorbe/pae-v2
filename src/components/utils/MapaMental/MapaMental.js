@@ -12,7 +12,7 @@ import { agregarMarcadorE, quitarMarcadorE } from '../../../store/slices/mapaMen
 import { agregarMarcadorV, quitarMarcadorV } from '../../../store/slices/mapaMentalValoracion';
 
 
-const MapaMental = ({ etapa }) => {
+const MapaMental = ({ etapa,disabled }) => {
 
   const etapaActual = etapa === "valoracion" ? "marcadoresValoracion" : "marcadoresEjecucion";
   const marcadoresV = useSelector(state => state.marcadoresValoracion);
@@ -71,7 +71,7 @@ const MapaMental = ({ etapa }) => {
           draggable={false}
           src={mapaMental}
           alt="mapa mental"
-          onClick={addMarcador}
+          onClick={disabled ? () => {} : addMarcador}
         />
         <ListaMarcadores
           marcadores={marcadores}

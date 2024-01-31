@@ -56,7 +56,6 @@ const BusquedaPaciente = () => {
         return (errorDocBuscado === "" ? "ingrese un documento" : "No hay ningún paciente registrado con el documento " + errorDocBuscado);
     }
 
-
     return (
         <Columns
             elementPosition={"top-center"}

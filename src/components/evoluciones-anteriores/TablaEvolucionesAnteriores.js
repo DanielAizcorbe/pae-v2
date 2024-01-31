@@ -52,7 +52,7 @@ const TablaEvolucionesAnteriores = ({ handleRowClick, filtros }) => {
                 dataSource={paginatedData}
                 columns={columns}
                 pagination={false}
-                style={{ width: "100%", height: "550px"}}
+                style={{ width: "100%", height: "100%"}}
                 rowClassName={rowStyle}
                 onRow={(record) => ({
                     onClick: () => handleRowClick(record),

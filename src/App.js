@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { EvolucionesAnteriores } from './components/evoluciones-anteriores/EvolucionesAnteriores';
 import { Borrador } from './components/borrador/Borrador';
+import { FinalizarEvolucion } from './components/evolucion/FinalizarEvolucion';
 
 function App() {
 
@@ -33,12 +34,12 @@ function App() {
           <Route exact path="/evolucion" element={<Evolucion />} />
           <Route exact path='/evolucion/valoracion' element={<Valoracion />} />
           <Route exact path='/evolucion/diagnostico' element={<Diagnostico />} />
-          <Route exact path='/evolucion/finalizar' element={<></>} />
           <Route exact path='/evolucion/planeacion' element={<Planeacion />} />
           <Route exact path='/evolucion/ejecucion' element={<Ejecucion />} />
           <Route exact path='/evolucion/evaluacion' element={<Evaluacion />} />
           <Route exact path="/evoluciones-atenriores" element={<EvolucionesAnteriores />} />
-          <Route exact path='/evolucion/borrador' element={<Borrador disabled={false}/>} />
+          <Route exact path='/evolucion/borrador' element={<Borrador />} />
+          <Route exact path='/evolucion/finalizar' element={<FinalizarEvolucion />} />
         </Routes>
 
       </Provider>

@@ -4,6 +4,7 @@ import { Columns } from "../utils/Containers";
 import { styled } from "styled-components";
 import { useSelector } from "react-redux";
 import { EtapaDiagnostico, EtapaEjecucion, EtapaEvaluacion, EtapaPlaneacion, EtapaValoracion } from "./Etapas";
+import { useNavigate } from "react-router-dom";
 
 
 const EtapasEvolucion = () => {
@@ -19,6 +20,12 @@ const EtapasEvolucion = () => {
 
         return FALTAN_ETAPAS;
 
+    }
+
+    const navegar = useNavigate();
+
+    const finalizar = () => {
+        navegar("/evolucion/finalizar");
     }
 
     return (
@@ -38,7 +45,7 @@ const EtapasEvolucion = () => {
                     height={"0"}
                     position={"relative"}
                 >
-                    {toggleBotonCentral(flag(estadoEtapas))}
+                    {toggleBotonCentral(flag(estadoEtapas),finalizar)}
                     <EtapaValoracion
                         completada={estadoEtapas.valoracion.completada}
                     />

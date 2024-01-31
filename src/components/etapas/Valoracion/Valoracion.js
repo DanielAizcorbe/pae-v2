@@ -32,8 +32,6 @@ const Valoracion = () => {
         "Finalizar"
     ];
 
-
-
     return (
         <Rows>
             <EtapaContainer

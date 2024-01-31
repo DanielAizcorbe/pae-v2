@@ -45,9 +45,12 @@ const BtnCentral = styled.button`
     border: none;
     width: 9rem;
     height: 9rem;
-    border-radius: 30%;
+    margin: 2.5rem 5rem;
+    border-radius: 50%;
     line-height: 2rem;
     margin: 2.5rem;
+    position: absolute;
+    bottom: -125px;
     background-color: ${props => props.$bgcolor};
 
     &:hover {
