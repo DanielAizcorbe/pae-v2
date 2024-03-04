@@ -13,7 +13,8 @@ import { SeccionAcciones } from "./SeccionAcciones";
 const Ejecucion = () => {
 
     const dispatch = useDispatch();
-    const accionesSeleccionadas = useSelector(state => state.diagnosticos)
+    const accionesSeleccionadas = useSelector(state => state.diagnosticos);
+    const marcadoresEjecucion = useSelector(state => state.marcadores).map(m => m.etapa === "ejecucion");
 
     const getResumen = (marcadores, acciones) => {
 
@@ -36,7 +37,6 @@ const Ejecucion = () => {
         dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumen(marcadoresEjecucion, acciones) }))
     }
 
-    const marcadoresEjecucion = useSelector(state => state.marcadoresEjecucion);
     const acciones = useSelector(state => state.diagnosticos).map(d => d.acciones).reduce((acumulador, acciones) => acumulador.concat(acciones), []);
 
     const secciones = [
