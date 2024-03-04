@@ -32,11 +32,6 @@ const TablaEvolucionesAnteriores = ({ handleRowClick, filtros }) => {
             title: "Enfermero",
             dataIndex: "enfermero",
             key: "enfermero"
-        },
-        {
-            title: "Resumen",
-            dataIndex: "resumen",
-            key: "resumen"
         }
     ];
 
