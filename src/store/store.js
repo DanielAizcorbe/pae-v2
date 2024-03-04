@@ -6,6 +6,7 @@ import marcadoresEjecucionReducer from "./slices/mapaMentalEjecucion";
 import necesidadesReducer from "./slices/necesidades";
 import diagnosticosReducer from "./slices/diagnosticos";
 import prioridadesReducer from "./slices/prioridades";
+import exploracionFisicaReducer from "./slices/exploracionFisica";
 
 export const store = configureStore(
     {
@@ -17,6 +18,7 @@ export const store = configureStore(
             necesidades: necesidadesReducer,
             diagnosticos: diagnosticosReducer,
             prioridades: prioridadesReducer,
+            exploracionFisica: exploracionFisicaReducer,
         }
     }
 );
