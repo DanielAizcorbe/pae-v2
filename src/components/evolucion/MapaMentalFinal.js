@@ -6,7 +6,7 @@ const MapaMentalFinal = ({etapa, disabled}) => {
     return (
         <MapaMental
             etapa={etapa}
-            disabled={disabled}
+            disabled
         />
     );
 }

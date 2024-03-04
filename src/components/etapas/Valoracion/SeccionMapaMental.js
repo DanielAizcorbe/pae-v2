@@ -1,6 +1,6 @@
 import React from "react";
-import { MapaMental } from "../../utils/MapaMental/MapaMental";
 import { Collapse } from "antd";
+import { MapaMental } from "../../utils/MapaMental/MapaMental";
 
 const SeccionMapaMental = ({ seccion, etapa }) => {
 

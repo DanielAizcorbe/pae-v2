@@ -24,7 +24,7 @@ const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
     }
 
     return (
-        <>
+        <div key={numero + id}>
             <MarcadorBody
                 $posX={posX + "px"}
                 $posY={posY + "px"}
@@ -41,7 +41,7 @@ const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
                 closeModalFunction={closeModalFunction}
                 remove={removeMarcador}
             />
-        </>
+        </div>
     );
 }
 
