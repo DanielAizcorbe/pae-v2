@@ -24,6 +24,7 @@ const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
         footer={null}
         afterClose={closeModal}
         keyboard
+        centered
     >
         <Columns
             elementPosition={"top-left"}

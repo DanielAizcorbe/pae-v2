@@ -61,6 +61,7 @@ const BusquedaPaciente = () => {
             elementPosition={"top-center"}
             height="100vh"
             width="100vw"
+            padding={"2rem"}
         >
             <Titulo texto="Evolución de pacientes" />
             <InputNroDocumento
