@@ -1,17 +1,11 @@
 import { Collapse, List } from "antd";
 import React from "react";
 
-const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion, marcadores }) => {
+const InfoMarcadores = ({ marcadores }) => {
 
     const collapseStyle = {
-        position: 'relative',
-        minWidth: '20rem',
-        width: '50%',
-        minHeight: '600px',
-        height: '100%',
-        maxHeight: '600px',
-        left: '32rem',
-        margin: 0,
+        width: '100%',
+        height: '666px',
         zIndex: 1,
     }; 
 
@@ -25,7 +19,7 @@ const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion, marcadores 
             label: "Prácticas Observadas",
             children: <List
                 bordered
-                dataSource={marcadoresValoracion}
+                dataSource={marcadores.filter(m => m.etapa === "valoracion")}
                 renderItem={(item) => <List.Item key={item.id}>{marcadores.indexOf(item) + 1 + ". "}{item.text}</List.Item>}
                 style={{overflowY: 'auto', maxHeight: "400px", height: "100%"}}
                 locale={config}
@@ -36,7 +30,7 @@ const InfoMarcadores = ({ marcadoresValoracion, marcadoresEjecucion, marcadores 
             label: "Prácticas Realizadas",
             children: <List
                 bordered
-                dataSource={marcadoresEjecucion}
+                dataSource={marcadores.filter(m => m.etapa === "ejecucion")}
                 renderItem={(item) => <List.Item key={item.id}>{marcadores.indexOf(item) + 1 + ". "}{item.text}</List.Item>}
                 style={{overflowY: 'auto', maxHeight: "400px", height: "100%"}}
                 locale={config}

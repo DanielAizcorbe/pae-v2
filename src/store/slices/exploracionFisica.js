@@ -8,8 +8,8 @@ const initialState = {
 };
 
 const reducers = {
-    updateEtapa: (state, action) => {
-        state[action.payload.etapa] = action.payload.texto;
+    updateAll: (state, action) => {
+        return action.payload;
     },
 };
 
@@ -19,5 +19,5 @@ const exploracionFisicaSlices = createSlice({
     reducers: reducers
 })
 
-export const { updateEtapa } = exploracionFisicaSlices.actions;
+export const { updateAll } = exploracionFisicaSlices.actions;
 export default exploracionFisicaSlices.reducer;
