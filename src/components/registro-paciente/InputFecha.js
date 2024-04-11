@@ -1,7 +1,8 @@
+import { Form } from 'antd';
 import Input from 'antd/es/input/Input';
 import React from 'react'
 
-export const InputFecha = ({value, setValue}) => {
+export const InputFecha = ({ value, setValue }) => {
 
     const handleChange = (e) => {
         let inputDate = e.target.value;
@@ -24,10 +25,14 @@ export const InputFecha = ({value, setValue}) => {
     };
 
     return (
-        <Input 
-            placeholder='DD/MM/YYYY'
-            value={value}
-            onChange={handleChange}
-        />
+        <Form.Item label="Fecha de nacimiento" htmlFor="fecha-nacimiento" required>
+            <Input
+                placeholder='DD/MM/YYYY'
+                value={value}
+                onChange={handleChange}
+                id='fecha-nacimiento'
+            />
+        </Form.Item>
+
     )
 }

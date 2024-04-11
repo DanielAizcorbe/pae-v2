@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { Columns } from '../utils/Containers'
 import Title from 'antd/es/typography/Title'
-import { Button, Form } from 'antd'
-import Input from 'antd/es/input/Input'
+import { Button } from 'antd'
 import { InputFecha } from './InputFecha'
+
 import FormularioRegistro from './FormularioRegistro'
+import InputNombre from './InputNombre'
+import InputDocumento from './InputDocumento'
+
 
 
 
@@ -39,28 +42,18 @@ const Registro = () => {
                 padding={"3rem"}
             >
                 <FormularioRegistro>
-                    <Form.Item label="Nombre Completo" htmlFor='nombre-completo' required>
-                        <Input
-                            allowClear
-                            onChange={onChangeName}
-                            value={nombre}
-                            id="nombre-completo"
-                        />
-                    </Form.Item>
-                    <Form.Item label="Documento (sin puntos)" htmlFor='documento' required>
-                        <Input
-                            allowClear
-                            onChange={onChangeDocument}
-                            value={documento}
-                            id='documento'
-                        />
-                    </Form.Item>
-                    <Form.Item label="Fecha de nacimiento">
-                        <InputFecha
-                            value={fechaNacimiento}
-                            setValue={onChangeBirthDay}
-                        />
-                    </Form.Item>
+                    <InputNombre
+                        nombre={nombre}
+                        setNombre={onChangeName}
+                    />
+                    <InputDocumento
+                        documento={documento}
+                        setDocumento={onChangeDocument}
+                    />
+                    <InputFecha
+                        value={fechaNacimiento}
+                        setValue={onChangeBirthDay}
+                    />
                     <Columns
                         elementPosition={"center"}
                         width={"100%"}
