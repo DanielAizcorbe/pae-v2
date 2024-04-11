@@ -13,6 +13,8 @@ import { store } from './store/store';
 import { EvolucionesAnteriores } from './components/evoluciones-anteriores/EvolucionesAnteriores';
 import { Borrador } from './components/borrador/Borrador';
 import { FinalizarEvolucion } from './components/evolucion/FinalizarEvolucion';
+import { EjecutarAcciones } from './components/etapas/Ejecucion/EjecutarAcciones';
+import Registro from './components/registro-paciente/Registro';
 
 function App() {
 
@@ -31,6 +33,7 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<BusquedaPaciente />} />
+          <Route exact path='/registro-paciente' element={<Registro></Registro>} />
           <Route exact path="/evolucion" element={<Evolucion />} />
           <Route exact path='/evolucion/valoracion' element={<Valoracion />} />
           <Route exact path='/evolucion/diagnostico' element={<Diagnostico />} />
@@ -40,6 +43,7 @@ function App() {
           <Route exact path="/evoluciones-atenriores" element={<EvolucionesAnteriores />} />
           <Route exact path='/evolucion/borrador' element={<Borrador />} />
           <Route exact path='/evolucion/finalizar' element={<FinalizarEvolucion />} />
+          <Route exact path='/evolucion/ejecucion/acciones' element={<EjecutarAcciones />} />
         </Routes>
 
       </Provider>
