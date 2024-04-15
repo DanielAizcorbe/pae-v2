@@ -1,7 +1,13 @@
 import Form from 'antd/es/form/Form'
 import React from 'react'
 
-const FormularioRegistro = ({children}) => {
+const FormularioRegistro = ({ children }) => {
+
+    const finishForm = (values) => {
+        console.log(values);
+        const { documento, fechaNacimiento, nombreCompleto } = values
+        console.log(documento, fechaNacimiento, nombreCompleto);
+    }
 
     const formStyle = {
         width: "700px",
@@ -9,7 +15,7 @@ const FormularioRegistro = ({children}) => {
         padding: "3rem",
         borderRadius: "10px",
         backgroundColor: "lightblue",
-        
+
     };
 
     return (
@@ -17,8 +23,9 @@ const FormularioRegistro = ({children}) => {
             variant='outlined'
             layout='vertical'
             size='middle'
-            requiredMark="default"
+            requiredMark="optional"
             style={formStyle}
+            onFinish={finishForm}
         >
             {children}
         </Form>

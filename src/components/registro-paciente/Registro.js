@@ -7,6 +7,7 @@ import { InputFecha } from './InputFecha'
 import FormularioRegistro from './FormularioRegistro'
 import InputNombre from './InputNombre'
 import InputDocumento from './InputDocumento'
+import BotonRegistrar from './BotonRegistrar'
 
 
 
@@ -29,6 +30,7 @@ const Registro = () => {
     const onChangeBirthDay = (date) => {
         setFechaNacimiento(date);
     }
+
 
     return (
         <Columns
@@ -60,9 +62,7 @@ const Registro = () => {
                         height={"auto"}
                         padding={"1rem 0 0"}
                     >
-                        <Button type='primary'>
-                            Registrar
-                        </Button>
+                        <BotonRegistrar />
                     </Columns>
                 </FormularioRegistro>
             </Columns>

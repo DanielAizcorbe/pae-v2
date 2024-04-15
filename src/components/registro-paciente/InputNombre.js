@@ -3,14 +3,28 @@ import Input from 'antd/es/input/Input'
 import { Form } from 'antd'
 
 
+
 const InputNombre = ({ setNombre, nombre }) => {
+
+
     return (
-        <Form.Item label="Nombre Completo" htmlFor='nombre-completo' required>
+        <Form.Item
+            label="Nombre Completo"
+            htmlFor='nombreCompleto'
+            name='nombreCompleto'
+            rules={[
+                {
+                    required: true,
+                    message: "Ingrese un nombre"
+                }
+            ]}
+            validateTrigger="onSubmit"
+        >
             <Input
                 allowClear
                 onChange={setNombre}
                 value={nombre}
-                id="nombre-completo"
+                id="nombreCompleto"
             />
         </Form.Item>
     )
