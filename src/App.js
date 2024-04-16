@@ -15,6 +15,7 @@ import { Borrador } from './components/borrador/Borrador';
 import { FinalizarEvolucion } from './components/evolucion/FinalizarEvolucion';
 import { EjecutarAcciones } from './components/etapas/Ejecucion/EjecutarAcciones';
 import Registro from './components/registro-paciente/Registro';
+import { Home } from './components/registro-paciente/Home';
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
       <Provider store={store}>
 
         <Routes>
-          <Route exact path="/" element={<BusquedaPaciente />} />
+          <Route exact path="/evolucion/paciente" element={<BusquedaPaciente />} />
           <Route exact path='/registro-paciente' element={<Registro></Registro>} />
           <Route exact path="/evolucion" element={<Evolucion />} />
           <Route exact path='/evolucion/valoracion' element={<Valoracion />} />
@@ -44,6 +45,7 @@ function App() {
           <Route exact path='/evolucion/borrador' element={<Borrador />} />
           <Route exact path='/evolucion/finalizar' element={<FinalizarEvolucion />} />
           <Route exact path='/evolucion/ejecucion/acciones' element={<EjecutarAcciones />} />
+          <Route exact path='/' element={<Home />} />
         </Routes>
 
       </Provider>
