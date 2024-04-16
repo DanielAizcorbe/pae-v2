@@ -10,23 +10,14 @@ import { Ejecucion } from './components/etapas/Ejecucion/Ejecucion';
 import { Evaluacion } from './components/etapas/Evaluacion/Evaluacion';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import { EvolucionesAnteriores } from './components/evoluciones-anteriores/EvolucionesAnteriores';
 import { Borrador } from './components/borrador/Borrador';
 import { FinalizarEvolucion } from './components/evolucion/FinalizarEvolucion';
 import { EjecutarAcciones } from './components/etapas/Ejecucion/EjecutarAcciones';
 import Registro from './components/registro-paciente/Registro';
 import { Home } from './components/registro-paciente/Home';
+import { PantallaNoDisponible } from './components/PantallaNoDisponible';
 
 function App() {
-
-  const valoracionFalsa = "- RESPIRACIÓN\n\n- ALIMENTACIÓN E HIDRATACIÓN\n\n- ELIMINACIÓN\n\n";
-  const diagnosticoFalso = "DISMINUCIÓN DEL GASTO CARDIACO\n\n" +
-    "La cantidad de sangre bombeada por el corazón es inadecuada para satisfacer las demandas metabólicas del cuerpo.\n\n"
-    + "DETERIORO DEL INTERCAMBIO DE GASES\n\n"
-    + "Exceso o déficit en la oxigenación y/o eliminación del dióxido de carbono en la membrana alveolocapilar.";
-
-  const resumenFinal = "VALORACIÓN\n\n" + valoracionFalsa + "\nDIAGNÓSTICO\n\n" + diagnosticoFalso;
-
 
   return (
     <div className="App">
@@ -41,7 +32,7 @@ function App() {
           <Route exact path='/evolucion/planeacion' element={<Planeacion />} />
           <Route exact path='/evolucion/ejecucion' element={<Ejecucion />} />
           <Route exact path='/evolucion/evaluacion' element={<Evaluacion />} />
-          <Route exact path="/evoluciones-atenriores" element={<EvolucionesAnteriores />} />
+          <Route exact path="/evoluciones-atenriores" element={<PantallaNoDisponible seccion={2} />} />
           <Route exact path='/evolucion/borrador' element={<Borrador />} />
           <Route exact path='/evolucion/finalizar' element={<FinalizarEvolucion />} />
           <Route exact path='/evolucion/ejecucion/acciones' element={<EjecutarAcciones />} />
