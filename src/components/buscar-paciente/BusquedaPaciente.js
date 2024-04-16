@@ -58,7 +58,7 @@ const BusquedaPaciente = () => {
 
     return (
         <Columns
-            elementPosition={"top-center"}
+            elementPosition={"center"}
             height="100vh"
             width="100vw"
             padding={"2rem"}
@@ -69,10 +69,11 @@ const BusquedaPaciente = () => {
                 value={docBuscado}
                 onSearch={handleModalPaciente}
             />
-            {mostrarAviso ? <AvisoWarning
+            <AvisoWarning
                 closeAviso={closeAviso}
                 mensaje={setMensajeSegun(errorDocBuscado)}
-            /> : ""}
+                esVisible={mostrarAviso}
+            />
             <ModalDatosPaciente
                 closeModal={closeModal}
                 nextPage={"/evolucion"}

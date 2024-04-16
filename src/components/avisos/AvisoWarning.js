@@ -3,11 +3,12 @@ import React from "react";
 import { Alert } from 'antd';
 import { Rows } from "../utils/Containers";
 
-const AvisoWarning = ({ closeAviso, mensaje }) => {
+const AvisoWarning = ({ closeAviso, mensaje, esVisible }) => {
 
     const style = {
         padding: "1rem",
         fontSize: "1.1rem",
+        zIndex: esVisible ? "1" : "-1"
     };
 
     return (
@@ -19,7 +20,6 @@ const AvisoWarning = ({ closeAviso, mensaje }) => {
             <Alert
                 message={mensaje}
                 type="warning"
-                closable
                 showIcon
                 onClose={closeAviso}
                 style={style}
