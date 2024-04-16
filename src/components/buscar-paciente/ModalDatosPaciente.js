@@ -2,10 +2,9 @@ import { useSelector } from "react-redux";
 import Modal from "antd/es/modal/Modal";
 import Title from "antd/es/typography/Title";
 import { Columns } from "../utils/Containers";
-import { ImportantText } from "../utils/Spans";
-import { FilaDatoModal } from "../utils/VentanaModal";
 import { useNavigate } from "react-router-dom";
-import { Button } from "antd";
+import { Button, Flex } from "antd";
+import FilaModalPaciente from "./FilaModalPaciente";
 
 const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
 
@@ -27,36 +26,51 @@ const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
         centered
     >
         <Columns
-            elementPosition={"top-left"}
+            elementPosition={"top-center"}
             height={"400px"}
             padding={"1rem"}
         >
             <Title
-                level={1}
+                level={2}
             >
-                Paciente
+                Detalles del paciente
             </Title>
-            <Columns>
-                <FilaDatoModal>
-                    <ImportantText>Nombre:</ImportantText>{" " + datosPaciente.nombreCompleto}
-                </FilaDatoModal>
-                <FilaDatoModal>
-                    <ImportantText>Nacimiento:</ImportantText>{" " + datosPaciente.fechaNacimiento}
-                </FilaDatoModal>
-                <FilaDatoModal>
-                    <ImportantText>Documento:</ImportantText>{" " + datosPaciente.documento}
-                </FilaDatoModal>
-            </Columns>
-            <Columns
-                elementPosition={"bottom-center"}
+            <Flex
+                vertical
+                style={{
+                    border: "1px solid lightgray",
+                    borderRadius: "10px",
+                    width: "100%",
+                    height: "100%",
+                    padding: "1rem",
+                    marginBottom: "1rem"
+                }}
+                align="flex-start"
+                justify="flex-start"
             >
-                <Button 
-                    type="primary"
-                    onClick={goNext}
+                <FilaModalPaciente
+                    title={"Nombre"}
                 >
-                    Continuar
-                </Button>
-            </Columns>
+                    {datosPaciente.nombreCompleto}
+                </FilaModalPaciente>
+                <FilaModalPaciente
+                    title={"Nacimiento"}
+                >
+                    {datosPaciente.fechaNacimiento}
+                </FilaModalPaciente>
+                <FilaModalPaciente
+                    title={"Documento"}
+                >
+                    {datosPaciente.documento}
+                </FilaModalPaciente>
+            </Flex>
+            <Button
+                type="primary"
+                size="large"
+                onClick={goNext}
+            >
+                Continuar
+            </Button>
         </Columns>
     </Modal>
     );
