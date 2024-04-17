@@ -25,7 +25,11 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
             elementPosition={"top-left"}
             padding={"0rem 3rem"}
         >
-            <Title level={3}>
+            <Title
+                level={3}
+                style={{
+                    margin: "0"
+                }}>
                 {title}
             </Title>
             <Columns
@@ -47,7 +51,7 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
                 />
                 {
                     editable ?
-                    
+
                         seEstaEditando ? <Button
                             type="primary"
                             icon={iconoGuardar}
@@ -61,7 +65,7 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
                         >
                             Editar
                         </Button>
-                    : ""
+                        : ""
                 }
 
             </Columns>
