@@ -86,6 +86,9 @@ const Valoracion = () => {
 
     return (
         <Rows>
+            <Secciones
+                secciones={secciones}
+            />
             <EtapaContainer
                 elementPosition={"top-center"}
                 padding="1rem"
@@ -114,9 +117,7 @@ const Valoracion = () => {
                     />
                 </Columns>
             </EtapaContainer>
-            <Secciones
-                secciones={secciones}
-            />
+
         </Rows>
     );
 }
