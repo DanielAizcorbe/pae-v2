@@ -1,8 +1,8 @@
 import React from 'react'
 import { Rows } from '../utils/Containers'
 import OptionCard from './OptionCard'
-import doctorImage from "./undraw_doctor_kw-5-l.svg";
-import documentImage from "./undraw_add_files_re_v09g.svg"
+import doctorImage from "./User.svg";
+import documentImage from "./addFileImage.svg"
 
 export const Home = () => {
 

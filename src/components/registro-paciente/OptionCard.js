@@ -3,19 +3,19 @@ import Title from 'antd/es/typography/Title';
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const OptionCard = ({ children, imgSrc, alt, title, onClick, nextPage }) => {
+const OptionCard = ({ imgSrc, alt, title, onClick, nextPage }) => {
 
     const cardStyle = {
         margin: "0 3rem",
         width: "300px",
         height: "400px",
+        
     };
 
     return (
-        <Link 
+        <Link
             to={nextPage}
             style={{
-                color: "inherit",
                 textDecoration: "none"
             }}
         >
@@ -31,6 +31,7 @@ const OptionCard = ({ children, imgSrc, alt, title, onClick, nextPage }) => {
                     style={{
                         height: "100%"
                     }}
+
                 >
                     <Image
                         src={imgSrc}
@@ -43,8 +44,8 @@ const OptionCard = ({ children, imgSrc, alt, title, onClick, nextPage }) => {
                     <Title level={2}
                         style={{
                             textAlign: "center",
-                            color: "blue",
-                            padding: "10px"
+                            padding: "10px",
+                            color: "#1677FF",
                         }}
                     >
                         {title}
