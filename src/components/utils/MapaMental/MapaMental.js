@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { addMarcador, removeMarcador } from '../../../store/slices/marcadoresMapaMental';
 import { ModalCreacionMarcador } from './Marcador/ModalCreacionMarcador';
 
-export const MapaMental = ({ etapa }) => {
+export const MapaMental = ({ etapa, disabled, mostrarSoloLosDeLaEtapa }) => {
 
     const marcadores = useSelector(state => state.marcadores);
     const lastId = Math.max(...[...marcadores.map(m => m.id), 0]);
@@ -55,18 +55,19 @@ export const MapaMental = ({ etapa }) => {
                 <img
                     alt='cuerpo-humano'
                     src={imagen}
-                    onClick={agregarMarcador}
+                    onClick={disabled ? null : agregarMarcador}
                     style={{ position: "relative" }}
                     draggable={false}
                 />
                 <ListaMarcadores
-                    marcadores={marcadores}
+                    marcadores={mostrarSoloLosDeLaEtapa ? marcadores.filter(m => m.etapa === etapa) : marcadores}
                     etapaActual={etapa}
-                    removeMarcador={remove}
+                    removeMarcador={disabled ? null : remove}
                 />
             </div>
             <InfoMarcadores
-                marcadores={marcadores}
+                etapa={etapa}
+                marcadores={mostrarSoloLosDeLaEtapa ? marcadores.filter(m => m.etapa === etapa) : marcadores}
             />
             <ModalCreacionMarcador
                 showModal={showModal}

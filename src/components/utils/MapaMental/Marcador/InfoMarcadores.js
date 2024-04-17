@@ -1,7 +1,7 @@
 import { Collapse, List } from "antd";
 import React from "react";
 
-const InfoMarcadores = ({ marcadores }) => {
+const InfoMarcadores = ({ marcadores, etapa }) => {
 
     const collapseStyle = {
         width: '100%',
@@ -43,7 +43,7 @@ const InfoMarcadores = ({ marcadores }) => {
         <Collapse
             style={collapseStyle}
             items={items}
-            defaultActiveKey={['1']}
+            defaultActiveKey={[etapa === "valoracion" ? "1" : "2"]}
             size="large"
             collapsible={"header"}
             accordion
