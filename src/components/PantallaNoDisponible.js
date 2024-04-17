@@ -21,7 +21,6 @@ export const PantallaNoDisponible = ({ seccion }) => {
                 <Title level={1}>
                     ¡Ups!
                 </Title>
-
                 <Image
                     src={imagenNoData}
                     preview={false}
@@ -37,7 +36,7 @@ export const PantallaNoDisponible = ({ seccion }) => {
 
                     }}
                 >
-                    Esta función no esta disponible en la versión de prueba
+                    Esta función no esta disponible en la versión de prueba 
                 </Title>
             </Columns>
         </Columns>
