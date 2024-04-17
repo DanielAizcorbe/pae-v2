@@ -40,7 +40,7 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
                         fontSize: "1rem",
                         backgroundColor: "inherit",
                         color: "black",
-                        overflow: "hidden"
+                        overflowY: "hidden"
                     }}
                     disabled={!seEstaEditando}
                     variant={seEstaEditando ? "filled" : "borderless"}
