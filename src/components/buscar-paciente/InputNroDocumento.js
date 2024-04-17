@@ -17,6 +17,7 @@ const InputNroDocumento = ({ onChange, onSearch }) => {
                 size="large"
                 onChange={onChange}
                 name="numeroDocumentoBuscado"
+                autoComplete="off"
             />
         </Rows>
     );

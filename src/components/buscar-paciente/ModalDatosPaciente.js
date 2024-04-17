@@ -38,15 +38,13 @@ const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
             <Flex
                 vertical
                 style={{
-                    border: "1px solid lightgray",
-                    borderRadius: "10px",
                     width: "100%",
                     height: "100%",
                     padding: "1rem",
                     marginBottom: "1rem"
                 }}
                 align="flex-start"
-                justify="flex-start"
+                justify="center"
             >
                 <FilaModalPaciente
                     title={"Nombre"}
