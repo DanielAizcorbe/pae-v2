@@ -1,7 +1,7 @@
 import TextArea from "antd/es/input/TextArea";
 import Title from "antd/es/typography/Title";
 import React, { useState } from "react";
-import { Columns, Rows } from "../utils/Containers";
+import { Columns } from "../utils/Containers";
 import { Button } from "antd";
 import { EditTwoTone, SaveTwoTone } from "@ant-design/icons";
 
@@ -38,10 +38,12 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
                     size="large"
                     style={{
                         fontSize: "1rem",
-                        backgroundColor: "white",
-                        color: "black"
+                        backgroundColor: "inherit",
+                        color: "black",
+                        overflow: "hidden"
                     }}
                     disabled={!seEstaEditando}
+                    variant={seEstaEditando ? "filled" : "borderless"}
                 />
                 {
                     editable ?
