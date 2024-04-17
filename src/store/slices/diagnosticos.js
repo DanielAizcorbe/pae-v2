@@ -13,7 +13,7 @@ const reducers = {
             const accionEncontrada = item.acciones.find(a => a.id === accion);
 
             if (accionEncontrada) {
-                accionEncontrada.selected = !accionEncontrada.selected;
+                item.acciones.find(a => a.id === accion).selected = !accionEncontrada.selected;
             }
         }
     },
