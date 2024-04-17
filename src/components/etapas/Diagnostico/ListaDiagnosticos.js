@@ -6,7 +6,8 @@ import { toggleDiagnosticoSeleccion } from "../../../store/slices/diagnosticos";
 
 const ListaDiagnosticos = () => {
 
-    const necesidades = useSelector(state => state.diagnosticos);
+    const necesidades = useSelector(state => state.necesidades).filter(n => n.selected).map(n => n.id);
+    const diagnosticos = useSelector(state => state.diagnosticos).filter(d => necesidades.some(n => n === d.id));
 
     const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ const ListaDiagnosticos = () => {
     return (
         <List
             bordered
-            dataSource={necesidades}
+            dataSource={diagnosticos}
             renderItem={
                 (item) => (<List.Item
                     key={item.id}
