@@ -15,7 +15,7 @@ const Secciones = ({ secciones }) => {
 
     return (
         <Columns
-            width={"10rem"}
+            width={"20%"}
             height={"100%"}
             padding={"2rem 1rem"}
             elementPosition={"top-left"}

@@ -14,14 +14,14 @@ const Ejecucion = () => {
 
     const dispatch = useDispatch();
     const accionesSeleccionadas = useSelector(state => state.diagnosticos);
-    const marcadoresEjecucion = useSelector(state => state.marcadores).map(m => m.etapa === "ejecucion");
+    const marcadoresEjecucion = useSelector(state => state.marcadores).filter(m => m.etapa === "ejecucion");
 
     const getResumen = (marcadores, acciones) => {
 
-        const operacionesRealizadas = marcadores.map(m => m.text);
+        const operacionesRealizadas = marcadores.map(m => m.text) || "";
 
         return `Se realizaron las siguientes prácticas en el paciente:\n${operacionesRealizadas.map(o => `${operacionesRealizadas.indexOf(o) + 1}. ${o}`).join("\n")}`
-            + `\n\nSe realizarán las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
+            + `\n\nSe realizaron las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
     }
 
     const getSelected = (object) => {
@@ -35,6 +35,7 @@ const Ejecucion = () => {
         const acciones = accionesSeleccionadas.map(a => getSelected(a)).filter(o => o.acciones.length > 0);
         console.log(getResumen(marcadoresEjecucion, acciones))
         dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumen(marcadoresEjecucion, acciones) }))
+        // agregar acciones seleccionadas al store
     }
 
     const acciones = useSelector(state => state.diagnosticos).map(d => d.acciones).reduce((acumulador, acciones) => acumulador.concat(acciones), []);
@@ -48,6 +49,7 @@ const Ejecucion = () => {
 
     return (
         <Rows>
+            <Secciones secciones={secciones} />
             <EtapaContainer
                 elementPosition={"top-center"}
                 padding={"1rem"}
@@ -68,7 +70,7 @@ const Ejecucion = () => {
                     padding={"2rem"}
                 >
                     <BotonSiguiente
-                        nextPage={"/evolucion"}
+                        nextPage={"/evolucion/ejecucion/acciones"}
                         onClick={onClick}
                         sePuedeActivar={
                             marcadoresEjecucion.length > 0
@@ -78,7 +80,7 @@ const Ejecucion = () => {
                     />
                 </Columns>
             </EtapaContainer>
-            <Secciones secciones={secciones} />
+
         </Rows>
     );
 }
