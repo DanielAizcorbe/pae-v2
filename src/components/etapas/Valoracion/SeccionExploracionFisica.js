@@ -7,7 +7,7 @@ export const SeccionExploracionFisica = ({seccion, stateEtapas}) => {
     const items = [
         {
             key: 1,
-            label: seccion,
+            label: seccion + " (opcional)",
             children: <ExploracionFisica
                 estado={stateEtapas}
             />,

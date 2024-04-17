@@ -60,6 +60,7 @@ const NavBar = ({defaultSection}) => {
             defaultSelectedKeys={[defaultSection + ""]}
             style={style}
             items={items}
+            
         />
     );
 }

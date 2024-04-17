@@ -9,7 +9,7 @@ export const CollapsableMap = ({ etapa }) => {
             width={"100%"}
             height={"auto"}
             padding={"0 3rem"}
-            margin={"24px 0 0"}
+            margin={"0 0 24px 0"}
         >
             <Collapse
                 items={[

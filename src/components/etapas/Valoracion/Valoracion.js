@@ -11,13 +11,22 @@ import { SeccionNecesidades } from "./SeccionesNecesidades";
 import { SeccionExploracionFisica } from "./SeccionExploracionFisica";
 import { updateAll } from "../../../store/slices/exploracionFisica";
 
+
+const secciones = [
+    "Valoración",
+    "Exploración Física",
+    "Mapa Mental",
+    "Necesidades",
+    "Finalizar"
+];
+
 const Valoracion = () => {
 
     const necesidades = useSelector(state => state.necesidades);
+    const exploracionFisica = useSelector(state => state.exploracionFisica);
+    const marcadores = useSelector(state => state.marcadores);
 
     const dispatch = useDispatch();
-
-    const exploracionFisica = useSelector(state => state.exploracionFisica);
 
     const [inspeccion, setInspeccion] = useState(exploracionFisica.inspeccion);
     const [auscultacion, setAuscultacion] = useState(exploracionFisica.auscultacion);
@@ -43,10 +52,6 @@ const Valoracion = () => {
         }
     };
 
-    const getResumen = (necesidadesSeleccionadas) => {
-        return `Necesidades del paciente\n${necesidadesSeleccionadas.map(n => `> ${n.nombre}`).join('\n')}`;
-    }
-
     const onClick = () => {
         dispatch(completarEtapa({
             etapa: "valoracion",
@@ -58,18 +63,26 @@ const Valoracion = () => {
             auscultacion: etapasExploracionFisica.auscultacion.text,
             percusion: etapasExploracionFisica.percusion.text,
             palpacion: etapasExploracionFisica.palpacion.text,
-
         }))
     }
 
-    const secciones = [
-        "Valoración",
-        "Exploración Física",
-        "Mapa Mental",
-        "Necesidades",
-        "Finalizar"
-    ];
+    const getResumen = (necesidadesSeleccionadas) => {
 
+        let resumenEtapasExploracion = (inspeccion === "" ? "" : `INSPECCIÓN\n${inspeccion}\n\n`)
+            + (auscultacion === "" ? "" : `AUSCULTACIÓN\n${auscultacion}\n\n`)
+            + (percusion === "" ? "" : `PERCUSIÓN\n${percusion}\n\n`)
+            + (palpacion === "" ? "" : `PALPACIÓN\n${palpacion}\n\n`);
+
+        let necesidades = `Se identificaron las siguientes necesidades del paciente\n${necesidadesSeleccionadas.map(n => `> ${n.nombre}`).join('\n')}`;
+        let resumen = resumenEtapasExploracion
+            + necesidades;
+
+        return resumen;
+    }
+
+    const sePuedeCompletar = () => {
+        return necesidades.some(n => n.selected) && marcadores.some(m => m.etapa === "valoracion");
+    }
 
     return (
         <Rows>
@@ -96,8 +109,8 @@ const Valoracion = () => {
                     <BotonSiguiente
                         nextPage={"/evolucion"}
                         onClick={onClick}
-                        id={secciones[3]}
-                        sePuedeActivar={necesidades.some(n => n.selected)}
+                        id={secciones[4]}
+                        sePuedeActivar={sePuedeCompletar()}
                     />
                 </Columns>
             </EtapaContainer>
