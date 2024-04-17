@@ -5,7 +5,7 @@ import { Columns, Rows } from "../utils/Containers";
 import { Button } from "antd";
 import { EditTwoTone, SaveTwoTone } from "@ant-design/icons";
 
-const ParrafoEvolucion = ({ title, text, setText }) => {
+const ParrafoEvolucion = ({ title, text, setText, editable }) => {
 
     const [seEstaEditando, setSeEstaEditando] = useState(false);
 
@@ -20,57 +20,51 @@ const ParrafoEvolucion = ({ title, text, setText }) => {
         setSeEstaEditando(false);
     }
 
-    const textStyle = {
-        width: "100%",
-        padding: "7px 11px",
-        margin: "0",
-        lineHeight: "1.5714285714285714",
-        fontSize: "1rem",
-        border: "1px solid lightgray",
-        borderRadius: "0.5rem",
-
-    };
-
-    const placeholderText = "si se deja en blanco, se autocompletará con la información recibida al completar la etapa";
-
     return (
-        <Rows
+        <Columns
             elementPosition={"top-left"}
-            height={"auto"}
+            padding={"0rem 3rem"}
         >
-            {seEstaEditando ?
+            <Title level={3}>
+                {title}
+            </Title>
+            <Columns
+                elementPosition={"top-right"}
+            >
                 <TextArea
-                    placeholder={placeholderText}
                     autoSize
                     value={text}
                     onChange={event => setText(event.target.value)}
                     size="large"
-                    style={{ fontSize: "1rem" }}
-                /> :
-                <pre style={textStyle}>
-                    {text === "" ? placeholderText : text}
-                </pre>
-            }
-            <Columns
-                elementPosition={"center"}
-                height={"40px"}
-                width={"140px"}
-            >
-                {seEstaEditando ? <Button
-                    type="primary"
-                    icon={iconoGuardar}
-                    onClick={guardar}
-                >
-                    Guardar
-                </Button> : <Button
-                    type="default"
-                    icon={iconoEditable}
-                    onClick={editar}
-                >
-                    Editar
-                </Button>}
+                    style={{
+                        fontSize: "1rem",
+                        backgroundColor: "white",
+                        color: "black"
+                    }}
+                    disabled={!seEstaEditando}
+                />
+                {
+                    editable ?
+                    
+                        seEstaEditando ? <Button
+                            type="primary"
+                            icon={iconoGuardar}
+                            onClick={guardar}
+                        >
+                            Guardar
+                        </Button> : <Button
+                            type="default"
+                            icon={iconoEditable}
+                            onClick={editar}
+                        >
+                            Editar
+                        </Button>
+                    : ""
+                }
+
             </Columns>
-        </Rows>
+        </Columns >
+
     );
 }
 

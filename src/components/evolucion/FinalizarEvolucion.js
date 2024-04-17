@@ -3,67 +3,84 @@ import { Columns, Rows } from "../utils/Containers";
 import Title from "antd/es/typography/Title";
 import { ParrafoEvolucion } from "./ParrafoEvolucion";
 import { MapaMentalFinal } from "./MapaMentalFinal";
+import { useSelector } from "react-redux";
+import { Button, Flex, message } from "antd";
+import { useNavigate } from "react-router-dom";
+import ContenidoBorrador from "./ContenidoBorrador";
 
 const FinalizarEvolucion = () => {
 
-    const [valoracionTexto, setValoracionTexto] = useState("este es el texto de la valoracion");
-    const [diagnosticoTexto, setdiagnosticoTexto] = useState("este es el texto del diagnostico");
-    const [planeacionTexto, setplaneacionTexto] = useState("este es el texto de la planeacion");
-    const [ejecucionTexto, setejecucionTexto] = useState("este es el texto de la ejecucion");
-    const [evaluacionTexto, setevaluacionTexto] = useState("este es el texto de la evaluacion");
+    const etapas = useSelector(state => state.estadoEtapas);
 
+    const [valoracionTexto, setValoracionTexto] = useState(etapas.valoracion.resumen);
+    const [diagnosticoTexto, setdiagnosticoTexto] = useState(etapas.diagnostico.resumen);
+    const [planeacionTexto, setplaneacionTexto] = useState(etapas.planeacion.resumen);
+    const [ejecucionTexto, setejecucionTexto] = useState(etapas.ejecucion.resumen);
+    const [evaluacionTexto, setevaluacionTexto] = useState(etapas.evaluacion.resumen);
 
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const copiar = () => {
+        messageApi.open({
+            type: 'success',
+            content: 'Se copió al portapapeles',
+        });
+    };
+
+    const guardar = () => {
+        messageApi.open({
+            type: 'success',
+            content: 'Se guardo como PDF',
+        });
+    };
+
+    const navegar = useNavigate();
 
     return (
-        <Rows
+        <Columns
             elementPosition={"top-center"}
+            padding={"2rem"}
         >
+            {contextHolder}
             <Columns
-                width={"25%"}
-            >
-
-            </Columns>
-            <Columns
-                elementPosition={"top-left"}
-                padding={"2rem"}
-                width={"70%"}
+                width={"80%"}
+                height={"auto"}
             >
                 <Title level={1}>
                     Finalizar
                 </Title>
-                <ParrafoEvolucion
-                    text={valoracionTexto}
-                    setText={setValoracionTexto}
-                    title={"Valoración"}
+                <ContenidoBorrador 
+                    editable={true}
                 />
-                <ParrafoEvolucion
-                    text={diagnosticoTexto}
-                    setText={setdiagnosticoTexto}
-                    title={"Diagnóstico"}
-                />
-                <ParrafoEvolucion
-                    text={planeacionTexto}
-                    setText={setplaneacionTexto}
-                    title={"Planeación"}
-                />
-                <ParrafoEvolucion
-                    text={ejecucionTexto}
-                    setText={setejecucionTexto}
-                    title={"Ejecución"}
-                />
-                <ParrafoEvolucion
-                    text={evaluacionTexto}
-                    setText={setevaluacionTexto}
-                    title={"Evaluación"}
-                />
-                <Columns
-                    height={"100%"}
-                    width={"100%"}
-                    padding={"2rem"}
+                <Flex
+                    justify="space-between"
+                    style={{ width: "60%", padding: "2rem" }}
                 >
-                </Columns>
+
+                    <Button
+                        type="primary"
+                        size="large"
+                        onClick={guardar}
+                    >
+                        Guardar como PDF
+                    </Button>
+                    <Button
+                        type="primary"
+                        size="large"
+                        onClick={copiar}
+                    >
+                        Copiar
+                    </Button>
+                    <Button
+                        type="primary"
+                        size="large"
+                        onClick={() => navegar("/")}
+                    >
+                        Finalizar
+                    </Button>
+                </Flex>
             </Columns>
-        </Rows>
+        </Columns>
     );
 }
 
