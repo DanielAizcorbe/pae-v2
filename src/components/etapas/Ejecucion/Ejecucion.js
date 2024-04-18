@@ -9,6 +9,29 @@ import { completarEtapa } from "../../../store/slices/etapas";
 import { SeccionMapaMental } from "../Valoracion/SeccionMapaMental";
 import { Secciones } from "../../generales/Secciones";
 import { SeccionAcciones } from "./SeccionAcciones";
+import { addAcciones } from "../../../store/slices/accionesARealizar";
+
+const getResumen = (marcadores, acciones) => {
+
+    const operacionesRealizadas = marcadores.map(m => m.text) || "";
+
+    return `Se realizaron las siguientes prácticas en el paciente:\n${operacionesRealizadas.map(o => `${operacionesRealizadas.indexOf(o) + 1}. ${o}`).join("\n")}`
+        + `\n\nSe realizaron las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
+}
+
+const getSelected = (object) => {
+    return {
+        diagnostico: object.nombre,
+        acciones: object.acciones.filter(a => a.selected)
+    }
+}
+
+const secciones = [
+    "Ejecución",
+    "Mapa Mental",
+    "Acciones Recomendadas",
+    "Finalizar"
+];
 
 const Ejecucion = () => {
 
@@ -16,36 +39,15 @@ const Ejecucion = () => {
     const accionesSeleccionadas = useSelector(state => state.diagnosticos);
     const marcadoresEjecucion = useSelector(state => state.marcadores).filter(m => m.etapa === "ejecucion");
 
-    const getResumen = (marcadores, acciones) => {
-
-        const operacionesRealizadas = marcadores.map(m => m.text) || "";
-
-        return `Se realizaron las siguientes prácticas en el paciente:\n${operacionesRealizadas.map(o => `${operacionesRealizadas.indexOf(o) + 1}. ${o}`).join("\n")}`
-            + `\n\nSe realizaron las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
-    }
-
-    const getSelected = (object) => {
-        return {
-            diagnostico: object.nombre,
-            acciones: object.acciones.filter(a => a.selected)
-        }
-    }
-
     const onClick = () => {
         const acciones = accionesSeleccionadas.map(a => getSelected(a)).filter(o => o.acciones.length > 0);
         console.log(getResumen(marcadoresEjecucion, acciones))
         dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumen(marcadoresEjecucion, acciones) }))
-        // agregar acciones seleccionadas al store
+        console.log("acciones: ",acciones);
+        dispatch(addAcciones(acciones));
     }
 
     const acciones = useSelector(state => state.diagnosticos).map(d => d.acciones).reduce((acumulador, acciones) => acumulador.concat(acciones), []);
-
-    const secciones = [
-        "Ejecución",
-        "Mapa Mental",
-        "Acciones Recomendadas",
-        "Finalizar"
-    ];
 
     return (
         <Rows>

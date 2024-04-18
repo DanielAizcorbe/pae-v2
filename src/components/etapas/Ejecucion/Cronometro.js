@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Columns } from "../../utils/Containers";
 import { Button, Statistic } from "antd";
+import Title from "antd/es/typography/Title";
 
-const Cronometro = ({tareaIniciada, completarTarea}) => {
+const Cronometro = ({ tareaIniciada, cerrar, setMinutos }) => {
     const [tiempoTotal, setTiempoTotal] = useState(0);
     const [activo, setActivo] = useState(false);
 
@@ -35,21 +36,33 @@ const Cronometro = ({tareaIniciada, completarTarea}) => {
 
     const detenerCronometro = () => {
         setActivo(false);
+        setMinutos(Math.round((tiempoTotal % 3600) / 60))
+        cerrar()
     };
+
+    const valueStyle = {
+        color: "red",
+        fontSize: "3rem",
+    }
 
     return (
         <Columns
-            width={"500px"}
-            height={"500px"}
             padding={"2rem"}
         >
-            <Statistic title="Tiempo Total" value={convertirTiempo(tiempoTotal)} />
-            {!activo ? <Button onClick={iniciarCronometro}>
-                Iniciar
-            </Button> : 
-            <Button onClick={detenerCronometro}>
-                Detener
-            </Button>}
+            <Title level={1}>
+                {tareaIniciada.nombre}
+            </Title>
+            <Statistic valueStyle={valueStyle} value={convertirTiempo(tiempoTotal)} />
+            <Columns
+                padding={"2rem"}
+            >
+                {!activo ? <Button onClick={iniciarCronometro} size="large" type="primary">
+                    Iniciar
+                </Button> :
+                    <Button onClick={detenerCronometro} size="large" type="primary">
+                        Detener
+                    </Button>}
+            </Columns>
         </Columns>
     );
 }
