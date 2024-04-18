@@ -5,21 +5,30 @@ import Title from 'antd/es/typography/Title';
 import { FieldTimeOutlined, FormOutlined } from '@ant-design/icons';
 import { ModalCronometro } from './ModalCronometro';
 import { ModalTiempo } from "./ModalTIempo";
+import { useDispatch } from 'react-redux';
+import { completarAccion } from '../../../../store/slices/accionesARealizar';
 
 export const ActionCard = ({ item }) => {
 
     const [showModalCronometro, setShowModalCronometro] = useState(false);
     const [showModalTiempo, setShowModalTiempo] = useState(false);
     const [minutos, setMinutos] = useState("");
-    const [completado, setCompletado] = useState(false);
 
-    const tomarTiempo = () => {
-        setCompletado(true);
+    console.log("item recibido: ", item);
+
+    const dispatch = useDispatch();
+
+    const tomarTiempo = (id, minutos) => {
+        setMinutos(minutos)
+        dispatch(completarAccion({ "accionId": id, "minutos": minutos }));
         setShowModalTiempo(false);
     }
 
-    const cronometrar = () => {
-        setCompletado(true);
+    const cronometrar = (id, minutos) => {
+        console.log("minutos: ", minutos, "tipo: ", typeof minutos);
+        let minutosRedondeados = (minutos < 1 ? 1 : minutos)
+        setMinutos(minutosRedondeados);
+        dispatch(completarAccion({ "accionId": id, "minutos": minutosRedondeados }));
         setShowModalCronometro(false)
     }
 
@@ -33,7 +42,7 @@ export const ActionCard = ({ item }) => {
                         {item.nombre}
                     </Title>
                 </Rows>
-                {!completado ?
+                {!item.completado ?
                     (<Rows width={"auto"}>
                         <Popover trigger={"hover"} content="Cronometrar acción">
                             <Button type='primary' size='large' onClick={() => setShowModalCronometro(true)} icon={<FieldTimeOutlined />} style={{ marginRight: "10px" }} />
@@ -55,7 +64,6 @@ export const ActionCard = ({ item }) => {
                 open={showModalCronometro}
                 tareaIniciada={item}
                 closeModal={cronometrar}
-                setMinutos={setMinutos}
             />
             <ModalTiempo
                 open={showModalTiempo}

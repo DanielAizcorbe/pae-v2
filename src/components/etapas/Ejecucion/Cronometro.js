@@ -3,7 +3,7 @@ import { Columns } from "../../utils/Containers";
 import { Button, Statistic } from "antd";
 import Title from "antd/es/typography/Title";
 
-const Cronometro = ({ tareaIniciada, cerrar, setMinutos }) => {
+const Cronometro = ({ tareaIniciada, cerrar }) => {
     const [tiempoTotal, setTiempoTotal] = useState(0);
     const [activo, setActivo] = useState(false);
 
@@ -36,8 +36,7 @@ const Cronometro = ({ tareaIniciada, cerrar, setMinutos }) => {
 
     const detenerCronometro = () => {
         setActivo(false);
-        setMinutos(Math.round((tiempoTotal % 3600) / 60))
-        cerrar()
+        cerrar(tareaIniciada.id, Math.round((tiempoTotal % 3600) / 60))
     };
 
     const valueStyle = {
