@@ -1,19 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const generateObject = (o) => {
+const agregarAtributos = (i) => {
 
     return {
-        id: o.id,
-        nombre: o.nombre,
+        ...i,
+        completado: false,
         minutos: "",
-        completada: false,
+    }
+}
+
+const transformar = (o) => {
+
+    return {
+        diagnostico: o.diagnostico,
+        acciones: o.acciones.map(a => agregarAtributos(a))
     }
 }
 
 const reducers = {
     addAcciones: (state, action) => {
-        const acciones = action.payload;
-        state = acciones.map(a => generateObject(a));
+        const acciones = action.payload.map(o => transformar(o));
+        console.log("acciones recibidas: ", acciones);
+        state.splice(0, state.length, ...acciones);
     },
     completarAccion: (state, action) => {
         const { accionId, minutos } = action.payload;
@@ -23,9 +31,6 @@ const reducers = {
         state[index].minutos = minutos;
         state[index].completada = true;
     },
-    resetAcciones: (state, action) => {
-        state = [];
-    },
     modificarTiempo: (state, action) => {
         const { accionId, minutos } = action.payload;
 
@@ -33,8 +38,8 @@ const reducers = {
     }
 };
 
-const accionesCompletadasSlice = createSlice({
-    name: "accionesCompletadas",
+const accionesARealizarSlice = createSlice({
+    name: "accionesARealizar",
     initialState: [],
     reducers: reducers
 });
@@ -43,6 +48,6 @@ export const {
     addAcciones,
     completarAccion,
     resetAcciones,
-    modificarTiempo } = accionesCompletadasSlice.actions;
+    modificarTiempo } = accionesARealizarSlice.actions;
 
-export default accionesCompletadasSlice.reducer;
+export default accionesARealizarSlice.reducer;
