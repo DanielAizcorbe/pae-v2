@@ -17,8 +17,8 @@ const Secciones = ({ secciones }) => {
         <Columns
             width={"20%"}
             height={"100%"}
-            padding={"2rem 1rem"}
-            elementPosition={"top-left"}
+            padding={"2rem"}
+            elementPosition={"center-left"}
         >
             <Anchor
                 affix={true}
