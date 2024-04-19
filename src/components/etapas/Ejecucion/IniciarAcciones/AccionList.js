@@ -25,7 +25,6 @@ export const ActionCard = ({ item }) => {
     }
 
     const cronometrar = (id, minutos) => {
-        console.log("minutos: ", minutos, "tipo: ", typeof minutos);
         let minutosRedondeados = (minutos < 1 ? 1 : minutos)
         setMinutos(minutosRedondeados);
         dispatch(completarAccion({ "accionId": id, "minutos": minutosRedondeados }));

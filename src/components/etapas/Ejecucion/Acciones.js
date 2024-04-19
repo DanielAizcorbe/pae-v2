@@ -3,10 +3,13 @@ import { Columns } from '../../utils/Containers'
 import { Button, Collapse } from 'antd'
 import { AccionCard } from './AccionCard'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 
 export const Acciones = ({ acciones }) => {
+
+    const accionesStore = useSelector(state => state.accionesARealizar);
 
     const navegar = useNavigate();
 
@@ -20,12 +23,14 @@ export const Acciones = ({ acciones }) => {
         }
     }
 
+
     const sePuedeActivar = () => {
-        return acciones.every(a => a.completada);
+        console.log(accionesStore);
+        return accionesStore.every(d => d.acciones.every(a2 => a2.completado ));
     }
 
     const items = acciones.map(e => generateItem(e));
-    console.log(("items del collapse: ",items));
+
     return (
         <Columns
             elementPosition={"top-center"}
