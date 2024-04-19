@@ -10,6 +10,11 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
         setMinutos(value);
     } 
 
+    const onClick = () => {
+        closeModal(tareaIniciada.id, value);
+        console.log("info enviada: ", tareaIniciada.id, value);
+    }
+
     return (
         <Modal
             open={open}
@@ -17,13 +22,12 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
             onCancel={closeModal}
             width={"30%"}
         >
-
             <Columns
                 padding={"1rem"}
                 elementPosition={"top-center"}
             >
                 <Title level={2}>
-                    {tareaIniciada}
+                    {tareaIniciada.nombre}
                 </Title>
                 <InputNumber
                     min={1}
@@ -41,7 +45,7 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
                     <Button
                         type='primary'
                         size='large'
-                        onClick={closeModal}
+                        onClick={onClick}
                     >
                         Finalizar
                     </Button>
