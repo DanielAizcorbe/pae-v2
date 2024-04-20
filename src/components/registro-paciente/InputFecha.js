@@ -1,44 +1,43 @@
 import { Input, Form } from 'antd';
-import React from 'react'
+import React, { useState } from 'react'
 
-const formatDate = (dateString) => {
-    console.group("formatDate");
-    console.log("fecha recibida en string: ", dateString);
+const formatDate = (inputValue) => {
+    // Eliminar caracteres no numéricos
+    const cleanedValue = inputValue.replace(/[^\d]/g, '');
 
-    // Eliminar caracteres no numéricos y barras adicionales
-    const cleanedDate = dateString.replace(/[^\d/]|(?<=\/.*)\//g, '');
-
-    // Separar la fecha en día, mes y año
-    const day = cleanedDate.substr(0, 2);
-    const month = cleanedDate.substr(2, 2);
-    const year = cleanedDate.substr(4, 4);
+    // Obtener día, mes y año
+    let day = cleanedValue.substr(0, 2);
+    let month = cleanedValue.substr(2, 2);
+    let year = cleanedValue.substr(4, 4);
 
     // Formatear la fecha con guiones
-    const formattedDate = `${day}-${month}-${year}`;
+    if (day.length === 2 && month.length >= 2) {
+        day = day + '-';
+        month = month.slice(0, 2) + '-';
+    } else if (day.length === 2 && month.length < 2) {
+        day = day + '-';
+    }
 
-    console.log("fecha devuelta: ", formattedDate);
-    console.groupEnd();
+    let formattedDate = `${day}${month}${year}`;
+    console.log(formattedDate);
     return formattedDate;
 };
 
 export const InputFecha = ({ value, setValue }) => {
 
+    const [newValue, setNewValue] = useState(value);
+
     const handleChange = (e) => {
-        console.group("handleChange")
-        let inputValue = e.target.value;
-        let formattedDate = formatDate(inputValue);
-        console.log("valor recibido: ", inputValue);
-        console.log("valor formateado: ", formattedDate)
-        setValue(formattedDate);
-        console.log("valor seteado: ", value);
-        console.groupEnd();
+        const inputValue = e.target.value;
+        const formattedValue = formatDate(inputValue);
+        setValue(formattedValue);
     };
 
     const validateDate = (rule, inputValue) => {
         console.group("validateDate");
-        console.log("valor a validar: ", value);
+        console.log("valor a validar: ", inputValue);
         // Formatear la fecha
-        let formattedDate = formatDate(value);
+        let formattedDate = formatDate(inputValue);
 
         // Expresión regular para validar el formato de fecha (DD/MM/AAAA)
         let dateRegex = /^\d{2}\-\d{2}\-\d{4}$/;
@@ -55,9 +54,9 @@ export const InputFecha = ({ value, setValue }) => {
 
     const validateDateRange = (rule, inputValue) => {
         // Formatear la fecha
-        const formattedDate = formatDate(value);
+        const formattedDate = formatDate(inputValue);
         console.group("validateDateRange");
-        console.log("valor a validar: ", value);
+        console.log("valor a validar: ", inputValue);
 
         if (formattedDate) {
             const [day, month, year] = formattedDate.split('-');
@@ -79,10 +78,6 @@ export const InputFecha = ({ value, setValue }) => {
 
     const fechaNoVacia = (rule, inputValue) => {
         return value === "" ? Promise.reject() : Promise.resolve();
-    }
-
-    const getValue = () => {
-        return value;
     }
 
     return (
@@ -111,13 +106,13 @@ export const InputFecha = ({ value, setValue }) => {
                 validateTrigger="onSubmit"
                 valuePropName="value"
             >
-                <Input
-                    key={1}
-                    placeholder='DD-MM-YYYY'
-                    onChange={handleChange}
-                    id='fechaNacimiento'
-                    type='text'
+                
+                <input
+                    type="text"
                     value={value}
+                    onChange={handleChange}
+                    placeholder="DD-MM-YYYY"
+                    id='fechaNacimiento'
                 />
             </Form.Item>
             <p style={{

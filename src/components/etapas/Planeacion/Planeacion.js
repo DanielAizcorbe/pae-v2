@@ -1,4 +1,4 @@
-import { DragDropDiagnostico } from "./DragDropDiagnostico";
+import { DragDropPlaneacion } from "./Draggable/DragDropPlaneacion";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Columns } from "../../utils/Containers";
 import { Titulo } from "../../utils/Titulos";
@@ -28,10 +28,13 @@ const Planeacion = () => {
     return (
         <Columns
             elementPosition={"top-center"}
+            height="100%"
+            width="100%"
+            padding="2rem"
         >
             <Titulo texto="Planeación" />
-            <Title level={2}>Ordene los diagnósticos según su urgencia</Title>
-            <DragDropDiagnostico
+            <Title level={3}>Ordene los diagnósticos según su urgencia</Title>
+            <DragDropPlaneacion
                 diagnosticos={diagnosticosOrdenados}
                 switchOrderFunction={setDiagnosticosOrdenados}
             />

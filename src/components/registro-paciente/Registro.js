@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import { Columns } from '../utils/Containers'
 import Title from 'antd/es/typography/Title'
-import { Button } from 'antd'
-import { InputFecha } from './InputFecha'
 
 import FormularioRegistro from './FormularioRegistro'
 import InputNombre from './InputNombre'
 import InputDocumento from './InputDocumento'
 import BotonRegistrar from './BotonRegistrar'
-
-
+import { InputFechaV2 } from './InputFechaV2'
+import { InputFecha } from "./InputFecha";
 
 
 const Registro = () => {
@@ -57,10 +55,9 @@ const Registro = () => {
                         setValue={onChangeBirthDay}
                     />
                     <Columns
-                        elementPosition={"center"}
-                        width={"100%"}
-                        height={"auto"}
-                        padding={"1rem 0 0"}
+                        elementPosition={"bottom-center"}
+                        width="100%"
+                        height="60px"
                     >
                         <BotonRegistrar />
                     </Columns>
