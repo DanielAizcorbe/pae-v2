@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import imagen from './cuerpo-humano-mapa.png';
 import { Rows } from '../Containers';
 import { InfoMarcadores } from './Marcador/InfoMarcadores';
-import { ListaMarcadores } from './Marcador/ListaMarcadores';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { addMarcador, removeMarcador } from '../../../store/slices/marcadoresMapaMental';
 import { ModalCreacionMarcador } from './Marcador/ModalCreacionMarcador';
+import { MapaConPuntos } from './MapaConPuntos';
+import InfoMarcadoresDeshabilitado from './InfoMarcadoresDeshabilitado';
 
 export const MapaMental = ({ etapa, disabled, mostrarSoloLosDeLaEtapa }) => {
 
@@ -47,28 +47,29 @@ export const MapaMental = ({ etapa, disabled, mostrarSoloLosDeLaEtapa }) => {
         setShowModal(false);
     }
 
+    const marcadoresFiltrados = (mostrarSoloLosDeLaEtapa ? marcadores.filter(m => m.etapa === etapa) : marcadores);
+
     return (
         <Rows
             elementPosition={"center-left"}
         >
-            <div style={{ position: "relative" }}>
-                <img
-                    alt='cuerpo-humano'
-                    src={imagen}
-                    onClick={disabled ? null : agregarMarcador}
-                    style={{ position: "relative" }}
-                    draggable={false}
-                />
-                <ListaMarcadores
-                    marcadores={mostrarSoloLosDeLaEtapa ? marcadores.filter(m => m.etapa === etapa) : marcadores}
-                    etapaActual={etapa}
-                    removeMarcador={disabled ? null : remove}
-                />
-            </div>
-            <InfoMarcadores
+            <MapaConPuntos
+                disabled={disabled}
                 etapa={etapa}
-                marcadores={mostrarSoloLosDeLaEtapa ? marcadores.filter(m => m.etapa === etapa) : marcadores}
+                addMarcadores={agregarMarcador}
+                remove={remove}
+                mostrarTodos={!mostrarSoloLosDeLaEtapa}
+                marcadores={marcadores}
             />
+            {
+                disabled ? <InfoMarcadoresDeshabilitado
+                    etapa={etapa}
+                    marcadores={marcadoresFiltrados}
+                /> : <InfoMarcadores
+                    etapa={etapa}
+                    marcadores={marcadoresFiltrados}
+                />
+            }
             <ModalCreacionMarcador
                 showModal={showModal}
                 addMarcadorALaLista={create}

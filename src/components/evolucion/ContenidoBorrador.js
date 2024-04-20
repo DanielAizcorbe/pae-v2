@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Columns } from '../utils/Containers'
 import { useSelector } from 'react-redux';
 import { ParrafoEvolucion } from './ParrafoEvolucion';
-import { CollapsableMap } from './CollapsableMap';
+import { MapaMental } from '../utils/MapaMental/MapaMental';
 
 const ContenidoBorrador = ({ editable }) => {
 
@@ -26,7 +26,9 @@ const ContenidoBorrador = ({ editable }) => {
                 title={"Valoración"}
                 editable={editable}
             />
-            <CollapsableMap
+            <MapaMental
+                disabled
+                mostrarSoloLosDeLaEtapa
                 etapa={"valoracion"}
             />
             <ParrafoEvolucion
@@ -41,14 +43,16 @@ const ContenidoBorrador = ({ editable }) => {
                 title={"Planeación"}
                 editable={editable}
             />
+            <MapaMental
+                disabled
+                mostrarSoloLosDeLaEtapa
+                etapa={"ejecucion"}
+            />
             <ParrafoEvolucion
                 text={ejecucionTexto}
                 setText={setejecucionTexto}
                 title={"Ejecución"}
                 editable={editable}
-            />
-            <CollapsableMap
-                etapa={"ejecucion"}
             />
             <ParrafoEvolucion
                 text={evaluacionTexto}
