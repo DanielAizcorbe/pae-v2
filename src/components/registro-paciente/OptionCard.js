@@ -9,7 +9,6 @@ const OptionCard = ({ imgSrc, alt, title, onClick, nextPage }) => {
         margin: "0 3rem",
         width: "300px",
         height: "400px",
-        
     };
 
     return (

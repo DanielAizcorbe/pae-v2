@@ -1,18 +1,21 @@
 import Modal from 'antd/es/modal/Modal'
-import React from 'react'
+import React, { useState } from 'react'
 import { Columns } from '../../../utils/Containers'
 import Title from 'antd/es/typography/Title'
 import { Button, InputNumber } from 'antd'
 
 export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value }) => {
 
+    const [newValue, setNewValue] = useState(value || "");
+
     const onChange = (value) => {
-        setMinutos(value);
-    } 
+        setNewValue(value);
+    }
 
     const onClick = () => {
-        closeModal(tareaIniciada.id, value);
-        console.log("info enviada: ", tareaIniciada.id, value);
+        setMinutos(newValue)
+        closeModal(tareaIniciada.id, newValue);
+        console.log("info enviada: ", tareaIniciada.id, newValue);
     }
 
     return (
@@ -39,13 +42,14 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
                     placeholder='XX'
                     controls={false}
                     onChange={onChange}
-                    value={value}
+                    value={newValue}
                 />
                 <Columns padding={"2rem"}>
                     <Button
                         type='primary'
                         size='large'
                         onClick={onClick}
+                        disabled={newValue === ""}
                     >
                         Finalizar
                     </Button>

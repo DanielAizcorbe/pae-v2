@@ -22,7 +22,7 @@ const Evaluacion = () => {
     const textAreaStyles = {
         width: '50%',
         minHeight: '450px',
-        height: "60%",
+        height: "100%",
         resize: "none",
         fontSize: "1rem",
         cursor: "default"
@@ -32,11 +32,14 @@ const Evaluacion = () => {
         <Columns
             elementPosition={"center"}
             padding={"1rem"}
+            width="100%"
+            height="100%"
         >
             <Titulo texto="Evaluación" />
             <Columns
                 elementPosition={"center"}
                 padding={"2rem"}
+                width="100%"
             >
                 <TextArea
                     style={textAreaStyles}
@@ -50,6 +53,7 @@ const Evaluacion = () => {
             <Columns
                 elementPosition="center"
                 padding="2rem"
+                width="100%"
             >
                 <BotonSiguiente
                     nextPage={"/evolucion"}

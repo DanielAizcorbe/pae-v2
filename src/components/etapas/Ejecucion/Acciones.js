@@ -35,6 +35,8 @@ export const Acciones = ({ acciones }) => {
         <Columns
             elementPosition={"top-center"}
             padding={"2rem"}
+            width="100%"
+            height="100%"
         >
             <Collapse
                 items={items}

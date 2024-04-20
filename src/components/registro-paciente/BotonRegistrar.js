@@ -3,7 +3,9 @@ import React from 'react'
 
 const BotonRegistrar = () => {
     return (
-        <Form.Item>
+        <Form.Item
+            style={{margin: "0"}}
+        >
             <Button
                 type='primary'
                 htmlType="submit"

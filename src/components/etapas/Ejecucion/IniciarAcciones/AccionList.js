@@ -35,8 +35,12 @@ export const ActionCard = ({ item }) => {
         <List.Item>
             <Rows
                 elementPosition={"center-left"}
+                width="100%"
             >
-                <Rows elementPosition={"center-left"}>
+                <Rows
+                    elementPosition={"center-left"}
+                    width="100%"
+                >
                     <Title level={5} style={{ margin: "0" }}>
                         {item.nombre}
                     </Title>

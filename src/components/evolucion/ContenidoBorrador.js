@@ -19,7 +19,6 @@ const ContenidoBorrador = ({ editable }) => {
         <Columns
             elementPosition={"top-center"}
             width={"1000px"}
-            height={"auto"}
         >
             <ParrafoEvolucion
                 text={valoracionTexto}

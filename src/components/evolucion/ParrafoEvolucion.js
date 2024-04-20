@@ -24,6 +24,8 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
         <Columns
             elementPosition={"top-left"}
             padding={"0rem 3rem"}
+            width="100%"
+            height="100%"
         >
             <Title
                 level={3}
@@ -34,6 +36,8 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
             </Title>
             <Columns
                 elementPosition={"top-right"}
+                width="100%"
+                height="100%"
             >
                 <TextArea
                     autoSize

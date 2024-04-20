@@ -10,8 +10,9 @@ export const Home = () => {
         <Rows
             elementPosition={"center"}
             padding={"2rem"}
+            height="100%"
         >
-            <OptionCard 
+            <OptionCard
                 alt={"evolucionar paciente"}
                 title={"Evolucionar"}
                 imgSrc={doctorImage}

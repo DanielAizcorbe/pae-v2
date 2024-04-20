@@ -10,18 +10,21 @@ const Borrador = () => {
     return (
         <Columns
             elementPosition={"top-center"}
+            width="100%"
+            height="100%"
         >
             <NavBar defaultSection={3} />
             <Columns
                 elementPosition={"top-center"}
                 width={"100%"}
-                height={"auto"}
                 padding={"0 0 4rem 0"}
             >
                 <Titulo texto={"Borrador"} />
                 <Columns
                     elementPosition={"center"}
                     margin={"2rem"}
+                    width="100%"
+                    height="100%"
                 >
                     <Alert
                         message="Podrás editar este texto cuando termines todas las etapas de la evolución actual"
@@ -31,6 +34,8 @@ const Borrador = () => {
                 </Columns>
                 <Columns
                     elementPosition={"top-center"}
+                    width="100%"
+                    height="100%"
                 >
                     <ContenidoBorrador
                         editable={false}
