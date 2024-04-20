@@ -1,82 +1,62 @@
 import React from "react";
-import { styled } from "styled-components";
 import { setPositionBy } from "./setPositionFunctions";
+import { Flex } from "antd";
 
-const ContainerFlex = styled.div`
-    display: flex;
-    flex-direction: ${props => props.$direction};
-    justify-content: ${props => props.$alineaciony};
-    align-items: ${props => props.$alineacionx};
-    padding: ${props => props.$padding ?? "0"};
-    margin: ${props => props.$margin ?? "0"};
-    height: ${props => props.$height ?? "100%"};
-    width: ${props => props.$width ?? "100%"};
-    position: ${props => props.$position ?? ""}
-`;
+const ContainerFlex = (props) => {
 
-const BotonContainer = ({height, width, margin, padding, children}) => {
+    const containerStyles = {
+        padding: props.padding,
+        margin: props.margin,
+        width: props.width || "auto",
+        height: props.height || "auto",
+        position: props.position || ""
+    };
+
+    const styles = {...containerStyles, ...props.style};
 
     return (
-        <Columns
-            elementPosition={"bottom-center"}
-            height={height || "auto"}
-            width={"100%"}
-            margin={margin || "0"}
-            padding={padding || "2rem"}
+        <Flex
+            vertical={props.direction === "column"}
+            justify={props.alineacionY}
+            align={props.alineacionX}
+            style={styles}
         >
-            <BotonSection width={width}>
-                {children}
-            </BotonSection>
-        </Columns>
-    );
+            {props.children}
+        </Flex>
+    )
 }
 
-const BotonSection = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 900px;
-    width: ${props => !!props.$width ? props.$width : "100%"};
-`;
+const Columns = (props) => {
 
-const Columns = ({children, elementPosition, padding, margin, height, width, position}) => {
-
-    const [y,x] = setPositionBy("column",elementPosition);
+    const [y, x] = setPositionBy("column", props.elementPosition);
 
     return (
         <ContainerFlex
-            $direction="column"
-            $alineaciony={y}
-            $alineacionx={x}
-            $padding={padding}
-            $margin={margin}
-            $height={height}
-            $width={width}
-            $position={position}
+            direction={"column"}
+            alineacionX={x}
+            alineacionY={y}
+            {...props}
         >
-            {children}
+            {props.children}
         </ContainerFlex>
     );
 }
 
-const Rows = ({children, elementPosition, padding, margin, height, width}) => {
+const Rows = (props) => {
 
-    const [y,x] = setPositionBy("row",elementPosition);
+    const [y, x] = setPositionBy("row", props.elementPosition);
 
     return (
         <ContainerFlex
-            $direction="row"
-            $alineaciony={y}
-            $alineacionx={x}
-            $padding={padding}
-            $margin={margin}
-            $height={height}
-            $width={width}
+            direction={"row"}
+            alineacionX={x}
+            alineacionY={y}
+            {...props}
         >
-            {children}
+            {props.children}
         </ContainerFlex>
     );
 }
 
-export { Columns, Rows, BotonContainer }
+export { Columns, Rows }
 
