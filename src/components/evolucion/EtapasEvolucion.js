@@ -1,7 +1,6 @@
 import React from "react";
 import { FALTAN_ETAPAS, GENERAR_EVOLUCION, toggleBotonCentral } from "../botones/ToggleBotonCentral";
 import { Columns } from "../utils/Containers";
-import { styled } from "styled-components";
 import { useSelector } from "react-redux";
 import { EtapaDiagnostico, EtapaEjecucion, EtapaEvaluacion, EtapaPlaneacion, EtapaValoracion } from "./Etapas";
 import { useNavigate } from "react-router-dom";
@@ -29,10 +28,16 @@ const EtapasEvolucion = () => {
     }
 
     return (
-        <EtapasContainer
+        <Columns
             elementPosition="top-center"
             margin="5rem"
-            height="auto"
+            width="100%"
+            style={{
+                "maxWidth": "60rem",
+                minWidth: "16rem",
+                minHeight: "16rem",
+                maxHeight: "32rem",
+            }}
         >
             <Columns
                 elementPosition={"center"}
@@ -45,7 +50,7 @@ const EtapasEvolucion = () => {
                     height={"0"}
                     position={"relative"}
                 >
-                    {toggleBotonCentral(flag(estadoEtapas),finalizar)}
+                    {toggleBotonCentral(flag(estadoEtapas), finalizar)}
                     <EtapaValoracion
                         completada={estadoEtapas.valoracion.completada}
                     />
@@ -67,18 +72,9 @@ const EtapasEvolucion = () => {
                     />
                 </Columns>
             </Columns>
-        </EtapasContainer>
+        </Columns>
     );
 
 }
-
-const EtapasContainer = styled(Columns)`
-    max-width: 60rem;
-    width: 100%;
-    min-width: 16rem;
-    min-height: 16rem;
-    max-height: 32rem;
-    margin: 2.5rem;
-`;
 
 export { EtapasEvolucion }

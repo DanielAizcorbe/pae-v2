@@ -1,0 +1,59 @@
+.etapa {
+    margin: 0 2.5rem;
+    width: 12rem;
+    height: 7rem;
+    clip-path: polygon(0 0, 100% 0, 85% 60%, 15% 60%);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border: none;
+    position: absolute;
+}
+
+.etapa:hover {
+    color: white;
+}
+
+.etapa p {
+    padding: 0.5rem;
+}
+
+.valoracion {
+    bottom: 50px;
+    background-color: #F94144;
+}
+
+.diagnostico {
+    background-color: #90BE6D;
+    left: -20px;
+    bottom: -40px;
+    transform: rotate(75deg);
+}
+
+.planeacion {
+    background-color: #4D908E;
+    left: -70px;
+    top: 60px;
+    transform: rotate(-220deg);
+}
+
+.ejecucion {
+    background-color: #F9844A;
+    right: -70px;
+    top: 60px;
+    transform: rotate(220deg);
+}
+
+.evaluacion {
+    background-color: #577590;
+    right: -20px;
+    bottom: -40px;
+    transform: rotate(-75deg);
+}
