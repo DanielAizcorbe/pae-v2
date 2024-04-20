@@ -12,14 +12,19 @@ const Evolucion = () => {
     return (
         <Columns
             elementPosition="top-center"
+            height="100%"
+            width="100%"
         >
             <Columns
                 elementPosition="top-center"
+                height="100%"
+                width="100%"
             >
                 <NavBar defaultSection={1} />
                 <Columns
                     elementPosition="center"
                     height="20vh"
+                    width="100%"
                 >
                     <Titulo texto={paciente.nombreCompleto} />
                 </Columns>

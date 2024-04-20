@@ -1,7 +1,6 @@
 import React from "react";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Columns, Rows } from "../../utils/Containers";
-import { EtapaContainer } from "../EtapaContainer";
 import { Titulo } from "../../utils/Titulos";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -52,7 +51,7 @@ const Ejecucion = () => {
     return (
         <Rows>
             <Secciones secciones={secciones} />
-            <EtapaContainer
+            <Columns
                 elementPosition={"top-center"}
                 padding={"1rem"}
                 height={"100%"}
@@ -81,7 +80,7 @@ const Ejecucion = () => {
                         id={secciones[3]}
                     />
                 </Columns>
-            </EtapaContainer>
+            </Columns>
 
         </Rows>
     );

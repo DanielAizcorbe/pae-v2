@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
-import { EtapaContainer } from "../EtapaContainer";
 import { Titulo } from "../../utils/Titulos";
 import { useDispatch } from "react-redux";
 import { completarEtapa } from "../../../store/slices/etapas";
@@ -30,14 +29,14 @@ const Evaluacion = () => {
     };
 
     return (
-        <EtapaContainer
-            elementPosition={"top-center"}
+        <Columns
+            elementPosition={"center"}
             padding={"1rem"}
         >
             <Titulo texto="Evaluación" />
             <Columns
                 elementPosition={"center"}
-                height={"100%"}
+                padding={"2rem"}
             >
                 <TextArea
                     style={textAreaStyles}
@@ -49,7 +48,7 @@ const Evaluacion = () => {
                 />
             </Columns>
             <Columns
-                elementPosition="bottom-center"
+                elementPosition="center"
                 padding="2rem"
             >
                 <BotonSiguiente
@@ -58,7 +57,7 @@ const Evaluacion = () => {
                     sePuedeActivar={text !== ""}
                 />
             </Columns>
-        </EtapaContainer>
+        </Columns>
     );
 };
 

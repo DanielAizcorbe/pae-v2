@@ -1,7 +1,6 @@
 import React from "react";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Titulo } from "../../utils/Titulos";
-import { EtapaContainer } from "../EtapaContainer";
 import { Columns } from "../../utils/Containers";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -27,7 +26,7 @@ const Diagnostico = () => {
     }
 
     return (
-        <EtapaContainer
+        <Columns
             elementPosition={"top-center"}
             padding={"1rem"}
         >
@@ -43,7 +42,7 @@ const Diagnostico = () => {
                     sePuedeActivar={diagnosticos.some(d => d.selected)}
                 />
             </Columns>
-        </EtapaContainer>
+        </Columns>
     );
 }
 
