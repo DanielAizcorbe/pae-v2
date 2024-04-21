@@ -6,16 +6,52 @@ import { ModalDatosPaciente } from "./ModalDatosPaciente";
 import { useDispatch } from "react-redux";
 import { evolucionar } from "../../store/slices/paciente";
 import { Titulo } from "../utils/Titulos";
+import { message } from "antd";
 
 const BusquedaPaciente = () => {
 
     const dispatch = useDispatch();
     const [docBuscado, setDocBuscado] = useState("");
-    const [errorDocBuscado, setErrorDocBuscado] = useState("");
+    const [mensajeMostrado, setMensajeMostrado] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const nombreCompleto = "JUAN PEREZ GONZALES CRUZ";
     const documento = "11111";
     const fechaNacimiento = "09-09-1990";
+
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const mostrarAvisoDocNoIngresado = () => {
+        if (!mensajeMostrado) {
+            setMensajeMostrado(true);
+            messageApi.open({
+                type: 'warning',
+                content: "Ingrese un documento",
+                duration: 2,
+                style: {
+                    fontSize: "15px",
+                    marginTop: "60px",
+                },
+                onClose: () => setMensajeMostrado(false)
+            });
+        }
+    }
+
+    const mostrarMensajeDocNoEncontrado = () => {
+        if (!mensajeMostrado) {
+            setMensajeMostrado(true);
+            messageApi.open({
+                type: 'error',
+                content: "El documento " + docBuscado + " no se encuentra registrado",
+                duration: 2,
+                style: {
+                    fontSize: "15px",
+                    marginTop: "60px",
+                },
+                onClose: () => setMensajeMostrado(false)
+            });
+        }
+    }
 
     const fetchDatosPaciente = () => {
         dispatch(
@@ -29,16 +65,10 @@ const BusquedaPaciente = () => {
         );
     }
 
-    const [showModal, setShowModal] = useState(false);
+
 
     const closeModal = () => {
         setShowModal(false);
-    }
-
-    const [mostrarAviso, setMostrarAviso] = useState(false);
-
-    const closeAviso = () => {
-        setMostrarAviso(false);
     }
 
     const handleModalPaciente = () => {
@@ -46,14 +76,11 @@ const BusquedaPaciente = () => {
         if (documento === docBuscado) {
             setShowModal(true);
             fetchDatosPaciente();
+        } else if (docBuscado === "") {
+            mostrarAvisoDocNoIngresado();
         } else {
-            setErrorDocBuscado(docBuscado);
-            setMostrarAviso(true);
+            mostrarMensajeDocNoEncontrado()
         }
-    }
-
-    const setMensajeSegun = (errorDocBuscado) => {
-        return (errorDocBuscado === "" ? "ingrese un documento" : "No hay ningún paciente registrado con el documento " + errorDocBuscado);
     }
 
     return (
@@ -69,16 +96,12 @@ const BusquedaPaciente = () => {
                 value={docBuscado}
                 onSearch={handleModalPaciente}
             />
-            <AvisoWarning
-                closeAviso={closeAviso}
-                mensaje={setMensajeSegun(errorDocBuscado)}
-                esVisible={mostrarAviso}
-            />
             <ModalDatosPaciente
                 closeModal={closeModal}
                 nextPage={"/evolucion"}
                 openCondition={showModal}
             />
+            {contextHolder}
         </Columns>
     );
 }
