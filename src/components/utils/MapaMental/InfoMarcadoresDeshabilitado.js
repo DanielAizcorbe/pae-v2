@@ -22,7 +22,7 @@ const InfoMarcadoresDeshabilitado = ({ marcadores, etapa }) => {
                 {tituloLista}
             </Title>
             <ListaMarcadores
-                marcadores={marcadores}
+                marcadores={marcadores.filter(m => m.etapa === etapa)}
             />
         </Columns>
     )
