@@ -22,7 +22,6 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-
         <Routes>
           <Route exact path="/evolucion/paciente" element={<BusquedaPaciente />} />
           <Route exact path='/registro-paciente' element={<Registro />} />

@@ -1,18 +1,16 @@
-import { Button, Form } from 'antd'
+import { Button } from 'antd'
 import React from 'react'
 
-const BotonRegistrar = () => {
+const BotonRegistrar = ({ onClick }) => {
     return (
-        <Form.Item
-            style={{margin: "0"}}
+        <Button
+            type='primary'
+            htmlType="submit"
+            size='large'
+            onClick={onClick}
         >
-            <Button
-                type='primary'
-                htmlType="submit"
-            >
-                Registrar
-            </Button>
-        </Form.Item>
+            Registrar
+        </Button>
     )
 }
 

@@ -1,32 +1,32 @@
 import React from 'react'
 import Input from 'antd/es/input/Input'
-import { Form } from 'antd'
 
 
 
-const InputNombre = ({ setNombre, nombre }) => {
+const InputNombre = ({ onChange, nombre, error }) => {
 
 
     return (
-        <Form.Item
-            label="Nombre Completo"
+        <label
             htmlFor='nombreCompleto'
             name='nombreCompleto'
-            rules={[
-                {
-                    required: true,
-                    message: "Ingrese un nombre"
-                }
-            ]}
-            validateTrigger="onSubmit"
+            style={{ width: "100%" }}
         >
+            <p>Nombre completo</p>
             <Input
                 allowClear
-                onChange={setNombre}
+                onChange={onChange}
                 value={nombre}
                 id="nombreCompleto"
+                autoComplete='off'
             />
-        </Form.Item>
+            {
+                error !== {} ?
+                    <p style={{ color: "red", margin: "0" }}>
+                        {error.message}
+                    </p> : ""
+            }
+        </label>
     )
 }
 

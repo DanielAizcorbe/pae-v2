@@ -1,28 +1,31 @@
-import { Form } from 'antd';
 import Input from 'antd/es/input/Input'
 import React from 'react'
 
-const InputDocumento = ({ setDocumento, documento }) => {
+
+const InputDocumento = ({ onChange, documento, error }) => {
     return (
-        <Form.Item
-            label="Documento (sin puntos)"
+        <label
+            style={{ width: "100%" }}
             htmlFor='documento'
-            rules={[
-                {
-                    required: true,
-                    message: "Ingrese un documento"
-                }
-            ]}
-            name="documento"
-            validateTrigger="onSubmit"
+            name="fechaNacimiento"
         >
+            <p>
+                Documento
+            </p>
             <Input
                 allowClear
-                onChange={setDocumento}
+                onChange={onChange}
                 value={documento}
                 id='documento'
+                autoComplete='off'
             />
-        </Form.Item>
+            {
+                Object.keys(error).length > 0 && error.message ?
+                    <p style={{ color: "red", margin: "0" }}>
+                        {error.message}
+                    </p> : ""
+            }
+        </label>
     )
 }
 

@@ -1,3 +1,4 @@
+import { Input } from 'antd';
 import React from 'react'
 
 const formatDate = (inputValue) => {
@@ -20,21 +21,38 @@ const formatDate = (inputValue) => {
     return `${day}${month}${year}`;
 };
 
-export const InputFechaV2 = ({ value, setValue }) => {
+export const InputFechaV2 = ({ value, onChange, error }) => {
 
     const handleChange = (e) => {
         const inputValue = e.target.value;
         const formattedValue = formatDate(inputValue);
-        setValue(formattedValue);
+        onChange(formattedValue);
     };
 
     return (
-        <input
-            type="text"
-            value={value}
-            onChange={handleChange}
-            placeholder="DD-MM-YYYY"
-            id='fechaNacimiento'
-        />
+        <label
+            htmlFor='fechaNacimiento'
+            style={{ width: "100%" }}
+            name="fechaNacimiento"
+        >
+            <p>
+                Fecha nacimiento
+            </p>
+            <Input
+                value={value}
+                onChange={handleChange}
+                placeholder="DD-MM-YYYY"
+                id='fechaNacimiento'
+                autoComplete='off'
+                name="fechaNacimiento"
+                allowClear
+            />
+            {
+                error !== {} ?
+                    <p style={{ color: "red", margin: "0" }}>
+                        {error.message}
+                    </p> : ""
+            }
+        </label>
     );
 }
