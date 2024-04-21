@@ -14,7 +14,8 @@ const SeccionAcciones = ({ seccion }) => {
             key: 1,
             label: "Acciones Recomendadas",
             children: <ListaDeDiagnosticos />,
-            id: seccion
+            id: seccion,
+            showArrow: false,
         }
     ];
 

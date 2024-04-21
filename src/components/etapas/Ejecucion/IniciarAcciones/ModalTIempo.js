@@ -23,13 +23,13 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
             open={open}
             footer={null}
             onCancel={closeModal}
-            width={"30%"}
+            width={"500px"}
         >
             <Columns
                 padding={"1rem"}
                 elementPosition={"top-center"}
             >
-                <Title level={2}>
+                <Title level={2} style={{textAlign: "center"}}>
                     {tareaIniciada.nombre}
                 </Title>
                 <InputNumber
@@ -44,7 +44,7 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
                     onChange={onChange}
                     value={newValue}
                 />
-                <Columns padding={"2rem"}>
+                <Columns>
                     <Button
                         type='primary'
                         size='large'
