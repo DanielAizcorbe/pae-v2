@@ -1,3 +1,4 @@
+import { AZUL_PRIMARIO, VERDE } from "../datos/colores";
 import { IconoPaciente } from "./IconoPaciente";
 
 import { styled } from "styled-components";
@@ -11,7 +12,7 @@ const toggleBotonCentral = (flag, onClick) => {
         case FALTA_CONFIRMAR_EDICION:
             return (
                 <BtnCentral
-                    $bgcolor={""}
+                    $bgcolor={VERDE}
                 >
                     {FALTA_CONFIRMAR_EDICION}
                 </BtnCentral>
@@ -19,7 +20,7 @@ const toggleBotonCentral = (flag, onClick) => {
         case GENERAR_EVOLUCION:
             return (
                 <BtnCentral
-                    $bgcolor={""}
+                    $bgcolor={AZUL_PRIMARIO}
                     onClick={onClick}
                 >
                     {GENERAR_EVOLUCION}
