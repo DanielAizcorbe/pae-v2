@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { AvisoBody, AvisoContainer, BtnCierreAviso } from "./Avisos";
-import { BOTON_PRIMARIO, HOVER_BOTON_PRIMARIO } from "../datos/colores";
 
 const AvisoEtapaCompletada = ({ etapaCambiada }) => {
 
@@ -16,13 +15,13 @@ const AvisoEtapaCompletada = ({ etapaCambiada }) => {
 
                 <AvisoContainer>
                     <AvisoBody
-                        $bgcolor={BOTON_PRIMARIO}
+                        $bgcolor={""}
                     >
                         {"Se completo la etapa " + etapaCambiada}
                     </AvisoBody>
                     <BtnCierreAviso
-                        $bgcolor={BOTON_PRIMARIO}
-                        $bgcolorhover={HOVER_BOTON_PRIMARIO}
+                        $bgcolor={""}
+                        $bgcolorhover={""}
                         onClick={closeAviso}
                     >
                         x

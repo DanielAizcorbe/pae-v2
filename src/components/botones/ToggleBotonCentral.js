@@ -1,4 +1,3 @@
-import { BOTON_PRIMARIO, WARNING_COLOR } from "../datos/colores";
 import { IconoPaciente } from "./IconoPaciente";
 
 import { styled } from "styled-components";
@@ -12,7 +11,7 @@ const toggleBotonCentral = (flag, onClick) => {
         case FALTA_CONFIRMAR_EDICION:
             return (
                 <BtnCentral
-                    $bgcolor={WARNING_COLOR}
+                    $bgcolor={""}
                 >
                     {FALTA_CONFIRMAR_EDICION}
                 </BtnCentral>
@@ -20,7 +19,7 @@ const toggleBotonCentral = (flag, onClick) => {
         case GENERAR_EVOLUCION:
             return (
                 <BtnCentral
-                    $bgcolor={BOTON_PRIMARIO}
+                    $bgcolor={""}
                     onClick={onClick}
                 >
                     {GENERAR_EVOLUCION}

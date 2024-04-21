@@ -2,6 +2,7 @@ import { Card, Flex, Image } from 'antd'
 import Title from 'antd/es/typography/Title';
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { AZUL_PROFUNDO } from '../datos/colores';
 
 const OptionCard = ({ imgSrc, alt, title, onClick, nextPage }) => {
 
@@ -44,7 +45,7 @@ const OptionCard = ({ imgSrc, alt, title, onClick, nextPage }) => {
                         style={{
                             textAlign: "center",
                             padding: "10px",
-                            color: "#1677FF",
+                            color: AZUL_PROFUNDO,
                         }}
                     >
                         {title}
