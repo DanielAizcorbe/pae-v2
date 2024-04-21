@@ -31,7 +31,6 @@ export const MapaMental = ({ etapa, disabled, mostrarSoloLosDeLaEtapa }) => {
         };
 
         setMarcadorTemporal(marcador);
-        console.log(marcador);
         setShowModal(true);
     };
 
