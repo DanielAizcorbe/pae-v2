@@ -3,6 +3,8 @@ import { Columns } from '../utils/containers/Containers'
 import { useSelector } from 'react-redux';
 import { ParrafoEvolucion } from './ParrafoEvolucion';
 import { MapaMental } from '../utils/MapaMental/MapaMental';
+import { AZUL_PROFUNDO } from '../datos/colores';
+import { Divider } from 'antd';
 
 const ContenidoBorrador = ({ editable }) => {
 
@@ -14,11 +16,17 @@ const ContenidoBorrador = ({ editable }) => {
     const [ejecucionTexto, setejecucionTexto] = useState(etapas.ejecucion.resumen);
     const [evaluacionTexto, setevaluacionTexto] = useState(etapas.evaluacion.resumen);
 
+    const containerStyle = {
+        border: "1px solid " + AZUL_PROFUNDO,
+        borderRadius: "15px",
+    }
 
     return (
         <Columns
-            elementPosition={"top-center"}
+            elementPosition={"top-left"}
             width={"1000px"}
+            style={containerStyle}
+            padding="2rem"
         >
             <ParrafoEvolucion
                 text={valoracionTexto}
@@ -26,11 +34,13 @@ const ContenidoBorrador = ({ editable }) => {
                 title={"Valoración"}
                 editable={editable}
             />
+            <Divider />
             <MapaMental
                 disabled
                 mostrarSoloLosDeLaEtapa
                 etapa={"valoracion"}
             />
+            <Divider />
             <ParrafoEvolucion
                 text={diagnosticoTexto}
                 setText={setdiagnosticoTexto}
@@ -43,17 +53,19 @@ const ContenidoBorrador = ({ editable }) => {
                 title={"Planeación"}
                 editable={editable}
             />
-            <MapaMental
-                disabled
-                mostrarSoloLosDeLaEtapa
-                etapa={"ejecucion"}
-            />
             <ParrafoEvolucion
                 text={ejecucionTexto}
                 setText={setejecucionTexto}
                 title={"Ejecución"}
                 editable={editable}
             />
+            <Divider />
+            <MapaMental
+                disabled
+                mostrarSoloLosDeLaEtapa
+                etapa={"ejecucion"}
+            />
+            <Divider />
             <ParrafoEvolucion
                 text={evaluacionTexto}
                 setText={setevaluacionTexto}
