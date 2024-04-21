@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { toggleDiagnosticoSeleccion } from "../../../store/slices/diagnosticos";
+import { AZUL_PRIMARIO, BLANCO } from "../../datos/colores";
 
 const ListaDiagnosticos = () => {
 
@@ -22,7 +23,11 @@ const ListaDiagnosticos = () => {
             renderItem={
                 (item) => (<List.Item
                     key={item.id}
-                    style={{ backgroundColor: item.selected ? "lightgray" : "", cursor: "pointer" }}
+                    style={{ 
+                        backgroundColor: item.selected ? AZUL_PRIMARIO : "", 
+                        color: item.selected ? BLANCO : "",
+                        cursor: "pointer" 
+                    }}
                     onClick={() => toggleDiagnostico(item.id)}
                 >
                     {item.nombre}

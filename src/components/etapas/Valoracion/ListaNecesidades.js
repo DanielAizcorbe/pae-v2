@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toggleSeleccion } from "../../../store/slices/necesidades";
 import { List } from "antd";
-import { AZUL_PRIMARIO } from "../../datos/colores";
+import { AZUL_PRIMARIO, BLANCO } from "../../datos/colores";
 
 const ListaNecesidades = () => {
 
@@ -22,7 +22,11 @@ const ListaNecesidades = () => {
             renderItem={
                 (item) => (<List.Item
                     key={item.id}
-                    style={{ backgroundColor: item.selected ? AZUL_PRIMARIO : "", cursor: "pointer" }}
+                    style={{
+                        backgroundColor: item.selected ? AZUL_PRIMARIO : "",
+                        cursor: "pointer",
+                        color: item.selected ? BLANCO : "",
+                    }}
                     onClick={() => toggleNecesidad(item.id)}
                 >
                     {item.nombre}
