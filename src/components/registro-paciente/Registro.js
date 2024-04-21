@@ -8,11 +8,12 @@ import BotonRegistrar from './BotonRegistrar'
 import { InputFechaV2 } from './InputFechaV2'
 import { useNavigate } from 'react-router-dom'
 import { validarDocumento, validarFecha, validarNombre } from './validacionesFormRegistro'
+import { AZUL_PRIMARIO } from '../datos/colores'
 
 const formStyle = {
-    width: "700px",
-    border: "1px solid black",
-    padding: "3rem",
+    width: "600px",
+    border: "1px solid " + AZUL_PRIMARIO,
+    padding: "2rem",
     borderRadius: "10px",
 }
 
