@@ -1,5 +1,5 @@
 import React from 'react'
-import { Columns } from '../../../utils/Containers'
+import { Columns } from '../../../utils/containers/Containers'
 import Title from 'antd/es/typography/Title'
 import { TextoEditable } from './TextoEditable'
 

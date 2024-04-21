@@ -1,6 +1,6 @@
 import Anchor from "antd/es/anchor/Anchor";
 import React from "react";
-import { Columns } from "../utils/Containers";
+import { Columns } from "../utils/containers/Containers";
 
 const Secciones = ({ secciones }) => {
 

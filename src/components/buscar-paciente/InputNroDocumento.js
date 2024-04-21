@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "antd/es/input/Search";
-import { Rows } from "../utils/Containers";
+import { Rows } from "../utils/containers/Containers";
 
 const InputNroDocumento = ({ onChange, onSearch }) => {
 

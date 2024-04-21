@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Titulo } from "../../utils/Titulos"
-import { Columns, Rows } from "../../utils/Containers";
+import { Columns, ContentContainer, Rows } from "../../utils/containers/Containers";
 import { useDispatch, useSelector } from "react-redux";
 import { completarEtapa } from "../../../store/slices/etapas";
 import { Secciones } from "../../generales/Secciones";
@@ -88,10 +88,7 @@ const Valoracion = () => {
             <Secciones
                 secciones={secciones}
             />
-            <Columns
-                elementPosition={"top-center"}
-                padding="1rem"
-            >
+            <ContentContainer>
                 <Titulo texto="Valoración" id={secciones[0]} />
                 <SeccionExploracionFisica
                     stateEtapas={etapasExploracionFisica}
@@ -115,7 +112,7 @@ const Valoracion = () => {
                         sePuedeActivar={sePuedeCompletar()}
                     />
                 </Columns>
-            </Columns>
+            </ContentContainer>
 
         </Rows>
     );

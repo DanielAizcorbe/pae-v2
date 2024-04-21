@@ -1,6 +1,6 @@
 import Modal from 'antd/es/modal/Modal'
 import React, { useState } from 'react'
-import { Columns } from '../../../utils/Containers'
+import { Columns } from '../../../utils/containers/Containers'
 import Title from 'antd/es/typography/Title'
 import { Button, InputNumber } from 'antd'
 
@@ -49,7 +49,7 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
                         type='primary'
                         size='large'
                         onClick={onClick}
-                        disabled={newValue === ""}
+                        disabled={newValue < 1}
                     >
                         Finalizar
                     </Button>

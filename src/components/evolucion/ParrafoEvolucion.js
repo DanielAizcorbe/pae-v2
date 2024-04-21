@@ -1,7 +1,7 @@
 import TextArea from "antd/es/input/TextArea";
 import Title from "antd/es/typography/Title";
 import React, { useState } from "react";
-import { Columns } from "../utils/Containers";
+import { Columns } from "../utils/containers/Containers";
 import { Button } from "antd";
 import { EditTwoTone, SaveTwoTone } from "@ant-design/icons";
 

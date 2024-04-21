@@ -1,11 +1,11 @@
 import React from 'react'
 import { ItemMarcadorDeshabilitado } from './ItemMarcadorDeshabilitado'
 
-const ListaMarcadores = ({marcadores}) => {
+const ListaMarcadores = ({ marcadores }) => {
 
     return (
         <ol>
-            {marcadores.map(m => <ItemMarcadorDeshabilitado practica={m.text}/>)}
+            {marcadores.map(m => <ItemMarcadorDeshabilitado practica={m.text} />)}
         </ol>
     )
 }

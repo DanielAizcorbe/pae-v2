@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Alert } from 'antd';
-import { Rows } from "../utils/Containers";
+import { Rows } from "../utils/containers/Containers";
 
 const AvisoWarning = ({ closeAviso, mensaje, esVisible }) => {
 

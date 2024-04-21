@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Columns, Rows } from "../utils/Containers";
+import { Columns, Rows } from "../utils/containers/Containers";
 import Title from "antd/es/typography/Title";
 import { ParrafoEvolucion } from "./ParrafoEvolucion";
 import { MapaMentalFinal } from "./MapaMentalFinal";

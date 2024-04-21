@@ -1,5 +1,5 @@
 import React from 'react'
-import { Rows } from '../utils/Containers'
+import { Rows } from '../utils/containers/Containers'
 import OptionCard from './OptionCard'
 import doctorImage from "./User.svg";
 import documentImage from "./addFileImage.svg"
@@ -11,6 +11,7 @@ export const Home = () => {
             elementPosition={"center"}
             padding={"2rem"}
             height="100%"
+            width="100%"
         >
             <OptionCard
                 alt={"evolucionar paciente"}

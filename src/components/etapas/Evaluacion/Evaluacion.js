@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { completarEtapa } from "../../../store/slices/etapas";
 import { useSelector } from "react-redux";
 import TextArea from "antd/es/input/TextArea";
-import { Columns } from "../../utils/Containers";
+import { Columns, ContentContainer } from "../../utils/containers/Containers";
 
 const Evaluacion = () => {
 
@@ -29,16 +29,10 @@ const Evaluacion = () => {
     };
 
     return (
-        <Columns
-            elementPosition={"center"}
-            padding={"1rem"}
-            width="100%"
-            height="100%"
-        >
+        <ContentContainer>
             <Titulo texto="Evaluación" />
             <Columns
                 elementPosition={"center"}
-                padding={"2rem"}
                 width="100%"
             >
                 <TextArea
@@ -61,7 +55,7 @@ const Evaluacion = () => {
                     sePuedeActivar={text !== ""}
                 />
             </Columns>
-        </Columns>
+        </ContentContainer>
     );
 };
 

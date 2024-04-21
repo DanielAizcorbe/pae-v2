@@ -1,5 +1,5 @@
 import React from 'react'
-import { Columns } from '../../utils/Containers'
+import { Columns } from '../../utils/containers/Containers'
 import { Button, Collapse } from 'antd'
 import { AccionCard } from './AccionCard'
 import { useNavigate } from 'react-router-dom'

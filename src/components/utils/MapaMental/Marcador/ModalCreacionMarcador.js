@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "antd/es/modal/Modal";
 import { Select } from "antd";
-import { Columns } from "../../Containers";
+import { Columns } from "../../containers/Containers";
 import { practicasprueba } from "../../../datos/practicas";
 
 const ModalCreacionMarcador = ({ showModal, addMarcadorALaLista, closeModalFunction, nuevoMarcador }) => {

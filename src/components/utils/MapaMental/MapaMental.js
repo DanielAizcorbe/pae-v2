@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Rows } from '../Containers';
+import { Rows } from '../containers/Containers';
 import { InfoMarcadores } from './Marcador/InfoMarcadores';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -51,7 +51,8 @@ export const MapaMental = ({ etapa, disabled, mostrarSoloLosDeLaEtapa }) => {
 
     return (
         <Rows
-            elementPosition={"center-left"}
+            elementPosition={"top-left"}
+            padding="1rem"
         >
             <MapaConPuntos
                 disabled={disabled}

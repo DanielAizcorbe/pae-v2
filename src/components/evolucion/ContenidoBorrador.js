@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Columns } from '../utils/Containers'
+import { Columns } from '../utils/containers/Containers'
 import { useSelector } from 'react-redux';
 import { ParrafoEvolucion } from './ParrafoEvolucion';
 import { MapaMental } from '../utils/MapaMental/MapaMental';

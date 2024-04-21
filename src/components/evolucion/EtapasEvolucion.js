@@ -1,6 +1,6 @@
 import React from "react";
 import { FALTAN_ETAPAS, GENERAR_EVOLUCION, toggleBotonCentral } from "../botones/ToggleBotonCentral";
-import { Columns } from "../utils/Containers";
+import { Columns } from "../utils/containers/Containers";
 import { useSelector } from "react-redux";
 import {
     EtapaDiagnostico,
@@ -9,7 +9,7 @@ import {
     EtapaPlaneacion,
     EtapaValoracion
 }
-    from "./EtapaGenerica/Etapas";
+    from "../etapas/EtapaGenerica/Etapas";
 import { useNavigate } from "react-router-dom";
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Columns } from './utils/Containers'
+import { Columns } from './utils/containers/Containers'
 import { NavBar } from './generales/NavBar'
 import { Image } from 'antd'
 import imagenNoData from "../img/no-data.svg"

@@ -1,6 +1,6 @@
 import { DragDropPlaneacion } from "./Draggable/DragDropPlaneacion";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
-import { Columns } from "../../utils/Containers";
+import { Columns, ContentContainer } from "../../utils/containers/Containers";
 import { Titulo } from "../../utils/Titulos";
 import { switchOrder } from "../../../store/slices/prioridades";
 import React, { useState } from 'react';
@@ -26,12 +26,7 @@ const Planeacion = () => {
     }
 
     return (
-        <Columns
-            elementPosition={"top-center"}
-            height="100%"
-            width="100%"
-            padding="2rem"
-        >
+        <ContentContainer>
             <Titulo texto="Planeación" />
             <Title level={3}>Ordene los diagnósticos según su urgencia</Title>
             <DragDropPlaneacion
@@ -48,7 +43,7 @@ const Planeacion = () => {
                     sePuedeActivar={true}
                 />
             </Columns>
-        </Columns>
+        </ContentContainer>
     );
 }
 

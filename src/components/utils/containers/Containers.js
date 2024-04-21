@@ -1,5 +1,5 @@
 import React from "react";
-import { setPositionBy } from "./setPositionFunctions";
+import { setPositionBy } from "../setPositionFunctions";
 import { Flex } from "antd";
 
 const ContainerFlex = (props) => {
@@ -58,5 +58,20 @@ const Rows = (props) => {
     );
 }
 
-export { Columns, Rows }
+const ContentContainer = (props) => {
+
+    return (
+        <Columns
+            padding="2rem"
+            height="100%"
+            width="100%"
+            elementPosition="top-center"
+            {...props}
+        >
+            {props.children}
+        </Columns>
+    )
+}
+
+export { Columns, Rows, ContentContainer }
 

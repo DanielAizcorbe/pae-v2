@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Modal from "antd/es/modal/Modal";
 import Title from "antd/es/typography/Title";
-import { Columns } from "../utils/Containers";
+import { Columns } from "../utils/containers/Containers";
 import { useNavigate } from "react-router-dom";
 import { Button, Flex } from "antd";
 import FilaModalPaciente from "./FilaModalPaciente";

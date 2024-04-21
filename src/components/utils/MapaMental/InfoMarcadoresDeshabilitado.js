@@ -1,5 +1,5 @@
 import React from 'react'
-import { Columns } from '../Containers';
+import { Columns } from '../containers/Containers';
 import Title from 'antd/es/typography/Title';
 import ListaMarcadores from './ListaMarcadores';
 
@@ -21,7 +21,7 @@ const InfoMarcadoresDeshabilitado = ({ marcadores, etapa }) => {
             >
                 {tituloLista}
             </Title>
-            <ListaMarcadores 
+            <ListaMarcadores
                 marcadores={marcadores}
             />
         </Columns>

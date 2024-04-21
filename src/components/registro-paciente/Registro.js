@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Columns } from '../utils/Containers'
+import { Columns, ContentContainer } from '../utils/containers/Containers'
 import Title from 'antd/es/typography/Title'
 
 import FormularioRegistro from './FormularioRegistro'
@@ -31,9 +31,7 @@ const Registro = () => {
 
 
     return (
-        <Columns
-            elementPosition={"top-center"}
-        >
+        <ContentContainer>
             <Title level={1}>
                 REGISTRAR PACIENTE
             </Title>
@@ -63,7 +61,7 @@ const Registro = () => {
                     </Columns>
                 </FormularioRegistro>
             </Columns>
-        </Columns>
+        </ContentContainer>
     )
 }
 

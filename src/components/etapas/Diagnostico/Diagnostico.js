@@ -1,7 +1,7 @@
 import React from "react";
 import { BotonSiguiente } from "../../botones/BotonSiguiente";
 import { Titulo } from "../../utils/Titulos";
-import { Columns } from "../../utils/Containers";
+import { Columns, ContentContainer } from "../../utils/containers/Containers";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { switchOrder } from "../../../store/slices/prioridades";
@@ -26,10 +26,7 @@ const Diagnostico = () => {
     }
 
     return (
-        <Columns
-            elementPosition={"top-center"}
-            padding={"1rem"}
-        >
+        <ContentContainer>
             <Titulo texto={"Diagnóstico"} />
             <SeccionDiagnosticos />
             <Columns
@@ -42,7 +39,7 @@ const Diagnostico = () => {
                     sePuedeActivar={diagnosticos.some(d => d.selected)}
                 />
             </Columns>
-        </Columns>
+        </ContentContainer>
     );
 }
 

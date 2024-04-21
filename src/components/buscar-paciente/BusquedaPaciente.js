@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Columns } from "../utils/Containers";
+import { Columns } from "../utils/containers/Containers";
 import { InputNroDocumento } from "./InputNroDocumento";
 import { AvisoWarning } from "../avisos/AvisoWarning";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
