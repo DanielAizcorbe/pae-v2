@@ -9,6 +9,7 @@ import { SeccionMapaMental } from "./SeccionMapaMental";
 import { SeccionNecesidades } from "./SeccionesNecesidades";
 import { SeccionExploracionFisica } from "./SeccionExploracionFisica";
 import { updateAll } from "../../../store/slices/exploracionFisica";
+import { setMensaje } from "../../../store/slices/avisosSlice";
 
 
 const secciones = [
@@ -24,6 +25,7 @@ const Valoracion = () => {
     const necesidades = useSelector(state => state.necesidades);
     const exploracionFisica = useSelector(state => state.exploracionFisica);
     const marcadores = useSelector(state => state.marcadores);
+    const fueCompletadaLaEtapaSiguiente = useSelector(state => state.estadoEtapas.diagnostico.completada);
 
     const dispatch = useDispatch();
 
@@ -63,6 +65,10 @@ const Valoracion = () => {
             percusion: etapasExploracionFisica.percusion.text,
             palpacion: etapasExploracionFisica.palpacion.text,
         }))
+
+        if (fueCompletadaLaEtapaSiguiente) {
+            dispatch(setMensaje("VALORACIÓN"));
+        }
     }
 
     const getResumen = (necesidadesSeleccionadas) => {

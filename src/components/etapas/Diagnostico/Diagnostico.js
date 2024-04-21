@@ -7,11 +7,13 @@ import { useDispatch } from "react-redux";
 import { switchOrder } from "../../../store/slices/prioridades";
 import { completarEtapa } from "../../../store/slices/etapas";
 import { SeccionDiagnosticos } from "./SeccionDiagnosticos";
+import { setMensaje } from "../../../store/slices/avisosSlice";
 
 
 const Diagnostico = () => {
 
     const diagnosticos = useSelector(state => state.diagnosticos);
+    const fueCompletadaLaEtapaSiguiente = useSelector(state => state.estadoEtapas.planeacion.completada);
 
     const dispatch = useDispatch();
 
@@ -23,6 +25,10 @@ const Diagnostico = () => {
         console.log(getResumen(diagnosticos.filter(d => d.selected)));
         dispatch(switchOrder(diagnosticos.filter(d => d.selected)));
         dispatch(completarEtapa({ etapa: "diagnostico", completada: true, resumen: getResumen(diagnosticos.filter(d => d.selected)) }))
+
+        if (fueCompletadaLaEtapaSiguiente) {
+            dispatch(setMensaje("DIAGNÓSTICO"));
+        }
     }
 
     return (

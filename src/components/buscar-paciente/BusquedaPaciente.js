@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Columns } from "../utils/containers/Containers";
 import { InputNroDocumento } from "./InputNroDocumento";
-import { AvisoWarning } from "../avisos/AvisoWarning";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
 import { useDispatch } from "react-redux";
 import { evolucionar } from "../../store/slices/paciente";

@@ -78,6 +78,7 @@ const EtapasEvolucion = () => {
                         sePuedeCompletar={estadoEtapas.ejecucion.completada}
                     />
                 </Columns>
+                
             </Columns>
         </Columns>
     );

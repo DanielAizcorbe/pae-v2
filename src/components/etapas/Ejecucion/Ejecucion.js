@@ -9,6 +9,7 @@ import { SeccionMapaMental } from "../Valoracion/SeccionMapaMental";
 import { Secciones } from "../../generales/Secciones";
 import { SeccionAcciones } from "./SeccionAcciones";
 import { addAcciones } from "../../../store/slices/accionesARealizar";
+import { setMensaje } from "../../../store/slices/avisosSlice";
 
 const getResumen = (marcadores, acciones) => {
 
@@ -37,13 +38,18 @@ const Ejecucion = () => {
     const dispatch = useDispatch();
     const accionesSeleccionadas = useSelector(state => state.diagnosticos);
     const marcadoresEjecucion = useSelector(state => state.marcadores).filter(m => m.etapa === "ejecucion");
+    const fueCompletadaLaEtapaSiguiente = useSelector(state => state.estadoEtapas.evaluacion.completada);
 
     const onClick = () => {
         const acciones = accionesSeleccionadas.map(a => getSelected(a)).filter(o => o.acciones.length > 0);
         console.log(getResumen(marcadoresEjecucion, acciones))
         dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumen(marcadoresEjecucion, acciones) }))
-        console.log("acciones: ",acciones);
+        console.log("acciones: ", acciones);
         dispatch(addAcciones(acciones));
+
+        if (fueCompletadaLaEtapaSiguiente) {
+            dispatch(setMensaje("EJECUCIÓN"));
+        }
     }
 
     const acciones = useSelector(state => state.diagnosticos).map(d => d.acciones).reduce((acumulador, acciones) => acumulador.concat(acciones), []);
