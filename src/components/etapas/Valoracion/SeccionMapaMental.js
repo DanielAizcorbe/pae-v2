@@ -11,7 +11,8 @@ const SeccionMapaMental = ({ seccion, etapa }) => {
             children: <MapaMental
                 etapa={etapa}
             />,
-            id: seccion
+            id: seccion,
+            showArrow: false
         }
     ];
 

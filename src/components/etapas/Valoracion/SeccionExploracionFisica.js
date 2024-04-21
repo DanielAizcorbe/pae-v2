@@ -1,8 +1,15 @@
 import { Collapse } from 'antd'
 import React from 'react'
 import { ExploracionFisica } from './ExploracionFisica/ExploracionFisica';
+import {  } from '../../datos/colores';
 
-export const SeccionExploracionFisica = ({seccion, stateEtapas}) => {
+export const SeccionExploracionFisica = ({ seccion, stateEtapas }) => {
+
+    const panelStyle = {
+        borderRadius: "10px",
+        color: "white",
+    };
+
 
     const items = [
         {
@@ -11,7 +18,9 @@ export const SeccionExploracionFisica = ({seccion, stateEtapas}) => {
             children: <ExploracionFisica
                 estado={stateEtapas}
             />,
-            id: seccion
+            id: seccion,
+            style: panelStyle,
+            showArrow: false,
         }
     ];
 

@@ -27,32 +27,27 @@
 
 .valoracion {
     bottom: 50px;
-    background-color: #F94144;
 }
 
 .diagnostico {
-    background-color: #90BE6D;
     left: -20px;
     bottom: -40px;
     transform: rotate(75deg);
 }
 
 .planeacion {
-    background-color: #4D908E;
     left: -70px;
     top: 60px;
     transform: rotate(-220deg);
 }
 
 .ejecucion {
-    background-color: #F9844A;
     right: -70px;
     top: 60px;
     transform: rotate(220deg);
 }
 
 .evaluacion {
-    background-color: #577590;
     right: -20px;
     bottom: -40px;
     transform: rotate(-75deg);

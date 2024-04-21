@@ -5,6 +5,7 @@ import { message } from 'antd';
 import "./etapa.css";
 import BotonIngresarEtapa from './BotonIngresarEtapa';
 import { BotonEtapaDeshabilitado } from './BotonEtapaDeshabilitado';
+import { AZUL_PRIMARIO, VERDE } from '../../datos/colores';
 
 function quitarTildes(texto) {
     return texto
@@ -43,7 +44,7 @@ export const Etapa = ({ completada, etapa, sePuedeCompletar, nextPage, rotar }) 
                         nextPage={nextPage}
                         etapa={etapa}
                         classes={quitarTildes(etapa.toLowerCase())}
-                        bgColor={completada ? "blue" : ""}
+                        bgColor={completada ?  VERDE : AZUL_PRIMARIO}
                         rotar={rotar}
                     />
                     :

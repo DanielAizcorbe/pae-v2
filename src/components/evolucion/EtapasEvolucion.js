@@ -40,7 +40,7 @@ const EtapasEvolucion = () => {
             margin="5rem"
             width="100%"
             style={{
-                "maxWidth": "60rem",
+                maxWidth: "60rem",
                 minWidth: "16rem",
                 minHeight: "16rem",
                 maxHeight: "32rem",

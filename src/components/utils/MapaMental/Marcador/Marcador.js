@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { ModalEliminarMarcador } from "./ModalEliminarMarcador";
+import { AZUL_PRIMARIO, VERDE } from "../../../datos/colores";
 
 const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
 
@@ -29,7 +30,7 @@ const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
                 $posX={posX + "px"}
                 $posY={posY + "px"}
                 onClick={openModal}
-                $bgcolor={etapa === "valoracion" ? "blue" : "red"}
+                $bgcolor={etapa === "valoracion" ? AZUL_PRIMARIO : VERDE}
             >
                 <NumeroMarcador>
                     {numero}

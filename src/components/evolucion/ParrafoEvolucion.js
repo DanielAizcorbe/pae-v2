@@ -23,7 +23,6 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
     return (
         <Columns
             elementPosition={"top-left"}
-            padding={"0rem 3rem"}
             width="100%"
             height="100%"
         >

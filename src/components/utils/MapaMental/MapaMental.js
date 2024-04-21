@@ -52,7 +52,6 @@ export const MapaMental = ({ etapa, disabled, mostrarSoloLosDeLaEtapa }) => {
     return (
         <Rows
             elementPosition={"top-left"}
-            padding="1rem"
         >
             <MapaConPuntos
                 disabled={disabled}

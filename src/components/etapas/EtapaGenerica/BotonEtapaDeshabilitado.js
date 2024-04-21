@@ -1,12 +1,13 @@
 import React from 'react'
+import { GRIS_AZULADO } from '../../datos/colores'
 
-export const BotonEtapaDeshabilitado = ({ classes, openMessage, rotar, etapa}) => {
+export const BotonEtapaDeshabilitado = ({ classes, openMessage, rotar, etapa }) => {
     return (
         <div
             className={'etapa ' + classes}
             onClick={openMessage}
             style={{
-                backgroundColor: "gray",
+                backgroundColor: GRIS_AZULADO,
             }}
         >
             <p

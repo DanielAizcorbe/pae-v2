@@ -9,7 +9,8 @@ const SeccionNecesidades = ({ seccion }) => {
             key: 1,
             label: seccion,
             children: <ListaNecesidades />,
-            id: seccion
+            id: seccion,
+            showArrow: false
         }
     ];
 

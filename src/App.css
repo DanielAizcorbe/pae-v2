@@ -1,16 +1,5 @@
 :root {
-  --color-texto: black;
-  --fondo-resaltado: #6dbdda;
   --text-family: "Verdana", san-serif;
-  --valoracion: #F94144;
-  --planeacion: #4D908E;
-  --evaluacion: #577590;
-  --ejecucion: #F9844A;
-  --diagnostico: #90BE6D;
-  --confirmado: #43AA8B;
-  --color-fondo: #fbfcfd;
-  --warning: #F9C74F;
-  --celeste-claro: #9fcfe2;
 }
 
 * {
@@ -25,7 +14,6 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--color-fondo);
 }
 
 #root {
