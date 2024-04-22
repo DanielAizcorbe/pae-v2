@@ -19,7 +19,7 @@ const Planeacion = () => {
 
 
     const getResumen = (diagnosticosOrdenados) => {
-        return `Se priorizan los diagnósticos anteriores según su urgencia\n${diagnosticosOrdenados.map(n => `${(diagnosticosOrdenados.indexOf(n) + 1) + ". " + n.nombre}`).join('\n')}`;
+        return `Se priorizan los diagnósticos según su urgencia\n${diagnosticosOrdenados.map(n => `${(diagnosticosOrdenados.indexOf(n) + 1) + ". " + n.nombre}`).join('\n')}`;
     }
 
     const setPrioridades = () => {
