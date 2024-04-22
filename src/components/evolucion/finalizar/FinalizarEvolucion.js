@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Columns, Rows } from "../utils/containers/Containers";
+import { Columns, Rows } from "../../utils/containers/Containers";
 import Title from "antd/es/typography/Title";
-import { ParrafoEvolucion } from "./ParrafoEvolucion";
-import { MapaMentalFinal } from "./MapaMentalFinal";
+import { ParrafoEvolucion } from "../ParrafoEvolucion";
+import { MapaMentalFinal } from "../MapaMentalFinal";
 import { useSelector } from "react-redux";
 import { Button, Flex, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import ContenidoBorrador from "./ContenidoBorrador";
+import ContenidoBorrador from "../ContenidoBorrador";
+import GuardarPDF from "./GuardarPDF";
 
 const FinalizarEvolucion = () => {
 
@@ -27,7 +28,7 @@ const FinalizarEvolucion = () => {
         });
     };
 
-    const guardar = () => {
+    const notificarGurdado = () => {
         messageApi.open({
             type: 'success',
             content: 'Se guardo como PDF',
@@ -56,14 +57,9 @@ const FinalizarEvolucion = () => {
                     justify="space-between"
                     style={{ width: "60%", padding: "2rem" }}
                 >
-
-                    <Button
-                        type="primary"
-                        size="large"
-                        onClick={guardar}
-                    >
-                        Guardar como PDF
-                    </Button>
+                    <GuardarPDF 
+                        
+                    />
                     <Button
                         type="primary"
                         size="large"

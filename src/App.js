@@ -11,7 +11,7 @@ import { Evaluacion } from './components/etapas/Evaluacion/Evaluacion';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { Borrador } from './components/borrador/Borrador';
-import { FinalizarEvolucion } from './components/evolucion/FinalizarEvolucion';
+import { FinalizarEvolucion } from './components/evolucion/finalizar/FinalizarEvolucion';
 import { EjecutarAcciones } from './components/etapas/Ejecucion/EjecutarAcciones';
 import Registro from './components/registro-paciente/Registro';
 import { Home } from './components/registro-paciente/Home';
