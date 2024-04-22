@@ -7,7 +7,7 @@ const BLANCO = "#FFFFFF";
 const AMARILLO = "#FFF44F";
 const CELESTE = "#B3D8E4";
 const VERDE = "#216869";
-
+const NARANJA = "#C34829";
 
 export {
     AZUL_PRIMARIO,
@@ -18,5 +18,6 @@ export {
     GRIS_AZULADO,
     AMARILLO,
     CELESTE,
-    VERDE
+    VERDE,
+    NARANJA
 }
