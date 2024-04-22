@@ -26,13 +26,6 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
             width="100%"
             height="100%"
         >
-            <Title
-                level={3}
-                style={{
-                    margin: "0"
-                }}>
-                {title}
-            </Title>
             <Columns
                 elementPosition={"top-right"}
                 width="100%"

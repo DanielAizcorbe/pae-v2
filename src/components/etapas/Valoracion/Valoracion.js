@@ -73,10 +73,10 @@ const Valoracion = () => {
 
     const getResumen = (necesidadesSeleccionadas) => {
 
-        let resumenEtapasExploracion = (inspeccion === "" ? "" : `INSPECCIÓN\n${inspeccion}\n\n`)
-            + (auscultacion === "" ? "" : `AUSCULTACIÓN\n${auscultacion}\n\n`)
-            + (percusion === "" ? "" : `PERCUSIÓN\n${percusion}\n\n`)
-            + (palpacion === "" ? "" : `PALPACIÓN\n${palpacion}\n\n`);
+        let resumenEtapasExploracion = (inspeccion === "" ? "" : `${inspeccion}\n\n`)
+            + (auscultacion === "" ? "" : `${auscultacion}\n\n`)
+            + (percusion === "" ? "" : `${percusion}\n\n`)
+            + (palpacion === "" ? "" : `${palpacion}\n\n`);
 
         let necesidades = `Se identificaron las siguientes necesidades del paciente\n${necesidadesSeleccionadas.map(n => `> ${n.nombre}`).join('\n')}`;
         let resumen = resumenEtapasExploracion

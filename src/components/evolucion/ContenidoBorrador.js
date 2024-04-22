@@ -5,13 +5,14 @@ import { ParrafoEvolucion } from './ParrafoEvolucion';
 import { MapaMental } from '../utils/MapaMental/MapaMental';
 import { AZUL_PROFUNDO } from '../datos/colores';
 import { Divider } from 'antd';
+import Title from 'antd/es/typography/Title';
 
 const ContenidoBorrador = ({ editable }) => {
 
     const etapas = useSelector(state => state.estadoEtapas);
+    const paciente = useSelector(state => state.paciente);
 
     const [valoracionTexto, setValoracionTexto] = useState(etapas.valoracion.resumen);
-    const [diagnosticoTexto, setdiagnosticoTexto] = useState(etapas.diagnostico.resumen);
     const [planeacionTexto, setplaneacionTexto] = useState(etapas.planeacion.resumen);
     const [ejecucionTexto, setejecucionTexto] = useState(etapas.ejecucion.resumen);
     const [evaluacionTexto, setevaluacionTexto] = useState(etapas.evaluacion.resumen);
@@ -28,6 +29,9 @@ const ContenidoBorrador = ({ editable }) => {
             style={containerStyle}
             padding="2rem"
         >
+            <Title level={1} style={{width: "100%", textAlign: "center"}}>
+                {paciente.nombreCompleto}
+            </Title>
             <ParrafoEvolucion
                 text={valoracionTexto}
                 setText={setValoracionTexto}
@@ -41,12 +45,6 @@ const ContenidoBorrador = ({ editable }) => {
                 etapa={"valoracion"}
             />
             <Divider />
-            <ParrafoEvolucion
-                text={diagnosticoTexto}
-                setText={setdiagnosticoTexto}
-                title={"Diagnóstico"}
-                editable={editable}
-            />
             <ParrafoEvolucion
                 text={planeacionTexto}
                 setText={setplaneacionTexto}
