@@ -20,6 +20,7 @@ const ContainerFlex = (props) => {
             justify={props.alineacionY}
             align={props.alineacionX}
             style={styles}
+            onClick={props.onClick}
         >
             {props.children}
         </Flex>
