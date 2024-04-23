@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Rows } from '../../../utils/containers/Containers';
-import { Button, List, Popover } from 'antd';
+import { List } from 'antd';
 import Title from 'antd/es/typography/Title';
-import { FieldTimeOutlined, FormOutlined } from '@ant-design/icons';
-import { ModalCronometro } from './ModalCronometro';
-import { ModalTiempo } from "./ModalTIempo";
+import { ModalCronometro } from './modals/ModalCronometro';
+import { ModalTiempo } from "./modals/ModalTIempo";
 import { useDispatch } from 'react-redux';
 import { completarAccion } from '../../../../store/slices/accionesARealizar';
 
-export const ActionCard = ({ item }) => {
+export const ActionCardItem = ({ item }) => {
 
     const [showModalCronometro, setShowModalCronometro] = useState(false);
     const [showModalTiempo, setShowModalTiempo] = useState(false);
@@ -31,6 +30,14 @@ export const ActionCard = ({ item }) => {
         setShowModalCronometro(false)
     }
 
+    const openCronometro = () => {
+        setShowModalCronometro(true);
+    }
+
+    const openTiempo = () => {
+        setShowModalTiempo(true);
+    }
+
     return (
         <List.Item>
             <Rows
@@ -45,23 +52,7 @@ export const ActionCard = ({ item }) => {
                         {item.nombre}
                     </Title>
                 </Rows>
-                {!item.completado ?
-                    (<Rows width={"auto"}>
-                        <Popover trigger={"hover"} content="Cronometrar acción">
-                            <Button type='primary' size='large' onClick={() => setShowModalCronometro(true)} icon={<FieldTimeOutlined />} style={{ marginRight: "10px" }} />
-                        </Popover>
-                        <Popover trigger={"hover"} content="Marcar tiempo">
-                            <Button type='default' size='large' onClick={() => setShowModalTiempo(true)} icon={<FormOutlined />} />
-                        </Popover>
-                    </Rows>)
-                    : (<Rows width={"auto"}>
-                        <Popover trigger={"hover"} content="Editar tiempo">
-                            <Button type='default' size='large' onClick={() => setShowModalTiempo(true)} >
-                                {minutos} minutos
-                            </Button>
-                        </Popover>
-                    </Rows>)
-                }
+                
             </Rows>
             <ModalCronometro
                 open={showModalCronometro}

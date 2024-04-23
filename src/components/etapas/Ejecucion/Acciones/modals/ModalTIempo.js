@@ -1,6 +1,6 @@
 import Modal from 'antd/es/modal/Modal'
 import React, { useState } from 'react'
-import { Columns } from '../../../utils/containers/Containers'
+import { Columns } from '../../../../utils/containers/Containers'
 import Title from 'antd/es/typography/Title'
 import { Button, InputNumber } from 'antd'
 

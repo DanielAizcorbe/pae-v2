@@ -1,14 +1,14 @@
 import { List } from 'antd'
 import React from 'react'
-import { ActionCard } from './IniciarAcciones/AccionList'
+import { ActionCardItem } from './ActionCardItem'
 
-export const AccionCard = ({ acciones }) => {
+export const ActionList = ({ acciones }) => {
 
     console.log("recibidas para renderizar: ", acciones);
     
     const renderFunction = (item) => {
         return (
-            <ActionCard 
+            <ActionCardItem 
                 item={item}
             />
         )

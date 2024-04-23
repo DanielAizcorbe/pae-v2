@@ -1,9 +1,9 @@
 import React from 'react'
-import { Columns } from '../../utils/containers/Containers'
+import { Columns } from '../../../utils/containers/Containers'
 import { Button, Collapse } from 'antd'
-import { AccionCard } from './AccionCard'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { ActionCardItem } from "./ActionCardItem"
 
 
 
@@ -17,7 +17,7 @@ export const Acciones = ({ acciones }) => {
         return {
             key: element.diagnostico,
             label: element.diagnostico,
-            children: <AccionCard
+            children: <ActionCardItem
                 acciones={element.acciones}
             />
         }
@@ -26,7 +26,7 @@ export const Acciones = ({ acciones }) => {
 
     const sePuedeActivar = () => {
         console.log(accionesStore);
-        return accionesStore.every(d => d.acciones.every(a2 => a2.completado ));
+        return accionesStore.every(d => d.acciones.every(a2 => a2.completado));
     }
 
     const items = acciones.map(e => generateItem(e));

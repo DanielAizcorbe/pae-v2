@@ -2,7 +2,7 @@ import Title from 'antd/es/typography/Title'
 import React from 'react'
 import { Columns } from '../../utils/containers/Containers'
 import { useSelector } from 'react-redux'
-import { Acciones } from './Acciones'
+import { Acciones } from './Acciones/Acciones'
 
 export const EjecutarAcciones = () => {
 
