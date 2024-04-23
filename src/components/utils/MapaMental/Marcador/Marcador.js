@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { styled } from "styled-components";
 import { ModalEliminarMarcador } from "./ModalEliminarMarcador";
 import { AZUL_PRIMARIO, NARANJA } from "../../../datos/colores";
 
@@ -25,18 +24,35 @@ const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
 
     }
 
+    const marcadorStyle = {
+        position: "absolute",
+        width: "0.5rem",
+        height: "0.5rem",
+        borderRadius: "50%",
+        zIndex: 2,
+        left: posX + "px",
+        top: posY + "px",
+        backgroundColor: (etapa === "valoracion" ? AZUL_PRIMARIO : NARANJA),
+        cursor: "pointer",
+    }
+
+    const numeroStyle = {
+        position: "relative",
+        bottom: "15px",
+        left: "8px",
+        color: "black"
+    }
+
     return (
         <li key={numero} >
-            <MarcadorBody
-                $posX={posX + "px"}
-                $posY={posY + "px"}
+            <div
                 onClick={openModal}
-                $bgcolor={etapa === "valoracion" ? AZUL_PRIMARIO : NARANJA}
+                style={marcadorStyle}
             >
-                <NumeroMarcador>
+                <span style={numeroStyle}>
                     {numero}
-                </NumeroMarcador>
-            </MarcadorBody>
+                </span>
+            </div>
             <ModalEliminarMarcador
                 showModal={showModal}
                 numero={numero}
@@ -46,25 +62,5 @@ const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
         </li>
     );
 }
-
-const MarcadorBody = styled.div`
-            position: absolute;
-            width: 0.5rem;
-            height: 0.5rem;
-            border-radius: 50%;
-            z-index: 2;
-            left: ${props => props.$posX};
-            top: ${props => props.$posY};
-            background-color: ${props => props.$bgcolor};
-            cursor: pointer;
-            `;
-
-const NumeroMarcador = styled.span`
-            position: relative;
-            bottom: 15px;
-            left: 8px;
-            color: black;
-            `;
-
 
 export { Marcador }
