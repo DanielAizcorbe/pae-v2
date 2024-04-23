@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BotonSiguiente } from "../../botones/BotonSiguiente";
+import { BotonSiguiente } from "../BotonSiguiente";
 import { Titulo } from "../../utils/Titulos"
 import { Columns, ContentContainer, Rows } from "../../utils/containers/Containers";
 import { useDispatch, useSelector } from "react-redux";

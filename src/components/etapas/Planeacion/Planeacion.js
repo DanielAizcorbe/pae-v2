@@ -1,5 +1,5 @@
 import { DragDropPlaneacion } from "./Draggable/DragDropPlaneacion";
-import { BotonSiguiente } from "../../botones/BotonSiguiente";
+import { BotonSiguiente } from "../BotonSiguiente";
 import { Columns, ContentContainer } from "../../utils/containers/Containers";
 import { Titulo } from "../../utils/Titulos";
 import { switchOrder } from "../../../store/slices/prioridades";

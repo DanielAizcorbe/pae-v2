@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FALTAN_ETAPAS, GENERAR_EVOLUCION, toggleBotonCentral } from "../botones/ToggleBotonCentral";
 import { Columns } from "../utils/containers/Containers";
 import { useSelector } from "react-redux";
 import {
@@ -11,23 +10,13 @@ import {
 }
     from "../etapas/EtapaGenerica/Etapas";
 import ModalConfirmarFinalizar from "./ModalConfirmarFinalizar";
+import BotonCentral from "./botones/BotonCentral";
 
 
 const EtapasEvolucion = () => {
 
     const estadoEtapas = useSelector((state) => state.estadoEtapas);
     const [showModal, setShowModal] = useState(false);
-
-    const flag = (estadoEtapas) => {
-        const estanTodasCompletadas = Object.values(estadoEtapas).every((etapa) => etapa.completada === true);
-
-        if (estanTodasCompletadas) {
-            return GENERAR_EVOLUCION;
-        }
-
-        return FALTAN_ETAPAS;
-
-    }
 
     const finalizar = () => {
         setShowModal(true);
@@ -36,6 +25,9 @@ const EtapasEvolucion = () => {
     const closeModal = () => {
         setShowModal(false);
     }
+
+    const estanTodasCompletadas = Object.values(estadoEtapas)
+        .every((etapa) => etapa.completada === true);
 
     return (
         <Columns
@@ -60,7 +52,10 @@ const EtapasEvolucion = () => {
                     height={"0"}
                     position={"relative"}
                 >
-                    {toggleBotonCentral(flag(estadoEtapas), finalizar)}
+                    <BotonCentral
+                        estanTodasCompletadas={estanTodasCompletadas}
+                        finalizar={finalizar}
+                    />
                     <EtapaValoracion
                         completada={estadoEtapas.valoracion.completada}
                     />
@@ -80,7 +75,7 @@ const EtapasEvolucion = () => {
                         completada={estadoEtapas.evaluacion.completada}
                         sePuedeCompletar={estadoEtapas.ejecucion.completada}
                     />
-                    <ModalConfirmarFinalizar 
+                    <ModalConfirmarFinalizar
                         open={showModal}
                         closeModal={closeModal}
                     />

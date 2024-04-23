@@ -1,5 +1,5 @@
 import React from "react";
-import { BotonSiguiente } from "../../botones/BotonSiguiente";
+import { BotonSiguiente } from "../BotonSiguiente";
 import { Titulo } from "../../utils/Titulos";
 import { Columns, ContentContainer } from "../../utils/containers/Containers";
 import { useSelector } from "react-redux";
