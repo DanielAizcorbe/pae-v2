@@ -3,7 +3,7 @@ import { Columns } from '../../../utils/containers/Containers'
 import { Button, Collapse } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { ActionCardItem } from "./ActionCardItem"
+import { ActionList } from "./ActionList"
 
 
 
@@ -17,7 +17,7 @@ export const Acciones = ({ acciones }) => {
         return {
             key: element.diagnostico,
             label: element.diagnostico,
-            children: <ActionCardItem
+            children: <ActionList
                 acciones={element.acciones}
             />
         }

@@ -6,6 +6,7 @@ import { ModalCronometro } from './modals/ModalCronometro';
 import { ModalTiempo } from "./modals/ModalTIempo";
 import { useDispatch } from 'react-redux';
 import { completarAccion } from '../../../../store/slices/accionesARealizar';
+import { SeccionBotones } from "./botones/SeccionBotones";
 
 export const ActionCardItem = ({ item }) => {
 
@@ -52,7 +53,11 @@ export const ActionCardItem = ({ item }) => {
                         {item.nombre}
                     </Title>
                 </Rows>
-                
+                <SeccionBotones 
+                    item={item}
+                    openCronometro={openCronometro}
+                    openTiempo={openTiempo}
+                />
             </Rows>
             <ModalCronometro
                 open={showModalCronometro}
