@@ -1,6 +1,6 @@
 import Modal from "antd/es/modal/Modal";
-import { Columns } from "../utils/containers/Containers";
-import { ListaPacientes } from "./ListaPacientes";
+import { Columns } from "../../utils/containers/Containers";
+import { ListaPacientes } from "../ListaPacientes";
 
 const ModalDatosPaciente = ({ openCondition, closeModal }) => {
 

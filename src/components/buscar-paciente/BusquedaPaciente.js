@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Columns } from "../utils/containers/Containers";
 import { BusquedaNombrePaciente } from "./BusquedaNombrePaciente";
-import { ModalDatosPaciente } from "./ModalDatosPaciente";
+import { ModalDatosPaciente } from "./modal/ModalDatosPaciente";
 import { Titulo } from "../utils/Titulos";
 import { message } from "antd";
 

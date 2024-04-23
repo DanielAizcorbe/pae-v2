@@ -1,5 +1,5 @@
 import React from 'react'
-import { AZUL_PROFUNDO } from '../datos/colores'
+import { AZUL_PROFUNDO } from '../../datos/colores'
 
 const FilaModalPaciente = ({ children, title }) => {
     return (
