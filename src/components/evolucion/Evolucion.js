@@ -51,7 +51,7 @@ const Evolucion = () => {
                 height="20vh"
                 width="100%"
             >
-                <Titulo texto={paciente.nombreCompleto} />
+                <Titulo texto={paciente.nombre + " " + paciente.apellido} />
             </Columns>
             <EtapasEvolucion />
             {contextHolder}

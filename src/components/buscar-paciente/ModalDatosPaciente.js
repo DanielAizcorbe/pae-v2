@@ -1,19 +1,55 @@
-import { useSelector } from "react-redux";
 import Modal from "antd/es/modal/Modal";
-import Title from "antd/es/typography/Title";
 import { Columns } from "../utils/containers/Containers";
-import { useNavigate } from "react-router-dom";
-import { Button, Flex } from "antd";
-import FilaModalPaciente from "./FilaModalPaciente";
+import { ListaPacientes } from "./ListaPacientes";
 
-const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
+const ModalDatosPaciente = ({ openCondition, closeModal }) => {
 
-    const datosPaciente = useSelector((state) => state.paciente);
-    const navegar = useNavigate();
-
-    const goNext = () => {
-        navegar(nextPage);
+    const getNombreCompleto = (item) => {
+        return item.nombre + " " + item.apellido
     }
+
+    const pacientes = [
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "WILLNECKER",
+            fechaNacimiento: "09-12-1995"
+        },
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "GUTIERREZ",
+            fechaNacimiento: "09-12-1999"
+        },
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "LOPEZ CRUZ",
+            fechaNacimiento: "09-12-1980"
+        },
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "LOPEZ",
+            fechaNacimiento: "09-12-1998"
+        },
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "SOSA",
+            fechaNacimiento: "09-12-1990"
+        },
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "WILLNECKER",
+            fechaNacimiento: "09-12-1996"
+        },
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "WILLNECKER",
+            fechaNacimiento: "09-12-1996"
+        },
+        {
+            nombre: "JUAN GONZALO",
+            apellido: "WILLNECKER",
+            fechaNacimiento: "09-12-1994"
+        },
+    ].sort((a, b) => getNombreCompleto(a).localeCompare(getNombreCompleto(b)))
 
     return (<Modal
         title=""
@@ -30,45 +66,10 @@ const ModalDatosPaciente = ({ openCondition, closeModal, nextPage }) => {
             height={"400px"}
             padding={"1rem"}
         >
-            <Title
-                level={2}
-            >
-                Detalles del paciente
-            </Title>
-            <Flex
-                vertical
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    padding: "1rem",
-                    marginBottom: "1rem"
-                }}
-                align="flex-start"
-                justify="center"
-            >
-                <FilaModalPaciente
-                    title={"Nombre"}
-                >
-                    {datosPaciente.nombreCompleto}
-                </FilaModalPaciente>
-                <FilaModalPaciente
-                    title={"Nacimiento"}
-                >
-                    {datosPaciente.fechaNacimiento}
-                </FilaModalPaciente>
-                <FilaModalPaciente
-                    title={"Documento"}
-                >
-                    {datosPaciente.documento}
-                </FilaModalPaciente>
-            </Flex>
-            <Button
-                type="primary"
-                size="large"
-                onClick={goNext}
-            >
-                Continuar
-            </Button>
+            <ListaPacientes
+                pacientes={pacientes}
+                closeModal={closeModal}
+            />
         </Columns>
     </Modal>
     );

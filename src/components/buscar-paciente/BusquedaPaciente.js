@@ -1,31 +1,26 @@
 import React, { useState } from "react";
 import { Columns } from "../utils/containers/Containers";
-import { InputNroDocumento } from "./InputNroDocumento";
+import { BusquedaNombrePaciente } from "./BusquedaNombrePaciente";
 import { ModalDatosPaciente } from "./ModalDatosPaciente";
-import { useDispatch } from "react-redux";
-import { evolucionar } from "../../store/slices/paciente";
 import { Titulo } from "../utils/Titulos";
 import { message } from "antd";
 
 const BusquedaPaciente = () => {
 
-    const dispatch = useDispatch();
-    const [docBuscado, setDocBuscado] = useState("");
+    const [nombreBuscado, setNombreBuscado] = useState("");
     const [mensajeMostrado, setMensajeMostrado] = useState(false);
     const [showModal, setShowModal] = useState(false);
 
-    const nombreCompleto = "JUAN PEREZ GONZALES CRUZ";
-    const documento = "11111";
-    const fechaNacimiento = "09-09-1990";
+    const nombre = "JUAN GONZALO";
 
     const [messageApi, contextHolder] = message.useMessage();
 
-    const mostrarAvisoDocNoIngresado = () => {
+    const mostrarAvisoNombreNoIngresado = () => {
         if (!mensajeMostrado) {
             setMensajeMostrado(true);
             messageApi.open({
                 type: 'warning',
-                content: "Ingrese un documento",
+                content: "Ingrese el nombre y apellido",
                 duration: 2,
                 style: {
                     fontSize: "15px",
@@ -36,12 +31,12 @@ const BusquedaPaciente = () => {
         }
     }
 
-    const mostrarMensajeDocNoEncontrado = () => {
+    const mostrarMensajeNombreNoEncontrado = () => {
         if (!mensajeMostrado) {
             setMensajeMostrado(true);
             messageApi.open({
                 type: 'error',
-                content: "El documento " + docBuscado + " no se encuentra registrado",
+                content: '"' + nombreBuscado + '"' + " no coincide con ningun paciente registrado",
                 duration: 2,
                 style: {
                     fontSize: "15px",
@@ -51,20 +46,6 @@ const BusquedaPaciente = () => {
             });
         }
     }
-
-    const fetchDatosPaciente = () => {
-        dispatch(
-            evolucionar(
-                {
-                    nombreCompleto: nombreCompleto,
-                    fechaNacimiento: fechaNacimiento,
-                    documento: documento
-                }
-            )
-        );
-    }
-
-
 
     const closeModal = () => {
         setShowModal(false);
@@ -72,13 +53,12 @@ const BusquedaPaciente = () => {
 
     const handleModalPaciente = () => {
 
-        if (documento === docBuscado) {
+        if (nombre === nombreBuscado) {
             setShowModal(true);
-            fetchDatosPaciente();
-        } else if (docBuscado === "") {
-            mostrarAvisoDocNoIngresado();
+        } else if (nombreBuscado === "") {
+            mostrarAvisoNombreNoIngresado();
         } else {
-            mostrarMensajeDocNoEncontrado()
+            mostrarMensajeNombreNoEncontrado()
         }
     }
 
@@ -90,9 +70,9 @@ const BusquedaPaciente = () => {
             padding={"2rem"}
         >
             <Titulo texto="Evolución de pacientes" />
-            <InputNroDocumento
-                onChange={(event) => setDocBuscado(event.target.value)}
-                value={docBuscado}
+            <BusquedaNombrePaciente
+                onChange={(event) => setNombreBuscado(event.target.value)}
+                value={nombreBuscado}
                 onSearch={handleModalPaciente}
             />
             <ModalDatosPaciente

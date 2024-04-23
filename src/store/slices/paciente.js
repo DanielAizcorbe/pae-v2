@@ -2,21 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const nombreSlice = "datosPaciente";
 const defaultPaciente = {
-    nombreCompleto: "",
-    fechaNacimiento: "",
-    documento: ""
+    nombre: "",
+    fechaNac: "",
+    apellido: ""
 };
 
 const pacienteReducer = {
     evolucionar: (state, action) => {
-        state.nombreCompleto = action.payload.nombreCompleto;
-        state.fechaNacimiento = action.payload.fechaNacimiento;
-        state.documento = action.payload.documento;
+        state.nombre = action.payload.nombre;
+        state.fechaNac = action.payload.fechaNac;
+        state.apellido = action.payload.apellido;
     },
     finalizar: (state) => {
-        state.nombreCompleto = "";
-        state.fechaNacimiento = "";
-        state.documento = "";
+        state = defaultPaciente;
     }
 };
 
