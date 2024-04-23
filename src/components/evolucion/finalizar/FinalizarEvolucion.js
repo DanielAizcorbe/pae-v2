@@ -8,6 +8,8 @@ import { Button, Flex, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import ContenidoBorrador from "../ContenidoBorrador";
 import GuardarPDF from "./GuardarPDF";
+import Copiar from "./Copiar";
+import { Finalizar } from "./Finalizar";
 
 const FinalizarEvolucion = () => {
 
@@ -60,20 +62,11 @@ const FinalizarEvolucion = () => {
                     <GuardarPDF 
                         
                     />
-                    <Button
-                        type="primary"
-                        size="large"
-                        onClick={copiar}
-                    >
-                        Copiar
-                    </Button>
-                    <Button
-                        type="primary"
-                        size="large"
-                        onClick={() => navegar("/")}
-                    >
-                        Finalizar
-                    </Button>
+                    <Copiar 
+                    />
+                    <Finalizar 
+                        
+                    />
                 </Flex>
             </Columns>
         </Columns>
