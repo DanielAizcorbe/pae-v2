@@ -5,7 +5,7 @@ export const ItemMarcadorDeshabilitado = ({practica, id}) => {
 
 
     return (
-        <li key={uuidv4()}>
+        <li key={id}>
             {practica}
         </li>
     )

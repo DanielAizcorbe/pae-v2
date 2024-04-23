@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FALTAN_ETAPAS, GENERAR_EVOLUCION, toggleBotonCentral } from "../botones/ToggleBotonCentral";
 import { Columns } from "../utils/containers/Containers";
 import { useSelector } from "react-redux";
@@ -10,12 +10,13 @@ import {
     EtapaValoracion
 }
     from "../etapas/EtapaGenerica/Etapas";
-import { useNavigate } from "react-router-dom";
+import ModalConfirmarFinalizar from "./ModalConfirmarFinalizar";
 
 
 const EtapasEvolucion = () => {
 
     const estadoEtapas = useSelector((state) => state.estadoEtapas);
+    const [showModal, setShowModal] = useState(false);
 
     const flag = (estadoEtapas) => {
         const estanTodasCompletadas = Object.values(estadoEtapas).every((etapa) => etapa.completada === true);
@@ -28,10 +29,12 @@ const EtapasEvolucion = () => {
 
     }
 
-    const navegar = useNavigate();
-
     const finalizar = () => {
-        navegar("/evolucion/finalizar");
+        setShowModal(true);
+    }
+
+    const closeModal = () => {
+        setShowModal(false);
     }
 
     return (
@@ -77,8 +80,11 @@ const EtapasEvolucion = () => {
                         completada={estadoEtapas.evaluacion.completada}
                         sePuedeCompletar={estadoEtapas.ejecucion.completada}
                     />
+                    <ModalConfirmarFinalizar 
+                        open={showModal}
+                        closeModal={closeModal}
+                    />
                 </Columns>
-                
             </Columns>
         </Columns>
     );
