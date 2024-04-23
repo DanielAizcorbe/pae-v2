@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { ModalEliminarMarcador } from "./ModalEliminarMarcador";
 import { AZUL_PRIMARIO, NARANJA } from "../../../datos/colores";
 
+
 const Marcador = ({ posX, posY, numero, remove, id, etapa, etapaActual }) => {
 
     const [showModal, setShowModal] = useState(false);
