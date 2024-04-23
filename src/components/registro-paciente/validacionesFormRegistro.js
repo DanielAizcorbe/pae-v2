@@ -44,22 +44,22 @@ const validarNombre = (nombre) => {
 
     if (nombre === "") {
         return {
-            message: "Ingrese un nombre"
+            message: "Ingrese el nombre del paciente"
         }
     }
 
     return {};
 }
 
-const validarDocumento = (doc) => {
+const validarApellido = (string) => {
 
-    if (doc < 1) {
+    if (string === "") {
         return {
-            message: "Ingrese un documento"
+            message: "Ingrese el apellido del paciente"
         }
     }
 
     return {};
 }
 
-export { validarDocumento, validarNombre, validarFecha }
+export { validarApellido, validarNombre, validarFecha }

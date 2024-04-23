@@ -8,16 +8,16 @@ const InputNombre = ({ onChange, nombre, error }) => {
 
     return (
         <label
-            htmlFor='nombreCompleto'
-            name='nombreCompleto'
+            htmlFor='nombre'
+            name='nombre'
             style={{ width: "100%" }}
         >
-            <p>Nombre completo</p>
+            <p>Nombre</p>
             <Input
                 allowClear
                 onChange={onChange}
                 value={nombre}
-                id="nombreCompleto"
+                id="nombre"
                 autoComplete='off'
             />
             {

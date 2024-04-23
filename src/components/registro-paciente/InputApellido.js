@@ -2,21 +2,21 @@ import Input from 'antd/es/input/Input'
 import React from 'react'
 
 
-const InputDocumento = ({ onChange, documento, error }) => {
+const InputApellido = ({ onChange, apellido, error }) => {
     return (
         <label
             style={{ width: "100%" }}
-            htmlFor='documento'
-            name="fechaNacimiento"
+            htmlFor='apellido'
+            name="apellido"
         >
             <p>
-                Documento
+                Apellido
             </p>
             <Input
                 allowClear
                 onChange={onChange}
-                value={documento}
-                id='documento'
+                value={apellido}
+                id='apellido'
                 autoComplete='off'
             />
             {
@@ -29,4 +29,4 @@ const InputDocumento = ({ onChange, documento, error }) => {
     )
 }
 
-export default InputDocumento;
+export default InputApellido;

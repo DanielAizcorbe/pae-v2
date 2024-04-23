@@ -3,11 +3,11 @@ import { Columns, ContentContainer } from '../utils/containers/Containers'
 import Title from 'antd/es/typography/Title'
 
 import InputNombre from './InputNombre'
-import InputDocumento from './InputDocumento'
+import InputApellido from './InputApellido'
 import BotonRegistrar from './BotonRegistrar'
 import { InputFechaV2 } from './InputFechaV2'
 import { useNavigate } from 'react-router-dom'
-import { validarDocumento, validarFecha, validarNombre } from './validacionesFormRegistro'
+import { validarApellido, validarFecha, validarNombre } from './validacionesFormRegistro'
 import { AZUL_PRIMARIO } from '../datos/colores'
 
 const formStyle = {
@@ -18,7 +18,7 @@ const formStyle = {
 }
 
 const registrarPaciente = (paciente) => {
-    const { nombre, documento, fechaNacimiento } = paciente;
+    const { nombre, apellido, fechaNacimiento } = paciente;
 
     console.log("paciente: ", paciente);
 }
@@ -26,10 +26,10 @@ const registrarPaciente = (paciente) => {
 const Registro = () => {
 
     const [nombre, setNombre] = useState("");
-    const [documento, setDocumento] = useState("");
+    const [apellido, setApellido] = useState("");
     const [fechaNacimiento, setFechaNacimiento] = useState("");
     const [nombreError, setErrorNombre] = useState({});
-    const [documentoError, setErrorDocumento] = useState({});
+    const [apellidoError, setErrorApellido] = useState({});
     const [fechaError, setErrorFecha] = useState({});
 
     const navegar = useNavigate();
@@ -39,9 +39,9 @@ const Registro = () => {
         setErrorNombre({});
     }
 
-    const onChangeDocument = (event) => {
-        setDocumento(event.target.value);
-        setErrorDocumento({});
+    const onChangeSurname = (event) => {
+        setApellido(event.target.value);
+        setErrorApellido({});
     }
 
     const onChangeBirthDay = (date) => {
@@ -52,17 +52,17 @@ const Registro = () => {
     const losCamposSonValidos = () => {
         const errorFecha = validarFecha(fechaNacimiento);
         const errorNombre = validarNombre(nombre);
-        const errorDocumento = validarDocumento(documento);
+        const errorApellido = validarApellido(apellido);
 
         if (
             Object.keys(errorFecha).length === 0 &&
             Object.keys(errorNombre).length === 0 &&
-            Object.keys(errorDocumento).length === 0
+            Object.keys(errorApellido).length === 0
         ) {
             return true;
         }
 
-        setErrorDocumento(errorDocumento);
+        setErrorApellido(errorApellido);
         setErrorFecha(errorFecha);
         setErrorNombre(errorNombre);
         return false;
@@ -82,7 +82,7 @@ const Registro = () => {
 
             const datosPaciente = {
                 nombre: nombre,
-                documento: documento,
+                apellido: apellido,
                 fechaNacimiento: fechaNacimiento
             };
 
@@ -118,10 +118,10 @@ const Registro = () => {
                         onChange={onChangeName}
                         error={nombreError}
                     />
-                    <InputDocumento
-                        documento={documento}
-                        onChange={onChangeDocument}
-                        error={documentoError}
+                    <InputApellido
+                        apellido={apellido}
+                        onChange={onChangeSurname}
+                        error={apellidoError}
                     />
                     <InputFechaV2
                         value={fechaNacimiento}
