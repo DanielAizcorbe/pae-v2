@@ -18,6 +18,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "electron": "electron .",
+    "electron-build": "electron-builder",
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && npm run electron\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
