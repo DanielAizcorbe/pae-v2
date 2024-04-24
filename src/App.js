@@ -14,7 +14,7 @@ import { Borrador } from './components/borrador/Borrador';
 import { FinalizarEvolucion } from './components/evolucion/finalizar/FinalizarEvolucion';
 import { EjecutarAcciones } from './components/etapas/Ejecucion/EjecutarAcciones';
 import Registro from './components/registro-paciente/Registro';
-import { Home } from './components/registro-paciente/Home';
+import { Home } from './components/home/Home';
 import { PantallaNoDisponible } from './components/PantallaNoDisponible';
 
 function App() {

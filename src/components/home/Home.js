@@ -1,6 +1,6 @@
 import React from 'react'
 import { Rows } from '../utils/containers/Containers'
-import { OptionCard } from './OptionCard'
+import OptionCard  from './OptionCard'
 import doctorImage from "./User.svg";
 import documentImage from "./addFileImage.svg"
 
