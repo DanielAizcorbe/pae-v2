@@ -8,6 +8,7 @@ import { switchOrder } from "../../../store/slices/prioridades";
 import { completarEtapa } from "../../../store/slices/etapas";
 import { SeccionDiagnosticos } from "./SeccionDiagnosticos";
 import { setMensaje } from "../../../store/slices/avisosSlice";
+import { getResumenDiagnosticos } from "../generarResumenes";
 
 
 const Diagnostico = () => {
@@ -17,13 +18,10 @@ const Diagnostico = () => {
 
     const dispatch = useDispatch();
 
-    const getResumen = (diagnosticosSeleccionados) => {
-        return `En base a las necesidades observadas, se diagnostica\n${diagnosticosSeleccionados.map(d => `> ${d.nombre}`).join('\n')}`;
-    }
 
     const onClickFunction = () => {
         dispatch(switchOrder(diagnosticos.filter(d => d.selected)));
-        dispatch(completarEtapa({ etapa: "diagnostico", completada: true, resumen: getResumen(diagnosticos.filter(d => d.selected)) }))
+        dispatch(completarEtapa({ etapa: "diagnostico", completada: true, resumen: getResumenDiagnosticos(diagnosticos.filter(d => d.selected)) }))
 
         if (fueCompletadaLaEtapaSiguiente) {
             dispatch(setMensaje("DIAGNÓSTICO"));

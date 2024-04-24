@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { completarEtapa } from "../../../store/slices/etapas";
 import Title from "antd/es/typography/Title";
 import { setMensaje } from "../../../store/slices/avisosSlice";
+import { getResumenPlaneacion } from "../generarResumenes";
 
 
 const Planeacion = () => {
@@ -18,13 +19,10 @@ const Planeacion = () => {
     const fueCompletadaLaEtapaSiguiente = useSelector(state => state.estadoEtapas.ejecucion.completada);
 
 
-    const getResumen = (diagnosticosOrdenados) => {
-        return `Se priorizan los diagnósticos según su urgencia\n${diagnosticosOrdenados.map(n => `${(diagnosticosOrdenados.indexOf(n) + 1) + ". " + n.nombre}`).join('\n')}`;
-    }
 
     const setPrioridades = () => {
         dispatch(switchOrder(diagnosticosOrdenados));
-        dispatch(completarEtapa({ etapa: "planeacion", completada: true, resumen: getResumen(diagnosticosPriorizados) }))
+        dispatch(completarEtapa({ etapa: "planeacion", completada: true, resumen: getResumenPlaneacion(diagnosticosPriorizados) }))
 
         if (fueCompletadaLaEtapaSiguiente) {
             dispatch(setMensaje("PLANEACIÓN"));

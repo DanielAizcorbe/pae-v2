@@ -10,6 +10,7 @@ import { SeccionNecesidades } from "./SeccionesNecesidades";
 import { SeccionExploracionFisica } from "./SeccionExploracionFisica";
 import { updateAll } from "../../../store/slices/exploracionFisica";
 import { setMensaje } from "../../../store/slices/avisosSlice";
+import { getResumenValoracion } from "../generarResumenes";
 
 
 const secciones = [
@@ -57,7 +58,7 @@ const Valoracion = () => {
         dispatch(completarEtapa({
             etapa: "valoracion",
             completada: true,
-            resumen: getResumen(necesidades.filter(n => n.selected))
+            resumen: getResumenValoracion(necesidades.filter(n => n.selected), etapasExploracionFisica)
         }))
         dispatch(updateAll({
             inspeccion: etapasExploracionFisica.inspeccion.text,
@@ -69,20 +70,6 @@ const Valoracion = () => {
         if (fueCompletadaLaEtapaSiguiente) {
             dispatch(setMensaje("VALORACIÓN"));
         }
-    }
-
-    const getResumen = (necesidadesSeleccionadas) => {
-
-        let resumenEtapasExploracion = (inspeccion === "" ? "" : `${inspeccion}\n\n`)
-            + (auscultacion === "" ? "" : `${auscultacion}\n\n`)
-            + (percusion === "" ? "" : `${percusion}\n\n`)
-            + (palpacion === "" ? "" : `${palpacion}\n\n`);
-
-        let necesidades = `Se identificaron las siguientes necesidades del paciente\n${necesidadesSeleccionadas.map(n => `> ${n.nombre}`).join('\n')}`;
-        let resumen = resumenEtapasExploracion
-            + necesidades;
-
-        return resumen;
     }
 
     const sePuedeCompletar = () => {

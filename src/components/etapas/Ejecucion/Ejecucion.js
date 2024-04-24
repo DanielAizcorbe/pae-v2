@@ -10,14 +10,8 @@ import { Secciones } from "../../generales/Secciones";
 import { SeccionAcciones } from "./SeccionAcciones";
 import { addAcciones } from "../../../store/slices/accionesARealizar";
 import { setMensaje } from "../../../store/slices/avisosSlice";
+import { getResumenEjecucion } from "../generarResumenes";
 
-const getResumen = (marcadores, acciones) => {
-
-    const operacionesRealizadas = marcadores.map(m => m.text) || "";
-
-    return `Se realizaron las siguientes prácticas en el paciente:\n${operacionesRealizadas.map(o => `${operacionesRealizadas.indexOf(o) + 1}. ${o}`).join("\n")}`
-        + `\n\nSe realizaron las diferentes acciones:\n${acciones.map(a => `> ${a.diagnostico}\n${a.acciones.map(as => `  * ${as.nombre}`).join("\n")}`).join("\n")}`;
-}
 
 const getSelected = (object) => {
     return {
@@ -42,7 +36,7 @@ const Ejecucion = () => {
 
     const onClick = () => {
         const acciones = accionesSeleccionadas.map(a => getSelected(a)).filter(o => o.acciones.length > 0);
-        dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumen(marcadoresEjecucion, acciones) }))
+        dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumenEjecucion(marcadoresEjecucion, acciones) }))
         dispatch(addAcciones(acciones));
 
         if (fueCompletadaLaEtapaSiguiente) {
