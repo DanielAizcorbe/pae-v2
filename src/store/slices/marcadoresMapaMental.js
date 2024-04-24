@@ -7,7 +7,6 @@ const initialState = [
 const reducers = {
     addMarcador: (state, action) => {
         let marcadorNuevo = action.payload;
-        console.log(marcadorNuevo);
         state.push(marcadorNuevo);
     },
     removeMarcador: (state, action) => {

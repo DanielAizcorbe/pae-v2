@@ -3,8 +3,6 @@ import React from 'react'
 import { ActionCardItem } from './ActionCardItem'
 
 export const ActionList = ({ acciones }) => {
-
-    console.log("recibidas para renderizar: ", acciones);
     
     const renderFunction = (item) => {
         return (

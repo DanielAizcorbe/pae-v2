@@ -2,7 +2,10 @@ import { Button, Popover } from 'antd'
 import React from 'react'
 import { FormOutlined } from '@ant-design/icons';
 
-const BotonSetearTiempo = ({openModal, message}) => {
+const BotonSetearTiempo = ({openModal, message, type, minutos}) => {
+
+    const text = type === "edit" ? minutos + " minutos" : ""; 
+
     return (
         <Popover
             trigger={"hover"}
@@ -12,8 +15,10 @@ const BotonSetearTiempo = ({openModal, message}) => {
                 type='default'
                 size='large'
                 onClick={openModal}
-                icon={<FormOutlined />}
-            />
+                icon={type === "set" ? <FormOutlined /> : ""}
+            >
+                {text}
+            </Button>
         </Popover>
     )
 }

@@ -8,11 +8,9 @@ const avisosSlice = createSlice({
     reducers: {
         setMensaje(state, action) {
             state.message = action.payload;
-            console.log("se seteo el mensaje: " + action.payload);
         },
         limpiarMensaje(state) {
             state.message = null;
-            console.log("se limpio el mensaje");
         },
     },
 });

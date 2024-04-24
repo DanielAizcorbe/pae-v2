@@ -6,7 +6,6 @@ const validarFecha = (fecha) => {
         };
     }
 
-    console.log("se ingreso una fecha");
     const formatoFechaRegex = /^\d{2}-\d{2}-\d{4}$/;
 
     if (!formatoFechaRegex.test(fecha)) {
@@ -20,7 +19,6 @@ const validarFecha = (fecha) => {
     const mes = parseInt(partesFecha[1]) - 1; // Se resta 1 porque los meses en JavaScript van de 0 a 11
     const año = parseInt(partesFecha[2]);
 
-    console.log(dia, mes, año);
 
     if (isNaN(dia) || isNaN(mes) || isNaN(año) ||
         dia < 1 || dia > 31 || mes < 0 || mes > 11 || año < 1000 || año > 9999) {

@@ -15,7 +15,6 @@ const Evaluacion = () => {
     const dispatch = useDispatch();
 
     const onClick = () => {
-        console.log(text);
         dispatch(completarEtapa({ etapa: "evaluacion", completada: true, resumen: text }))
     }
 

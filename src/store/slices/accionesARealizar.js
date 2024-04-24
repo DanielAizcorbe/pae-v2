@@ -21,32 +21,24 @@ const reducers = {
 
     addAcciones: (state, action) => {
         const acciones = action.payload.map(o => transformar(o));
-        console.log("acciones recibidas: ", acciones);
         state.splice(0, state.length, ...acciones);
     },
 
     completarAccion: (state, action) => {
         const { accionId, minutos } = action.payload;
-        console.log(accionId, minutos)
 
         const diagnosticoIndex = state.findIndex(diagnostico =>
             diagnostico.acciones.some(accion => accion.id === accionId)
         );
 
-        console.log("index del diagnostico: ", diagnosticoIndex)
 
         if (diagnosticoIndex !== -1) {
             
-            console.log("if: ", diagnosticoIndex !== -1);
-
             let acciones = state[diagnosticoIndex].acciones;
-            console.log("acciones: ",acciones);
 
             const accionIndex = acciones.findIndex(
                 accion => accion.id === accionId
             );
-
-            console.log("indice de la accion: ", accionIndex);
 
             if (accionIndex !== -1) {
 

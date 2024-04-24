@@ -19,7 +19,6 @@ const Evolucion = () => {
     useEffect(
         () => {
             showAviso()
-            console.log("ejecute la funcion");
         }, [etapaCompletada]
     );
 

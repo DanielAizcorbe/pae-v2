@@ -22,7 +22,6 @@ const Diagnostico = () => {
     }
 
     const onClickFunction = () => {
-        console.log(getResumen(diagnosticos.filter(d => d.selected)));
         dispatch(switchOrder(diagnosticos.filter(d => d.selected)));
         dispatch(completarEtapa({ etapa: "diagnostico", completada: true, resumen: getResumen(diagnosticos.filter(d => d.selected)) }))
 

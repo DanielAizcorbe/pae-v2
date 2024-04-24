@@ -20,7 +20,6 @@ const formStyle = {
 const registrarPaciente = (paciente) => {
     const { nombre, apellido, fechaNacimiento } = paciente;
 
-    console.log("paciente: ", paciente);
 }
 
 const Registro = () => {
@@ -73,7 +72,6 @@ const Registro = () => {
     }
 
     const informar = (informe) => {
-        console.log(informe);
     }
 
     const continuar = () => {

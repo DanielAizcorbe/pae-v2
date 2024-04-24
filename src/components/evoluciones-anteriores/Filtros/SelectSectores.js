@@ -4,7 +4,6 @@ import React from "react";
 const SelectSectores = ({ selected, changeSelected }) => {
 
     const onChange = (value) => {
-        console.log("seleccionados: ",value);
         changeSelected(value);
     }
 

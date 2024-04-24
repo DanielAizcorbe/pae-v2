@@ -14,8 +14,6 @@ export const ActionCardItem = ({ item }) => {
     const [showModalTiempo, setShowModalTiempo] = useState(false);
     const [minutos, setMinutos] = useState("");
 
-    console.log("item recibido: ", item);
-
     const dispatch = useDispatch();
 
     const tomarTiempo = (id, minutos) => {

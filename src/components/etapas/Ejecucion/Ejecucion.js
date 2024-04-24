@@ -42,9 +42,7 @@ const Ejecucion = () => {
 
     const onClick = () => {
         const acciones = accionesSeleccionadas.map(a => getSelected(a)).filter(o => o.acciones.length > 0);
-        console.log(getResumen(marcadoresEjecucion, acciones))
         dispatch(completarEtapa({ etapa: "ejecucion", completada: true, resumen: getResumen(marcadoresEjecucion, acciones) }))
-        console.log("acciones: ", acciones);
         dispatch(addAcciones(acciones));
 
         if (fueCompletadaLaEtapaSiguiente) {

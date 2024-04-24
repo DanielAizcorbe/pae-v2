@@ -15,7 +15,6 @@ export const ModalTiempo = ({ open, closeModal, tareaIniciada, setMinutos, value
     const onClick = () => {
         setMinutos(newValue)
         closeModal(tareaIniciada.id, newValue);
-        console.log("info enviada: ", tareaIniciada.id, newValue);
     }
 
     return (

@@ -7,8 +7,6 @@ import { Acciones } from './Acciones/Acciones'
 export const EjecutarAcciones = () => {
 
     const acciones = useSelector(state => state.accionesARealizar);
-
-    console.log("acciones del store: ", acciones);
     
     return (
         <Columns

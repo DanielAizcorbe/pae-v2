@@ -17,13 +17,17 @@ export const SeccionBotones = ({ item, openCronometro, openTiempo }) => {
                     <BotonSetearTiempo
                         openModal={openTiempo}
                         message={"Definir tiempo"}
+                        type="set"
+                        minutos={item.minutos}
                     />
                 </>
-                : (
-                    <BotonSetearTiempo
-                        openModal={openTiempo}
-                        message={"Editar tiempo"}
-                    />)
+                :
+                <BotonSetearTiempo
+                    openModal={openTiempo}
+                    message={"Editar tiempo"}
+                    type="edit"
+                    minutos={item.minutos}
+                />
             }
         </Rows>
     )

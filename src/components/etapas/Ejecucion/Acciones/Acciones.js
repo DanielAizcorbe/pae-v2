@@ -25,7 +25,6 @@ export const Acciones = ({ acciones }) => {
 
 
     const sePuedeActivar = () => {
-        console.log(accionesStore);
         return accionesStore.every(d => d.acciones.every(a2 => a2.completado));
     }
 

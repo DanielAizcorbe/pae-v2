@@ -25,7 +25,6 @@ const DragDropPlaneacion = ({ diagnosticos, switchOrderFunction }) => {
 
             const [removedDiagnostico] = reorderedDiagnosticos.splice(sourceIndex, 1);
             reorderedDiagnosticos.splice(destinationIndex, 0, removedDiagnostico);
-            console.log("ordenado: ", reorderedDiagnosticos);
             return switchOrderFunction(reorderedDiagnosticos);
         }
 

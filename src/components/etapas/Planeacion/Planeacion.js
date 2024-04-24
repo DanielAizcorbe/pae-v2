@@ -23,7 +23,6 @@ const Planeacion = () => {
     }
 
     const setPrioridades = () => {
-        console.log(getResumen(diagnosticosOrdenados));
         dispatch(switchOrder(diagnosticosOrdenados));
         dispatch(completarEtapa({ etapa: "planeacion", completada: true, resumen: getResumen(diagnosticosPriorizados) }))
 
