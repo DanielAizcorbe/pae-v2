@@ -11,7 +11,7 @@ import avisosReducer from "./slices/avisosSlice"
 import pacientesRegistradosReducer from "./slices/pacientesRegistrados";
 
 const savedState = JSON.parse(sessionStorage.getItem('reduxState'));
-const initialStateFromStorage = savedState ? savedState : [];
+const initialStateFromStorage = savedState ? savedState : {};
 
 export const store = configureStore(
     {
