@@ -2,7 +2,7 @@ import React from 'react'
 import { Columns } from './utils/containers/Containers'
 import { NavBar } from './generales/NavBar'
 import { Image } from 'antd'
-import imagenNoData from "./registro-paciente/addFileImage.svg"
+import imagenNoData from "./registro-paciente/img/addFileImage.svg"
 import Title from 'antd/es/typography/Title'
 
 export const PantallaNoDisponible = ({ seccion }) => {
