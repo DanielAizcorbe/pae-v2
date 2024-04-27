@@ -4,6 +4,7 @@ const avisosSlice = createSlice({
     name: 'avisos',
     initialState: {
         message: null,
+        paciente: {},
     },
     reducers: {
         setMensaje(state, action) {
