@@ -4,14 +4,17 @@ import { BusquedaNombrePaciente } from "./BusquedaNombrePaciente";
 import { ModalDatosPaciente } from "./modal/ModalDatosPaciente";
 import { Titulo } from "../utils/Titulos";
 import { message } from "antd";
+import { useSelector } from "react-redux";
+import { tieneNombreSimilar } from "./utilsBusqueda";
 
 const BusquedaPaciente = () => {
 
     const [nombreBuscado, setNombreBuscado] = useState("");
     const [mensajeMostrado, setMensajeMostrado] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const pacientesRegistrados = useSelector(state => state.pacientesRegistrados);
 
-    const nombre = "JUAN GONZALO";
+    const pacientesBuscados = pacientesRegistrados.filter(p => tieneNombreSimilar(p, nombreBuscado));
 
     const [messageApi, contextHolder] = message.useMessage();
 
@@ -52,11 +55,10 @@ const BusquedaPaciente = () => {
     }
 
     const handleModalPaciente = () => {
-
-        if (nombre === nombreBuscado) {
-            setShowModal(true);
-        } else if (nombreBuscado === "") {
+        if (nombreBuscado === "") {
             mostrarAvisoNombreNoIngresado();
+        } else if (pacientesBuscados.length > 0) {
+            setShowModal(true);
         } else {
             mostrarMensajeNombreNoEncontrado()
         }
@@ -77,8 +79,8 @@ const BusquedaPaciente = () => {
             />
             <ModalDatosPaciente
                 closeModal={closeModal}
-                nextPage={"/evolucion"}
                 openCondition={showModal}
+                pacientesRegistrados={pacientesBuscados}
             />
             {contextHolder}
         </Columns>

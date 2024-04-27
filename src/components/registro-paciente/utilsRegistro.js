@@ -46,4 +46,4 @@ const ERROR = "Error al registrar paciente";
 const WARNING = "Paciente ya registrado";
 const SUCCED = "Se registró al paciente con exito";
 
-export { formatDatosPaciente, mensajePacienteRegistrado, ERROR, SUCCED, WARNING }
+export { formatDatosPaciente, mensajePacienteRegistrado, ERROR, SUCCED, WARNING, formatNombre }

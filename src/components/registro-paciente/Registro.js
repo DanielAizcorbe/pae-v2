@@ -155,7 +155,7 @@ const Registro = () => {
                         />
                     </Columns>
                     <ModalAvisoRegistro
-                        open={true}
+                        open={showModal}
                         status={status}
                     />
                 </Columns>

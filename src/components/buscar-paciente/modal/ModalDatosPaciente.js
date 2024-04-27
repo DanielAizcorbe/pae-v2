@@ -2,54 +2,15 @@ import Modal from "antd/es/modal/Modal";
 import { Columns } from "../../utils/containers/Containers";
 import { ListaPacientes } from "../ListaPacientes";
 
-const ModalDatosPaciente = ({ openCondition, closeModal }) => {
+const ModalDatosPaciente = ({ openCondition, closeModal, pacientesRegistrados }) => {
 
     const getNombreCompleto = (item) => {
         return item.nombre + " " + item.apellido
     }
+    console.log(pacientesRegistrados);
 
-    const pacientes = [
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "WILLNECKER",
-            fechaNacimiento: "09-12-1995"
-        },
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "GUTIERREZ",
-            fechaNacimiento: "09-12-1999"
-        },
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "LOPEZ CRUZ",
-            fechaNacimiento: "09-12-1980"
-        },
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "LOPEZ",
-            fechaNacimiento: "09-12-1998"
-        },
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "SOSA",
-            fechaNacimiento: "09-12-1990"
-        },
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "WILLNECKER",
-            fechaNacimiento: "09-12-1996"
-        },
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "WILLNECKER",
-            fechaNacimiento: "09-12-1996"
-        },
-        {
-            nombre: "JUAN GONZALO",
-            apellido: "WILLNECKER",
-            fechaNacimiento: "09-12-1994"
-        },
-    ].sort((a, b) => getNombreCompleto(a).localeCompare(getNombreCompleto(b)))
+    const pacientesAMostrar = pacientesRegistrados
+        .sort((a, b) => getNombreCompleto(a).localeCompare(getNombreCompleto(b)))
 
     return (<Modal
         title=""
@@ -67,7 +28,7 @@ const ModalDatosPaciente = ({ openCondition, closeModal }) => {
             padding={"1rem"}
         >
             <ListaPacientes
-                pacientes={pacientes}
+                pacientes={pacientesAMostrar}
                 closeModal={closeModal}
             />
         </Columns>
