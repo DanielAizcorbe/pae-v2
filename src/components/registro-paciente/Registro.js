@@ -2,24 +2,25 @@ import React, { useState } from 'react'
 import { Columns, ContentContainer } from '../utils/containers/Containers'
 import Title from 'antd/es/typography/Title'
 
-import InputNombre from './InputNombre'
-import InputApellido from './InputApellido'
+import InputNombre from './inputs/InputNombre'
+import InputApellido from './inputs/InputApellido'
 import BotonRegistrar from './BotonRegistrar'
-import { InputFechaV2 } from './InputFechaV2'
+import InputFecha from './inputs/InputFecha'
 import { useNavigate } from 'react-router-dom'
-import { validarApellido, validarFecha, validarNombre } from './validacionesFormRegistro'
+import { validarApellido, validarFecha, validarNombre } from './inputs/validacionesFormRegistro'
 import { AZUL_PRIMARIO } from '../datos/colores'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+
+import registrar from "../../store/slices/pacientesRegistrados";
+import { ModalAvisoRegistro } from './modal/ModalAvisoRegistro'
+import { WARNING, formatDatosPaciente, mensajePacienteRegistrado } from './utilsRegistro'
 
 const formStyle = {
     width: "600px",
     border: "1px solid " + AZUL_PRIMARIO,
     padding: "2rem",
     borderRadius: "10px",
-}
-
-const registrarPaciente = (paciente) => {
-    const { nombre, apellido, fechaNacimiento } = paciente;
-
 }
 
 const Registro = () => {
@@ -30,8 +31,27 @@ const Registro = () => {
     const [nombreError, setErrorNombre] = useState({});
     const [apellidoError, setErrorApellido] = useState({});
     const [fechaError, setErrorFecha] = useState({});
+    const [showModal, setShowModal] = useState(false);
 
+    /**
+     * * El error tiene las keys
+     * * type : que refiere si fue un warning o un error,
+     */
+    const [status, setStatus] = useState({});
+
+    const registrados = useSelector(state => state.pacientesRegistrados)
+    const dispatch = useDispatch();
     const navegar = useNavigate();
+
+    const registrarPaciente = (paciente) => {
+        dispatch(registrar(formatDatosPaciente(paciente)))
+    }
+
+    const estaRegistrado = (datosPaciente) => {
+
+        let datosPacienteFormateados = formatDatosPaciente(datosPaciente)
+        return registrados.includes(datosPacienteFormateados);
+    }
 
     const onChangeName = (event) => {
         setNombre(event.target.value);
@@ -67,13 +87,6 @@ const Registro = () => {
         return false;
     }
 
-    const estaRegistrado = (datosPaciente) => {
-        return true;
-    }
-
-    const informar = (informe) => {
-    }
-
     const continuar = () => {
 
         if (losCamposSonValidos()) {
@@ -81,11 +94,17 @@ const Registro = () => {
             const datosPaciente = {
                 nombre: nombre,
                 apellido: apellido,
-                fechaNacimiento: fechaNacimiento
+                fechaNac: fechaNacimiento
             };
 
             if (estaRegistrado(datosPaciente)) {
-                informar({ type: "warning", message: "El paciente ya está registrado" })
+                setShowModal(true);
+                setStatus(
+                    {
+                        type: WARNING,
+                        message: mensajePacienteRegistrado(datosPaciente)
+                    }
+                );
             } else {
                 registrarPaciente(datosPaciente);
             }
@@ -121,7 +140,7 @@ const Registro = () => {
                         onChange={onChangeSurname}
                         error={apellidoError}
                     />
-                    <InputFechaV2
+                    <InputFecha
                         value={fechaNacimiento}
                         onChange={onChangeBirthDay}
                         error={fechaError}
@@ -135,6 +154,10 @@ const Registro = () => {
                             onClick={continuar}
                         />
                     </Columns>
+                    <ModalAvisoRegistro
+                        open={true}
+                        status={status}
+                    />
                 </Columns>
             </Columns>
         </ContentContainer>
