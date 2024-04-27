@@ -10,9 +10,37 @@ import accionesARealizarReducer from "./slices/accionesARealizar";
 import avisosReducer from "./slices/avisosSlice"
 import pacientesRegistradosReducer from "./slices/pacientesRegistrados";
 
-const savedState = JSON.parse(sessionStorage.getItem('reduxState'));
-const initialStateFromStorage = savedState ? savedState : {};
-console.log(initialStateFromStorage);
+// Función para cargar el estado inicial desde el almacenamiento local
+const loadStateFromLocalStorage = () => {
+    try {
+        const serializedState = localStorage.getItem('reduxState');
+        return serializedState ? JSON.parse(serializedState) : undefined;
+    } catch (error) {
+        console.error('Error al cargar el estado desde el almacenamiento local:', error);
+        return undefined;
+    }
+};
+
+// Función para cargar el estado inicial desde el almacenamiento de sesión
+const loadStateFromSessionStorage = () => {
+    try {
+        const serializedState = sessionStorage.getItem('reduxState');
+        return serializedState ? JSON.parse(serializedState) : undefined;
+    } catch (error) {
+        console.error('Error al cargar el estado desde el almacenamiento de sesión:', error);
+        return undefined;
+    }
+};
+
+// Cargamos los estados iniciales de ambos almacenamientos
+const localStorageState = loadStateFromLocalStorage();
+const sessionStorageState = loadStateFromSessionStorage();
+
+// Combinamos los estados iniciales de ambos almacenamientos
+const preloadedState = {
+    ...localStorageState,
+    ...sessionStorageState
+};
 
 export const store = configureStore(
     {
@@ -28,7 +56,7 @@ export const store = configureStore(
             avisos: avisosReducer,
             pacientesRegistrados: pacientesRegistradosReducer,
         },
-        preloadedState: initialStateFromStorage
+        preloadedState: preloadedState
     }
 );
 

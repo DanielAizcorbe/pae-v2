@@ -3,7 +3,7 @@ import { formatDatosPaciente, formatNombre } from "../registro-paciente/utilsReg
 const getNombreCompletoFormateado = (paciente) => {
 
     let pacienteFormateado = formatDatosPaciente(paciente);
-    return `${pacienteFormateado.nombre}  ${pacienteFormateado.apellido}`
+    return `${pacienteFormateado.nombre} ${pacienteFormateado.apellido}`
 } 
 
 const tieneNombreSimilar = (paciente, nombreBuscado) => {

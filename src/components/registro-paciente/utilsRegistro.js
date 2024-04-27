@@ -1,3 +1,5 @@
+import { getNombreCompletoFormateado } from "../buscar-paciente/utilsBusqueda";
+
 const reemplazarVocalesConTilde = (nombre) => {
     return nombre.replace(/[áÁ]/g, 'a')
         .replace(/[éÉ]/g, 'e')
@@ -38,12 +40,18 @@ const formatDatosPaciente = (paciente) => {
 }
 
 const mensajePacienteRegistrado = (paciente) => {
-    const nombreCompleto = `${paciente.nombre} ${paciente.apellido}`;
+    const nombreCompleto = getNombreCompletoFormateado(paciente);
     return `El paciente ${nombreCompleto} ya se encuentra registrado con la fecha de nacimiento ${paciente.fechaNac}`;
+}
+
+const mensajeRegistroCompletado = (paciente) => {
+
+    const nombreCompleto = getNombreCompletoFormateado(paciente);
+    return `¡Se ha registrado a ${nombreCompleto} correctamente!`;
 }
 
 const ERROR = "Error al registrar paciente";
 const WARNING = "Paciente ya registrado";
 const SUCCED = "Se registró al paciente con exito";
 
-export { formatDatosPaciente, mensajePacienteRegistrado, ERROR, SUCCED, WARNING, formatNombre }
+export { formatDatosPaciente, mensajePacienteRegistrado, ERROR, SUCCED, WARNING, formatNombre, mensajeRegistroCompletado }

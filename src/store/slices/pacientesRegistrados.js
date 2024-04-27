@@ -53,10 +53,8 @@ const pacientes = [
 
 const reducers = {
     registrar: (state, action) => {
-        console.log(action.payload);
         state.push({ id: uuidv4(), ...action.payload })
     },
-
 };
 
 const pacientesRegistradosSlice = createSlice({

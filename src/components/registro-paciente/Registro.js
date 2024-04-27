@@ -12,9 +12,10 @@ import { AZUL_PRIMARIO } from '../datos/colores'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 
-import registrar from "../../store/slices/pacientesRegistrados";
+import { registrar } from "../../store/slices/pacientesRegistrados";
 import { ModalAvisoRegistro } from './modal/ModalAvisoRegistro'
-import { WARNING, formatDatosPaciente, mensajePacienteRegistrado } from './utilsRegistro'
+import { SUCCED, WARNING, formatDatosPaciente, mensajePacienteRegistrado, mensajeRegistroCompletado } from './utilsRegistro'
+import { getNombreCompletoFormateado } from '../buscar-paciente/utilsBusqueda'
 
 const formStyle = {
     width: "600px",
@@ -44,13 +45,18 @@ const Registro = () => {
     const navegar = useNavigate();
 
     const registrarPaciente = (paciente) => {
-        dispatch(registrar(formatDatosPaciente(paciente)))
+        console.log("intento registrarlo");
+        let pacienteFormateado = formatDatosPaciente(paciente);
+        console.log(pacienteFormateado);
+        dispatch(registrar(pacienteFormateado))
     }
 
     const estaRegistrado = (datosPaciente) => {
 
-        let datosPacienteFormateados = formatDatosPaciente(datosPaciente)
-        return registrados.includes(datosPacienteFormateados);
+        let nombreCompleto = getNombreCompletoFormateado(datosPaciente);
+        console.log(nombreCompleto);
+        console.log(registrados);
+        return registrados.some(r => nombreCompleto === getNombreCompletoFormateado(r));
     }
 
     const onChangeName = (event) => {
@@ -98,19 +104,29 @@ const Registro = () => {
             };
 
             if (estaRegistrado(datosPaciente)) {
-                setShowModal(true);
                 setStatus(
                     {
                         type: WARNING,
                         message: mensajePacienteRegistrado(datosPaciente)
                     }
                 );
+                setShowModal(true);
             } else {
+                setStatus(
+                    {
+                        type: SUCCED,
+                        message: mensajeRegistroCompletado(datosPaciente)
+                    }
+                );
                 registrarPaciente(datosPaciente);
+                setShowModal(true);
             }
-
-            navegar("/");
         }
+    }
+
+    const close = () => {
+        setShowModal(false);
+        navegar("/");
     }
 
     return (
@@ -157,6 +173,7 @@ const Registro = () => {
                     <ModalAvisoRegistro
                         open={showModal}
                         status={status}
+                        close={close}
                     />
                 </Columns>
             </Columns>
