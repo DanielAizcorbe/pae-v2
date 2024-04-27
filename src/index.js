@@ -20,6 +20,10 @@ root.render(
           Collapse: {
             headerBg: AZUL_OSCURO,
             colorTextHeading: BLANCO
+          },
+          Table: {
+            headerBg: AZUL_PRIMARIO,
+            headerColor: BLANCO
           }
         }
       }}
