@@ -3,6 +3,7 @@ import React from 'react'
 import { evolucionar } from '../../store/slices/paciente';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import "./lista-pacientes.css";
 
 const { v4: uuidv4 } = require('uuid');
 
@@ -29,7 +30,7 @@ const getItem = (item) => {
     return {
         key: uuidv4(),
         nombreCompleto: item.nombre + " " + item.apellido,
-        fechaNac: item.fechaNacimiento,
+        fechaNac: item.fechaNac,
         nombre: item.nombre,
         apellido: item.apellido
     }
@@ -68,6 +69,7 @@ export const ListaPacientes = ({ pacientes, closeModal }) => {
             onRow={(fila) => ({
                 onClick: () => handleClick(fila),
             })}
+            rootClassName="lista-pacientes"
         />
     )
 }

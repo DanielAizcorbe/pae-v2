@@ -23,9 +23,9 @@ const ModalDatosPaciente = ({ openCondition, closeModal, pacientesRegistrados })
         centered
     >
         <Columns
-            elementPosition={"top-center"}
-            height={"400px"}
+            elementPosition={"center"}
             padding={"1rem"}
+            style={{minHeight: "200px", maxHeight: "600px"}}
         >
             <ListaPacientes
                 pacientes={pacientesAMostrar}
