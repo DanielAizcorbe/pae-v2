@@ -12,6 +12,7 @@ import pacientesRegistradosReducer from "./slices/pacientesRegistrados";
 
 const savedState = JSON.parse(sessionStorage.getItem('reduxState'));
 const initialStateFromStorage = savedState ? savedState : {};
+console.log(initialStateFromStorage);
 
 export const store = configureStore(
     {
