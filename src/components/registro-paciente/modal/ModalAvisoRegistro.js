@@ -13,7 +13,7 @@ export const ModalAvisoRegistro = ({ open, close, status }) => {
             centered
             open={open}
             mask
-            footer={[<ModalButton onClick={close}/>]}
+            footer={[<ModalButton key="1" onClick={close}/>]}
             width={"700px"}
         >
             <Columns
