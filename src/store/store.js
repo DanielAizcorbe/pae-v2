@@ -9,37 +9,30 @@ import marcadoresMapaMentalReducer from "./slices/marcadoresMapaMental";
 import accionesARealizarReducer from "./slices/accionesARealizar";
 import avisosReducer from "./slices/avisosSlice"
 import pacientesRegistradosReducer from "./slices/pacientesRegistrados";
+import { loadDataFromLocalStorage, loadDataFromSessionStorage, saveOnLocalStorage, saveOnSessionStorage } from "./saveData";
 
-// Función para cargar el estado inicial desde el almacenamiento local
-const loadStateFromLocalStorage = () => {
-    try {
-        const serializedState = localStorage.getItem('reduxState');
-        return serializedState ? JSON.parse(serializedState) : undefined;
-    } catch (error) {
-        console.error('Error al cargar el estado desde el almacenamiento local:', error);
-        return undefined;
-    }
-};
+const accionesARealizarSessionStorage = loadDataFromSessionStorage('accionesARealizar');
+const avisosSessionStorage = loadDataFromSessionStorage('avisos');
+const diagnosticosSessionStorage = loadDataFromSessionStorage('diagnosticos');
+const etapasSessionStorage = loadDataFromSessionStorage('estadoEtapas');
+const exploracionFisicaSessionStorage = loadDataFromSessionStorage('exploracionFisica');
+const marcadoresMapaMentalSessionStorage = loadDataFromSessionStorage('marcadores');
+const necesidadesSessionStorage = loadDataFromSessionStorage('necesidades');
+const pacienteSessionStorage = loadDataFromSessionStorage('paciente');
+const prioridadesSessionStorage = loadDataFromSessionStorage('prioridades');
+const pacientesRegistradosLocalStorage = loadDataFromLocalStorage("pacientesRegistrados");
 
-// Función para cargar el estado inicial desde el almacenamiento de sesión
-const loadStateFromSessionStorage = () => {
-    try {
-        const serializedState = sessionStorage.getItem('reduxState');
-        return serializedState ? JSON.parse(serializedState) : undefined;
-    } catch (error) {
-        console.error('Error al cargar el estado desde el almacenamiento de sesión:', error);
-        return undefined;
-    }
-};
-
-// Cargamos los estados iniciales de ambos almacenamientos
-const localStorageState = loadStateFromLocalStorage();
-const sessionStorageState = loadStateFromSessionStorage();
-
-// Combinamos los estados iniciales de ambos almacenamientos
 const preloadedState = {
-    ...localStorageState,
-    ...sessionStorageState
+    accionesARealizar: accionesARealizarSessionStorage,
+    avisos: avisosSessionStorage,
+    diagnosticos: diagnosticosSessionStorage,
+    estadoEtapas: etapasSessionStorage,
+    exploracionFisica: exploracionFisicaSessionStorage,
+    marcadores: marcadoresMapaMentalSessionStorage,
+    necesidades: necesidadesSessionStorage,
+    paciente: pacienteSessionStorage,
+    prioridades: prioridadesSessionStorage,
+    pacientesRegistrados: pacientesRegistradosLocalStorage,
 };
 
 export const store = configureStore(
@@ -63,16 +56,17 @@ export const store = configureStore(
 store.subscribe(() => {
 
     const state = store.getState();
-    sessionStorage.setItem('accionesARealizar', JSON.stringify(state.accionesARealizar));
-    sessionStorage.setItem('avisos', JSON.stringify(state.avisos));
-    sessionStorage.setItem('diagnosticos', JSON.stringify(state.diagnosticos));
-    sessionStorage.setItem('etapas', JSON.stringify(state.etapas));
-    sessionStorage.setItem('exploracionFisica', JSON.stringify(state.exploracionFisica));
-    sessionStorage.setItem('marcadoresMapaMental', JSON.stringify(state.marcadoresMapaMental));
-    sessionStorage.setItem('necesidades', JSON.stringify(state.necesidades));
-    sessionStorage.setItem('paciente', JSON.stringify(state.paciente));
-    sessionStorage.setItem('prioridades', JSON.stringify(state.prioridades));
+    
+    saveOnLocalStorage("pacientesRegistrados", state.pacientesRegistrados);
 
-    localStorage.setItem("pacientesRegistrados", JSON.stringify(state.pacientesRegistrados));
+    saveOnSessionStorage("paciente",state.paciente);
+    saveOnSessionStorage("diagnosticos",state.diagnosticos);
+    saveOnSessionStorage("necesidades",state.necesidades);
+    saveOnSessionStorage("exploracionFisica",state.exploracionFisica);
+    saveOnSessionStorage("accionesARealizar",state.accionesARealizar);
+    saveOnSessionStorage("prioridades",state.prioridades);
+    saveOnSessionStorage("marcadores",state.marcadores);
+    saveOnSessionStorage("estadoEtapas",state.estadoEtapas);
+    saveOnSessionStorage("avisos",state.avisos);
 });
 
