@@ -1,8 +1,8 @@
 import { Button, Checkbox, Modal } from 'antd';
 import React, { useState } from 'react'
-import { Columns } from '../../utils/containers/Containers';
 import { FilePdfOutlined } from "@ant-design/icons";
 import Title from 'antd/es/typography/Title';
+import { Columns } from '../../../utils/containers/Containers';
 
 export const ModalGuardarPDF = ({ showModal, closeModal }) => {
 

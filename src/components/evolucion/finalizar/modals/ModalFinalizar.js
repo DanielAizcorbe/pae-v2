@@ -1,9 +1,9 @@
 import { Modal } from 'antd'
 import React from 'react'
-import { Columns } from '../../utils/containers/Containers'
+import { Columns } from '../../../utils/containers/Containers'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
-import { finalizar } from '../../../store/slices/paciente'
+import { finalizar } from '../../../../store/slices/paciente'
 
 const ModalFinalizar = ({mostrar,closeModal}) => {
 

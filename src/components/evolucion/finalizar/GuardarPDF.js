@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ModalGuardarPDF } from './ModalGuardarPDF';
+import { ModalGuardarPDF } from './modals/ModalGuardarPDF';
 import { Button } from 'antd';
 
 const GuardarPDF = () => {

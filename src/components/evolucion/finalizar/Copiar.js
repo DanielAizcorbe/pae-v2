@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import React from 'react'
 
-const Copiar = () => {
+const Copiar = ({openModal}) => {
 
     
 
@@ -9,7 +9,7 @@ const Copiar = () => {
         <Button
             type="primary"
             size="large"
-            onClick={() => {}}
+            onClick={openModal}
         >
             Copiar
         </Button>

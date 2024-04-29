@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Columns } from "../../utils/containers/Containers";
 import Title from "antd/es/typography/Title";
 import { Flex, message } from "antd";
@@ -6,10 +6,12 @@ import GuardarPDF from "./GuardarPDF";
 import Copiar from "./Copiar";
 import { Finalizar } from "./Finalizar";
 import ContenidoBorrador from "../borrador/ContenidoBorrador";
+import ModalCopiar from "./modals/ModalCopiar";
 
 const FinalizarEvolucion = () => {
 
     const [messageApi, contextHolder] = message.useMessage();
+    const [showModalCopiar, setShowModalCopiar] = useState(false);
 
     const copiar = () => {
         messageApi.open({
@@ -25,6 +27,10 @@ const FinalizarEvolucion = () => {
         });
     };
 
+    const abrirModalCopiar = () => {
+        setShowModalCopiar(true);
+    }
+
     return (
         <Columns
             elementPosition={"top-center"}
@@ -38,20 +44,24 @@ const FinalizarEvolucion = () => {
                 <Title level={1}>
                     Finalizar
                 </Title>
-                <ContenidoBorrador 
+                <ContenidoBorrador
                     editable={true}
                 />
                 <Flex
                     justify="space-between"
                     style={{ width: "60%", padding: "2rem" }}
                 >
-                    <GuardarPDF 
-                        
+                    <GuardarPDF
+
                     />
-                    <Copiar 
+                    <Copiar
+                        openModal={abrirModalCopiar}
                     />
-                    <Finalizar 
-                        
+                    <Finalizar
+
+                    />
+                    <ModalCopiar 
+                        open={showModalCopiar}
                     />
                 </Flex>
             </Columns>

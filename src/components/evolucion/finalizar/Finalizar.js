@@ -1,6 +1,6 @@
 import { Button } from 'antd'
 import React, { useState } from 'react'
-import ModalFinalizar from './ModalFinalizar'
+import ModalFinalizar from './modals/ModalFinalizar'
 
 export const Finalizar = () => {
 
