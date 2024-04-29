@@ -6,12 +6,14 @@ import { getNombreCompletoFormateado } from '../buscar-paciente/utilsBusqueda';
 import { Divider } from 'antd';
 import { MapaMental } from '../utils/MapaMental/MapaMental';
 
-const CuerpoPDF = ({ mostrarMapaValoracion, mostrarMapaEjecucion, paciente, textoEtapas }) => {
+const CuerpoPDF = ({ paciente, textoEtapas }) => {
 
     return (
         <Columns
             elementPosition="top-center"
             padding="1rem 2rem"
+            style={{ display: "none" }}
+            idContainer="pdfdocument"
         >
             <Title level={1}>
                 {getNombreCompletoFormateado(paciente)}
@@ -20,22 +22,26 @@ const CuerpoPDF = ({ mostrarMapaValoracion, mostrarMapaEjecucion, paciente, text
             <ParrafoPDF
                 text={textoEtapas[0]}
             />
-            {mostrarMapaValoracion ? <MapaMental
+            <Divider />
+            <MapaMental
                 mostrarSoloLosDeLaEtapa
                 etapa={"valoracion"}
                 disabled
-            /> : ""}
+            />
+            <Divider />
             <ParrafoPDF
                 text={textoEtapas[2]}
             />
             <ParrafoPDF
                 text={textoEtapas[3]}
             />
-            {mostrarMapaEjecucion ? <MapaMental
+            <Divider />
+            <MapaMental
                 mostrarSoloLosDeLaEtapa
                 etapa={"ejecucion"}
                 disabled
-            /> : ""}
+            />
+            <Divider />
             <ParrafoPDF
                 text={textoEtapas[4]}
             />

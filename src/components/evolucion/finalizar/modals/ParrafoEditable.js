@@ -12,16 +12,6 @@ export const ParrafoEditable = ({ editableText, setEditableText }) => {
         setEditableText(event.target.value)
     }
 
-    const copyToClipboard = (text) => {
-        navigator.clipboard.writeText(text)
-            .then(() => {
-                alert('¡Texto copiado al portapapeles!');
-            })
-            .catch((err) => {
-                console.error('Error al copiar al portapapeles:', err);
-            });
-    };
-
     return (
         <TextArea
             style={textAreaStyle}

@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Columns } from "../../utils/containers/Containers";
 import Title from "antd/es/typography/Title";
 import { Flex, message } from "antd";
-import GuardarPDF from "./GuardarPDF";
 import Copiar from "./Copiar";
 import { Finalizar } from "./Finalizar";
 import ContenidoBorrador from "../borrador/ContenidoBorrador";
 import ModalCopiar from "./modals/ModalCopiar";
 import { useSelector } from "react-redux";
 import { getResumenFinal } from "../../etapas/generarResumenes";
+import { BotonGuardarPDF } from "./modals/BotonGuardarPDF";
+import CuerpoPDF from "../../generar-pdf/CuerpoPDF";
 
 const FinalizarEvolucion = () => {
 
@@ -19,13 +20,6 @@ const FinalizarEvolucion = () => {
     const resumenes = Object.values(etapas).map(e => e.resumen);
     const paciente = useSelector(state => state.paciente);
     const textoEtapas = Object.values(etapas).map(e => e.resumen);
-
-    const copiar = () => {
-        messageApi.open({
-            type: 'success',
-            content: 'Se copió al portapapeles',
-        });
-    };
 
     const notificarGurdado = () => {
         messageApi.open({
@@ -58,8 +52,7 @@ const FinalizarEvolucion = () => {
                     justify="space-between"
                     style={{ width: "60%", padding: "2rem" }}
                 >
-                    <GuardarPDF
-                        textoEtapas={textoEtapas}
+                    <BotonGuardarPDF 
                         paciente={paciente}
                     />
                     <Copiar
@@ -74,6 +67,10 @@ const FinalizarEvolucion = () => {
                         value={getResumenFinal(resumenes)}
                     />
                 </Flex>
+                <CuerpoPDF 
+                    paciente={paciente}
+                    textoEtapas={textoEtapas}
+                />
             </Columns>
         </Columns>
     );

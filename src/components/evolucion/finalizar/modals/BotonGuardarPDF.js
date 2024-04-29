@@ -1,14 +1,18 @@
 import { Button } from 'antd'
 import React from 'react'
-import EvolucionPDF from '../../../generar-pdf/EvolucionPDF';
 
-export const BotonGuardarPDF = ({ mostrarMapaEjecucion, mostrarMapaValoracion, textoEtapas, paciente }) => {
+export const BotonGuardarPDF = ({ paciente }) => {
 
+    const convertToPDF = () => {
+    };
 
     return (
-        <Button>
+        <Button
+            type='primary'
+            size='large'
+            onClick={convertToPDF}
+        >
             Guardar
         </Button>
-
     )
 }
