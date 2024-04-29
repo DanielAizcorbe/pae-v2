@@ -21,6 +21,7 @@ const ContainerFlex = (props) => {
             align={props.alineacionX}
             style={styles}
             onClick={props.onClick}
+            id={props.idContainer}
         >
             {props.children}
         </Flex>

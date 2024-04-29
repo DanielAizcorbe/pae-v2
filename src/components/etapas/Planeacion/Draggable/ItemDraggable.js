@@ -1,6 +1,5 @@
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
-import { AZUL_PRIMARIO, BLANCO } from '../../../datos/colores'
 
 const ItemDraggable = (props) => {
     return (

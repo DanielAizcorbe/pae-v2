@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Columns } from "../../utils/containers/Containers";
 import { Button } from "antd";
 import { EditTwoTone, SaveTwoTone } from "@ant-design/icons";
-import { AZUL_CLARO, AZUL_PROFUNDO } from "../../datos/colores";
 
 const ParrafoEvolucion = ({ text, setText, editable }) => {
 

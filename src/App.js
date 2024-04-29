@@ -16,7 +16,6 @@ import Registro from './components/registro-paciente/Registro';
 import { Home } from './components/home/Home';
 import { PantallaNoDisponible } from './components/PantallaNoDisponible';
 import { Borrador } from './components/evolucion/borrador/Borrador';
-import CuerpoPDF from './components/generar-pdf/CuerpoPDF';
 
 function App() {
 
