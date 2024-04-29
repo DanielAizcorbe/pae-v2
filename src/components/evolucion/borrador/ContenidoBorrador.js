@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Columns } from '../utils/containers/Containers'
+import { Columns } from '../../utils/containers/Containers'
 import { useSelector } from 'react-redux';
 import { ParrafoEvolucion } from './ParrafoEvolucion';
-import { MapaMental } from '../utils/MapaMental/MapaMental';
-import { AZUL_PROFUNDO } from '../datos/colores';
+import { MapaMental } from '../../utils/MapaMental/MapaMental';
+import { AZUL_PROFUNDO } from '../../datos/colores';
 import { Divider } from 'antd';
 import Title from 'antd/es/typography/Title';
 

@@ -1,9 +1,9 @@
 import TextArea from "antd/es/input/TextArea";
 import React, { useState } from "react";
-import { Columns } from "../utils/containers/Containers";
+import { Columns } from "../../utils/containers/Containers";
 import { Button } from "antd";
 import { EditTwoTone, SaveTwoTone } from "@ant-design/icons";
-import { AZUL_CLARO, AZUL_PROFUNDO } from "../datos/colores";
+import { AZUL_CLARO, AZUL_PROFUNDO } from "../../datos/colores";
 
 const ParrafoEvolucion = ({ text, setText, editable }) => {
 
@@ -40,7 +40,7 @@ const ParrafoEvolucion = ({ text, setText, editable }) => {
                         fontSize: "1rem",
                         backgroundColor: "inherit",
                         color: "black",
-                        overflow: "hidden",
+                        overflowY: "hidden",
                     }}
                     disabled={!seEstaEditando}
                     variant="outline"

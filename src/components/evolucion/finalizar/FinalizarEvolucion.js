@@ -1,25 +1,13 @@
-import React, { useState } from "react";
-import { Columns, Rows } from "../../utils/containers/Containers";
+import React from "react";
+import { Columns } from "../../utils/containers/Containers";
 import Title from "antd/es/typography/Title";
-import { ParrafoEvolucion } from "../ParrafoEvolucion";
-import { MapaMentalFinal } from "../MapaMentalFinal";
-import { useSelector } from "react-redux";
-import { Button, Flex, message } from "antd";
-import { useNavigate } from "react-router-dom";
-import ContenidoBorrador from "../ContenidoBorrador";
+import { Flex, message } from "antd";
 import GuardarPDF from "./GuardarPDF";
 import Copiar from "./Copiar";
 import { Finalizar } from "./Finalizar";
+import ContenidoBorrador from "../borrador/ContenidoBorrador";
 
 const FinalizarEvolucion = () => {
-
-    const etapas = useSelector(state => state.estadoEtapas);
-
-    const [valoracionTexto, setValoracionTexto] = useState(etapas.valoracion.resumen);
-    const [diagnosticoTexto, setdiagnosticoTexto] = useState(etapas.diagnostico.resumen);
-    const [planeacionTexto, setplaneacionTexto] = useState(etapas.planeacion.resumen);
-    const [ejecucionTexto, setejecucionTexto] = useState(etapas.ejecucion.resumen);
-    const [evaluacionTexto, setevaluacionTexto] = useState(etapas.evaluacion.resumen);
 
     const [messageApi, contextHolder] = message.useMessage();
 
@@ -36,8 +24,6 @@ const FinalizarEvolucion = () => {
             content: 'Se guardo como PDF',
         });
     };
-
-    const navegar = useNavigate();
 
     return (
         <Columns
