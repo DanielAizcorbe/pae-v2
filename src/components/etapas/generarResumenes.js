@@ -16,10 +16,10 @@ const getResumenPlaneacion = (diagnosticosOrdenados) => {
 
 const getResumenValoracion = (necesidadesSeleccionadas, exploracionFisica) => {
 
-    let resumenEtapasExploracion = (exploracionFisica.inspeccion.text === "" ? "" : `${exploracionFisica.inspeccion.text}\n\n`)
-        + (exploracionFisica.auscultacion.text === "" ? "" : `${exploracionFisica.auscultacion.text}\n\n`)
-        + (exploracionFisica.percusion.text === "" ? "" : `${exploracionFisica.percusion.text}\n\n`)
-        + (exploracionFisica.palpacion.text === "" ? "" : `${exploracionFisica.palpacion.text}\n\n`);
+    let resumenEtapasExploracion = (exploracionFisica.inspeccion.text === "" ? "" : `${exploracionFisica.inspeccion.text}\n`)
+        + (exploracionFisica.auscultacion.text === "" ? "" : `${exploracionFisica.auscultacion.text}\n`)
+        + (exploracionFisica.percusion.text === "" ? "" : `${exploracionFisica.percusion.text}\n`)
+        + (exploracionFisica.palpacion.text === "" ? "" : `${exploracionFisica.palpacion.text}\n`);
 
     let necesidades = `Se identificaron las siguientes necesidades del paciente\n${necesidadesSeleccionadas.map(n => `> ${n.nombre}`).join('\n')}`;
     let resumen = resumenEtapasExploracion
