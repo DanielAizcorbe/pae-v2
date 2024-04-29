@@ -1,11 +1,10 @@
 import React from 'react'
-const { v4: uuidv4 } = require('uuid');
 
-export const ItemMarcadorDeshabilitado = ({practica, id}) => {
+export const ItemMarcadorDeshabilitado = ({practica}) => {
 
 
     return (
-        <li key={id}>
+        <li>
             {practica}
         </li>
     )
