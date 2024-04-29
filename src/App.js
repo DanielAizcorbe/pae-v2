@@ -16,6 +16,7 @@ import Registro from './components/registro-paciente/Registro';
 import { Home } from './components/home/Home';
 import { PantallaNoDisponible } from './components/PantallaNoDisponible';
 import { Borrador } from './components/evolucion/borrador/Borrador';
+import CuerpoPDF from './components/generar-pdf/CuerpoPDF';
 
 function App() {
 
@@ -31,13 +32,12 @@ function App() {
           <Route exact path='/evolucion/planeacion' element={<Planeacion />} />
           <Route exact path='/evolucion/ejecucion' element={<Ejecucion />} />
           <Route exact path='/evolucion/evaluacion' element={<Evaluacion />} />
-          <Route exact path="/evoluciones-atenriores" element={<PantallaNoDisponible seccion={2} />} />
+          <Route exact path="/evoluciones-anteriores" element={<PantallaNoDisponible seccion={2} />} />
           <Route exact path='/evolucion/borrador' element={<Borrador />} />
           <Route exact path='/evolucion/finalizar' element={<FinalizarEvolucion />} />
           <Route exact path='/evolucion/ejecucion/acciones' element={<EjecutarAcciones />} />
           <Route exact path='/' element={<Home />} />
         </Routes>
-
       </Provider>
     </div>
   );

@@ -25,7 +25,7 @@ const NavBar = ({defaultSection}) => {
     };
 
     const goToEvolucionesAnteriores = () => {
-        navegar("/evoluciones-atenriores");
+        navegar("/evoluciones-anteriores");
     }
 
     const goToBorrador = () => {

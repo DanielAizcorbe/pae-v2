@@ -17,6 +17,8 @@ const FinalizarEvolucion = () => {
 
     const etapas = useSelector(state => state.estadoEtapas);
     const resumenes = Object.values(etapas).map(e => e.resumen);
+    const paciente = useSelector(state => state.paciente);
+    const textoEtapas = Object.values(etapas).map(e => e.resumen);
 
     const copiar = () => {
         messageApi.open({
@@ -57,7 +59,8 @@ const FinalizarEvolucion = () => {
                     style={{ width: "60%", padding: "2rem" }}
                 >
                     <GuardarPDF
-
+                        textoEtapas={textoEtapas}
+                        paciente={paciente}
                     />
                     <Copiar
                         openModal={abrirModalCopiar}
