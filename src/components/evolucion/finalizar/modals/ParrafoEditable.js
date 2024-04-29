@@ -5,7 +5,7 @@ import "./textarea-copyable.css"
 export const ParrafoEditable = ({ editableText, setEditableText }) => {
 
     const textAreaStyle = {
-        resize: "none"
+        resize: "none",
     }
 
     const handleChange = (event) => {

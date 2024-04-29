@@ -34,10 +34,12 @@ const ModalCopiar = ({ open, value, close }) => {
             closable
             maskClosable={false}
             onCancel={close}
+            width={"60%"}
         >
             <Columns
                 padding="1.5rem 1rem"
                 elementPosition="top-center"
+                width="100%"
             >
                 <ParrafoEditable
                     editableText={editableText}

@@ -28,9 +28,18 @@ const getResumenValoracion = (necesidadesSeleccionadas, exploracionFisica) => {
     return resumen;
 }
 
+const getResumenFinal = (resumenes) => {
+
+    const resumenFinal = resumenes.join("\n")
+    console.log(resumenFinal);
+
+    return resumenFinal;
+}
+
 export {
     getResumenDiagnosticos,
     getResumenEjecucion,
     getResumenPlaneacion,
-    getResumenValoracion
+    getResumenValoracion,
+    getResumenFinal
 }

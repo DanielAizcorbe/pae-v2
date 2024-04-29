@@ -7,11 +7,16 @@ import Copiar from "./Copiar";
 import { Finalizar } from "./Finalizar";
 import ContenidoBorrador from "../borrador/ContenidoBorrador";
 import ModalCopiar from "./modals/ModalCopiar";
+import { useSelector } from "react-redux";
+import { getResumenFinal } from "../../etapas/generarResumenes";
 
 const FinalizarEvolucion = () => {
 
     const [messageApi, contextHolder] = message.useMessage();
     const [showModalCopiar, setShowModalCopiar] = useState(false);
+
+    const etapas = useSelector(state => state.estadoEtapas);
+    const resumenes = Object.values(etapas).map(e => e.resumen);
 
     const copiar = () => {
         messageApi.open({
@@ -63,6 +68,7 @@ const FinalizarEvolucion = () => {
                     <ModalCopiar 
                         open={showModalCopiar}
                         close={() => setShowModalCopiar(false)}
+                        value={getResumenFinal(resumenes)}
                     />
                 </Flex>
             </Columns>
