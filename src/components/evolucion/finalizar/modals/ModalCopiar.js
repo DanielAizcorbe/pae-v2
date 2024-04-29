@@ -15,7 +15,7 @@ const ModalCopiar = ({ open, value, close }) => {
     const [messageApi, contextHolder] = message.useMessage();
 
     const informarError = () => {
-        messageApi.error("¡Ups! no se pudo copiar ☹", 3)
+        messageApi.error("¡Ups! no se pudo copiar ☹, intentelo manualmente", 3)
     }
 
     const informarSuccess = () => {
@@ -37,7 +37,7 @@ const ModalCopiar = ({ open, value, close }) => {
             width={"60%"}
         >
             <Columns
-                padding="1.5rem 1rem"
+                padding="1.5rem 1rem 0 1rem"
                 elementPosition="top-center"
                 width="100%"
             >
@@ -45,10 +45,19 @@ const ModalCopiar = ({ open, value, close }) => {
                     editableText={editableText}
                     setEditableText={setEditableText}
                 />
+                <Columns
+                    height="60px"
+                    elementPosition="bottom-center"
+                >
+                    <Button
+                        size='large'
+                        type='primary'
+                        onClick={copiar}
+                    >
+                        copiar
+                    </Button>
+                </Columns>
             </Columns>
-            <Button onClick={copiar}>
-                copiar
-            </Button>
             {contextHolder}
         </Modal>
     )
