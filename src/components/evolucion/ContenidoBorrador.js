@@ -35,7 +35,6 @@ const ContenidoBorrador = ({ editable }) => {
             <ParrafoEvolucion
                 text={valoracionTexto}
                 setText={setValoracionTexto}
-                title={"Valoración"}
                 editable={editable}
             />
             <Divider />
@@ -48,13 +47,11 @@ const ContenidoBorrador = ({ editable }) => {
             <ParrafoEvolucion
                 text={planeacionTexto}
                 setText={setplaneacionTexto}
-                title={"Planeación"}
                 editable={editable}
             />
             <ParrafoEvolucion
                 text={ejecucionTexto}
                 setText={setejecucionTexto}
-                title={"Ejecución"}
                 editable={editable}
             />
             <Divider />
@@ -67,7 +64,6 @@ const ContenidoBorrador = ({ editable }) => {
             <ParrafoEvolucion
                 text={evaluacionTexto}
                 setText={setevaluacionTexto}
-                title={"Evaluación"}
                 editable={editable}
             />
         </Columns>

@@ -1,11 +1,11 @@
 import TextArea from "antd/es/input/TextArea";
-import Title from "antd/es/typography/Title";
 import React, { useState } from "react";
 import { Columns } from "../utils/containers/Containers";
 import { Button } from "antd";
 import { EditTwoTone, SaveTwoTone } from "@ant-design/icons";
+import { AZUL_CLARO, AZUL_PROFUNDO } from "../datos/colores";
 
-const ParrafoEvolucion = ({ title, text, setText, editable }) => {
+const ParrafoEvolucion = ({ text, setText, editable }) => {
 
     const [seEstaEditando, setSeEstaEditando] = useState(false);
 
@@ -33,17 +33,17 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
             >
                 <TextArea
                     autoSize
-                    value={text}
+                    value={text + "\n"}
                     onChange={event => setText(event.target.value)}
                     size="large"
                     style={{
                         fontSize: "1rem",
                         backgroundColor: "inherit",
                         color: "black",
-                        overflowY: "hidden"
+                        overflow: "hidden",
                     }}
                     disabled={!seEstaEditando}
-                    variant={seEstaEditando ? "filled" : "borderless"}
+                    variant="outline"
                 />
                 {
                     editable ?
@@ -63,7 +63,6 @@ const ParrafoEvolucion = ({ title, text, setText, editable }) => {
                         </Button>
                         : ""
                 }
-
             </Columns>
         </Columns >
 
