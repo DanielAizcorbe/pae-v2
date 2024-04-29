@@ -62,6 +62,7 @@ const FinalizarEvolucion = () => {
                     />
                     <ModalCopiar 
                         open={showModalCopiar}
+                        close={() => setShowModalCopiar(false)}
                     />
                 </Flex>
             </Columns>

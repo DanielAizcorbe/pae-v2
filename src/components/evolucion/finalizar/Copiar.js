@@ -3,8 +3,6 @@ import React from 'react'
 
 const Copiar = ({openModal}) => {
 
-    
-
     return (
         <Button
             type="primary"

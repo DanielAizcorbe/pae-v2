@@ -1,4 +1,4 @@
-import { Button, Modal } from 'antd'
+import { Button, Modal, message } from 'antd'
 import React, { useState } from 'react'
 import { Columns } from '../../../utils/containers/Containers'
 import { ParrafoEditable } from './ParrafoEditable'
@@ -9,18 +9,18 @@ const containerStyle = {
 }
 
 
-const ModalCopiar = ({ open, value }) => {
+const ModalCopiar = ({ open, value, close }) => {
 
     const [editableText, setEditableText] = useState(value);
+    const [messageApi, contextHolder] = message.useMessage();
 
-    /**
-     * ! No implementado
-     */
-    const informarError = () => { }
-    /**
-     * ! No implementado
-     */
-    const informarSuccess = () => { }
+    const informarError = () => {
+        messageApi.error("¡Ups! no se pudo copiar ☹", 3)
+    }
+
+    const informarSuccess = () => {
+        messageApi.success("¡Copiado!", 3)
+    }
 
     const copiar = () => {
         copyToClipboard(editableText, informarSuccess, informarError);
@@ -31,6 +31,9 @@ const ModalCopiar = ({ open, value }) => {
             footer={[]}
             style={containerStyle}
             centered
+            closable
+            maskClosable={false}
+            onCancel={close}
         >
             <Columns
                 padding="1.5rem 1rem"
@@ -44,6 +47,7 @@ const ModalCopiar = ({ open, value }) => {
             <Button onClick={copiar}>
                 copiar
             </Button>
+            {contextHolder}
         </Modal>
     )
 }
