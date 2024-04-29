@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.3.6",
-    "@react-pdf/renderer": "^3.4.4",
     "@reduxjs/toolkit": "^2.2.3",
     "antd": "^5.16.4",
     "eslint-config-react-app": "^7.0.1",
