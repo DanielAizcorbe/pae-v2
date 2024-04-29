@@ -50,7 +50,6 @@ const Ejecucion = () => {
         <Rows>
             <Secciones secciones={secciones} />
             <ContentContainer>
-
                 <Titulo texto="Ejecución" id={secciones[0]} />
                 <SeccionMapaMental
                     seccion={secciones[1]}
