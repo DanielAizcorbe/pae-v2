@@ -15,7 +15,7 @@ import { EjecutarAcciones } from './components/etapas/Ejecucion/EjecutarAcciones
 import Registro from './components/registro-paciente/Registro';
 import { Home } from './components/home/Home';
 import { PantallaNoDisponible } from './components/PantallaNoDisponible';
-import ContenidoBorrador from './components/evolucion/borrador/ContenidoBorrador';
+import { Borrador } from './components/evolucion/borrador/Borrador';
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
           <Route exact path='/evolucion/ejecucion' element={<Ejecucion />} />
           <Route exact path='/evolucion/evaluacion' element={<Evaluacion />} />
           <Route exact path="/evoluciones-atenriores" element={<PantallaNoDisponible seccion={2} />} />
-          <Route exact path='/evolucion/borrador' element={<ContenidoBorrador />} />
+          <Route exact path='/evolucion/borrador' element={<Borrador />} />
           <Route exact path='/evolucion/finalizar' element={<FinalizarEvolucion />} />
           <Route exact path='/evolucion/ejecucion/acciones' element={<EjecutarAcciones />} />
           <Route exact path='/' element={<Home />} />

@@ -3,7 +3,7 @@ import { Columns } from "../../utils/containers/Containers";
 import { NavBar } from "../../generales/NavBar";
 import { Titulo } from "../../utils/Titulos";
 import Alert from "antd/es/alert/Alert";
-import ContenidoBorrador from "../ContenidoBorrador";
+import ContenidoBorrador from "./ContenidoBorrador";
 
 const Borrador = () => {
 
