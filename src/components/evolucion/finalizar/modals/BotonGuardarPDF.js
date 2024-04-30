@@ -1,16 +1,14 @@
 import { Button } from 'antd'
 import React from 'react'
+import { generarPDF } from '../../../generar-pdf/generarPDF'
 
-export const BotonGuardarPDF = ({ paciente }) => {
-
-    const convertToPDF = () => {
-    };
+export const BotonGuardarPDF = ({ paciente, pdfRef }) => {
 
     return (
         <Button
             type='primary'
             size='large'
-            onClick={convertToPDF}
+            onClick={generarPDF}
         >
             Guardar
         </Button>
