@@ -1,6 +1,6 @@
 import { Button, Modal, message } from 'antd'
 import React, { useState } from 'react'
-import { Columns } from '../../../utils/containers/Containers'
+import { Rows, Columns } from '../../../utils/containers/Containers'
 import { ParrafoEditable } from './ParrafoEditable'
 import { copyToClipboard } from './copyToClipboard'
 
@@ -35,6 +35,7 @@ const ModalCopiar = ({ open, value, close }) => {
             maskClosable={false}
             onCancel={close}
             width={"60%"}
+            destroyOnClose
         >
             <Columns
                 padding="1.5rem 1rem 0 1rem"
@@ -45,18 +46,29 @@ const ModalCopiar = ({ open, value, close }) => {
                     editableText={editableText}
                     setEditableText={setEditableText}
                 />
-                <Columns
+                <Rows
                     height="60px"
+                    width="50%"
                     elementPosition="bottom-center"
+                    style={{}}
                 >
+                    <Button
+                        size='large'
+                        type='text'
+                        style={{ width: "8rem" }}
+                        onClick={() => setEditableText(value)}
+                    >
+                        restaurar
+                    </Button>
                     <Button
                         size='large'
                         type='primary'
                         onClick={copiar}
+                        style={{ width: "8rem" }}
                     >
                         copiar
                     </Button>
-                </Columns>
+                </Rows>
             </Columns>
             {contextHolder}
         </Modal>

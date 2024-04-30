@@ -39,7 +39,7 @@ const BusquedaPaciente = () => {
             setMensajeMostrado(true);
             messageApi.open({
                 type: 'error',
-                content: '"' + nombreBuscado + '"' + " no coincide con ningun paciente registrado",
+                content: `"${nombreBuscado}" no coincide con ningun paciente registrado`,
                 duration: 2,
                 style: {
                     fontSize: "15px",

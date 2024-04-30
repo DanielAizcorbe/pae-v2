@@ -12,7 +12,7 @@ const ContainerFlex = (props) => {
         position: props.position || ""
     };
 
-    const styles = {...containerStyles, ...props.style};
+    const styles = { ...containerStyles, ...props.style };
 
     return (
         <Flex
@@ -22,6 +22,7 @@ const ContainerFlex = (props) => {
             style={styles}
             onClick={props.onClick}
             id={props.idContainer}
+            className={props.sizelimit ? "flex-container-pae" : ""}
         >
             {props.children}
         </Flex>

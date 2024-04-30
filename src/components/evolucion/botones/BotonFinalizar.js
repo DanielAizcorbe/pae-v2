@@ -10,7 +10,6 @@ const botonStyles = {
     borderRadius: "50%",
     backgroundColor: AZUL_PRIMARIO,
     color: "white",
-    fontSize: "1.25rem",
     border: "none",
     cursor: "pointer",
     fontSize: "1.5rem",

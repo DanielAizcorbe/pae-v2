@@ -16,12 +16,6 @@ const Evolucion = () => {
     const [messageApi, contextHolder] = message.useMessage();
     const dispatch = useDispatch();
 
-    useEffect(
-        () => {
-            showAviso()
-        }, [etapaCompletada]
-    );
-
     const showAviso = () => {
         if (etapaCompletada) {
             messageApi.info({
@@ -37,6 +31,11 @@ const Evolucion = () => {
             });
         }
     }
+    useEffect(
+        () => {
+            showAviso()
+        }, [etapaCompletada]
+    );
 
     return (
         <Columns
