@@ -48,14 +48,14 @@ const ModalCopiar = ({ open, value, close }) => {
                 />
                 <Rows
                     height="60px"
-                    width="50%"
+                    width="70%"
                     elementPosition="bottom-center"
                     style={{}}
                 >
                     <Button
                         size='large'
-                        type='text'
-                        style={{ width: "8rem" }}
+                        type='default'
+                        style={{ width: "8rem", marginRight: "8rem" }}
                         onClick={() => setEditableText(value)}
                     >
                         restaurar

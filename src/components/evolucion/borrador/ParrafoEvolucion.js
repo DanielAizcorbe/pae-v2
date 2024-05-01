@@ -7,6 +7,7 @@ import { EditTwoTone, SaveTwoTone } from "@ant-design/icons";
 const ParrafoEvolucion = ({ text, setText, editable }) => {
 
     const [seEstaEditando, setSeEstaEditando] = useState(false);
+    const [textoTemporal, setTextoTemporal] = useState(text  + "\n");
 
     const iconoEditable = <EditTwoTone />;
     const iconoGuardar = <SaveTwoTone />;
@@ -17,6 +18,7 @@ const ParrafoEvolucion = ({ text, setText, editable }) => {
 
     const guardar = () => {
         setSeEstaEditando(false);
+        setText(textoTemporal)
     }
 
     return (
@@ -32,14 +34,13 @@ const ParrafoEvolucion = ({ text, setText, editable }) => {
             >
                 <TextArea
                     autoSize
-                    value={text + "\n"}
-                    onChange={event => setText(event.target.value)}
+                    value={textoTemporal}
+                    onChange={event => setTextoTemporal(event.target.value)}
                     size="large"
                     style={{
                         fontSize: "1rem",
                         backgroundColor: "inherit",
                         color: "black",
-                        overflowY: "hidden",
                     }}
                     disabled={!seEstaEditando}
                     variant="outline"

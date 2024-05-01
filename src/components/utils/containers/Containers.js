@@ -12,7 +12,23 @@ const ContainerFlex = (props) => {
         position: props.position || ""
     };
 
-    const styles = { ...containerStyles, ...props.style };
+    const limitWidth = {
+        maxWidth: "1000px",
+        minWidh: "500px",
+    };
+
+    const limitHeight = {
+        maxHeight: "600px",
+        minHeight: "300px",
+    };
+
+    const styles = {
+        ...containerStyles,
+        ...props.style,
+        ...(props.limitWidth ? limitWidth : {}),
+        ...(props.limitHeight ? limitHeight : {}),
+    };
+
 
     return (
         <Flex
@@ -22,7 +38,7 @@ const ContainerFlex = (props) => {
             style={styles}
             onClick={props.onClick}
             id={props.idContainer}
-            className={props.sizelimit ? "flex-container-pae" : ""}
+            className={props.sizeLimit ? "flex-container-pae" : ""}
         >
             {props.children}
         </Flex>

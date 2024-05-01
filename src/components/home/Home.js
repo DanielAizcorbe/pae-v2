@@ -12,7 +12,6 @@ export const Home = () => {
             padding={"2rem"}
             height="100%"
             width="100%"
-            sizeLimit
         >
             <OptionCard
                 alt={"evolucionar paciente"}

@@ -22,6 +22,7 @@ const formStyle = {
     border: "1px solid " + AZUL_PRIMARIO,
     padding: "2rem",
     borderRadius: "10px",
+    maxHeight: "500px"
 }
 
 const Registro = () => {
