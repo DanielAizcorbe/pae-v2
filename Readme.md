@@ -1,4 +1,4 @@
-<div style="text-align:center;">
+<div style="text-align:center;" center>
     <h1>P.A.E</h1>
     <img 
         src="public/banner.svg"
