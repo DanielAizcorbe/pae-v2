@@ -11,7 +11,7 @@
 
 ### Live DEMO
 
-[PAE - Netlify](https://spontaneous-pie-4ef2a3.netlify.app/)
+[PAE - Deploy en Netlify](https://spontaneous-pie-4ef2a3.netlify.app/)
 <hr/>
 
 ### ¿Qué es PAE?
