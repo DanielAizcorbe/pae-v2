@@ -1,13 +1,17 @@
-<div style="text-align:center; display:flex; flex-direction: column; justify-content: center; align-items: center;" >
-    <h1>P.A.E</h1>
+<p align="center">
+    <a href="#">
     <img 
         src="public/banner.svg"
         alt="banner"
         height="128"
     />
-    <p style="padding: 1rem;">Software para atención de enfermería</p>
-</div>
+    <h2 align="center">P.A.E</h1>
+    </a>
+   
+</p>
+<p align="center">Software para atención de enfermería</p>
 <hr/>
+
 
 ### Live DEMO
 
